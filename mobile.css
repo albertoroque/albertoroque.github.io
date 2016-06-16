@@ -1,0 +1,1019 @@
+/*
+COLOR 
+
+AZUL #099BE8 rgb(9,155,232)
+
+*/
+
+*{
+	margin:0;
+	padding: 0;
+}
+
+body{
+	background-color: #dfdfdf;
+}
+
+#banner{
+
+	background-image: url('img/banner/bkgr4.jpg');
+	background-size: 100% 100%;
+	width: 100%;
+	height: 70%;
+	
+	background-attachment: scroll;
+	background-position: block;
+	vertical-align: none;
+}
+
+#fodase {
+	width:70%; 
+	height:50%;
+}
+			
+#letreiro{
+	width:70%; 
+	height:15%;
+}
+
+	#banner h1{
+		font-family: "segoe ui","verdana";
+		font-size: 60px;
+		font-weight:200;
+		color: white;
+		margin-top: 10px;
+		letter-spacing: -0.01em;
+	}
+
+	#banner h2{
+		font-family: "segoe ui","trebuchet ms","verdana";
+		font-weight: 200;
+		font-size: 20px;
+		color: white;
+		text-align: center;
+		margin-top: 30px;
+		width:auto;
+      	cursor:pointer;
+	}
+
+
+
+#divisor{
+	width: 100%;
+	height: 15%;
+	clear: both;
+}
+
+	#fastcontact{
+		float:right;
+		width:100%;
+		height:auto;
+		margin:0;
+		color:white;
+		background-color:;
+		margin:;
+	}	
+
+	#fastcontact img{
+		float:left;
+	}
+	
+		#fastcontacttel h6{
+			font-family: "segoe ui","segoe ui","verdana";
+			font-weight: 400;
+			font-style:;
+			font-size: 10px;
+			float:right;
+
+		}
+		
+		#fastcontactemail h6{
+			font-family: "segoe ui","segoe ui","verdana";
+			font-weight: 400;
+			font-style:;
+			font-size: 10px;
+			float:right;
+			margin-right: 10px;
+		}
+
+.divisor2{
+	width :95%;
+	height: 0.02em;
+	background-color:#d0d0d0;
+	margin-top: 100px;
+	margin-bottom:100px;
+}
+
+nav{
+	display:none;
+}
+
+#facelogo {
+	margin-right: 10px;
+	margin-top: 5px;
+	padding-top: -20px;
+	float:right;
+	background-color: ;
+}
+
+/*#####################MENU LATERAL*/
+#divLateral{
+	
+	position: fixed;
+	right: 5%;
+	background-color: rgb(54, 52, 53);
+	padding-top: 150%;
+}
+	#menuLateral{
+		position: fixed;
+		right: 1%;
+		background-color:#099BE8;
+		width: 50px;
+		opacity: 0.7;
+		border-radius: 3px;
+	}
+		#menuLateral img{
+			height: 50px;
+			background-color:;
+		}
+	
+	#listaMenuLateral{
+		font-family: "calibri";
+		font-size: 15px;
+	}
+		#listaMenuLateral dl dt a:link,#listaMenuLateral dl dt a:visited{
+			text-decoration: none;
+			color: rgb(160, 160, 160);
+		}
+		#listaMenuLateral dl dt a:hover{
+			text-decoration: overline;
+			color: rgb(255, 255, 255);
+		}
+		#listaMenuLateral dl dt a:active{
+			text-decoration: none;
+			color: rgb(160, 160, 160);
+		}
+
+/*##################### CONTEUDO*/
+#conteudo{
+	width: 100%;
+	height:1000px;
+}
+   #conteudo h1{
+      margin-top: 30px;
+      font-family: "segoe ui light","calibri","euphemia","verdana";
+      font-weight: 500;
+      font-style: ;
+      font-size: 30px;
+      letter-spacing: -0.01em;
+      text-align:center;
+      color:#333;
+      background-color:;
+	  margin-bottom: -30px;
+   }
+   
+   #conteudo h2{
+      font-family: "segoe ui light","calibri","euphemia";
+      font-weight: 300px;
+      font-style: ;
+      font-size: 25px;
+      text-align:center;
+      padding:30px 300px;
+       color:#333;
+   }
+   
+   #conttrabs{
+      width:95%;
+      height:950;
+      background-color:;
+	  margin-right:10px;
+	  text-align: -webkit-center;
+   }
+   
+      .trabcircle{
+         float:left;
+         width:90%;
+         height:310px;
+         background-color:; 
+		 margin-left:20px;
+      }
+ 
+      .trabcircle img{
+         margin-top:5px;
+		 
+		 /*IMAGEM EM CIRCULO*/
+		 border-radius:20px;
+		 
+         cursor:pointer;
+		 -webkit-filter: drop-shadow(3px 1px 2px #222);
+      }	
+	  	  
+	  .linkcircular{
+		width:270px;
+		height:270px;
+	  }
+
+/*----------------------------CRIE*/
+
+#rnr-crie {
+	height: 480px;
+	width: 100%;
+	
+	border-top-style: solid;
+	border-width: 1px;
+	border-color: #bbb;
+	
+}
+
+#rnr-crie-text {
+
+	margin-bottom: 30px;
+}
+
+#rnr-crie-text h3{
+	font-family:"segoe ui light","segoe ui","verdana";
+	font-weight:300;
+	font-size: 50px;
+	color:#333;
+	text-align: center;
+	padding-top: 30px;
+}
+
+
+#rnr-crie-text p{
+	font-family:"segoe ui light","segoe ui","verdana";
+	font-weight:400;
+	font-size: 24px;
+	color:#333;
+	text-align: center;
+}
+
+	#rnr-crie-text a{
+		
+		background-color: #099BE8;
+		border-radius: 3px;
+
+		font-size: 18px;
+		font-family: "segoe","calibri";
+		color: white;
+
+		-webkit-transition: 0.5s;
+		padding: 5px;
+		clear: both;
+	}
+
+	#rnr-crie-text a:hover{
+		color: #099BE8;
+		background-color: white;
+		
+		border-style: solid;
+		border-width: 1px;
+		border-color: #099BE8;
+		cursor: pointer;
+		text-decoration: none;
+	}
+
+.slider{
+		width: 100%;
+		height: 30%;
+		overflow: hidden;
+		padding-bottom: 20px;
+	}
+
+	.slider img{
+		display: none;
+		width: 100%;
+		height: 100%;
+	}
+
+/*------------------------------*/
+
+#praquesite{
+width: 100%;
+height: 2100px;
+background-color: ;
+}
+
+	#praquesiteletra{	
+		background-color:#f2f2f2;
+		background-image:url('');
+		background-size: 100% 100%;
+		width:90%;
+
+		height:auto;
+
+		margin-top:40px;
+		border-radius:5px;
+		border-style:solid;
+		border-color:#099BE8;
+		border-width:1px;
+		
+	}
+	
+	#praquesiteletra p{
+		font-family:"segoe ui light","euphemia","segoe ui","verdana";
+		font-weight:200;
+		font-size: 25px;
+		color:#333;
+		text-shadow: none;
+		margin-bottom: 27px;
+	}
+	
+	/*CONTAINE PQS CONTAINER*/
+	
+	#pqstexto{
+		margin-top:30px;
+		width:90%;
+		height: 650px;
+		background-color:;
+
+	}
+		.pqsleft{
+			width: 100%;
+			height: 400px;
+			margin-right: 10px;
+			background-color: ;
+		}
+
+			#pqstitle{
+				font-family: "segoe ui light","segoe ui","verdana";
+				font-weight:300;
+				font-size: 30px;
+				color:#222;
+				
+				text-align: left;
+			}
+
+			.pqsleft h3{
+				font-family: "segoe ui","verdana";
+				font-weight:200;
+				font-size: 19px;
+				color:#333;
+				text-align: justify;
+			}
+
+
+		.pqsright{
+			width: 100%;
+			height: 320px;
+			background-color: ;
+			margin-top:;
+			border-radius: 3px;
+			-webkit-filter: none;
+		}
+
+			.pqsright img{
+				height: 70%;
+				width: 90%;
+			}
+		
+		.praquesitedivisor{
+		height: 1px;
+		width: 80%;
+		/*background-color:#6150c9; */
+		background-color:#c2c2c2;
+		margin-top: 20px;
+		margin-bottom: 20px;
+	}
+	
+		.praquesitedivisor2{
+			height: 2px;
+			width: 30%;
+			background-color:#099BE8; 
+			margin-top: 20px;
+			margin-bottom: 20px;
+		}
+	
+	/*MOBILE T PQS BROKEN*/
+
+	#pqstexto2{
+		margin-top:30px;
+		width:90%;
+		height: 680px;
+		background-color:;
+
+	}
+
+	.pqsleft2{
+			width: 100%;
+			height: 400px;
+			margin-right: 10px;
+			background-color: ;
+		}
+
+			#pqstitle{
+				font-family: "segoe ui light","segoe ui","verdana";
+				font-weight:300;
+				font-size: 40px;
+				color:#222;
+				text-align: left;
+			}
+
+			.pqsleft2 h3{
+				font-family: "segoe ui","verdana";
+				font-weight:200;
+				font-size: 19px;
+				color:#333;
+				text-align: justify;
+				height: 90px;
+			}
+
+		.pqsright2{
+			width: 100%;
+			height: 320px;
+			background-color: ;
+			margin-top:;
+			border-radius: 3px;
+			-webkit-filter: none;
+		}
+
+			.pqsright2 img{
+				float:none;
+				margin:0;
+				margin-top: 30px;
+				height: 70%;
+				width: 90%;
+				background-color: ;		
+			}
+		
+
+/**********************************TECNOLOGIA*/
+#tecnologia{
+	width: 100%;
+	height: 700px;
+	background-color: ;
+	background-image: url('img/praquesite/astronauta3.jpg');
+	background-size: 100% 100%;
+	
+	background-attachment: scroll;
+	background-position: block;
+	vertical-align: none;
+}
+
+	#tecleft{
+		width:100%;
+		height:100px;
+		background-color: ;
+		margin:0px;
+		margin-top:40px;	
+	}
+
+	#tecleft p{
+		font-family: "segoe ui light","segoe ui","verdana";
+		font-size: 28px;
+		margin:0;
+		color:white;
+	}
+	
+	
+	/*CELULAR SITE MOBILE*/
+	#tecright{
+		width: 100%;
+		height: 60%;
+		background-color: ;
+	}
+	#tecright img{
+		width: 300px;
+		height: 500px;
+		padding-top:0;
+		background-color:;
+	}
+
+/**********************************MÉTODO*/
+#metodo{
+	width: 100%;
+	height:900px;
+	background-color:;
+}
+
+#metodo p{
+	font-family: "segoe ui light","segoe ui","verdana";
+	font-weight:500;
+	font-size: 32px;
+	text-align:;
+	margin:0px;
+	padding-top:50px;
+	padding-bottom:10px;
+	margin-left:10px;
+	margin-right:10px;
+	display:block;
+}
+
+#metodo h2{
+	font-family: "segoe ui light","segoe ui","verdana";
+	font-weight:500;
+	font-size: 50px;
+	text-align: center;
+	height:80px;
+	display:none;
+}
+
+
+#metodo img{
+	margin-top: 40px;
+}
+	
+	.metodopassos1{
+		width: 50%;
+		height: 250px;
+		background-color:#099BE8;
+		float:left;
+	}
+
+	.metodopassos2{
+		width: 50%;
+		height: 250px;
+		background-color:#0c8fd4;
+		float:left;
+	}
+
+	.metodopassos3{
+		width: 50%;
+		height: 250px;
+		background-color:#0b81bf;
+		float:left;
+	}
+
+
+	.metodopassos4{
+		width: 50%;
+		height: 250px;
+		background-color:#0b70a5;
+		float:left;
+	}
+
+	.metodopassos5{
+		width: 100%;
+		height: 280px;
+		background-color:#0d5e89;
+		float:left;
+	}
+	
+		.metodopassos5 img{
+			width:50%;
+			height:70%;
+		}
+
+/**********************************SERVIÇO*/
+
+#servico{
+	background-color: ;
+	height: 930px;
+	width: 100%;
+}
+
+#servico h4{
+	font-family: "segoe ui light","euphemia","segoe ui","verdana";
+	font-weight:400;
+	font-size: 60px;
+	font-style: bold;
+	text-align: center;
+	height:80px;
+	display:block;
+	margin-top: 40px;
+	margin-bottom: -40;
+	padding: 0;
+}
+
+#divisordown{
+	margin-top:45px;
+	height:30px; 
+	width:30px;
+}
+	#op-servico{
+		margin-top: 80px;
+		height:690px;
+		width:90%;
+		background-color: ;
+	}
+
+		.op-se-item{
+			float:left;
+			width: 50%;
+			height: 340px;
+			background-color:;
+		}
+
+			.op-se-i-image{
+				width: 100%;
+				height: 150px;
+				background-color: ;
+			}
+				.op-se-i-image img{
+					margin-top: 30px;
+					width: 50%;
+					height: 50%;
+				}
+
+
+			.op-se-i-text{
+				width: 100%;
+				height: 150px;
+				background-color: ;
+			}
+
+				.op-se-i-text p{
+					font-family: "segoe","calibri","helvetica";
+					font-size: 16px;
+					margin: 0px 10px; 
+					color:#666;
+				}
+		
+		#op-botom{
+			height: 30px;
+			width: 180px;
+			background-color: #099BE8;
+			border-radius: 3px;
+			clear: both;
+		}
+
+		#op-botom p{
+			padding-top:5px; 
+			font-size: 16px;
+			font-family: "segoe","calibri";
+			color: white;
+			height: 100%;
+		}
+
+		div#op-botom p:hover{
+			color: #099BE8;
+			background-color: white;
+			border-style: solid;
+			border-width: 1px;
+			border-color: #099BE8;
+			cursor: pointer;
+			text-decoration: none;
+		}
+
+/**********************************CONTATO*/
+	 
+	#contato{
+	
+		/*background-image: url('img/banner/wallpaperbanner2.jpg');*/
+		background-image:none;
+		background-color:black;
+		background-size: 100% 100%;
+		width: 100%;
+		height: 660px;
+		margin-top:-180px;
+	}
+	
+	#contato h2{
+		font-family: "segoe ui","verdana";
+        font-weight:200;
+		text-decoration:;
+        font-size: 45px;
+		color:white;
+		text-align: center;
+		background-color:;
+		
+		padding:0;
+		margin-top:30px;
+		margin-bottom:30px;
+		
+	}
+	
+		#contemail {
+			float:left;
+			width:100%;
+			height:260px;
+		}
+		
+			#contemail h3{
+				font-family: "segoe ui","verdana";
+				font-weight:400;
+				font-size: 25px;
+				color:white;
+			}
+		
+		
+		#conttelefone{
+			float:left;
+			width:100%;
+			height:225px;
+			margin-top:15px;
+			background-color:;
+		}
+		
+			#conttelefone h3{
+				font-family: "segoe ui","verdana";
+				font-weight:400;
+				font-size: 20px;
+				color:white;
+				margin-top: 20px;	
+			}
+		
+		
+		/*
+		#contlocal {
+			float:left;
+			width:33.3%;
+			height:20%;
+		}
+		
+			#contlocal h3{
+				font-family: "segoe ui","verdana";
+				font-weight:400;
+				font-size: 25px;
+				color:black;
+				margin-top: 20px;	
+				text-shadow: 1px 2px #333;
+			}
+		*/
+		
+#rod{
+	background-color:black;
+	height:110px;
+	padding:0;
+	
+}
+
+#rod p{
+	padding-top:50px;
+	font-family: "segoe ui","verdana";
+	font-weight:400;
+	font-size: 15px;
+	color:white;
+	margin-left: 20px;
+}
+
+
+/*OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO    ORÇAMENTO     OOOOOOOOOOOOOOOOOOOOOOOO*/
+
+#orc-cont{
+	margin: 0;
+	padding: 0;
+	background-color: white;
+}
+
+#orc-nav{
+	height: 50px;
+	width:100%;
+	background-color: white;
+	border-bottom-color: gray;
+	border-bottom-style: solid;
+	border-width: 1px;
+	position: fixed;
+	-webkit-filter: drop-shadow(2px 2px 2px #222);
+	z-index: 1;
+
+}
+
+	#orc-nav p{
+		font-family: "segoe ui","verdana";
+		font-weight:400;
+		font-size: 25px;
+		padding-top: 8px;
+		margin-left: 10px;
+		color:#099BE8;
+		float:left;
+	}
+
+	#orc-nav img{
+		float: left;
+		margin-left: 20px;
+		margin-top: 15px;
+		height: 45%;
+		width: 23px;
+		cursor: pointer;
+	}
+
+	#orc-nav p:hover {
+		color:#099BE8;
+	}
+
+	#orc-nav img:hover{
+
+	}
+
+#orc-banner{	
+	height: 600px;
+	width:100%;
+	background-image: url('img/servico/orcbanner2.jpg');
+	padding-top: 80px;
+}
+
+#orc-banner h3{	
+	font-family: "segoe ui light","verdana";
+	font-weight:400;
+	font-size: 60px;
+	margin-left:40px; 
+	margin-top:40px;
+	color:white;
+	float:left;
+}
+
+#orc-banner img{
+	margin-top: -15px;
+
+}
+
+#orc-passos{
+	width: 100%;
+	height: 1100px;
+	background-color:;
+	margin-top: 20px;
+}
+
+	.orc-pass{
+		width: 90%;
+		height:33%;
+		margin: 4px;
+		margin-left: 20px;
+		background-color:#efefef;
+		border-radius: 3px;
+		-webkit-filter: drop-shadow(2px 2px 2px #222);
+	}
+
+	.orc-pass h3{
+		font-family: "segoe ui light","verdana";
+		font-weight:600;
+		font-size: 30px;
+		margin:10px 15px;
+		color:#333;
+		text-align: center;
+	}
+
+	.orc-pass p{
+		margin-top: 10px;
+		font-family:"segoe ui","verdana";
+		font-weight:200;
+		font-size: 16px;
+		text-align: left;
+		margin-left: 10px;
+		margin-right: 10px;
+		color:black;
+		float:left;
+	}
+
+/*------------------------CONTATO FORMULÁRIO------------------------*/
+
+#orc-formulario{
+	margin-top: 10px;
+	height: 800px;
+	width: 60%;
+	background-color:;
+	float:;
+	margin-left: 20px;
+}
+		#orc-formulario h1{
+			margin-top:30px;
+			font-family:"segoe ui light","segoe ui","verdana";
+			font-weight:500;
+			font-size:30px;
+			color:#333;
+		}
+		
+		#orc-formulario a { color:#000; }
+
+		#orc-formulario h2 {
+		    margin-bottom: 20px;
+		    color: #133141;
+		}
+		
+		#orc-formulario p{
+			margin-top:10px;
+		}
+		
+		#orc-formulario label{
+			font-family:"segoe ui light","segoe ui","verdana";
+			font-weight:300;
+			font-size:15px;
+		}
+		
+		#orc-formulario input, textarea {
+		    padding: 10px;
+		    border: 1px solid #E5E5E5;
+		    width: 300px;
+		    color: #999999;
+		    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 8px;
+		    -moz-box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 8px;
+		    -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 8px;
+		}
+		#orc-formulario  textarea {
+		    width: 300px;
+		    height: 150px;
+		    max-width: 400px;
+		    line-height: 18px;
+		}
+		#orc-formulario 
+		input:hover, textarea:hover,
+		input:focus, textarea:focus {
+		    border-color: 1px solid #C9C9C9;
+		    box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 8px;
+		    -moz-box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 8px;
+		    -webkit-box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 8px;     
+		}
+		#orc-formulario  .form label {
+		    margin-bottom: 10px;
+		    color: #999999;
+		    display: block;
+		}
+		#orc-formulario  .submit input {
+		    width: 100px;
+		    height: 40px;
+		    background-color: #133141;
+		    color: #FFF;
+		    border-radius: 3px;
+		    moz-border-radius: 3px;
+		    -webkit-border-radius: 3px;                     
+		}
+	
+#orc-contato{
+	padding-top:50px;
+	margin-top: 40px;
+	margin-bottom:30px;
+	height: 640px;
+	width: 90%;
+	background-color:;
+	float: ;
+}
+
+#orc-contato p{
+	font-family:"segoe ui","verdana";
+	font-weight:200;
+	font-size: 15px;
+	text-align: center;
+	margin-left: 10px;
+	margin-right: 10px;
+	color:black;
+	float:left;
+}
+
+	.orc-contato-left{
+		width:100%;
+		height:50%;
+		float:right;
+		background-color:;
+	}
+	
+	.orc-contato-right{
+		width:100%;
+		height:50%;
+		float:left;
+		background-color:;
+	}
+	
+	#orc-contato p{
+		padding-top:30%;
+		font-family: "segoe ui light","verdana";
+		font-size:25px;
+		color:#333;
+		text-align:left;
+		margin:0;
+		padding:0;
+	}
+
+	#orc-contato-whats{
+		height:33%;
+		width:100%;
+		margin-bottom:10px;
+		background-color:;	
+	}
+		#orc-contato-whats p{
+			text-align:center;
+		}
+		#orc-contato-whats img{
+			height:100%;
+			width:40%;
+		}
+		
+	#orc-contato-email{
+		height:30%;
+		width:100%;
+		margin-bottom:10px;
+		background-color:;
+	}
+		#orc-contato-email img{	
+			height:100%;
+			width:40%;
+		}
+	
+	#orc-contato-local{
+		height:30%;
+		width:100%;
+		margin-bottom:10px;
+		
+	}
+		#orc-contato-local img{		
+			height:100%;
+			width:40%;
+		}
+		
+
+#orc-rod{
+	width: 100%;
+	height: 80px;
+	float: right;
+	background-color:black;
+	margin-top: 10px;
+}
+
+#orc-rod p{
+	font-family:"segoe ui","verdana";
+	font-weight:200;
+	font-size: 25px;
+	text-align: center;
+	color:white;
+	padding-top:20px;
+}

@@ -1,0 +1,400 @@
+<html>
+   <head>
+		<title>R'N'R- WebDes</title>
+		
+		<link rel="stylesheet" href="style.css" content="text/css">
+			
+		<link rel="shortcut icon" href="img/planetico.ico" type="image/x-icon" />
+		
+		<meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+		
+		<meta name="google-site-verification" content="v0Hslfu4ZHld56NBGTwMua8iG1TUmirzTxsOTZrJ-7M" />
+		
+		<meta content="R'N'R WebDesingn - Um Universo de Idéias" name="description">
+		
+		<meta name="author" content="RnR">
+		
+		<meta name="keywords" content="web, designer, rnr, RNR, alberto, denis, guarulhos, web, crie, seu, site, construaseusite, melhoreseusite, design, sites, mombile">
+		
+		<!--CSS MOBILE-->
+			<link rel="stylesheet" href="mobile.css" media="(max-width: 720px)">
+			<meta name="viewport" content="width=device-width"> 	
+		
+		<!--MINI MENU-->
+		<script type="text/javascript" src="js/jquery-1.11.2.js"></script>
+		<script type="text/javascript" src="js/script.js"></script>
+
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
+
+		<script type="text/javascript">
+			
+			function Slider() {
+				
+				$(".slider #1").show("fade",500);
+				$(".slider #1").delay(5500).hide("slide",{direction:"left"},500);
+
+				var sc= $(".slider img").size();
+				var count=2;
+
+				setInterval(function(){
+
+					$(".slider #"+count).show("slide",{direction:"right"},500);
+					$(".slider #"+count).delay(5500).hide("slide",{direction:"left"},500);
+
+					if(count == sc){
+						count = 1;
+					}else{
+						count = count + 1;
+					}
+
+				},6500);		
+			}
+		</script>
+
+	</head>
+	<body onload="Slider();">
+	<!--BANNER-->
+		<!--Mini Menu Lateral-->
+		<div id="divLateral">
+			<div id="menuLateral">
+				<a href="#home"><img src="img/homereturn.png" alt="Menu Lateral" width="50px" height="20px"><a>
+			</div>
+		</div>
+		<div name="home" id="banner">
+			<div id="divisor">
+				<div id="fastcontact">
+					<div id="fastcontacttel">
+						<h6>oi (011) 96939-8742</h6>
+					</div>
+					<div id="fastcontactemail">
+						<h6>rnrweb@outlook.com.br</h6>
+					</div>
+					
+					<a href="https://www.facebook.com/pages/RocknRoll-WebDesigner/347958305399753" targer="_blank">
+						<img id="facelogo" src="img/banner/face.png" width="30px" height="30px">
+					</a>
+				</div>
+			</div>
+			<center>
+				
+				<!--LOGO-->
+				<img id="fodase" src="img/logo6.png" alt="logo rnr web" />
+				<br>
+				
+				<!--LETREIRO-->
+				<img id="letreiro" src="img/banner/letreiro.png"/>
+				
+				<h2>'Um Universo de Ideias'</h2>
+				
+				<br>
+				
+				<!--BARRA DE NAVEGAÇÃO   display:none version mobile-->
+				<nav>
+					<center>
+						<br>
+
+						<ul>
+							<li><a href="#port">     PORTIFÓLIO </a></li>
+							<li><a href="#contato">  CONTATO 	</a></li>
+							<li><a href="#servico">  SERVIÇOS   </a></li>
+						</ul>
+					</center>
+				</nav>
+			
+			</center>
+			
+		</div><!--FIM BANNER-->
+
+	<!--CORPO DO SITE-->
+	<div id="conteudo">
+		<h1>Conheça nossos Trabalhos.</h1>
+		 <!--DIVISOR BOLINHA--><center><img id="divisordown"src="img/servico/down3.png"></center> 
+		 <br>
+     <!-- <h2>Aproveite e Imagine como você poderia fazer o site do seu negócio ou empresa. Nós somos capazes de tornar sua Imaginação em Realidade</h2>
+      <br>
+      <br>
+      <br>
+      -->
+      <center>
+       <div name="port" id="conttrabs">
+        
+         <!--CICLE 1-->
+         
+         <div class="trabcircle">
+            <center>
+              <a href="http://www.condominiovilario.com" target="_blank" style="text-decoration:none; color:#333">
+               
+               <img class="linkcircular" src="img/trabalhos/condvilarioimg.png" alt="trabalho1" />
+              </a>
+            </center>
+         </div>
+         
+         <!--CICLE 2-->
+         <div class="trabcircle">
+            <center>
+              <a href="http://www.condominiovilario.esy.es" target="_blank" style="text-decoration:none; color:#333">
+               <img class="linkcircular" src="img/trabalhos/zkinoximg.png" alt="trabalho1" />
+              </a>
+            </center>
+         </div>
+         
+         <!--CICLE 3-->
+         <div class="trabcircle">
+            <center>
+             <a href="villanova/index.html" target="_blank" style="text-decoration:none; color:#333">
+               <!--<h3>Villa Nova Condominios</h3>-->
+               <img class="linkcircular" src="img/trabalhos/villanovaimg.png" alt="trabalho1" />
+             </a>
+            </center>
+         </div>
+		 
+         
+       </div><!--FIM DIV TRABS ITEMS-->
+	   </center>
+	   
+
+	   <br>
+	   <br>
+
+	   <!--DIV CRIAÇÃO -->
+	   <div id="rnr-crie">
+	   	<center>
+		   	<div id="rnr-crie-text">
+		   		<h3>Encomende agora o seu site</h3>
+		   		<p>Do seu jeito.<p>
+		   			<br>
+		   		<a href="orcamento.html">Faça o orçamento</a>
+		   	</div>
+		   		
+		   	<div class="slider">
+				<img id="1" src="img/slide1.png" width="100%">
+				<img id="2" src="img/slide2.jpg" width="100%">
+				<img id="3" src="img/slide3.jpg" width="100%">
+			<div>
+	   	</center>
+	   </div>
+
+	   
+
+	    <!--PRA QUE UM SITE-->
+	   <div id="praquesite">
+			
+			<center>
+			<div id="praquesiteletra">
+				
+				<p>Qual é a importância do WebSite para seu negócio?</p>
+			</div>
+			<!--TEXTO 1-->
+				<div id="pqstexto">	
+					<div class="pqsleft">	
+						<h6 id="pqstitle">Aumente o lucro da sua empresa.</h6><br>
+				
+						<h3>Ter seu produto anunciado no maior meio de comunicação e empreendimento do mundo é sim, uma boa idéia. Pare e pense, qual empresa importante não tem seu próprio website?</h3>
+						<h3>Nós da R'N'R WebDesigners podemos fazer sua empresa crescer.</h3><br>
+					</div>
+					
+					<div class="pqsright">	
+						<img src="img/praquesite/coin.png" >
+					</div>
+				
+				</div>
+
+				
+				<!--DIVISOR--> <div class="praquesitedivisor"></div> 
+
+				<!--TEXTO 2 LEFT-->
+				<div id="pqstexto2">	
+					<div class="pqsleft2">				
+						<h6 id="pqstitle">Mostre seu produto para todos.</h6><br>
+			
+						<h3>Publique seu produto na internet e mostre o que você tem para oferecer para seus clientes.</h3>
+						<h3>Imagine como pode ser chamativo sua publicidade, e o resto a R'N'R pode cuidar para você.</h3><br>
+					</div>
+					
+					<div class="pqsright2">	
+						<img src="img/praquesite/planet.png" width="70%" height="100%" />
+					</div>
+				
+				</div>
+
+				<!--DIVISOR--><div class="praquesitedivisor"></div> 
+
+				<!--TEXTO 3-->
+				<div id="pqstexto">
+					<div class="pqsleft">		
+						<h6 id="pqstitle">Imagine as Possibilidades.</h6><br>
+					
+			
+						<h3>Você já imaginou como seu WebSite poderia ficar bonito com o seu produto à venda?</h3>
+						<h3>A nossa equipe de Desingers pode tornar isso realidade, fazendo do seu jeito e com um pequeno toque nosso.</h3><br>	
+					</div>
+					
+					<div class="pqsright">	
+						<img src="img/praquesite/ideia.png"/>
+					</div>
+				
+				</div>
+				<!--DIVISOR--><div class="praquesitedivisor"></div> 
+			</center>
+	   </div>
+
+	   <br>
+	   <br>
+	   <br>
+	   <br>
+	  
+	   <div id="divisor"></div>
+
+	   <!--TECNOLOGIA-->
+	  <div id="tecnologia">
+	  	
+	  <center>
+	  	<div id="tecleft">
+	  		<p>Peça já seu site disponível em versão mobile!</p>
+	  	</div>
+	  	
+	  	<div id="tecright">
+	  		<img src="img/praquesite/mobilesite.png" width="" height="800"> 
+	  	</div>
+	  </center>
+	  </div>
+  
+	   <!--METODOLOGIA-->
+	   <div id="metodo">
+			<p>Conheça nosso jeito de trabalhar</p>
+			<h2>Conheça nosso jeito de trabalhar</h2>
+			<!--DIVISOR BOLINHA--><center><img id="divisordown"src="img/servico/down3.png"></center>
+			<br>
+			<div class="metodopassos1">
+				<center>
+					<img src="img/metodos/reuniao.png" width="80%" height="65%" />
+				</center>
+			</div>
+			
+			<div class="metodopassos2">
+				<center>
+					<img src="img/metodos/analise.png" width="80%" height="65%" />
+				</center>
+			</div>
+			
+			<div class="metodopassos3">
+				<center>
+					<img src="img/metodos/prot.png" width="80%" height="70%" />
+				</center>
+			</div>
+			
+			<div class="metodopassos4">
+				<center>
+					<img src="img/metodos/ajustes.png" width="80%" height="70%" />
+				</center>
+			</div>
+			
+			<div class="metodopassos5">
+				<center>
+					<img src="img/metodos/entrega.png" width="80%" height="70%" />
+				</center>
+			</div>
+	   </div>
+
+	   <!--DIVISOR--><center> <div class="divisor2"> </div> </center>
+
+	   <div  id="servico">
+	   		<h4>Serviços</h4>
+	   		<br>
+		 <!--DIVISOR BOLINHA--><center><img id="divisordown"src="img/servico/down3.png"></center>
+	   		<center>
+	   			<div id="op-servico">
+
+	   				<!--FOTOGRAFIA-->
+	   				<div class="op-se-item">
+	   					<div class="op-se-i-image">
+	   						<img src="img/servico/logo.png">
+	   					</div>
+	   					<div class="op-se-i-text">
+	   						<p>Crie seu logotipo e apresente sua empresa da melhor forma.Faça todas os tipos de publicidade digital e física com seu novo logo.</p>
+	   					</div>
+	   				</div>
+
+	   				<!--WEBSITE-->
+	   				<div class="op-se-item">
+	   					<div class="op-se-i-image">
+	   						<img src="img/servico/web.png">
+	   					</div>
+	   					<div class="op-se-i-text">
+	   						<p>Coloque sua empresa ou organização disponível 24 horas para seus cliente. Se comunique com mais facilidade e mostre sua empresa pra todos.</p>
+	   					</div>
+	   				</div>
+
+	   				<!--LOGOTIPO-->
+	   				<div class="op-se-item">
+	   					<div class="op-se-i-image">
+	   						<img src="img/servico/fotografia.png">
+	   					</div>
+	   					<div class="op-se-i-text">
+	   						<p>Crie um conteúdo para seu site ou publicidade com nós de um jeito profissional e sofisticado.</p>
+	   					</div>
+	   				</div>
+
+	   				<!--IDENTIDADE-->
+	   				<div class="op-se-item">
+	   					<div class="op-se-i-image">
+	   						<img src="img/servico/identidade.png">
+	   					</div>
+	   					<div class="op-se-i-text">
+	   						<p>Deixe sua empresa marcada na vida das pessoas com o método da identidade visual, usando cores e estilos.</p>
+	   					</div>
+	   				</div>	
+	   				<div id="op-botom">
+	   						<a href="orcamento.html"><p>Peça já seu orçamento</p></a>
+	   				</div>
+	   			</div>
+	   		</center>
+	   		
+	   </div>
+
+	    <!--DIVISOR--><center> <div class="divisor2"> </div> </center>
+	   
+	   <!--CONTATO-->
+	   <div id="contato">
+
+		<h2>Entre em Contato.</h2>
+			<div id="contemail">
+				<center>
+					<img src="img/cont/mailmaterial.png" width="200 "height="200" >
+					<h3>rnrweb@outlook.com.br</h3>
+					
+				</center>
+			</div>
+			
+			<div id="conttelefone">
+				<center>
+					<img src="img/cont/telmaterial.png" width="150 "height="150">
+					<h3> Oi   (011) 96939-8742 </h3>
+					<h3>Tratar com Alberto Roque</h3>
+				</center>
+			</div>
+			
+			<!--
+			<div id="contlocal">
+				<center>
+					<img src="img/cont/locallogo.png" width="100 "height="100">
+					<font color="black">
+					<h3>Atendimento nas cidade de:</h3>
+					<h3>Guarulhos e São Paulo</h3>
+					</font>
+				</center>	
+			</div>
+			-->
+
+			<div name="contato" id="rod">
+				<p>R'N'R WebDesign | Copyright © 2015</p>
+	    	</div>
+       </div>
+	   
+	   <!--RODAPE-->
+	  
+	  
+	</div>
+	</body>
+</html>

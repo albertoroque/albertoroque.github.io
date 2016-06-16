@@ -1,0 +1,1137 @@
+*{
+
+	margin:0;
+	padding: 0;
+}
+
+body{
+
+	background-color: #dfdfdf;
+}
+
+#banner{
+	
+	background-image: url('img/banner/bkgr4.jpg');
+	background-size: 100% 100%;
+	width: 100%;
+	height: 100%;
+	
+	background-attachment: fixed, fixed;
+	background-position: top left, center center;
+	vertical-align: baseline;
+	*/
+
+	/*
+	background-color: black;
+	width: 100%;
+	height: 100%;
+	*/
+}
+
+#fodase {
+	width:40%; 
+	height:40%;
+}
+			
+#letreiro{
+	width:40%; 
+	height:20%;
+}
+
+	#banner h1{
+		font-family: "segoe ui","verdana";
+		font-size: 60px;
+		font-weight:200;
+		color: white;
+		margin-top: 40px;
+		letter-spacing: -0.01em;
+		
+	}
+
+	#banner h2{
+		font-family: "segoe ui","trebuchet ms","verdana";
+		font-weight: 200;
+		font-size: 30px;
+		color: white;
+		text-align: center;
+		margin-top: 20px;
+		width:auto;
+      	cursor:pointer;
+	}
+
+
+
+#divisor{
+	width: 100%;
+	height: 15%;
+	clear: both;
+}
+
+	#fastcontact{
+		float:right;
+		width:100%;;
+		height:auto;
+		margin:0;
+		color:white;
+		background-color:;
+		margin:;
+	}	
+
+	#fastcontact img{
+		float:left;
+	}
+	
+		#fastcontacttel h6{
+			font-family: "segoe ui","segoe ui","verdana";
+			font-weight: 400;
+			font-style:;
+			font-size: 15px;
+			float:right;
+
+		}
+		
+		#fastcontactemail h6{
+			font-family: "segoe ui","segoe ui","verdana";
+			font-weight: 400;
+			font-style:;
+			font-size: 15px;
+			float:right;
+			margin-right: 10px;
+		}
+
+.divisor2{
+	width :95%;
+	height: 0.02em;
+	background-color:#d0d0d0;
+	margin-top: 100px;
+	margin-bottom:100px;
+}
+
+
+nav{
+	margin-top: 20px;
+	width: 100%;
+	background: rgba(25,25,25,0.3);
+	height: 63px;
+	display: block;
+}
+
+nav ul{
+	text-align: center;
+	display: inline;
+	font-family: "segoe ui light","segoe ui","verdana";
+	font-weight: 400px;
+	font-style: bold;
+	font-size: 20px;
+	background-color: ;
+	text-decoration: none;
+}
+
+nav ul li{
+	text-align:center;
+	padding:10px 20px;
+	margin:10px 30px;
+	display: inline; 
+	text-decoration:none;
+	color:white;
+}
+
+nav ul li a{
+	text-decoration: none;
+}
+
+nav ul li:hover{
+   background-color:#6150c9;
+   border-radius:5px;
+   cursor:pointer;
+   color:white;
+   -webkit-transition: 2s;
+   text-decoration: none;
+}
+
+nav ul li a:hover{
+   color:white;
+   -webkit-transition: 0.5s;
+   text-decoration: none;
+}
+
+
+
+#facelogo {
+	margin-right: 10px;
+	margin-top: 5px;
+	padding-top: -20px;
+	float:right;
+	background-color: ;
+
+}
+
+/*#####################MENU LATERAL*/
+
+#divLateral{
+	
+	position: fixed;
+	right: 1%;
+	background-color: rgb(54, 52, 53);
+	padding-top: 48%;
+}
+	#menuLateral{
+		position: fixed;
+		right: 1%;
+		background-color:#099BE8;
+		width: 50px;
+		opacity: 0.7;
+		border-radius: 50%;
+	}
+		#menuLateral img{
+			height: 50px;
+			background-color:;
+		}
+	
+	#listaMenuLateral{
+		font-family: "calibri";
+		font-size: 15px;
+	}
+		#listaMenuLateral dl dt a:link,#listaMenuLateral dl dt a:visited{
+			text-decoration: none;
+			color: rgb(160, 160, 160);
+		}
+		#listaMenuLateral dl dt a:hover{
+			text-decoration: overline;
+			color: rgb(255, 255, 255);
+		}
+		#listaMenuLateral dl dt a:active{
+			text-decoration: none;
+			color: rgb(160, 160, 160);
+		}
+
+/*##################### CONTEUDO*/
+#conteudo{
+	width: 100%;
+	height:1000px;
+}
+   #conteudo h1{
+      margin-top: 60px;
+      font-family: "segoe ui light","calibri","euphemia","verdana";
+      
+      font-weight: 500;
+      font-style: ;
+      font-size: 40px;
+      letter-spacing: -0.01em;
+      text-align:center;
+      color:#333;
+      background-color:
+   }
+   
+   #conteudo h2{
+      font-family: "segoe ui light","calibri","euphemia";
+      font-weight: 300px;
+      font-style: ;
+      font-size: 25px;
+      text-align:center;
+      padding:30px 300px;
+       color:#333;
+   }
+   
+   #conttrabs{
+      width:80%;
+      height:400px;
+      background-color:;
+   }
+	
+      .trabcircle{
+         float:left;
+         width:32%;
+         height:350px;
+         background-color:;
+      
+         margin-right: 10px;
+        
+      }
+      
+      .trabcircle h3{
+         font-family: "segoe ui light","segoe ui","verdana";
+         font-weight: 300px;
+         font-style: ;
+         font-size: 25px;
+         text-align:center;
+      }
+      .trabcircle img{
+      
+         margin-top:30px;
+         text-align:center;
+		 /*IMAGEM EM CIRCULO*/
+		 border-radius:50%;
+         cursor:pointer;
+		 -webkit-filter: drop-shadow(1px 1px 1px #222);
+      }	
+	  
+	  .trabcircle :hover{
+		filter: grayscale(100%);
+		filter: blur(6px);
+		transition: 2s;
+	  }
+	  
+	  .linkcircular{
+		width:300px;
+		height:300px;
+	  }
+
+/*----------------------------CRIE*/
+
+#rnr-crie {
+	height: 630px;
+	width: 100%;
+	background-color: ;
+	/*
+	border-top-style: solid;
+	border-width: 1px;
+	border-color: #bbb;
+	*/
+	background-color: white;
+
+}
+
+#rnr-crie-text {
+
+	margin-bottom: 30px;
+}
+
+#rnr-crie-text h3{
+	font-family:"segoe ui light","segoe ui","verdana";
+	font-weight:300;
+	font-size: 50px;
+	color:#333;
+	text-align: center;
+	padding-top: 30px;
+}
+
+
+#rnr-crie-text p{
+	font-family:"segoe ui light","segoe ui","verdana";
+	font-weight:400;
+	font-size: 24px;
+	color:#333;
+	text-align: center;
+}
+
+	#rnr-crie-text a{
+		
+		background-color: #099BE8;
+		border-radius: 3px;
+
+		font-size: 18px;
+		font-family: "segoe","calibri";
+		color: white;
+
+		-webkit-transition: 0.5s;
+		padding: 5px;
+		clear: both;
+		text-decoration: none;
+	}
+
+	#rnr-crie-text a:hover{
+		color: #099BE8;
+		background-color: white;
+		
+		border-style: solid;
+		border-width: 1px;
+		border-color: #099BE8;
+		cursor: pointer;
+		text-decoration: none;
+	}
+
+.slider{
+		width: 100%;
+		height: 67%;
+		overflow: hidden;
+		padding-bottom: 20px;
+	}
+
+	.slider img{
+		display: none;
+		width: 100%;
+		height: 100%;
+	}
+/*----------------------------CRIE*/
+
+#praquesite{
+width: 100%;
+height: 1500px;
+background-color:;
+
+}
+
+	#praquesiteletra{	
+		background-image: url('img/banner/praquesitebanner.png');
+		background-size: 100% 100%;
+		width:100%;
+		height:200px;
+		padding-top:30px;
+		text-shadow: none;
+	}
+	
+	#praquesiteletra p{
+		font-family:"euphemia","segoe ui","verdana";
+		font-weight:300;
+		font-size: 50px;
+		color:white;
+		text-align: center;
+		margin:0px 40px;
+		text-shadow: 2px 4px #333;
+	}
+	
+	
+	.praquesitedivisor{
+
+		height: 1px;
+		width: 80%;
+		/*background-color:#6150c9; */
+		background-color:#c2c2c2;
+		
+		margin-top: 20px;
+		margin-bottom: 20px;
+	}
+	
+	.praquesitedivisor2{
+
+		height: 1px;
+		width: 30%;
+		background-color:#099BE8; 
+		margin-top: 20px;
+		margin-bottom: 20px;
+	}
+	
+	/*CONTAINE PQS CONTAINER*/
+	#pqstexto{
+		margin-top: 70px;
+		width:80%;
+		height: 400px;
+		background-color:;
+
+	}
+		.pqsleft{
+			float:left;
+			width: 40%;
+			height: auto;
+			margin-right: 10px;
+			background-color: ;
+		}
+
+			#pqstitle{
+				font-family: "segoe ui light","segoe ui","verdana";
+				font-weight:300;
+				font-size: 40px;
+				color:#222;
+				text-align: left;
+			}
+
+			.pqsleft h3{
+				font-family: "segoe ui","verdana";
+				font-weight:200;
+				font-size: 20px;
+				color:#333;
+				text-align: justify;
+			}
+
+		.pqsright{
+			float:right;
+			width: 55%;
+			height: 350px;
+			background-color: ;
+			border-radius: 3px;
+			-webkit-filter: drop-shadow(3px 3px 3px #222);
+		}
+
+			.pqsright img{
+				height: 100%;
+				width: 80%;
+				background-color:;
+				
+				/*TESTE ANIMAÇÃO
+				-moz-animation-duration: 4s;
+				-moz-animation-name: slidein;
+				
+				-webkit-animation-duration: 4s;
+				-webkit-animation-name: slidein;
+				
+				-o-animation-duration: 4s;
+				-o-animation-name: slidein;
+				*/
+			}
+				@keyframes slidein {
+				  from {
+					padding-left: 30%;
+					
+				  }
+
+				  to {
+					padding-left: 0%;
+					
+				  }
+				}
+		
+		
+
+
+		/*TEXTO PARA ESQUERDA left2 e right2 */
+
+		#pqstexto2{
+			margin-top: 70px;
+			width:80%;
+			height: 400px;
+			background-color:;
+		}
+
+		.pqsleft2{
+			float:right;
+			width: 45%;
+			height: auto;
+			margin-left:10px;
+			background-color:;
+		}
+
+			#pqstitle{
+				font-family: "segoe ui light","segoe ui","verdana";
+				font-weight:300;
+				font-size: 40px;
+				color:#222;
+				text-align: left;
+			}
+
+			.pqsleft2 h3{
+				font-family: "segoe ui","verdana";
+				font-weight:200;
+				font-size: 20px;
+				color:#333;
+				text-align: justify;
+			}
+
+		.pqsright2{
+			float:left;
+			width: 50%;
+			height: 350px;
+			background-color: ;
+			border-radius: 3px;
+			-webkit-filter: drop-shadow(3px 3px 3px #222);
+		}
+
+			.pqsright2 img{
+				float: left;
+				margin-left: 0px;
+				width: 85%;
+				height:100%;
+
+			}
+		
+		
+
+/**********************************TECNOLOGIA*/
+#tecnologia{
+
+	width: 100%;
+	height: 900px;
+	background-color: ;
+	background-image: url('img/praquesite/astronauta2.jpg');
+	background-size: 100% 100%;
+	
+	background-attachment: fixed, fixed;
+	background-position: top left, center center;
+	vertical-align: baseline;
+}
+
+	#tecleft{
+		float:left;
+		width:50%;
+		height: 800px;
+		background-color: ;
+		margin-left: 40px;
+	}
+
+	#tecleft p{
+		font-family: "segoe ui light","segoe ui","verdana";
+		font-weight:500;
+		font-size: 48px;
+		color:white;
+		text-align: center;
+		margin-top: 200px;
+		margin-left: 20px;
+		margin-right: 40px;
+
+		text-shadow: 1px 2px #333;
+	}
+
+	#tecright{
+		float: left;
+		width: 150px;
+		height: 800px;
+		margin-top:30px;
+		background-color:;
+	}
+
+/**********************************MÉTODO*/
+#metodo{
+
+	width: 100%;
+	height:300px;
+	background-color: ;
+}
+
+#metodo p{
+	font-family: "segoe ui light","segoe ui","verdana";
+	font-weight:500;
+	font-size: 30px;
+	text-align: center;
+	height:80px;
+	display:none;
+}
+
+#metodo h2{
+	font-family: "segoe ui light","euphemia","segoe ui","verdana";
+	font-weight:300;
+	font-size: 40px;
+	text-align: center;
+
+	height:80px;
+	display:block;
+	margin-top: 40px;
+	margin-bottom: -40;
+	padding: 0;
+}
+
+#metodo img{
+
+	margin-top: 40px;
+}
+	
+	.metodopassos1{
+		width: 20%;
+		height: 100%;
+		background-color:#099BE8;
+		float:left;
+	}
+
+	.metodopassos2{
+		width: 20%;
+		height: 100%;
+		background-color:#0c8fd4;
+		float:left;
+	}
+
+	.metodopassos3{
+		width: 20%;
+		height: 100%;
+		background-color:#0b81bf;
+		float:left;
+	}
+
+
+	.metodopassos4{
+		width: 20%;
+		height: 100%;
+		background-color:#0b70a5;
+		float:left;
+	}
+
+	.metodopassos5{
+		width: 20%;
+		height: 100%;
+		background-color:#0d5e89;
+		float:left;
+	}
+
+	/*HOVERS*/
+	.metodopassos1:hover{
+		background-color:#c2c2c2;
+		-webkit-transition: 0.8s;
+		
+	}
+
+	.metodopassos2:hover{
+		background-color:#bababa;
+		-webkit-transition: 0.8s;
+		
+	}
+
+	.metodopassos3:hover{
+		background-color:#b2b2b2;
+		-webkit-transition: 0.8s;
+	}
+
+
+	.metodopassos4:hover{	
+		background-color:#aaaaaa;
+		-webkit-transition: 0.8s;
+		
+	}
+
+	.metodopassos5:hover{
+		background-color:#a2a2a2;
+		-webkit-transition: 0.8s;
+	}	
+
+/**********************************SERVIÇO*/
+
+#servico{
+	background-color: ;
+	height: 500px;
+	width: 100%;
+}
+
+#servico h4{
+	font-family: "segoe ui light","euphemia","segoe ui","verdana";
+	font-weight:400;
+	font-size: 60px;
+	font-style: bold;
+	text-align: center;
+	height:80px;
+	display:block;
+	margin-top: 40px;
+	margin-bottom: -40;
+	padding: 0;
+}
+
+#divisordown{
+	margin-top:45px;
+	height:30px; 
+	width:30px;
+}
+	#op-servico{
+		margin-top: 80px;
+		height:400px;
+		width:90%;
+		background-color: ;
+	}
+
+		.op-se-item{
+			float: left;
+			width: 25%;
+			height: 300px;
+			background-color:;
+		}
+
+			.op-se-i-image{
+				width: 100%;
+				height: 150px;
+				background-color: ;
+			}
+				.op-se-i-image img{
+					margin-top: 30px;
+					width: 30%;
+					height: 50%;
+				}
+
+
+			.op-se-i-text{
+				width: 100%;
+				height: 150px;
+				background-color: ;
+			}
+
+				.op-se-i-text p{
+					font-family: "segoe","calibri","helvetica";
+					font-size: 16px;
+					margin: 0px 10px; 
+					color:#666;
+				}
+		
+		#op-botom{
+			height: 30px;
+			width: 180px;
+			background-color: #099BE8;
+			border-radius: 3px;
+			clear: both;
+		}
+
+		#op-botom p{
+			padding-top:5px; 
+			font-size: 16px;
+			font-family: "segoe","calibri";
+			color: white;
+			text-decoration:none;
+			height: 100%;
+		}
+		#op-botom a{
+			text-decoration:none
+		}
+		
+
+		div#op-botom p:hover{
+			color: #099BE8;
+			background-color: white;
+			border-style: solid;
+			border-width: 1px;
+			border-color: #099BE8;
+			cursor: pointer;
+			text-decoration: none;
+			-webkit-transition: 0.5s;
+		}
+
+/**********************************CONTATO*/
+	 
+	#contato{
+	
+		background-image: url('img/banner/wallpaperbanner3.jpg');
+		background-size: 100% 100%;
+		width: 100%;
+		height: 525px;
+
+		background-attachment: fixed, fixed;
+		background-position: top left, center center;
+		vertical-align: baseline;
+	}
+	
+	#contato h2{
+		font-family: "segoe ui","verdana";
+        font-weight:200;
+		text-decoration:;
+        font-size: 45px;
+		color:white;
+		text-align: center;
+
+	}
+	
+		#contemail {
+			float:left;
+			width:33%;
+			height:20%;
+		}
+		
+			#contemail h3{
+				font-family: "segoe ui","verdana";
+				font-weight:400;
+				font-size: 25px;
+				color:white;
+				margin-top: 20px;
+			}
+		
+		#conttelefone{
+			float:left;
+			width:33.3%;
+			height:20%;
+			margin-top:15px;
+		}
+		
+			#conttelefone h3{
+				font-family: "segoe ui","verdana";
+				font-weight:400;
+				font-size: 20px;
+				color:white;
+				margin-top: 20px;	
+			}
+		
+		
+		#contlocal {
+			float:left;
+			width:33.3%;
+			height:20%;
+		}
+		
+			#contlocal h3{
+				font-family: "segoe ui","verdana";
+				font-weight:400;
+				font-size: 25px;
+				color:black;
+				margin-top: 20px;	
+				text-shadow: 1px 2px #333;
+			}
+		
+#rod{
+	width:100%;
+	height: 150px;
+	clear: both;
+	background-color:;
+	padding-top: 100px;
+}
+
+#rod p{
+	font-family: "segoe ui","verdana";
+	font-weight:400;
+	font-size: 25px;
+	color:white;
+	margin-top: 150px;	
+	margin-left: 20px;
+}
+
+#logorodape{
+	float:right;
+	padding-top: -100px;
+	overflow: hidden;
+	background-color: blue;
+}
+
+/*OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO    ORÇAMENTO     OOOOOOOOOOOOOOOOOOOOOOOO*/
+
+#orc-cont{
+	margin: 0;
+	padding: 0;
+	background-color: #dfdfdf;
+}
+
+#orc-nav{
+	height: 70px;
+	width:100%;
+	background-color: white;
+	border-bottom-color: gray;
+	border-bottom-style: solid;
+	border-width: 1px;
+	position: fixed;
+	-webkit-filter: drop-shadow(2px 2px 2px #222);
+	z-index: 1;
+
+}
+
+	#orc-nav p{
+		font-family: "segoe ui","verdana";
+		font-weight:400;
+		font-size: 35px;
+		padding-top: 8px;
+		margin-left: 10px;
+		color:#333;
+		float:left;
+	}
+
+	#orc-nav img{
+		float: left;
+		margin-left: 20px;
+		margin-top: 20px;
+		height: 40%;
+		width: 23px;
+		cursor: pointer;
+	}
+
+	#orc-nav p:hover {
+		color:#099BE8;
+	}
+
+	#orc-nav img:hover{
+
+	}
+
+#orc-banner{	
+	height: 400px;
+	width:100%;
+	background-image: url('img/servico/orcbanner2.jpg');
+	padding-top: 80px;
+}
+
+#orc-banner h3{	
+	font-family: "segoe ui light","verdana";
+	font-weight:400;
+	font-size: 60px;
+	margin-left:40px; 
+	margin-top:40px;
+	color:white;
+	float:left;
+}
+
+#orc-banner img{
+	margin-top: -15px;
+
+}
+
+#orc-passos{
+	width: 100%;
+	height: 350px;
+	background-color:;
+	margin-top: 20px;
+}
+
+	.orc-pass{
+		width: 32%;
+		height:100%;
+		margin: 4px;
+		margin-left: 10px;
+		float: left;
+		background-color:#efefef;
+		border-radius: 3px;
+		-webkit-filter: drop-shadow(2px 2px 2px #222);
+	}
+
+	.orc-pass h3{
+		font-family: "segoe ui light","verdana";
+		font-weight:600;
+		font-size: 30px;
+		margin:10px 15px;
+		color:#333;
+		text-align: center;
+	}
+
+	.orc-pass p{
+		margin-top: 10px;
+		font-family:"segoe ui","verdana";
+		font-weight:200;
+		font-size: 18px;
+		text-align: left;
+		margin-left: 10px;
+		margin-right: 10px;
+		color:black;
+		float:left;
+	}
+
+#orc-formulario{
+	margin-top: 10px;
+	height: 700px;
+	width: 60%;
+	background-color:;
+	float:left;
+	margin-left: 20px;
+}
+		#orc-formulario h1{
+			margin-top:30px;
+			font-family:"segoe ui light","segoe ui","verdana";
+			font-weight:500;
+			font-size:30px;
+			color:#333;
+		}
+		
+		#orc-formulario a { color:#000; }
+
+		#orc-formulario h2 {
+		    margin-bottom: 20px;
+		    color: #133141;
+		}
+		
+		#orc-formulario p{
+			margin-top:10px;
+		}
+		
+		#orc-formulario label{
+			font-family:"segoe ui light","segoe ui","verdana";
+			font-weight:300;
+			font-size:15px;
+		}
+		
+		#orc-formulario input, textarea {
+		    padding: 10px;
+		    border: 1px solid #E5E5E5;
+		    width: 300px;
+		    color: #999999;
+		    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 8px;
+		    -moz-box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 8px;
+		    -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 8px;
+		}
+		#orc-formulario  textarea {
+		    width: 400px;
+		    height: 150px;
+		    max-width: 400px;
+		    line-height: 18px;
+		}
+		#orc-formulario 
+		input:hover, textarea:hover,
+		input:focus, textarea:focus {
+		    border-color: 1px solid #C9C9C9;
+		    box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 8px;
+		    -moz-box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 8px;
+		    -webkit-box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 8px;     
+		}
+		#orc-formulario  .form label {
+		    margin-bottom: 10px;
+		    color: #999999;
+		    display: block;
+		}
+		#orc-formulario  .submit input {
+		    width: 100px;
+		    height: 40px;
+		    background-color: #133141;
+		    color: #FFF;
+		    border-radius: 3px;
+		    moz-border-radius: 3px;
+		    -webkit-border-radius: 3px;                     
+		}
+	
+#orc-contato{
+	margin-top: 50px;
+	height: 600px;
+	width: 35%;
+	background-color:;
+	float: right;
+}
+
+#orc-contato p{
+	font-family:"segoe ui","verdana";
+	font-weight:200;
+	font-size: 15px;
+	text-align: center;
+	margin-left: 10px;
+	margin-right: 10px;
+	color:black;
+	float:left;
+}
+
+	.orc-contato-left{
+		width:100%;
+		height:50%;
+		float:right;
+		background-color:;
+	}
+	
+	.orc-contato-right{
+		width:100%;
+		height:50%;
+		float:left;
+		background-color:;
+	}
+	
+	#orc-contato p{
+		padding-top:30%;
+		font-family: "segoe ui light","verdana";
+		font-size:30px;
+		color:#333;
+		text-align:center;
+		margin:0;
+		padding:0;
+	}
+
+	#orc-contato-whats{
+		height:33%;
+		width:100%;
+		margin-bottom:10px;
+		background-color:;	
+	}
+		#orc-contato-whats p{
+			text-align:center;
+		}
+		#orc-contato-whats img{
+			height:100%;
+			width:30%;
+		}
+		
+	#orc-contato-email{
+		height:30%;
+		width:100%;
+		margin-bottom:10px;
+		background-color:;
+	}
+		#orc-contato-email img{	
+			height:100%;
+			width:30%;
+		}
+	
+	#orc-contato-local{
+		height:30%;
+		width:100%;
+		margin-bottom:10px;
+		
+	}
+		#orc-contato-local img{		
+			height:100%;
+			width:30%;
+		}
+		
+
+#orc-rod{
+	width: 100%;
+	height: 80px;
+	float: right;
+	background-color:black;
+	margin-top: 10px;
+}
+
+#orc-rod p{
+	font-family:"segoe ui","verdana";
+	font-weight:200;
+	font-size: 25px;
+	text-align: center;
+	color:white;
+}

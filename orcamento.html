@@ -1,0 +1,179 @@
+<html>
+   <head>
+		<title>Orçamento</title>
+		
+		<link rel="stylesheet" href="style.css" content="text/css">
+			
+		<link rel="shortcut icon" href="img/planetico.ico" type="image/x-icon" />
+		
+		<meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+		
+		<meta content="R'N'R WebDesingn - Um Universo de Idéias" name="description">
+		
+		<meta name="author" content="RnR">
+		
+		<meta name="keywords" content="web, designer, orçamento, webdes, rnrwebdesign, contato">
+		
+		<!--CSS MOBILE-->
+			<link rel="stylesheet" href="mobile.css" media="(max-width: 720px)">
+			<meta name="viewport" content="width=device-width"> 	
+		
+		<!--MINI MENU-->
+		<script type="text/javascript" src="js/jquery-1.11.2.js"></script>
+		<script type="text/javascript" src="js/script.js"></script>
+		
+		<!--VALIDAÇÃO FORM-->
+		<script type="text/javascript">
+		 function validaForm()
+		 {
+			erro = false;
+			
+			if($('#nome').val() == '')
+			{
+				alert('Você precisa preencher o campo Nome');erro = true;
+			}
+			if($('#email').val() == '' && !erro)
+			{
+				alert('Você precisa preencher o campo E-mail');erro = true;
+			}
+			if($('#mensagem').val() == '' && !erro)
+			{
+				alert('Você precisa preencher o campo Mensagem');erro = true;
+			}
+
+			//se nao tiver erros
+			if(!erro)
+			{
+				$('#formulario_contato').submit();
+			}
+		 }
+		</script>
+
+	</head>
+<body>
+<div id="orc-cont">
+
+	<div id="orc-nav">
+		<a href="index.html">
+		<img src="img/servico/voltar2.png">
+		<p>Orçamento<p>
+		</a>
+	</div>
+
+	<div id="orc-banner">
+		<h3>Vamos começar?<h3>
+		<img src="img/servico/foguete.png">
+	</div>
+
+	<div id="orc-passos">
+		<div class="orc-pass">
+			<h3>1º - Escolha o tema ou eu vou até você.</h3>
+			<p>Você pode nos enviar alguns sites como referência por meio do formulário, ou se preferir, você pode nos enviar um email, mandar uma mensagem no WhatsApp ou ligar para nós</p>
+			<p>Durante o trabalho vamos poder interagir, para ter um resultado que você estava imaginando.</p>
+			
+		</div>
+
+		<div class="orc-pass">
+			<h3>2º - Agora vamos trabalhar com o conteúdo do seu site.</h3>
+			<p>Depois de escolhido o tema, vamos escolher as imagens, trabalhar com o logotipo da loja e criar uma identidade visual forte e chamativa.</p>
+			<p>Não cansaremos enquanto nosso cliente não estiver satisfeito.</p>
+		</div>
+
+		<div class="orc-pass">
+			<h3>3º - A entrega e finalização do trabalho.</h3>
+			
+			<p>Agora todo o trabalho já foi feito e a entrega é feita para avaliação final. Se você ainda não está satisfeito, nós voltaremos com o processo até tudo estar perfeito para seu negócio.</p>
+			<p>Agora, se estiver satisfeito e já querer usar seu novo atributo publicitário, no outro dia o seu produto já vai estar a disposição de todos.</p>
+		</div>
+	</div>
+
+
+	<!--FORMULÁRIO======================================================-->
+		<div id="orc-formulario">
+		
+			<h1>EM CONSTRUÇÃO!! Nos envie seu pedido, e vamos responder no mesmo dia!</h1>
+			
+			<form method="post" onsubmit="validaForm(); return false;" class="form">
+			    
+				<p class="name">
+			        <label for="name">Nome ou Empresa</label>
+			        <input type="text" name="nome" placeholder="Seu Nome" />
+			    </p>
+			    
+				<p class="email">
+			        <label for="email">E-mail</label>
+			        <input type="text" name="email" placeholder="Seu email" />
+			    </p>
+				
+				<p class="telefone">
+			        <label for="email">Telefone</label>
+			        <input type="text" name="tel" placeholder="() x xxx xxxx" />
+			    </p>
+				
+				<p class="desejo">
+			        <label for="email">O que deseja?</label>
+			        <input type="text" name="desejo" placeholder="WebSite, Logotipo ou outros?" />
+			    </p>
+			    
+				<p class="text">
+			        <label for="mensagem">Mensagem</label>
+			        <textarea name="mensagem" placeholder="Escreva sua mensagem" /></textarea>
+			    </p>
+				
+				
+			    
+				<p class="submit">
+			        <input type="submit" value="Enviar" />
+			    </p>
+			</form>
+		</div>
+	<!--FORMULÁRIO======================================================-->
+
+
+		<div id="orc-contato">
+		<center>
+			<div id="orc-contato-whats">
+				<div class="orc-contato-left">
+					<img src="img/servico/whatsicon.png" />
+				</div>
+				<div class="orc-contato-right">
+					<p>Oi (11) 9 69398742</p>
+					<p>Oi (11) 9 69398742</p>
+				</div>
+			</div>
+
+			<div id="orc-contato-email">
+			<center>
+				<div class="orc-contato-left">
+					<img src="img/servico/outlookitem.png" />
+				</div>
+				<div class="orc-contato-right">
+					<p>rnrweb@outlook.com</p>
+					<p>alberto.roque097@hotmail.com</p>
+				</div>
+			</center>
+			</div>
+
+			<div id="orc-contato-local">
+				<div class="orc-contato-left">
+					<img src="img/servico/localicon.png" />
+				</div>
+				<div class="orc-contato-right">
+					<p>Fazemos o atendimento na sua empresa. Disponíveis para Guarulhos e São Paulo</p>
+				</div>
+			</div>
+		</center>
+		</div>
+		
+		<br>
+		<br>
+
+		<div id="orc-rod">
+			<p>R'N'R WEBDESIGN | 2015</p>
+		</div>
+
+<!--FIM-->
+</div>
+
+</body>
+</html>
