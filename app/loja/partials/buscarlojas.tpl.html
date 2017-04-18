@@ -1,0 +1,40 @@
+﻿<!-- HOME -->
+ <div class="container" ng-init="carregarLojas()">
+    <div layout="column">
+        <div class="buscarlojas">
+
+            <h1 ng-href="#/loja">Lojas</h1>
+
+            <!-- REPEAT: LOJA & PREVIEW PRODUTOS -->
+            <div class="bl-loja" data-ng-repeat="loja in repeatTest">
+                <div class="bl-loja-details">
+                    <div  ng-click="verLoja()" class="bl-loja-details-image" style="background-image: url('http://www.encontraguarulhos.com/wp-content/uploads/2015/05/sense_skateshop_streetwear-1433098769.jpg');"></div>
+                    <div class="bl-loja-details-description">
+                        <h1 ng-click="verLoja()">
+                            Sense SkateShop
+                            <small>
+                                <md-tooltip md-direction="bottom">Perfil oficial</md-tooltip>
+                                <i style="color:#607D8B; font-size:14px; vertical-align: super;" class="fa fa-check-circle" aria-hidden="true"></i>
+                            </small>
+                        </h1>
+                        <h3>Skate & Surf Shop</h3>
+                        <p>Pátio Shopping de Guarulhos</p>
+                    </div>
+                </div>
+                <div class="bl-loja-products-vert">
+                    <div class="bl-loja-products-vert-table" id="bl-loja-products-vert">
+                        <div class="product-list-vertical-table-btn" ng-repeat="products in loja.produtosPreview" style="background-image: url('{{ products.imagem}}')"></div>
+                    </div>
+                    <script>
+                        $("#bl-loja-products-vert").mousewheel(function (event, delta) {
+                            var offset = this.scrollLeft - (delta * 110);
+                            $(this).animate({ scrollLeft: offset }, 70);
+                            event.preventDefault();
+                        });
+                    </script>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+ <!-- END HOME -->

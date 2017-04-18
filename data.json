@@ -1,0 +1,91 @@
+﻿{
+    "produtos": [
+        {
+            "titulo": "Tênis DC Override",
+            "imagem": "http://static.classictennis.com.br/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/d/c/dc-shoes-landau-s-303010-bgm-00.jpg",
+            "local": "Parque Shopping Guarulhos",
+            "nomeloja": "ChristSkateShop",
+            "preco": "R$ 499,00"
+        },
+        {
+            "titulo": "Tênis DC Shoes Heathrow",
+            "imagem": "http://sandrodiasshop.vteximg.com.br/arquivos/ids/155788-1000-1000/TENIS-DC-SHOES-HEATHROW-PRETO-BRANCO.png",
+            "local": "SHopping Maia de Santa Cruz",
+            "nomeloja": "MAZE",
+            "preco": "R$ 229,00"
+        },
+        {
+            "titulo": "Tênis DC Override",
+            "imagem": "http://images.tcdn.com.br/img/img_prod/419854/img_0403_2169_4_20150522165750.jpg",
+            "local": "Parque Shopping Guarulhos",
+            "nomeloja": "ChristSkateShop",
+            "preco": "R$ 199,00"
+        },
+        {
+            "titulo": "Tênis DC Override",
+            "imagem": "http://static1.netshoes.net/Produtos/tenis-dc-shoes-crisis-young/62/420-0192-162/420-0192-162_detalhe1.jpg?resize=254:*",
+            "local": "Parque Shopping Guarulhos",
+            "nomeloja": "ChristSkateShop",
+            "preco": "R$ 499,00"
+        },
+        {
+            "titulo": "Tênis DC Override",
+            "imagem": "https://xtechfiles-us.s3.amazonaws.com/uploads/images/medium/d4770e1daab6c81d22ff43b8d64e1883.JPG",
+            "local": "Parque Shopping Guarulhos",
+            "nomeloja": "ChristSkateShop",
+            "preco": "R$ 499,00"
+        },
+        {
+            "titulo": "Tênis DC Override",
+            "imagem": "https://photos6.spartoo.pt/photos/441/4417499/4417499_350_A.jpg",
+            "local": "Parque Shopping Guarulhos",
+            "nomeloja": "ChristSkateShop",
+            "preco": "R$ 499,00"
+        },
+        {
+            "titulo": "Tênis DC Override",
+            "imagem": "http://www.tactics.com/a/8ki6/9/dc-evan-smith-s-skate-shoes-black.jpg",
+            "local": "Parque Shopping Guarulhos",
+            "nomeloja": "ChristSkateShop",
+            "preco": "R$ 499,00"
+        },
+        {
+            "titulo": "Tênis DC Override",
+            "imagem": "https://xtechfiles-us.s3.amazonaws.com/uploads/images/medium/d9b6c603e7e2abb45fc8ebcd4365ac5c.JPG",
+            "local": "Parque Shopping Guarulhos",
+            "nomeloja": "ChristSkateShop",
+            "preco": "R$ 499,00"
+        },
+        {
+            "titulo": "Tênis DC Override",
+            "imagem": "http://d3d71ba2asa5oz.cloudfront.net/62000323/images/zz620036j_1.jpg",
+            "local": "Parque Shopping Guarulhos",
+            "nomeloja": "ChristSkateShop",
+            "preco": "R$ 499,00"
+        },
+        {
+            "titulo": "Tênis DC Override",
+            "imagem": "http://sandrodiasshop.vteximg.com.br/arquivos/ids/155806-1000-1000/TENIS-DC-SHOES-ANVIL-YS-CINZA.png",
+            "local": "Parque Shopping Guarulhos",
+            "nomeloja": "ChristSkateShop",
+            "preco": "R$ 499,00"
+        },
+        {
+            "titulo": "Tênis DC Override",
+            "imagem": "https://s-media-cache-ak0.pinimg.com/originals/35/dd/80/35dd80948b7b9f8f6c2c54988ad1eb81.jpg",
+            "local": "Parque Shopping Guarulhos",
+            "nomeloja": "ChristSkateShop",
+            "preco": "R$ 499,00"
+        },
+        {
+            "titulo": "Tênis DC Override",
+            "imagem": "http://www.tactics.com/a/8cyy/2/2.jpg",
+            "local": "Parque Shopping Guarulhos",
+            "nomeloja": "ChristSkateShop",
+            "preco": "R$ 499,00"
+        }
+
+    ]
+
+
+}

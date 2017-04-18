@@ -1,400 +1,167 @@
-<html>
-   <head>
-		<title>R'N'R- WebDes</title>
-		
-		<link rel="stylesheet" href="style.css" content="text/css">
-			
-		<link rel="shortcut icon" href="img/planetico.ico" type="image/x-icon" />
-		
-		<meta http-equiv="Content-Type" content="text/html" charset="utf-8">
-		
-		<meta name="google-site-verification" content="v0Hslfu4ZHld56NBGTwMua8iG1TUmirzTxsOTZrJ-7M" />
-		
-		<meta content="R'N'R WebDesingn - Um Universo de Idéias" name="description">
-		
-		<meta name="author" content="RnR">
-		
-		<meta name="keywords" content="web, designer, rnr, RNR, alberto, denis, guarulhos, web, crie, seu, site, construaseusite, melhoreseusite, design, sites, mombile">
-		
-		<!--CSS MOBILE-->
-			<link rel="stylesheet" href="mobile.css" media="(max-width: 720px)">
-			<meta name="viewport" content="width=device-width"> 	
-		
-		<!--MINI MENU-->
-		<script type="text/javascript" src="js/jquery-1.11.2.js"></script>
-		<script type="text/javascript" src="js/script.js"></script>
+﻿<!DOCTYPE html>
+<html ng-app="Proj" ng-controller="CatalokoCtrl" lang="pt-br">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="Content-Language" content="pt-br">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>CATALOKO | Catálogo Online</title>
+        <link href="img/favicon.ico" rel="shortcut icon" type="image/x-icon">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="keywords" content="">
+        <meta name="author" content="Cataloko | Alberto Roque">
+        <meta name="robots" content="index,follow">
+        <meta name="distribution" content="global">
+        <meta name="copyright" content="Copyright(c) 2017 CATALOKO">
+        <meta name="description" content="Catálogo Online">
 
-		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
+        <!-- OPEN GRAPH -->
+        <!--<meta property="og:image" content="http://lasports.mobi/img/logomini.jpg" />-->
+        <!--<meta property="og:title" content="L.A Sports" />-->
+        <!--<meta property="og:description" content="Sua história filmada" />-->
 
-		<script type="text/javascript">
-			
-			function Slider() {
-				
-				$(".slider #1").show("fade",500);
-				$(".slider #1").delay(5500).hide("slide",{direction:"left"},500);
+        <link rel="stylesheet" href="comp/angular-material/angular-material.min.css" />
+        <link rel="stylesheet" type="text/css" href="comp/font-awesome/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="css/style.css" />
+        <link rel="stylesheet" href="css/loja.css" />
+        <link rel="stylesheet" href="css/busca.css" />
+        <link rel="stylesheet" href="css/buscarlojas.css" />
 
-				var sc= $(".slider img").size();
-				var count=2;
+        <link href='http://fonts.googleapis.com/css?family=Roboto:200,300,400,500,700' rel='stylesheet' />
+        <link href="http://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet" />
 
-				setInterval(function(){
+    </head>
 
-					$(".slider #"+count).show("slide",{direction:"right"},500);
-					$(".slider #"+count).delay(5500).hide("slide",{direction:"left"},500);
+<body class="conteudo-principal">
 
-					if(count == sc){
-						count = 1;
-					}else{
-						count = count + 1;
-					}
+    <!--
+    WARNING
+    Loagin screen activeted by directive in liga.js
+    -->
+    <div class="m-app-loading" ng-animate-children>
+        <style type="text/css">div.m-app-loading{position:absolute;z-index:999;width:100%;height:100%;background-color:#607D8B}div.m-app-loading div.animated-container.ng-leave{opacity:1;transition:all linear .2s;-webkit-transition:all linear .2s}div.m-app-loading div.animated-container.ng-leave-active{opacity:0}div.m-app-loading div.messaging{font-family:monospace;left:0;margin-top:-37px;position:absolute;right:0;text-align:center;top:50%}div.m-app-loading h1{font-size:26px;line-height:35px;margin:0 0 20px}div.m-app-loading div.messaging p{font-size:17px;line-height:35px;margin:35px 0 20px;font-family:Arial #000;color:#fff}div.m-app-loading img{-webkit-animation-name:spin;-webkit-animation-duration:4s;-webkit-animation-iteration-count:infinite;-webkit-animation-timing-function:linear;-moz-animation-name:spin;-moz-animation-duration:4s;-moz-animation-iteration-count:infinite;-moz-animation-timing-function:linear;-ms-animation-name:spin;-ms-animation-duration:4s;-ms-animation-iteration-count:infinite;-ms-animation-timing-function:linear;animation-name:spin;animation-duration:4s;animation-iteration-count:infinite;animation-timing-function:linear}@-ms-keyframes spin{from{-ms-transform:rotate(0)}to{-ms-transform:rotate(360deg)}}@-moz-keyframes spin{from{-moz-transform:rotate(0)}to{-moz-transform:rotate(360deg)}}@-webkit-keyframes spin{from{-webkit-transform:rotate(0)}to{-webkit-transform:rotate(360deg)}}@keyframes spin{from{transform:rotate(0)}to{transform:rotate(360deg)}}</style>
+        <div class="animated-container">
+            <div class="messaging">
+                <img src="img/logo.png" width="70" height="70" />
+                <p>
+                    Loading
+                </p>
+            </div>
+        </div>
+    </div>
 
-				},6500);		
-			}
-		</script>
+    <!-- TOOLBAR -->
+    <md-toolbar class="md-whiteframe-2dp">
+        <div class="md-toolbar-tools" ng-controller="MenuCtrl">
+            <md-button class="md-icon-button" aria-label="Settings" ng-click="toggleLeft()">
+                <i class="fa fa-bars"></i>
+            </md-button>
+            <span flex></span>
+            <md-button class="md-icon-button logo">
+                <img src="img/logo.png" />
+            </md-button>
+            <span flex></span>
+            <md-button class="md-icon-button" aria-label="Search" ng-href="#/buscar">
+                <i class="fa fa-search"></i>
+            </md-button>
+        </div>
+    </md-toolbar>
 
-	</head>
-	<body onload="Slider();">
-	<!--BANNER-->
-		<!--Mini Menu Lateral-->
-		<div id="divLateral">
-			<div id="menuLateral">
-				<a href="#home"><img src="img/homereturn.png" alt="Menu Lateral" width="50px" height="20px"><a>
-			</div>
-		</div>
-		<div name="home" id="banner">
-			<div id="divisor">
-				<div id="fastcontact">
-					<div id="fastcontacttel">
-						<h6>oi (011) 96939-8742</h6>
-					</div>
-					<div id="fastcontactemail">
-						<h6>rnrweb@outlook.com.br</h6>
-					</div>
-					
-					<a href="https://www.facebook.com/pages/RocknRoll-WebDesigner/347958305399753" targer="_blank">
-						<img id="facelogo" src="img/banner/face.png" width="30px" height="30px">
-					</a>
-				</div>
-			</div>
-			<center>
-				
-				<!--LOGO-->
-				<img id="fodase" src="img/logo6.png" alt="logo rnr web" />
-				<br>
-				
-				<!--LETREIRO-->
-				<img id="letreiro" src="img/banner/letreiro.png"/>
-				
-				<h2>'Um Universo de Ideias'</h2>
-				
-				<br>
-				
-				<!--BARRA DE NAVEGAÇÃO   display:none version mobile-->
-				<nav>
-					<center>
-						<br>
+    <!-- BARRA LATERAL -->
+    <md-sidenav class="md-sidenav-left md-whiteframe-2dp" md-component-id="left">
+        <md-content ng-controller="MenuCtrl">                        
+            <md-toolbar class="md-theme-indigo">
+                <h1 class="md-toolbar-tools sidenav-cataloko-title">CATALOKO</h1>
+            </md-toolbar>
+            <md-content layout-padding>               
+                <md-list>
+                    <md-list-item ng-href="#/home" title="" ng-click="toggleLeft()">
+                        <i class="fa fa-home"></i><p>&nbsp; Início</p>
+                    </md-list-item>
+                    <md-list-item ng-href="#/buscar" title="" ng-click="toggleLeft()">
+                        <i class="fa fa-search"></i><p>&nbsp; Buscar </p>
+                    </md-list-item>
+                    <md-list-item ng-href="#/buscarlojas" title="" ng-click="toggleLeft()">
+                        <i class="fa fa-shopping-bag"></i><p>&nbsp; Lojas </p>
+                    </md-list-item>
+                    <md-list-item ng-href="#/favoritos" title="" ng-click="toggleLeft()">
+                        <i class="fa fa-heart-o"></i><p>&nbsp; Produtos Favoritos </p>
+                    </md-list-item>
+                </md-list>
+            </md-content>
+        </md-content>
+    </md-sidenav>
 
-						<ul>
-							<li><a href="#port">     PORTIFÓLIO </a></li>
-							<li><a href="#contato">  CONTATO 	</a></li>
-							<li><a href="#servico">  SERVIÇOS   </a></li>
-						</ul>
-					</center>
-				</nav>
-			
-			</center>
-			
-		</div><!--FIM BANNER-->
 
-	<!--CORPO DO SITE-->
-	<div id="conteudo">
-		<h1>Conheça nossos Trabalhos.</h1>
-		 <!--DIVISOR BOLINHA--><center><img id="divisordown"src="img/servico/down3.png"></center> 
-		 <br>
-     <!-- <h2>Aproveite e Imagine como você poderia fazer o site do seu negócio ou empresa. Nós somos capazes de tornar sua Imaginação em Realidade</h2>
-      <br>
-      <br>
-      <br>
-      -->
-      <center>
-       <div name="port" id="conttrabs">
-        
-         <!--CICLE 1-->
-         
-         <div class="trabcircle">
-            <center>
-              <a href="http://www.condominiovilario.com" target="_blank" style="text-decoration:none; color:#333">
-               
-               <img class="linkcircular" src="img/trabalhos/condvilarioimg.png" alt="trabalho1" />
-              </a>
-            </center>
-         </div>
-         
-         <!--CICLE 2-->
-         <div class="trabcircle">
-            <center>
-              <a href="http://www.condominiovilario.esy.es" target="_blank" style="text-decoration:none; color:#333">
-               <img class="linkcircular" src="img/trabalhos/zkinoximg.png" alt="trabalho1" />
-              </a>
-            </center>
-         </div>
-         
-         <!--CICLE 3-->
-         <div class="trabcircle">
-            <center>
-             <a href="villanova/index.html" target="_blank" style="text-decoration:none; color:#333">
-               <!--<h3>Villa Nova Condominios</h3>-->
-               <img class="linkcircular" src="img/trabalhos/villanovaimg.png" alt="trabalho1" />
-             </a>
-            </center>
-         </div>
-		 
-         
-       </div><!--FIM DIV TRABS ITEMS-->
-	   </center>
-	   
+    <!-- RENDER -->
+    <div layout="row" flex class="media-render">
+        <div layout="column" flex ng-view>
+            <!-- RENDER -->
+        </div>
+    </div>
 
-	   <br>
-	   <br>
+    <!-- FOOTER -->
+    <div class="media media-footer">
+        <div class="main-la">
+            <div layout="column" layout-align="center center" flex="100">
+                <p>Cataloko</p>
+                <div class="media-footer-icons">
+                    <a ng-click="openPageApp('fb')" target="_blank" style="cursor: pointer;"><svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" width="25px" fill="#e6e6e6" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414"><path d="M15.117 0H.883C.395 0 0 .395 0 .883v14.234c0 .488.395.883.883.883h7.663V9.804H6.46V7.39h2.086V5.607c0-2.066 1.262-3.19 3.106-3.19.883 0 1.642.064 1.863.094v2.16h-1.28c-1 0-1.195.476-1.195 1.176v1.54h2.39l-.31 2.416h-2.08V16h4.077c.488 0 .883-.395.883-.883V.883C16 .395 15.605 0 15.117 0" fill-rule="nonzero" /></svg></a>
 
-	   <!--DIV CRIAÇÃO -->
-	   <div id="rnr-crie">
-	   	<center>
-		   	<div id="rnr-crie-text">
-		   		<h3>Encomende agora o seu site</h3>
-		   		<p>Do seu jeito.<p>
-		   			<br>
-		   		<a href="orcamento.html">Faça o orçamento</a>
-		   	</div>
-		   		
-		   	<div class="slider">
-				<img id="1" src="img/slide1.png" width="100%">
-				<img id="2" src="img/slide2.jpg" width="100%">
-				<img id="3" src="img/slide3.jpg" width="100%">
-			<div>
-	   	</center>
-	   </div>
+                    <a ng-click="openPageApp('messenger')"><svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" width="25px" fill="#fff" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414"><path d="M8 0C3.582 0 0 3.316 0 7.407c0 2.332 1.163 4.41 2.98 5.77V16l2.725-1.495c.727.2 1.497.31 2.295.31 4.418 0 8-3.317 8-7.408C16 3.317 12.418 0 8 0zm.795 9.975L6.758 7.802 2.783 9.975l4.372-4.642 2.087 2.173 3.926-2.173-4.373 4.642z" fill-rule="nonzero" /></svg></a>
 
-	   
+                    <a ng-click="openPageApp('instagram')" target="_blank" style="cursor: pointer;"><svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" width="25px" fill="#e6e6e6" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414"><path d="M8 0C5.827 0 5.555.01 4.702.048 3.85.088 3.27.222 2.76.42c-.526.204-.973.478-1.417.923-.445.444-.72.89-.923 1.417-.198.51-.333 1.09-.372 1.942C.008 5.555 0 5.827 0 8s.01 2.445.048 3.298c.04.852.174 1.433.372 1.942.204.526.478.973.923 1.417.444.445.89.72 1.417.923.51.198 1.09.333 1.942.372.853.04 1.125.048 3.298.048s2.445-.01 3.298-.048c.852-.04 1.433-.174 1.942-.372.526-.204.973-.478 1.417-.923.445-.444.72-.89.923-1.417.198-.51.333-1.09.372-1.942.04-.853.048-1.125.048-3.298s-.01-2.445-.048-3.298c-.04-.852-.174-1.433-.372-1.942-.204-.526-.478-.973-.923-1.417-.444-.445-.89-.72-1.417-.923-.51-.198-1.09-.333-1.942-.372C10.445.008 10.173 0 8 0zm0 1.44c2.136 0 2.39.01 3.233.048.78.036 1.203.166 1.485.276.374.145.64.318.92.598.28.28.453.546.598.92.11.282.24.705.276 1.485.038.844.047 1.097.047 3.233s-.01 2.39-.048 3.233c-.036.78-.166 1.203-.276 1.485-.145.374-.318.64-.598.92-.28.28-.546.453-.92.598-.282.11-.705.24-1.485.276-.844.038-1.097.047-3.233.047s-2.39-.01-3.233-.048c-.78-.036-1.203-.166-1.485-.276-.374-.145-.64-.318-.92-.598-.28-.28-.453-.546-.598-.92-.11-.282-.24-.705-.276-1.485C1.45 10.39 1.44 10.136 1.44 8s.01-2.39.048-3.233c.036-.78.166-1.203.276-1.485.145-.374.318-.64.598-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276C5.61 1.45 5.864 1.44 8 1.44zm0 2.452c-2.27 0-4.108 1.84-4.108 4.108 0 2.27 1.84 4.108 4.108 4.108 2.27 0 4.108-1.84 4.108-4.108 0-2.27-1.84-4.108-4.108-4.108zm0 6.775c-1.473 0-2.667-1.194-2.667-2.667 0-1.473 1.194-2.667 2.667-2.667 1.473 0 2.667 1.194 2.667 2.667 0 1.473-1.194 2.667-2.667 2.667zm5.23-6.937c0 .53-.43.96-.96.96s-.96-.43-.96-.96.43-.96.96-.96.96.43.96.96z" /></svg></a>
+                </div>
 
-	    <!--PRA QUE UM SITE-->
-	   <div id="praquesite">
-			
-			<center>
-			<div id="praquesiteletra">
-				
-				<p>Qual é a importância do WebSite para seu negócio?</p>
-			</div>
-			<!--TEXTO 1-->
-				<div id="pqstexto">	
-					<div class="pqsleft">	
-						<h6 id="pqstitle">Aumente o lucro da sua empresa.</h6><br>
-				
-						<h3>Ter seu produto anunciado no maior meio de comunicação e empreendimento do mundo é sim, uma boa idéia. Pare e pense, qual empresa importante não tem seu próprio website?</h3>
-						<h3>Nós da R'N'R WebDesigners podemos fazer sua empresa crescer.</h3><br>
-					</div>
-					
-					<div class="pqsright">	
-						<img src="img/praquesite/coin.png" >
-					</div>
-				
-				</div>
 
-				
-				<!--DIVISOR--> <div class="praquesitedivisor"></div> 
+                <div layout="row" layout-align="start center" layout-padding class="media-footer-links" hide-xs>
+                    <div flex="70">
+                        &copy; {{currentYear}} &nbsp; Cataloko &nbsp; <!--&#9679;-->
+                    </div>
+                    <div flex="30">
+                        <div layout="row" layout-align="end center">
+                            <a ng-click="" class="media-footer-link-lang">
+                                <img src="img/flags/br.png" width="20" /> PortuguêsBR
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-				<!--TEXTO 2 LEFT-->
-				<div id="pqstexto2">	
-					<div class="pqsleft2">				
-						<h6 id="pqstitle">Mostre seu produto para todos.</h6><br>
-			
-						<h3>Publique seu produto na internet e mostre o que você tem para oferecer para seus clientes.</h3>
-						<h3>Imagine como pode ser chamativo sua publicidade, e o resto a R'N'R pode cuidar para você.</h3><br>
-					</div>
-					
-					<div class="pqsright2">	
-						<img src="img/praquesite/planet.png" width="70%" height="100%" />
-					</div>
-				
-				</div>
+    <!-- Jquery WARN: enviar para setor de carregamento -->
+    <script src="comp/jquery/jquery.min.js"></script>
+    <script src="comp/angular/angular.min.js"></script>
 
-				<!--DIVISOR--><div class="praquesitedivisor"></div> 
+    <!-- Angular Material requires Angular.js Libraries -->
+    <script src="comp/angular-route/angular-route.min.js"></script>
+    <script src="comp/angular-animate/angular-animate.min.js"></script>
+    <script src="comp/angular-aria/angular-aria.min.js"></script>
+    <script src="comp/angular-cookies/angular-cookies.min.js"></script>
+    <script src="comp/angular-messages/angular-messages.min.js"></script>
+    <script src="comp/angular-material/angular-material.min.js"></script>
 
-				<!--TEXTO 3-->
-				<div id="pqstexto">
-					<div class="pqsleft">		
-						<h6 id="pqstitle">Imagine as Possibilidades.</h6><br>
-					
-			
-						<h3>Você já imaginou como seu WebSite poderia ficar bonito com o seu produto à venda?</h3>
-						<h3>A nossa equipe de Desingers pode tornar isso realidade, fazendo do seu jeito e com um pequeno toque nosso.</h3><br>	
-					</div>
-					
-					<div class="pqsright">	
-						<img src="img/praquesite/ideia.png"/>
-					</div>
-				
-				</div>
-				<!--DIVISOR--><div class="praquesitedivisor"></div> 
-			</center>
-	   </div>
+    <script src="cataloko.js"></script>
+    <script src="app/home/homeCtrl.js"></script>
+    <script src="app/home/homeService.js"></script>
 
-	   <br>
-	   <br>
-	   <br>
-	   <br>
-	  
-	   <div id="divisor"></div>
+    <script src="app/loja/lojaCtrl.js"></script>
+    <script src="app/loja/lojaService.js"></script>
 
-	   <!--TECNOLOGIA-->
-	  <div id="tecnologia">
-	  	
-	  <center>
-	  	<div id="tecleft">
-	  		<p>Peça já seu site disponível em versão mobile!</p>
-	  	</div>
-	  	
-	  	<div id="tecright">
-	  		<img src="img/praquesite/mobilesite.png" width="" height="800"> 
-	  	</div>
-	  </center>
-	  </div>
-  
-	   <!--METODOLOGIA-->
-	   <div id="metodo">
-			<p>Conheça nosso jeito de trabalhar</p>
-			<h2>Conheça nosso jeito de trabalhar</h2>
-			<!--DIVISOR BOLINHA--><center><img id="divisordown"src="img/servico/down3.png"></center>
-			<br>
-			<div class="metodopassos1">
-				<center>
-					<img src="img/metodos/reuniao.png" width="80%" height="65%" />
-				</center>
-			</div>
-			
-			<div class="metodopassos2">
-				<center>
-					<img src="img/metodos/analise.png" width="80%" height="65%" />
-				</center>
-			</div>
-			
-			<div class="metodopassos3">
-				<center>
-					<img src="img/metodos/prot.png" width="80%" height="70%" />
-				</center>
-			</div>
-			
-			<div class="metodopassos4">
-				<center>
-					<img src="img/metodos/ajustes.png" width="80%" height="70%" />
-				</center>
-			</div>
-			
-			<div class="metodopassos5">
-				<center>
-					<img src="img/metodos/entrega.png" width="80%" height="70%" />
-				</center>
-			</div>
-	   </div>
+    <script src="app/buscar/buscarCtrl.js"></script>
+    <script src="app/buscar/buscarService.js"></script>
 
-	   <!--DIVISOR--><center> <div class="divisor2"> </div> </center>
+    <script src="app/erro/erroCtrl.js"></script>
+    <script src="app/erro/erroService.js"></script>
 
-	   <div  id="servico">
-	   		<h4>Serviços</h4>
-	   		<br>
-		 <!--DIVISOR BOLINHA--><center><img id="divisordown"src="img/servico/down3.png"></center>
-	   		<center>
-	   			<div id="op-servico">
 
-	   				<!--FOTOGRAFIA-->
-	   				<div class="op-se-item">
-	   					<div class="op-se-i-image">
-	   						<img src="img/servico/logo.png">
-	   					</div>
-	   					<div class="op-se-i-text">
-	   						<p>Crie seu logotipo e apresente sua empresa da melhor forma.Faça todas os tipos de publicidade digital e física com seu novo logo.</p>
-	   					</div>
-	   				</div>
+    <script src="comp/jquery.mousewheel/jquery.mousewheel.min.js"></script>
 
-	   				<!--WEBSITE-->
-	   				<div class="op-se-item">
-	   					<div class="op-se-i-image">
-	   						<img src="img/servico/web.png">
-	   					</div>
-	   					<div class="op-se-i-text">
-	   						<p>Coloque sua empresa ou organização disponível 24 horas para seus cliente. Se comunique com mais facilidade e mostre sua empresa pra todos.</p>
-	   					</div>
-	   				</div>
-
-	   				<!--LOGOTIPO-->
-	   				<div class="op-se-item">
-	   					<div class="op-se-i-image">
-	   						<img src="img/servico/fotografia.png">
-	   					</div>
-	   					<div class="op-se-i-text">
-	   						<p>Crie um conteúdo para seu site ou publicidade com nós de um jeito profissional e sofisticado.</p>
-	   					</div>
-	   				</div>
-
-	   				<!--IDENTIDADE-->
-	   				<div class="op-se-item">
-	   					<div class="op-se-i-image">
-	   						<img src="img/servico/identidade.png">
-	   					</div>
-	   					<div class="op-se-i-text">
-	   						<p>Deixe sua empresa marcada na vida das pessoas com o método da identidade visual, usando cores e estilos.</p>
-	   					</div>
-	   				</div>	
-	   				<div id="op-botom">
-	   						<a href="orcamento.html"><p>Peça já seu orçamento</p></a>
-	   				</div>
-	   			</div>
-	   		</center>
-	   		
-	   </div>
-
-	    <!--DIVISOR--><center> <div class="divisor2"> </div> </center>
-	   
-	   <!--CONTATO-->
-	   <div id="contato">
-
-		<h2>Entre em Contato.</h2>
-			<div id="contemail">
-				<center>
-					<img src="img/cont/mailmaterial.png" width="200 "height="200" >
-					<h3>rnrweb@outlook.com.br</h3>
-					
-				</center>
-			</div>
-			
-			<div id="conttelefone">
-				<center>
-					<img src="img/cont/telmaterial.png" width="150 "height="150">
-					<h3> Oi   (011) 96939-8742 </h3>
-					<h3>Tratar com Alberto Roque</h3>
-				</center>
-			</div>
-			
-			<!--
-			<div id="contlocal">
-				<center>
-					<img src="img/cont/locallogo.png" width="100 "height="100">
-					<font color="black">
-					<h3>Atendimento nas cidade de:</h3>
-					<h3>Guarulhos e São Paulo</h3>
-					</font>
-				</center>	
-			</div>
-			-->
-
-			<div name="contato" id="rod">
-				<p>R'N'R WebDesign | Copyright © 2015</p>
-	    	</div>
-       </div>
-	   
-	   <!--RODAPE-->
-	  
-	  
-	</div>
-	</body>
+</body>
 </html>
+
+<!--
+Copyright 2016 Google Inc. All Rights Reserved. 
+Use of this source code is governed by an MIT-style license that can be in foundin the LICENSE file at http://material.angularjs.org/license.
+-->
+

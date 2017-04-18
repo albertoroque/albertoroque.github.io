@@ -1,0 +1,158 @@
+
+
+
+/*---------------------------*/
+/*   TOOLBAR                 */
+/*---------------------------*/
+/*md-toolbar .logo{
+    padding: 0px !important;
+}
+
+md-toolbar .logo img{
+    width: 100%;
+    height: 100%;
+}*/
+
+
+
+/*---------------------------*/
+/*   INPUT                  */
+/*---------------------------*/
+
+.buscar{
+    margin-top: 50px;
+}
+
+.buscar-input{
+    padding: 5px 25px 0px 25px;
+    border-radius: 3px;
+    width: calc(100% - 60px);
+    margin: 0 auto;
+    background-color:white;
+}
+
+.buscar-input md-input-container .md-input{
+    border-bottom: none !important;
+}
+
+.buscar-config{
+    color: #aaa;
+    height: 10px;
+    margin-top: -14px;
+}
+
+.buscar-config button{
+    float: right;
+}
+
+.buscar-config i{
+    font-size: 18px;
+}
+
+.buscar-section{
+    margin-top: 20px;
+    padding: 10px;
+}
+
+.buscar-section-markup{
+    font-family: Roboto Condensed;
+    text-align: left;
+    color: #aaa;
+    font-size: 1em;
+}
+
+.buscar-section-text{
+    color: #555;
+    line-height: 1.6em;
+}
+
+.buscar-anteriores{
+    text-decoration: none;
+    list-style: none;
+    background-color: white;
+    padding: 5px 10px;
+    color: #333;
+    border-radius: 3px;
+}
+
+.buscar-anteriores li{
+    padding: 10px 10px;
+    border-bottom: 0.5px solid #eee;
+    cursor: pointer;
+}
+
+.buscar-anteriores li:last-child{
+    border-bottom: none;
+}
+
+
+/*---------------------------*/
+/*   BUSCA PRODUTOS          */
+/*---------------------------*/
+.buscar-product{
+    background-color: white;
+    border-radius: 3px;
+    color: #333;
+    cursor: pointer;
+}
+
+.buscar-product-img{
+    display: block;
+    height:150px;
+    width: 100%;
+    margin:0 auto;
+    max-width: 200px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;   
+    flex: 1;
+}
+
+.buscar-product-description{
+    float: left;
+    height: 150px;
+    width: calc(100% - 5px);    
+    position: relative;
+    margin-left: 5px;
+}
+
+
+.buscar-product-description h2{
+    margin-bottom: 5px;
+    margin-top:10px;
+    font-weight: 400;
+    line-height: 1.5em;
+    max-height: 1.5em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.buscar-product-description h5{
+    float: right;
+    margin: 0;
+    color: #607D8B;
+    font-size: 26px;
+    position: absolute;
+    bottom: 5px;
+    right: 8px;    
+}
+
+.buscar-product-description p{
+    margin: 2px;
+    color: #aaa;
+    font-size: 12px;
+    font-family: Roboto Condensed;
+}
+
+
+.buscar-product-description span{
+    width: 20px;
+    margin-right: 5px;    
+}
+
+
+.buscar-product-description span > i{    
+    margin: 0 auto;    
+}
+
+

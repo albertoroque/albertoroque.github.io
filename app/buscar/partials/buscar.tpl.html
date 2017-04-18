@@ -1,0 +1,74 @@
+﻿<!-- HOME -->
+ <div data-ng-init="buscarOnURL()">
+    <div layout="column">
+
+        <div class="buscar">
+            <div class="container">
+                <div class="buscar-input">
+                    <form name="buscar" ng-submit="buscarOnEnter(termo)">
+                        <md-input-container md-no-float class="md-block" flex>
+                            <md-icon md-svg-src="img/search.svg" class="name"></md-icon>
+                            <input data-ng-model="termo" type="text" placeholder="Produto, marca ou loja">
+                        </md-input-container>
+                    </form>
+                </div>
+                <div class="buscar-config">
+                    <md-button class="md-icon-button" aria-label="Settings" ng-click="">
+                        <md-tooltip md-direction="bottom">Configurar pesquisa</md-tooltip>
+                        <i class="fa fa-cog"></i>
+                    </md-button>
+                    <md-button class="md-icon-button" aria-label="Settings" ng-click="">
+                        <md-tooltip md-direction="bottom">Compartilhar pesquisaa</md-tooltip>
+                        <i class="fa fa-share-alt"></i>
+                    </md-button>
+                    <md-button class="md-icon-button" aria-label="Settings" ng-click="limparBusca()" ng-if="resultadosBusca.length > 0">
+                        <md-tooltip md-direction="bottom">Compartilhar pesquisaa</md-tooltip>
+                        <i class="fa fa-times"></i>
+                    </md-button>
+                </div>
+
+                <div class="buscar-section" data-ng-if="resultadosBusca.length == 0">
+                    <span class="buscar-section-markup">
+                        BUSCAS ANTERIORES
+                    </span>
+
+                    <ul class="buscar-anteriores">
+                        <li ng-click="buscarOnEnter(termo)">DC Mandy</li>
+                        <li ng-click="buscarOnEnter(termo)">Camisa HOCKS</li>
+                        <li ng-click="buscarOnEnter(termo)">Boné MXC </li>
+                    </ul>
+                </div>
+
+                <!-- PRODUTOS -->
+                <div class="buscar-section" data-ng-if="resultadosBusca.length > 0">
+                    <md-grid-list md-cols="1"
+                                  md-cols-xs="1"
+                                  md-cols-gt-xs="2"
+                                  md-gutter="10px"
+                                  md-row-height="150px">
+
+                        <md-grid-tile class="buscar-product" ng-click="verProduto()" layout="row" ng-repeat="product in resultadosBusca">
+                            <div flex="40">
+                                <div class="buscar-product-img" style="background-image:url('{{ product.imagem }}');"></div>
+                            </div>
+
+                            <div flex="60" layout="row" layout-align="left top">
+                                <div class="buscar-product-description">
+                                    <h2>
+                                        {{ product.titulo }}
+                                    </h2>
+                                    <p hide-xs><span><i class="fa fa-shopping-bag"></i></span> {{ product.nomeloja }}</p>
+                                    <p><span><i class="fa fa-map-marker"></i></span> {{ product.local }} </p>
+                                    <h5>{{ product.preco }}</h5>
+                                </div>
+                            </div>
+                        </md-grid-tile>
+
+                    </md-grid-list>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+ <!-- END HOME -->

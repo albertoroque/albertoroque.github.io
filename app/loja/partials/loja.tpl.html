@@ -1,0 +1,103 @@
+﻿<!-- HOME -->
+ <div>
+    <div layout="column"> 
+        
+        <div class="loja">
+            <!-- SLIDE -->
+            <md-grid-list class="loja-slide" md-cols="1" md-row-height="350px">                
+                <md-grid-tile class="loja-slide--space">
+                    <div class="loja-slide-toolbar">
+                        <md-button class="md-icon-button" aria-label="Settings" ng-click="">
+                            <md-tooltip md-direction="bottom">Ver avaliação</md-tooltip>
+                            <i class="fa fa-star-o"></i>
+                        </md-button> 
+                        <md-button class="md-icon-button" aria-label="Settings" ng-click="">
+                            <md-tooltip md-direction="bottom">Ver horário de abertura</md-tooltip>
+                            <i class="fa fa-clock-o"></i>
+                        </md-button>                         
+                        <div class="loja-slide-toolbar-right">                                                                                
+                            <md-button class="md-icon-button" aria-label="Settings" ng-click="">
+                                <md-tooltip md-direction="bottom">Ver fotos da loja</md-tooltip>
+                                <i class="fa fa-camera"></i>
+                            </md-button>
+                            <md-button class="md-icon-button" aria-label="Settings" ng-click="">
+                                <md-tooltip md-direction="bottom">Ir até a loja</md-tooltip>
+                                <i class="fa fa-location-arrow"></i>
+                            </md-button>
+                        </div>                                               
+                    </div>
+
+                    <div class="loja-slide-title">
+                        <div class="loja-slide-title-image" style="background-image: url('http://www.encontraguarulhos.com/wp-content/uploads/2015/05/sense_skateshop_streetwear-1433098769.jpg');">
+
+                        </div>
+                        <h1>
+                            Sense Skatshop 
+                            <small>
+                                <md-tooltip md-direction="bottom">Perfil oficial</md-tooltip>
+                                <i style="color:#607D8B; font-size:14px; vertical-align: super;" class="fa fa-check-circle" aria-hidden="true"></i>
+                            </small>
+                        </h1>
+                        <h3>Skate & Surf Shop  <Span>|</Span>  100 produtos</h3>
+                        <p>Pátio Shopping de Guarulhos</p>
+                    </div>                
+                </md-grid-tile>
+            </md-grid-list>
+                                    
+            <div class="container">
+                
+                <!-- CATEGORIAS -->
+                <div flex class="ranking-category">
+                    <div class="ranking-category-table" id="ranking-category-mousewheel">
+                        <span class="ranking-category-table-btn"><i class="fa fa-search"></i></span>
+                        <span class="ranking-category-table-btn">TÊNIS</span>
+                        <span class="ranking-category-table-btn">CAMISETAS</span>
+                        <span class="ranking-category-table-btn">ROLAMENTOS</span>
+                        <span class="ranking-category-table-btn">SHAPES</span>                        
+                    </div>
+                    <script>
+                        $("#ranking-category-mousewheel").mousewheel(function (event, delta) {
+                            var offset = this.scrollLeft - (delta * 110);
+                            $(this).animate({ scrollLeft: offset }, 70);
+                            event.preventDefault();
+                        });
+                    </script>
+                </div>
+
+                <!-- PRODUTOS -->
+                <md-grid-list md-cols="2"
+                              md-cols-xs="2"
+                              md-cols-gt-xs="3"
+                              md-cols-gt-sm="4"
+                              md-gutter="10px"                              
+                              md-row-height="300px">
+
+                    <md-grid-tile class="loja-tile-product" ng-click="verProduto()">
+                        <div class="loja-tile-product-img" style="background-image:url('http://static.classictennis.com.br/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/d/c/dc-shoes-landau-s-303010-bgm-00.jpg');"></div>
+                        <div class="loja-tile-product-footer">
+                            <h3>Tênis DC</h3>
+                            <p>R$ 499,00</p>
+                        </div>
+                    </md-grid-tile>
+
+                    <md-grid-tile class="loja-tile-product">
+                        <div class="loja-tile-product-img" style="background-image:url('https://dafitistatic-a.akamaihd.net/p/DC-Shoes-T%C3%AAnis-Dc-Shoes-Linx-Cinza-1690-1828171-1-zoom.jpg');"></div>
+                        <div class="loja-tile-product-footer">
+                            <h3>Tênis DC</h3>
+                            <p>R$ 499,00</p>
+                        </div>
+                    </md-grid-tile>
+
+                    <md-grid-tile class="loja-tile-product">
+                        <div class="loja-tile-product-img" style="background-image:url('https://i2.zst.com.br/images/tenis-dc-masculino-casual-chris-cole-photo5449593-12-9-19.jpg');"></div>
+                        <div class="loja-tile-product-footer">
+                            <h3>Tênis DC</h3>
+                            <p>R$ 499,00</p>
+                        </div>
+                    </md-grid-tile>                    
+                </md-grid-list>
+            </div>            
+        </div>     
+    </div>
+ </div>
+ <!-- END HOME -->
