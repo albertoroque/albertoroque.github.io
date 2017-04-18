@@ -4,7 +4,7 @@
         
         <div class="produto">
             <!-- SLIDE -->
-            <md-grid-list class="produto-slide" md-cols="1" md-row-height="500px">                
+            <md-grid-list class="produto-slide" md-cols="1" md-row-height="530px">                
                 <md-grid-tile class="loja-slide--space">
                     <div class="loja-slide-toolbar produto-slide-toolbar">
                         <md-button class="md-button" aria-label="Settings" ng-click="voltarPagina()">
@@ -23,10 +23,25 @@
                         </div>
                     </div>                     
                     <div class="produto-img">
-                        <div class="produto-img-image" style="background-image:url('http://static.classictennis.com.br/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/d/c/dc-shoes-landau-s-303010-bgm-00.jpg');"></div>
-                        <!-- todo {galeria de imagem} -->                        
-                    </div>  
-                    
+                        <div class="produto-img-image" style="background-image:url('{{ produto.imagePresentation }}');"></div>
+                        <div class="produto-img-gallery-vert" >
+                            <div class="produto-img-gallery-table" id="produto-img-gallery-roll">
+                                <div ng-click="mudarImagemPresentation($event);" class="produto-img-gallery-table-btn" style="background-image: url('http://static.classictennis.com.br/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/d/c/dc-shoes-landau-s-303010-bgm-00.jpg')"></div>                                
+                                <div ng-click="mudarImagemPresentation($event);" class="produto-img-gallery-table-btn" style="background-image: url('http://sandrodiasshop.vteximg.com.br/arquivos/ids/155788-1000-1000/TENIS-DC-SHOES-HEATHROW-PRETO-BRANCO.png')"></div>                                
+                                <div ng-click="mudarImagemPresentation($event);" class="produto-img-gallery-table-btn" style="background-image: url('http://d3d71ba2asa5oz.cloudfront.net/62000323/images/zz620036j_1.jpg')"></div>                                
+                                <div ng-click="mudarImagemPresentation($event);"  class="produto-img-gallery-table-btn" style="background-image: url('http://www.tactics.com/a/8ki6/9/dc-evan-smith-s-skate-shoes-black.jpg')"></div>                                
+                                <div ng-click="mudarImagemPresentation($event);" class="produto-img-gallery-table-btn" style="background-image: url('http://www.tactics.com/a/8cyy/2/2.jpg')"></div>                                
+                                <div ng-click="mudarImagemPresentation($event);"  class="produto-img-gallery-table-btn" style="background-image: url('https://s-media-cache-ak0.pinimg.com/originals/35/dd/80/35dd80948b7b9f8f6c2c54988ad1eb81.jpg')"></div>
+                            </div>
+
+                            <script>
+                                $("#produto-img-gallery-roll").mousewheel(function (e, delta) {
+                                    $(this).scrollLeft(this.scrollLeft + (-delta * 40));
+                                    e.preventDefault();
+                                });
+                            </script>
+                        </div>
+                    </div>                      
                     <div class="produto-details">
                         <h1>Tênis DC Shoes Calibri Master</h1>
                         <p>R$ 399,00</p>

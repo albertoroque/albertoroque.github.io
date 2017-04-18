@@ -11,7 +11,7 @@ angular.module('proj.loja', [])
             templateUrl: 'app/loja/partials/buscarlojas.tpl.html'
         })
         .when('/produto', {
-            controller: 'LojaCtrl',
+            controller: 'ProdutoCtrl',
             templateUrl: 'app/loja/partials/produto.tpl.html'
         });    
 })
@@ -19,6 +19,29 @@ angular.module('proj.loja', [])
 
 .controller('LojaCtrl', function ($scope, $rootScope, $location, $mdDialog, LojaService) {
            
+
+})
+
+
+
+.controller('ProdutoCtrl', function ($scope, $rootScope, $location) {
+
+
+    $scope.produto = {};
+
+    $scope.produto.imagePresentation = "http://static.classictennis.com.br/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/d/c/dc-shoes-landau-s-303010-bgm-00.jpg";
+
+
+
+    $scope.mudarImagemPresentation = function (event) {
+
+
+        console.log(event);
+        console.log(event.target.style.backgroundImage.replace(/(url\(|\)|")/g, ''));
+
+        $scope.produto.imagePresentation = event.target.style.backgroundImage.replace(/(url\(|\)|")/g, '');
+
+    }
 
 })
 

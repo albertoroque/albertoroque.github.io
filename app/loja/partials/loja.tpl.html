@@ -54,12 +54,35 @@
                         <span class="ranking-category-table-btn">CAMISETAS</span>
                         <span class="ranking-category-table-btn">ROLAMENTOS</span>
                         <span class="ranking-category-table-btn">SHAPES</span>                        
+                        <span class="ranking-category-table-btn">TÊNIS</span>
+                        <span class="ranking-category-table-btn">CAMISETAS</span>
+                        <span class="ranking-category-table-btn">ROLAMENTOS</span>
+                        <span class="ranking-category-table-btn">SHAPES</span>                        
+                        <span class="ranking-category-table-btn">TÊNIS</span>
+                        <span class="ranking-category-table-btn">CAMISETAS</span>
+                        <span class="ranking-category-table-btn">ROLAMENTOS</span>
+                        <span class="ranking-category-table-btn">SHAPES</span>                        
+                        <span class="ranking-category-table-btn">TÊNIS</span>
+                        <span class="ranking-category-table-btn">CAMISETAS</span>
+                        <span class="ranking-category-table-btn">ROLAMENTOS</span>
+                        <span class="ranking-category-table-btn">TÊNIS</span>
+                        <span class="ranking-category-table-btn">CAMISETAS</span>
+                        <span class="ranking-category-table-btn">ROLAMENTOS</span>
+                        <span class="ranking-category-table-btn">TÊNIS</span>
+                        <span class="ranking-category-table-btn">CAMISETAS</span>
+                        <span class="ranking-category-table-btn">ROLAMENTOS</span>
+                        <span class="ranking-category-table-btn">TÊNIS</span>
+                        <span class="ranking-category-table-btn">CAMISETAS</span>
+                        <span class="ranking-category-table-btn">ROLAMENTOS</span>
+                        <span class="ranking-category-table-btn">SHAPES</span>                        
+                        <span class="ranking-category-table-btn">SHAPES</span>                        
+                        <span class="ranking-category-table-btn">SHAPES</span>                        
+                        <span class="ranking-category-table-btn">SHAPES</span>                        
                     </div>
                     <script>
-                        $("#ranking-category-mousewheel").mousewheel(function (event, delta) {
-                            var offset = this.scrollLeft - (delta * 110);
-                            $(this).animate({ scrollLeft: offset }, 70);
-                            event.preventDefault();
+                        $("#ranking-category-mousewheel").mousewheel(function (e, delta) {
+                            $(this).scrollLeft(this.scrollLeft + (-delta * 40));
+                            e.preventDefault();
                         });
                     </script>
                 </div>

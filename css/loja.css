@@ -200,7 +200,7 @@ md-toolbar .logo img{
 }
 
 /*---------------------------*/
-/*   PÁGINA NA LOJA          */
+/*   PÁGINA PRODUTO          */
 /*---------------------------*/
 .produto-slide{
     width: 98%;
@@ -219,8 +219,8 @@ md-toolbar .logo img{
 
 .produto-img{    
     width: 100%;
-    height: 300px;    
-    background-color:;
+    height: 340px;    
+    
 }
 
 .produto-img-image{
@@ -232,6 +232,7 @@ md-toolbar .logo img{
     border-radius: 3px;
     margin: 0 auto;
 }
+
 
 .produto-details{
     text-align: center;    
@@ -289,4 +290,51 @@ md-toolbar .logo img{
 .produto-details-descricao-text{
     color: #555;
     line-height: 1.6em;
+}
+
+
+
+
+
+/*---------------------------*/
+/* PRODUTO LISTA HORIZONTAL  */
+/*---------------------------*/
+
+.produto-img-gallery-vert{
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    height: 45px;    
+    max-width: 400px;
+    margin-top: 10px;
+}
+
+.produto-img-gallery-table{		
+	height: 47px;		
+	overflow:hidden;
+	overflow-y:hidden;
+    overflow-x:hidden;
+	white-space: nowrap;			
+    width:100%;        
+    max-width: 400px;
+    position: absolute;
+
+}
+
+.produto-img-gallery-table-btn{
+    width: 45px;
+    height: 45px;    
+	margin: 0px 5px 0px 0px;	
+    border-radius:1px;		
+	display: inline-block;	
+    cursor: pointer;
+    outline: none;      
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.produto-img-gallery-table-btn:hover{
+    -webkit-filter: blur(1px);
+    filter: blur(1px);   
 }

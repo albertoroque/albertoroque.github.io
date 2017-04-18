@@ -26,11 +26,10 @@
                         <div class="product-list-vertical-table-btn" ng-repeat="products in loja.produtosPreview" style="background-image: url('{{ products.imagem}}')"></div>
                     </div>
                     <script>
-                        $("#bl-loja-products-vert").mousewheel(function (event, delta) {
-                            var offset = this.scrollLeft - (delta * 110);
-                            $(this).animate({ scrollLeft: offset }, 70);
-                            event.preventDefault();
-                        });
+                        $(".bl-loja-products-vert-table").mousewheel(function (e, delta) {
+                            $(this).scrollLeft(this.scrollLeft + (-delta * 40));                            
+                            e.preventDefault();
+                        });                        
                     </script>
                 </div>
             </div>
