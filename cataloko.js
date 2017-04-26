@@ -1,5 +1,5 @@
 angular.module('Proj',[
-  	'ngRoute',
+  	'ngRoute',    
     'ngMaterial',
     'ngCookies',
     'ngAnimate',
@@ -7,7 +7,8 @@ angular.module('Proj',[
     'proj.home',
     'proj.loja',
     'proj.buscar',
-    'proj.erro'     
+    'proj.erro'
+    
 ])
 
 //-------- LOAGIN INICIAL ---------

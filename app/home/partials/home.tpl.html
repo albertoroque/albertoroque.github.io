@@ -1,15 +1,38 @@
 <!-- HOME -->
  <div>
-    <div layout="column"> 
+    <div layout="column">         
+        <div class="container-fluid">
+                        
+            <div class="slider"
+                 ng-init="loadSlider('img/slider/2.png')"
+                 style="background-image: url('{{ sliderImage }}')"
+                 md-swipe-left="nextSlide()"
+                 md-swipe-right="prevSlide()"
+                 >
+                <div class="slider-control">
+                    <div class="slider-control-btn slideIndex1" ng-click="sliderChange($event, 1)" dataimage="img/slider/2.png"></div>
+                    <div class="slider-control-btn slideIndex2" ng-click="sliderChange($event, 2)" dataimage="img/slider/3.png"></div>
+                    <div class="slider-control-btn slideIndex3" ng-click="sliderChange($event, 3)" dataimage="img/slider/1.png"></div>
+                </div>
+            </div>                                    
+            
+        </div>      
         
         <div class="container">
-            <div style="height: 100px; width: 100px; background-color: red;">
+            <div style="height: 400px; width: 100%; background-color: #fff;">
 
-            </div>  
-        </div>
-
-     
-
+            </div>
+        </div>       
     </div>
  </div>
+
+<style>
+    .container-fluid{
+        width: 100%;
+        max-width: 1920px;
+        background-color: #eee;
+        min-height: 100px;
+        display: block;        
+    }    
+</style>
  <!-- END HOME -->

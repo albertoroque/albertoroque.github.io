@@ -23,6 +23,11 @@ md-toolbar .logo img{
     margin-top: 50px;
 }
 
+md-autocomplete{
+    background-color: white !important;
+    border-radius: 3px;
+}
+
 .buscar-input{
     padding: 5px 25px 0px 25px;
     border-radius: 3px;
@@ -37,8 +42,7 @@ md-toolbar .logo img{
 
 .buscar-config{
     color: #aaa;
-    height: 10px;
-    margin-top: -14px;
+    height: 10px;    
 }
 
 .buscar-config button{
