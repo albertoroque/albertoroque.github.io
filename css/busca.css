@@ -150,13 +150,16 @@ md-autocomplete{
 
 
 .buscar-product-description span{
-    width: 20px;
+    width: 16px;    
     margin-right: 5px;    
 }
 
 
-.buscar-product-description span > i{    
+.buscar-product-description span > md-icon{    
     margin: 0 auto;    
+    font-size: 18px;
+    color: #aaa;
+    padding-top: 2px;
 }
 
 

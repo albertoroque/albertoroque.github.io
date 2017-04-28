@@ -6,31 +6,19 @@
             <div class="container">
                 
                 <form name="buscar" ng-submit="buscarOnEnter(termo)">
-                    <!--<md-input-container md-no-float class="md-block" flex>
-                        <md-icon md-svg-src="img/search.svg" class="name"></md-icon>
+                    <md-input-container md-no-float class="md-block" flex>
+                        <md-icon md-font-icons="material-icons">search</md-icon>
                         <input data-ng-model="termo" type="text" placeholder="Produto, marca ou loja">
-                    </md-input-container>-->
-
-                    <md-autocomplete    md-no-cache="false"
-                                        md-selected-item="selectedItem"                                        
-                                        md-search-text="termo"                                      
-                                        md-items="item in buscaAutocomplete(termo)"
-                                        md-item-text="item.titulo"
-                                        md-min-length="3"
-                                        placeholder="Procure produtos e lojas">
-                        <md-item-template>
-                            <span md-highlight-text="buscarOnEnter(termo)">{{item.display}}</span>
-                        </md-item-template>                      
-                    </md-autocomplete>
+                    </md-input-container>                  
                 </form>                
                 <div class="buscar-config">
                     <md-button class="md-icon-button" aria-label="Settings" ng-click="">
                         <md-tooltip md-direction="bottom">Configurar pesquisa</md-tooltip>
-                        <i class="fa fa-cog"></i>
+                        <md-icon md-font-icons="material-icons">settings</md-icon>
                     </md-button>
                     <md-button class="md-icon-button" aria-label="Settings" ng-click="">
                         <md-tooltip md-direction="bottom">Compartilhar resultado</md-tooltip>
-                        <i class="fa fa-share-alt"></i>
+                        <md-icon md-font-icons="material-icons">share</md-icon>
                     </md-button>                   
                 </div>
 
@@ -64,8 +52,8 @@
                                     <h2>
                                         {{ product.titulo }}
                                     </h2>
-                                    <p hide-xs><span><i class="fa fa-shopping-bag"></i></span> {{ product.nomeloja }}</p>
-                                    <p><span><i class="fa fa-map-marker"></i></span> {{ product.local }} </p>
+                                    <p hide-xs><span><md-icon md-font-icons="material-icons">store_mall_directory</md-icon></span> {{ product.nomeloja }}</p>
+                                    <p><span><md-icon md-font-icons="material-icons">place</md-icon></span> {{ product.local }} </p>
                                     <h5>{{ product.preco }}</h5>
                                 </div>
                             </div>

@@ -100,6 +100,10 @@ md-toolbar .logo img{
     text-transform: uppercase;
 }
 
+.media-footer-title{
+    font-family:Wildcard Condensed;
+}
+
 .media-footer a{    
 	text-decoration: none;
 	color: #e6e6e6;

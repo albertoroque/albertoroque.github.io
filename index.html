@@ -19,8 +19,7 @@
         <!--<meta property="og:title" content="L.A Sports" />-->
         <!--<meta property="og:description" content="Sua história filmada" />-->
 
-        <link rel="stylesheet" href="comp/angular-material/angular-material.min.css" />
-        <link rel="stylesheet" type="text/css" href="comp/font-awesome/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="comp/angular-material/angular-material.min.css" />        
         <link rel="stylesheet" href="css/style.css" />
         <link rel="stylesheet" href="css/loja.css" />
         <link rel="stylesheet" href="css/busca.css" />
@@ -31,7 +30,8 @@
         <link href='http://fonts.googleapis.com/css?family=Roboto:200,300,400,500,700' rel='stylesheet' />
         <link href="http://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet" />
 
-       
+        <!-- MATERIAL ICONS -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">       
 
     </head>
 
@@ -57,7 +57,7 @@
     <md-toolbar class="md-whiteframe-2dp">
         <div class="md-toolbar-tools" ng-controller="MenuCtrl">
             <md-button class="md-icon-button" aria-label="Settings" ng-click="toggleLeft()">
-                <i class="fa fa-bars"></i>
+                <md-icon md-font-icons="material-icons">menu</md-icon>
             </md-button>
             <span flex></span>
             <md-button class="md-icon-button logo">
@@ -65,7 +65,7 @@
             </md-button>
             <span flex></span>
             <md-button class="md-icon-button" aria-label="Search" ng-href="#/buscar">
-                <i class="fa fa-search"></i>
+                <md-icon md-font-icons="material-icons">search</md-icon>
             </md-button>
         </div>
     </md-toolbar>
@@ -79,16 +79,19 @@
             <md-content layout-padding>               
                 <md-list>
                     <md-list-item ng-href="#/home" title="" ng-click="toggleLeft()">
-                        <i class="fa fa-home"></i><p>&nbsp; Início</p>
+                        <md-icon md-font-icons="material-icons">home</md-icon><p>&nbsp; Início</p>
                     </md-list-item>
                     <md-list-item ng-href="#/buscar" title="" ng-click="toggleLeft()">
-                        <i class="fa fa-search"></i><p>&nbsp; Buscar </p>
+                        <md-icon md-font-icons="material-icons">search</md-icon><p>&nbsp; Buscar </p>
                     </md-list-item>
                     <md-list-item ng-href="#/buscarlojas" title="" ng-click="toggleLeft()">
-                        <i class="fa fa-shopping-bag"></i><p>&nbsp; Lojas </p>
+                        <md-icon md-font-icons="material-icons">store_mall_directory</md-icon><p>&nbsp; Lojas </p>
                     </md-list-item>
                     <md-list-item ng-href="#/favoritos" title="" ng-click="toggleLeft()">
-                        <i class="fa fa-heart-o"></i><p>&nbsp; Produtos Favoritos </p>
+                        <md-icon md-font-icons="material-icons">local_mall</md-icon><p>&nbsp; Shoppings </p>
+                    </md-list-item>
+                    <md-list-item ng-href="#/favoritos" title="" ng-click="toggleLeft()">
+                        <md-icon md-font-icons="material-icons">favorite</md-icon><p>&nbsp; Desejos </p>
                     </md-list-item>
                 </md-list>
             </md-content>
@@ -107,7 +110,7 @@
     <div class="media media-footer">
         <div class="main-la">
             <div layout="column" layout-align="center center" flex="100">
-                <p>Cataloko</p>
+                <p class="media-footer-title">Cataloko</p>
                 <div class="media-footer-icons">
                     <a ng-click="openPageApp('fb')" target="_blank" style="cursor: pointer;"><svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" width="25px" fill="#e6e6e6" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414"><path d="M15.117 0H.883C.395 0 0 .395 0 .883v14.234c0 .488.395.883.883.883h7.663V9.804H6.46V7.39h2.086V5.607c0-2.066 1.262-3.19 3.106-3.19.883 0 1.642.064 1.863.094v2.16h-1.28c-1 0-1.195.476-1.195 1.176v1.54h2.39l-.31 2.416h-2.08V16h4.077c.488 0 .883-.395.883-.883V.883C16 .395 15.605 0 15.117 0" fill-rule="nonzero" /></svg></a>
 

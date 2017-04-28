@@ -16,6 +16,28 @@ angular.module('proj.home', [])
     
     }
 
+
+    $scope.testarAuth = function () {
+
+        $scope.keypassView = "";
+
+        var keypass = "ASDASDASDASD";
+
+        HomeService.TestarAuth(keypass)
+
+            .then(function (data) {
+
+                console.log(data);
+
+                $scope.keypassView = data;
+            })
+            .catch(function () {
+
+            })
+        
+
+    }
+
     $scope.loadSlider = function (firstImage) {
 
         
@@ -51,9 +73,13 @@ angular.module('proj.home', [])
         $scope.prevSlide = function () {
             $scope.sliderIndex--;
 
+
             if ($scope.sliderIndex < 1) {
                 $scope.sliderIndex = sliderIndexTotal;
             }
+
+            console.log($scope.sliderIndex);
+
             changeSliderByIndex($scope.sliderIndex);
         }
 

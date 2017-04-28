@@ -49,6 +49,11 @@ md-toolbar .logo img{
     color: #aaa;
 }
 
+.loja-slide-toolbar button md-icon{    
+    color: #aaa;
+}
+
+
 .loja-slide-toolbar-right{
     float: right;
     font-size:12px;
@@ -78,8 +83,8 @@ md-toolbar .logo img{
     font-weight: 400;
     margin-bottom: 5px;
     color: #aaa;
-    margin-top: 0px;
-    font-size:12px;
+    margin-top:10px;
+    font-size:14px;
 }
 
 .loja-slide-title-image{
