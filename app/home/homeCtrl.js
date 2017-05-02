@@ -105,9 +105,11 @@ angular.module('proj.home', [])
         return "";
     }
     
+    var geocoder;
+    
     $scope.getLocation = function(){
         
-        var geocoder = new google.maps.Geocoder;
+        geocoder = new google.maps.Geocoder;
         
         if (navigator.geolocation) {
            navigator.geolocation.getCurrentPosition(showPosition, showError);
