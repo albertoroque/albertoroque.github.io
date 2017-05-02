@@ -13,9 +13,7 @@ angular.module('proj.home', [])
            
     $scope.carregaHome = function(){
         
-        console.log(google);
-        
-        var geocoder = new google.maps.Geocoder;
+        console.log();
     
     }
 
