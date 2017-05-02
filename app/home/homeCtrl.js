@@ -12,7 +12,10 @@ angular.module('proj.home', [])
 .controller('HomeCtrl', function ($scope, $rootScope, $location, $mdDialog, HomeService) {
            
     $scope.carregaHome = function(){
-
+        
+        console.log(google);
+        
+        var geocoder = new google.maps.Geocoder;
     
     }
 
