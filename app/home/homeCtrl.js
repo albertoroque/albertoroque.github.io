@@ -104,7 +104,7 @@ angular.module('proj.home', [])
         return "";
     }
     
-    $scope.getLocation(){
+    $scope.getLocation = function(){
         if (navigator.geolocation) {
            navigator.geolocation.getCurrentPosition(showPosition, showError);
         }
