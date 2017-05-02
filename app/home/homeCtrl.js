@@ -94,7 +94,7 @@ angular.module('proj.home', [])
     }
 
     
-    var geocoder = new google.maps.Geocoder;
+    
 
     //Extrai determinada parte do endereço completo.
     function extractFromAddress(components, type) {
@@ -105,6 +105,9 @@ angular.module('proj.home', [])
     }
     
     $scope.getLocation = function(){
+        
+        var geocoder = new google.maps.Geocoder;
+        
         if (navigator.geolocation) {
            navigator.geolocation.getCurrentPosition(showPosition, showError);
         }
