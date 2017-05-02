@@ -1,0 +1,46 @@
+﻿<!-- HOME -->
+<div layout="column">         
+    <div class="entrar">                                               
+        <div class="container">
+                
+            
+            <div class="md-whiteframe-1dp entrar-space-head">                
+                <h2>Painel da Loja</h2>                
+            </div>
+
+            <div class="entrar-space md-whiteframe-1dp">                
+                <form>
+                    <md-input-container class="md-block">
+                        <label>Usuário ou Email da loja</label>
+                        <md-icon md-font-icon="material-icons" class="name">store</md-icon>
+                        <input name="username" ng-model="entrar.username">
+                        <div ng-messages="projectForm.description.$error">
+                            <div ng-message="required">This is required.</div>
+                            <div ng-message="md-maxlength">The description must be less than 30 characters long.</div>
+                        </div>
+                    </md-input-container>
+                    <md-input-container class="md-block">
+                        <label>Senha</label>
+                        <md-icon md-font-icon="material-icons" class="name">https</md-icon>
+                        <input ng-model="entrar.password" type="password">
+                        <div ng-messages="projectForm.description.$error">
+                            <div ng-message="required">This is required.</div>
+                            <div ng-message="md-maxlength">The description must be less than 30 characters long.</div>
+                        </div>
+                    </md-input-container>
+                    <md-button class="md-raised md-primary md-button-fullwidth" ng-click="logarLoja()" style="">
+                        ENTRAR
+                    </md-button>                                      
+                    <a href="">Esqueceu a senha?</a>
+                </form>                
+            </div>
+
+            <br /><br />
+            <div class="entrar-space md-whiteframe-1dp">
+                <p>Não tem um loja publicada?</p>
+                <md-button class="md-raised md-button-fullwidth">  Cadastrar</md-button>
+            </div>
+        </div>            
+    </div>     
+</div>
+ <!-- END HOME -->

@@ -24,11 +24,12 @@
         <link rel="stylesheet" href="css/loja.css" />
         <link rel="stylesheet" href="css/busca.css" />
         <link rel="stylesheet" href="css/buscarlojas.css" />
+        <link rel="stylesheet" href="css/admloja.css" />
 
         <link rel="stylesheet" href="css/slider.css" />
 
-        <link href="//fonts.googleapis.com/css?family=Roboto:200,300,400,500,700" rel="stylesheet" />
-        <link href="//fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet" />
+        <link href='http://fonts.googleapis.com/css?family=Roboto:200,300,400,500,700' rel='stylesheet' />
+        <link href="http://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet" />
 
         <!-- MATERIAL ICONS -->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">       
@@ -122,7 +123,8 @@
 
                 <div layout="row" layout-align="start center" layout-padding class="media-footer-links" hide-xs>
                     <div flex="70">
-                        &copy; {{currentYear}} &nbsp; Cataloko &nbsp; <!--&#9679;-->
+                        <span>&copy; {{currentYear}} &nbsp; Cataloko </span>
+                        <span class="media-footer-links-mini" ><i class="material-icons">store</i><a href="#/loja/entrar"> Painel Loja</a></span>
                     </div>
                     <div flex="30">
                         <div layout="row" layout-align="end center">
@@ -158,13 +160,14 @@
     <script src="app/buscar/buscarCtrl.js"></script>
     <script src="app/buscar/buscarService.js"></script>
 
+    <script src="app/admloja/admlojaCtrl.js"></script>
+    <script src="app/admloja/admlojaService.js"></script>
+
     <script src="app/erro/erroCtrl.js"></script>
     <script src="app/erro/erroService.js"></script>
 
 
     <script src="comp/jquery.mousewheel/jquery.mousewheel.min.js"></script>
-    
-    <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
     
 </body>
 </html>

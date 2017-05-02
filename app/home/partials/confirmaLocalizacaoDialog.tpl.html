@@ -1,0 +1,30 @@
+﻿<md-dialog>
+    <form>                
+        <md-dialog-content>
+            <div class="md-dialog-content" style="text-align: center;">                                
+                
+                <style>
+                    h1 .material-icons{
+                        font-size:40px;
+                        color: #607D8B;
+                    }
+                </style>
+                <h1><i class="material-icons">place</i></h1>                           
+                <h2><small>Esta é a sua localização atual? </small></h2>   
+                
+                <p class="md-display-1" style="margin-bottom:0px;">{{  location.bairro  }}</p>
+
+                <p><small>{{ location.cidade }}/{{ location.estado}}</small></p>
+                                
+            </div>
+        </md-dialog-content>       
+        <md-dialog-actions layout="row">
+            <md-button class="md-primary" ng-click="hideDialog()">
+                TENTAR DE NOVO
+            </md-button>            
+            <md-button class="md-primary md-raised" ng-click="hideDialog()">
+                SIM, ESTÁ CORRETA
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>

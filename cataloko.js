@@ -7,8 +7,8 @@ angular.module('Proj',[
     'proj.home',
     'proj.loja',
     'proj.buscar',
-    'proj.erro'
-    
+    'proj.erro',
+    'proj.admloja'    
 ])
 
 //-------- LOAGIN INICIAL ---------
@@ -84,7 +84,17 @@ angular.module('Proj',[
     $scope.verProduto = function () {
         window.open('#/produto', '_self');
     }
-   
+    
+
+    //--------ABRIR MENU-----------------
+    $scope.openMenu = function ($mdOpenMenu, ev) {        
+        $mdOpenMenu(ev);
+    };
+
+    //-------- ESCONDE DIALOG -------
+    $scope.hideDialog = function () {
+        $mdDialog.hide();
+    }
 
     //------------------------------------
     //OPEN APP PAGE

@@ -1,4 +1,4 @@
-angular.module('proj.home', [])
+﻿angular.module('proj.home', [])
 
 .config(function ($routeProvider) {
     $routeProvider
@@ -12,8 +12,7 @@ angular.module('proj.home', [])
 .controller('HomeCtrl', function ($scope, $rootScope, $location, $mdDialog, HomeService) {
            
     $scope.carregaHome = function(){
-        
-        console.log();
+
     
     }
 
@@ -38,11 +37,13 @@ angular.module('proj.home', [])
         
 
     }
-    
-    
-    $scope.loadSlider = function (firstImage) {
 
-        
+
+    //-----------------------------------------
+    //  SLIDER
+    //-----------------------------------------
+
+    $scope.loadSlider = function (firstImage) {        
         $scope.sliderImage = firstImage;
         $scope.sliderIndex = 1;
 
@@ -94,58 +95,57 @@ angular.module('proj.home', [])
         }
     }
 
-    
-    
+    //-----------------------------------
+    //  GEODECODER
+    //-----------------------------------
 
-    //Extrai determinada parte do endereço completo.
-    function extractFromAddress(components, type) {
-        for (var i = 0; i < components.length; i++)
-            for (var j = 0; j < components[i].types.length; j++)
-                if (components[i].types[j] == type) return components[i].long_name;
-        return "";
-    }
-    
-    var geocoder;
-    
-    $scope.getLocation = function(){
+
+    $scope.getLocation = function () {
         
-        geocoder = new google.maps.Geocoder;
-        
+        $rootScope.toast("Procurando sua localização...");
+
         if (navigator.geolocation) {
-           navigator.geolocation.getCurrentPosition(showPosition, showError);
-        }
-        else { $scope.locationDecoded = "Seu browser não suporta Geolocalização."; }
+
+            navigator.geolocation.getCurrentPosition(getLatLong, showError);
+
+            $scope.location = {};
+            
+        } else {
+            $scope.location = "Seu browser não suporta Geolocalização.";
+        }       
     }
 
-    //Mostra as coordenadas - lat/lon e mostra o bairro + cidade.
-    function showPosition(position) {
-        var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-        geocoder.geocode({ 'latLng': latlng }, function (results, status) {
-            if (status == google.maps.GeocoderStatus.OK) 
-            {
-                if (results[0]) 
-                {
+    function getLatLong(position) {                
 
-                	console.log(results[0]);
-                    var cidade = extractFromAddress(results[0].address_components, "locality");
-                    var bairro = extractFromAddress(results[0].address_components, "sublocality_level_1");
-                    var est = extractFromAddress(results[0].address_components, "administrative_area_level_1");
-                    var pais = extractFromAddress(results[0].address_components, "country");
+        var latlong = position.coords.latitude + ',' + position.coords.longitude;
 
-                    console.log(cidade, bairro);                    
+        console.warn(latlong);
 
-                    //x.innerHTML = "Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude;
-                    $scope.locationDecoded = "Bairro: " + bairro + "<br> Cidade: " + cidade + "<br> Estado e Pais: "+ est + " - " + pais	;
+        HomeService.decodeGoogleMapsAPI(latlong)
+        .then(function (data) {
+
+            console.log(data);
+
+            if (data.status == "OK") {
+                if (data.results[0]) {
+
+                    $scope.location.cidade = extractFromAddress(data.results[0].address_components, "locality");
+                    $scope.location.bairro = extractFromAddress(data.results[0].address_components, "sublocality_level_1");
+                    $scope.location.estado = extractFromAddress(data.results[0].address_components, "administrative_area_level_1");
+                    $scope.location.pais = extractFromAddress(data.results[0].address_components, "country");
+
+                    $scope.confirmaLocalizaoDialog();
                 }
-            } 
-            else 
-            {
-            	alert("Geocode was not successful for the following reason: " + status)
+            } else {
+                alert("Geocode was not successful for the following reason: " + data.status);
             }
-        });
+        })
+
+        .catch(function (err) {
+            console.warn("ERRO GEOLOCATION");
+        })
     }
 
-    //Mostra erro, caso não seja possível utilizar a API, por N motivos.
     function showError(error) {
         switch (error.code) {
             case error.PERMISSION_DENIED:
@@ -162,6 +162,31 @@ angular.module('proj.home', [])
                 break;
         }
     }
+
+    //Extrai determinada parte do endereço completo.
+    function extractFromAddress(components, type) {
+        for (var i = 0; i < components.length; i++)
+            for (var j = 0; j < components[i].types.length; j++)
+                if (components[i].types[j] == type) return components[i].long_name;
+        return "";
+    }
+
+
+    $scope.confirmaLocalizaoDialog = function () {
+        
+        $mdDialog.show({
+            controller: 'HomeCtrl',
+            templateUrl: 'app/home/partials/confirmaLocalizacaoDialog.tpl.html',
+            parent: angular.element(document.body),
+            scope: $scope,
+            preserveScope: true,           
+            clickOutsideToClose: false
+        })
+        .then(function () { }, function () { });
+    };
+
+    
+
 
    
 });

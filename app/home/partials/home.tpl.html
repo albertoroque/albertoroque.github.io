@@ -1,5 +1,5 @@
 <!-- HOME -->
- <div ng-init="carregaHome()">
+ <div>
     <div layout="column">         
         <div class="container-fluid">
                         
@@ -25,17 +25,12 @@
                 </md-button>
 
                 {{ keypassView }}
-             
-              <br>
-             
-              <md-button ng-click="getLocation()" class="md-primary">
-                     GET LOCATION
-                 </md-button>
 
-                 {{ locationDecoded }}
-             </div>
+                <md-button ng-click="getLocation()" class="md-primary md-raised">
+                    GET GEOLOCATION
+                </md-button>                
+            </div>
         </div>       
-        
     </div>
  </div>
 
@@ -48,6 +43,4 @@
         display: block;        
     }    
 </style>
-
-
  <!-- END HOME -->

@@ -1,0 +1,66 @@
+﻿<!-- HOME -->
+ <div>
+    <div layout="column"> 
+        
+        <div class="adm-categoria">
+                      
+            <div class="container">
+
+                <div class="adm-loja-cabecalho" flex layout="row" layout-align="start start" layout-wrap>
+                    <div flex="100" layout="row">                        
+                        <md-button ng-href="#/loja/1/inicio">
+                            <md-icon class="material-icons">chevron_left</md-icon> inicio
+                        </md-button>                        
+                    </div>
+                    
+                    <div layout="row" flex="100" style="height:30px"></div>
+                    
+                    <div flex="100" layout-padding style="text-align:center;">
+                        <span class="adm-loja-cabecalho-title">CATEGORIAS </span>
+                        <p>12 categorias</p>
+                    </div>
+                    
+                    <div flex="100" layout="row" layout-align="end start" hide>                        
+                        <div flex>
+                            <md-button class="md-icon-button" hide-gt-xs show-xs>
+                                <md-icon class="material-icons">info</md-icon>
+                            </md-button>                          
+                            <md-button class="md-primary" hide-xs>
+                                DICAS
+                            </md-button>                          
+                        </div>
+                        <span flex></span>
+                        <div flex layout="row" layout-align="end center">
+                            <md-button class="md-icon-button">
+                                <md-icon class="material-icons">filter_list</md-icon>
+                            </md-button>
+                            <md-button class="md-icon-button">
+                                <md-icon class="material-icons">search</md-icon>
+                            </md-button>
+                        </div>                        
+                    </div>
+                </div>
+
+                <br />
+
+                <md-list flex class="md-whiteframe-1dp">                                       
+                    <md-list-item class="md-2-line no-right" ng-click="opcoesCategoriaDialog($event, 1)">
+                        <div class="md-list-item-text">
+                            <h3>Categoria</h3>
+                            <p>10 produtos</p>
+                        </div>
+                        <div layout="row">
+                            <md-icon md-font-icon="material-icons" ng-click="opcoesCategoriaDialog($event, 1)" class="md-secondary">settings</md-icon>
+                        </div>
+                    </md-list-item>
+                </md-list>
+                             
+            </div>           
+            
+            <!-- BOTOES DE AÇÃO -->
+                                                                       
+        </div>     
+    </div>
+ </div>
+ <!-- END HOME -->
+

@@ -1,0 +1,87 @@
+﻿<!-- HOME -->
+ <div>
+    <div layout="column"> 
+        
+        <div class="loja">
+            <!-- SLIDE -->
+            <md-grid-list class="loja-slide" md-cols="1" md-row-height="360px">                
+                <md-grid-tile class="loja-slide--space">
+                    <div class="loja-slide-toolbar">
+                        
+                        <md-button ng-disabled="true" class="md-primary">
+                            PAINEL DE GERENCIAMENTO
+                        </md-button>
+                                                                                             
+                        <div class="loja-slide-toolbar-right">                               
+                            <md-button class="md-icon-button" aria-label="Settings" ng-click="">
+                                <md-tooltip md-direction="bottom">Sua avaliação</md-tooltip>
+                                <md-icon md-font-icons="material-icons">stars</md-icon>
+                            </md-button>                                                                               
+                            <md-button class="md-icon-button" aria-label="Settings" ng-click="">
+                                <md-tooltip md-direction="bottom">Pendências Financeiras</md-tooltip>
+                                <md-icon md-font-icons="material-icons">monetization_on</md-icon>
+                            </md-button>
+                            <ng-include src="'app/admloja/partials/inicioMenu.tpl.html'"></ng-include>                           
+                        </div>                                               
+                    </div>
+
+                    <div class="loja-slide-title">
+                        <!-- IMAGEM -->
+                        <div class="loja-slide-title-image" style="background-image: url('http://www.encontraguarulhos.com/wp-content/uploads/2015/05/sense_skateshop_streetwear-1433098769.jpg');"></div>
+
+                        <h1>Sense Skatshop</h1>                      
+                        <p> 
+                            100 produtos  
+                            <span style="font-weight:400; padding: 0px 10px;">|</span> 
+                             400 visitantes 
+                            <span style="font-weight:400; padding: 0px 10px;">|</span>
+                            0 follow
+                        </p> 
+                        <md-button class="md-raised">Editar dados da loja</md-button>
+                    </div>                
+                </md-grid-tile>
+            </md-grid-list>
+            
+            <div class="container">
+
+                <div class="loja-botao-inicio loja-botao-inicio-full">
+                    <span style="color: red;"><md-icon class="material-icons" style="color: red; font-size: 35px;">warning</md-icon><br /></span>
+                    <br />
+                    <p>Você deve escolher um setor para sua loja antes de publicar um produto. </p>
+                    <md-button class="md-raised md-primary" ng-click="escolherSetorDialog($event, 2)">
+                        escolher setor
+                    </md-button>
+                </div>
+                
+
+                <div flex layout="row" layout-wrap>
+                    <div flex="50" flex-xs="100">
+                        <div class="loja-botao-inicio loja-botao-inicio-color-medium">
+                            <h1 class="md-display-2">233</h1>
+                            <p>produtos</p>
+                            <md-button class="md-raised">
+                                <md-icon class="material-icons">view_comfy</md-icon>
+                                &nbsp; meus produtos
+                            </md-button>
+                        </div>
+                    </div>
+                    <div flex="50" flex-xs="100">
+                        <div class="loja-botao-inicio loja-botao-inicio-color-low">
+                            <h1 class="md-display-2">14</h1>
+                            <p>categorias</p>
+                            <md-button class="md-raised" ng-href="#/loja/1/categoria">
+                                <md-icon class="material-icons">settings</md-icon>
+                                &nbsp; gerenciar categorias
+                            </md-button>
+                        </div>
+                    </div>
+                </div>
+            </div>           
+            
+            <!-- BOTOES DE AÇÃO -->
+                                                                       
+        </div>     
+    </div>
+ </div>
+ <!-- END HOME -->
+
