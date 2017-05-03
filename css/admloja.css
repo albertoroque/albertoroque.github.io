@@ -133,7 +133,8 @@
     margin: 0px;
     padding: 0px;    
     font-size:28px;
-    text-transform: uppercase;    
+    text-transform: uppercase; 
+    font-family: 'Roboto Condensed';   
 }
 
 

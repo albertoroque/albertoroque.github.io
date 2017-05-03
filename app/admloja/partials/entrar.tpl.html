@@ -14,7 +14,7 @@
                         <label>Usuário ou Email da loja</label>
                         <md-icon md-font-icon="material-icons" class="name">store</md-icon>
                         <input name="username" ng-model="entrar.username">
-                        <div ng-messages="projectForm.description.$error">
+                        <div ng-messages="entrar.username.$error">
                             <div ng-message="required">This is required.</div>
                             <div ng-message="md-maxlength">The description must be less than 30 characters long.</div>
                         </div>
@@ -23,12 +23,12 @@
                         <label>Senha</label>
                         <md-icon md-font-icon="material-icons" class="name">https</md-icon>
                         <input ng-model="entrar.password" type="password">
-                        <div ng-messages="projectForm.description.$error">
+                        <div ng-messages="entrar.password.$error">
                             <div ng-message="required">This is required.</div>
                             <div ng-message="md-maxlength">The description must be less than 30 characters long.</div>
                         </div>
                     </md-input-container>
-                    <md-button class="md-raised md-primary md-button-fullwidth" ng-click="logarLoja()" style="">
+                    <md-button class="md-raised md-primary md-button-fullwidth" ng-click="logarLoja(entrar)" style="">
                         ENTRAR
                     </md-button>                                      
                     <a href="">Esqueceu a senha?</a>

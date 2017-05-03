@@ -27,7 +27,7 @@ angular.module('proj.home')
 
 		    var d = $q.defer(),
 
-			url = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + latlong;		    
+			url = 'http://maps.googleapis.com/maps/api/geocode/json?latlng=' + latlong;		    
 
 		    $http.get(url)
 			    .success(function (result) {
@@ -39,8 +39,7 @@ angular.module('proj.home')
 
 		    return d.promise;
 
-		},
-
+		}
 	}
 })
 
