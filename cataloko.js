@@ -8,7 +8,8 @@ angular.module('Proj', [
     'proj.loja',
     'proj.buscar',
     'proj.erro',
-    'proj.admloja'
+    'proj.admloja',
+    'proj.location'
 ])
 
 //-------- LOAGIN INICIAL ---------
@@ -176,7 +177,6 @@ angular.module('Proj', [
 
 .controller('MenuCtrl', function ($scope, $rootScope, $timeout, $mdSidenav, $log) {
 
-
     $scope.toggleLeft = buildToggler('left');
 
     function buildToggler(componentId) {
@@ -186,7 +186,6 @@ angular.module('Proj', [
     }
 
 })
-
 
 
 .controller('ImageCtrl', function ($scope, $rootScope, $timeout, $mdSidenav, $log, ImageService) {

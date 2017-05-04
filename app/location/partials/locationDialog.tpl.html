@@ -1,0 +1,82 @@
+﻿<md-dialog layout="column" layout-align="center center">
+    <form>
+        <md-dialog-content ng-init="localizationDialogPage = 1">
+
+            <!-- FIRTS -->
+            <div class="md-dialog-content" flex ng-show="localizationDialogPage == 1">
+                <h1><i class="material-icons">location_off</i></h1>
+                <h2 class="md-display-1">Antes, não esqueça de ligar seu GPS</h2>
+                <br />
+                <md-button class="md-primary md-raised md-button-fullwidth" ng-click="localizationDialogPage = 2">vamos lá</md-button>
+                <br />
+                <br />
+                <a href="#">veja como</a>
+            </div>
+
+            <!-- SECOND -->
+            <div class="md-dialog-content" flex ng-if="localizationDialogPage == 2" ng-init="getPermissionLocation()">
+                <h1><i class="material-icons">place</i></h1>
+                <h2 class="md-display-1">Pesquisando...</h2>
+                <a ng-click="hideDialog()">cancelar</a>                
+            </div>
+
+            <!-- THIRD -->
+            <div class="md-dialog-content" flex ng-show="localizationDialogPage == 3">                               
+                <p>A sua localização é...</p>
+                <br />
+                <h2 class="md-display-1 no-margintop">{{ location.bairro }} <br /><small>{{ location.cidade }} - {{ location.estado }}</small></h2>
+                               
+                <md-button class="md-primary md-raised md-button-fullwidth" ng-click="hideDialog()">
+                    <md-icon md-font-icon="material-icons">thumb_up</md-icon>&nbsp; ESTÁ CERTO
+                </md-button>
+                <br />
+                <br />
+                <a ng-click="localizationDialogPage = 2">tentar denovo</a>
+            </div>
+
+            <!-- FOURTY -->
+            <div class="md-dialog-content" flex ng-show="localizationDialogPage == 4">
+                <h1><i class="material-icons">mood_bad</i></h1>                
+                <h3 class="md-display-1">OPS! Aconteceu alguma merda</h3>
+                <p>Lembre-se de verificar sua conexão e o estado do seu GPS!</p>
+                <br />
+                <md-button class="md-primary md-button-fullwidth" ng-click="localizationDialogPage = 2">TENTAR DE NOVO</md-button>
+                <br />                
+            </div>
+
+        </md-dialog-content>
+
+        <!--<md-dialog-actions layout="row">
+            <md-button class="md-primary" ng-click="hideDialog()">
+                TENTAR DE NOVO
+            </md-button>
+            <md-button class="md-primary md-raised" ng-click="hideDialog()">
+                SIM, ESTÁ CORRETA
+            </md-button>
+        </md-dialog-actions>-->
+    </form>
+
+    <style>
+        md-dialog {
+            text-align: center;    
+            width: calc(100vw - 10px);        
+            margin: 0px 5px;
+        }
+
+        md-dialog a{
+            color: #aaa;
+            margin-top: 30px;
+            cursor: pointer;
+        }
+
+        h1 .material-icons {
+            font-size: 50px;
+            color: #78909C;
+        }
+
+        .no-margintop{
+            margin-top: 0px;
+        }
+    </style>
+
+</md-dialog>

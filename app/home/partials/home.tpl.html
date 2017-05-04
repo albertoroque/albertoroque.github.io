@@ -25,10 +25,13 @@
                 </md-button>
 
                 {{ keypassView }}
-
-                <md-button ng-click="getLocation()" class="md-primary md-raised">
-                    GET GEOLOCATION
-                </md-button>                
+                
+                <div ng-controller="LocationCtrl">
+                    <md-button ng-click="updateLocation()" class="md-primary md-raised">
+                        GET GEOLOCATION
+                    </md-button>                
+                </div>
+                
             </div>
         </div>       
     </div>
