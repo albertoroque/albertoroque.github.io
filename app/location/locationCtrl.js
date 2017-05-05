@@ -70,19 +70,23 @@ angular.module('proj.location', [])
         switch (error.code) {
             case error.PERMISSION_DENIED:
                 console.log(error, 'PERMI DENIED');
-                alert("Usuário rejeitou a solicitação de Geolocalização.");
+                $scope.locationMsgError = "Permissão negada. Por favor, atualize o site e ative seu GPS e se possível limpe o histórico do navegador.";
+                $scope.localizationDialogPage = 4;                
                 break;
             case error.POSITION_UNAVAILABLE:
                 console.log(error, 'UNAVAILABLE');
-                alert("Localização indisponível.");
+                $scope.locationMsgError = "Por favor, atualize o site e ative seu GPS.";
+                $scope.localizationDialogPage = 4;
                 break;
             case error.TIMEOUT:
                 console.log(error, 'TIME OUT');
-                alert("O tempo da requisição expirou.");
+                $scope.locationMsgError = "Acho que a resposta do GPS demorou um pouco, tente de novo!";
+                $scope.localizationDialogPage = 4;
                 break;
             case error.UNKNOWN_ERROR:
                 console.log(error, 'UNNKOW ERROR');
-                alert("Algum erro desconhecido aconteceu.");
+                $scope.locationMsgError = "Aconteceu algum erro desconhecido. Vamos cuidar disso em breve!";
+                $scope.localizationDialogPage = 4;
                 break;
         }
     }
