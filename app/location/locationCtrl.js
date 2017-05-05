@@ -1,4 +1,4 @@
-
+Ôªø
 angular.module('proj.location', [])
 
 .controller('LocationCtrl', function ($scope, $rootScope, $location, $mdDialog, LocationService) {        
@@ -27,6 +27,7 @@ angular.module('proj.location', [])
     $scope.getPermissionLocation = function() {
         
         if (navigator.geolocation) {
+            console.log('1 - Navigator Geolocation');
             navigator.geolocation.getCurrentPosition(getLatLong, showError);
             $scope.location = {};            
         } else {
@@ -35,22 +36,22 @@ angular.module('proj.location', [])
     }
 
     function getLatLong(position) {
-        var latlong = position.coords.latitude + ',' + position.coords.longitude;
-        //console.warn(latlong);
-        LocationService.decodeGoogleMapsAPI(latlong)
-        .then(function (data) {
-           
 
+        var latlong = position.coords.latitude + ',' + position.coords.longitude;
+        
+        console.log('2 - DECODE LATLONG', latlong);
+
+        LocationService.decodeGoogleMapsAPI(latlong)
+        .then(function (data) {           
             if (data.status == "OK") {
                 if (data.results[0]) {
                     console.log(data.results[0]);
-
                     $scope.location.cidade = extractFromAddress(data.results[0].address_components, "locality", null);
                     $scope.location.bairro = extractFromAddress(data.results[0].address_components, "sublocality_level_1", null);
                     $scope.location.estado = extractFromAddress(data.results[0].address_components, "administrative_area_level_1", "short_name");
-                    $scope.location.pais = extractFromAddress(data.results[0].address_components, "country", null);
-                    
+                    $scope.location.pais = extractFromAddress(data.results[0].address_components, "country", null);                    
                     $scope.localizationDialogPage = 3;
+                    console.log('3 - SUCESS', $scope.location);
                 }
             } else {
 
@@ -61,28 +62,32 @@ angular.module('proj.location', [])
 
         .catch(function (err) {
             $scope.localizationDialogPage = 4;
-            console.warn("ERRO GEOLOCATION");
+            console.warn("ERRO: DECODE URL");
         })
     }
 
     function showError(error) {
         switch (error.code) {
             case error.PERMISSION_DENIED:
-                alert("Usu·rio rejeitou a solicitaÁ„o de GeolocalizaÁ„o.");
+                console.log(error, 'PERMI DENIED');
+                alert("Usu√°rio rejeitou a solicita√ß√£o de Geolocaliza√ß√£o.");
                 break;
             case error.POSITION_UNAVAILABLE:
-                alert("LocalizaÁ„o indisponÌvel.");
+                console.log(error, 'UNAVAILABLE');
+                alert("Localiza√ß√£o indispon√≠vel.");
                 break;
             case error.TIMEOUT:
-                alert("O tempo da requisiÁ„o expirou.");
+                console.log(error, 'TIME OUT');
+                alert("O tempo da requisi√ß√£o expirou.");
                 break;
             case error.UNKNOWN_ERROR:
+                console.log(error, 'UNNKOW ERROR');
                 alert("Algum erro desconhecido aconteceu.");
                 break;
         }
     }
 
-    //Extrai determinada parte do endereÁo completo.
+    //Extrai determinada parte do endere√ßo completo.
     function extractFromAddress(components, type, typename) {
         for (var i = 0; i < components.length; i++)
             for (var j = 0; j < components[i].types.length; j++)
