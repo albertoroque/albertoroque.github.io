@@ -28,7 +28,7 @@ angular.module('proj.location', [])
         
         if (navigator.geolocation) {
             console.log('1 - Navigator Geolocation');
-            navigator.geolocation.getCurrentPosition(getLatLong, showError);
+            navigator.geolocation.getCurrentPosition(getLatLong, showError, { enableHighAccuracy: true, timeout: 60000, maximumAge: 0 });
             $scope.location = {};            
         } else {
             $scope.localizationDialogPage = 4;            
@@ -70,7 +70,7 @@ angular.module('proj.location', [])
         switch (error.code) {
             case error.PERMISSION_DENIED:
                 console.log(error, 'PERMI DENIED');
-                $scope.locationMsgError = "Permissão negada. Por favor, atualize o site e ative seu GPS e se possível limpe o histórico do navegador.";
+                $scope.locationMsgError = "Permissão negada. Por favor, atualize o site e ative seu GPS. Se possível limpe o histórico do navegador.";
                 $scope.localizationDialogPage = 4;                
                 break;
             case error.POSITION_UNAVAILABLE:
