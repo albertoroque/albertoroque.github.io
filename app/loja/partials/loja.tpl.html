@@ -85,6 +85,7 @@
                         //mobile
                         if (os.android || os.ios) {
                             console.log('ROLL ON MOBILE');
+                            $("#ranking-category-mousewheel").addClass("pan-x");
                         } else {
 
                             console.log('MOUSE ON DESK');
@@ -94,6 +95,18 @@
                             });
                         }                       
                     </script>
+                    <style>
+                       
+                        @supports (touch-action: pan-x) {
+                          .pan-x {
+                            -ms-touch-action: pan-x;
+                            touch-action: pan-x;
+                          }
+                          /*.pan-x ~ h2::after {
+                            display: none;
+                          }*/
+                        }
+                    </style>
                 </div>
 
                 <!-- PRODUTOS -->

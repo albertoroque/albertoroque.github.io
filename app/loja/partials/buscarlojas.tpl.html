@@ -21,11 +21,23 @@
                     <div class="bl-loja-products-vert-table" id="bl-loja-products-vert">
                         <div class="product-list-vertical-table-btn" ng-repeat="products in loja.produtosPreview" style="background-image: url('{{ products.imagem}}')"></div>
                     </div>
-                    <script>
-                        $(".bl-loja-products-vert-table").mousewheel(function (e, delta) {
-                            $(this).scrollLeft(this.scrollLeft + (-delta * 40));                            
-                            e.preventDefault();
-                        });                        
+                    <script>                       
+                        var os = {
+                            android: navigator.userAgent.match(/Android/i),
+                            ios: navigator.userAgent.match(/iPhone|iPad|iPod/i)
+                        };
+
+                        //mobile
+                        if (os.android || os.ios) {
+                            console.log('ROLL ON MOBILE');                            
+                        } else {
+
+                            console.log('MOUSE ON DESK');
+                            $("#bl-loja-products-vert-table").mousewheel(function (e, delta) {
+                                $(this).scrollLeft(this.scrollLeft + (-delta * 40));
+                                e.preventDefault();
+                            });
+                        }
                     </script>
                 </div>
             </div>

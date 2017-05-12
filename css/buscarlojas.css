@@ -107,7 +107,7 @@ md-toolbar .logo img{
 	height: 50px;		
 	overflow:hidden;
 	overflow-y:hidden;
-    overflow-x:hidden;
+    overflow-x:auto;
 	white-space: nowrap;			
     width:100%;        
     position: absolute;
