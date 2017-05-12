@@ -1,7 +1,6 @@
 ﻿<!-- HOME -->
 <div ng-init="carregarProdutoNovo()">
     <div layout="column">
-
         <form name="produtoNovoForm" class="produto">
             <!-- SLIDE -->
             <md-grid-list class="produto-slide" md-cols="1" md-row-height="630px">
@@ -10,10 +9,10 @@
                         <md-button class="md-button" aria-label="Settings" ng-click="voltarPagina()">
                             <md-tooltip md-direction="bottom">Voltar</md-tooltip>
                             <md-icon md-font-icons="material-icons">chevron_left</md-icon> &nbsp;VOLTAR
-                        </md-button>
+                        </md-button>                        
                     </div>
                     <div class="produto-img">
-                        <div class="produto-img-image" style="background-image:url('{{ produtoNovo.linkfoto }}');"></div>
+                        <div class="produto-img-image" style="background-image:url('{{ dadosProduto.linkfoto }}');"></div>
                         <br />
                         <div flex layout="column" layout-align="center center" ng-controller="ImageCtrl">
 
@@ -28,70 +27,87 @@
 
                             {{ IMAGE_MSG }}
 
-                            <div ng-bind="IMAGE_PATH != null ? produtoNovo.linkfoto = IMAGE_PATH : ''" hide></div>
+                            <div ng-bind="IMAGE_PATH != null ? dadosProduto.linkfoto = IMAGE_PATH : ''" hide></div>
 
                             <input type="file" id="file_to_upload" class="hide" accept="image/*" />
                         </div>
                     </div>
-                    <!-- PRODUTO.TITULO -->
-                    <!-- PRODUTO.PREÇO -->
+                                                            
                     <div flex="100" layout="row" layout-align="center center" style="width: 100%" layout-wrap layout-padding>
+
+                        <!-- PRODUTO.TITULO -->
                         <md-input-container flex="100">
                             <label>Título</label>
-                            <input ng-model="produtoNovo.titulo" md-maxlength="45" maxlength="45" required name="titulo">
-                            <div ng-messages="produtoNovoForm.titulo.$error">
+                            <input ng-model="dadosProduto.nome" md-maxlength="45" maxlength="45" required name="titulo">
+                            <div ng-messages="produtoNovoForm.nome.$error">
+                                <div ng-message="required">Esse campo é obrigatório.</div>
                                 <div ng-message="md-maxlength">Texto máximo atingido</div>
                             </div>
+                            <span class="ck-form-input-error">{{ dadosProdutonomeCkError }}</span>
                         </md-input-container>
+
+                        <!-- PRODUTO.PREÇO -->
                         <md-input-container flex="100">
                             <label>Preço (R$)</label>
-                            <input ng-model="produtoNovo.preco" required name="preco" type="number" ng-pattern="/^[0-9]{1,7}$/">
-                            <div ng-messages="produtoNovo.preco.$error">                                
-                                <span ng-show="produtoNovoForm.preco.$error.pattern">Not a valid number!</span>
+                            <input ng-model="dadosProduto.preco" required name="preco" type="number">
+                            <div ng-messages="produtoNovoForm.preco.$error">
+                                <div ng-message="required">Esse campo é obrigatório.</div>                                
                             </div>
+                            <span class="ck-form-input-error">{{ dadosProdutoprecoCkError }}</span>
                             <div class="hint" style="color: #aaa;"><small>Obs: separe os decimais com ponto</small></div>
                         </md-input-container>
                     </div>
                 </md-grid-tile>
             </md-grid-list>
 
-            <div class="container">
-
+            <div class="container" layout-padding>
                 <br />
                 <!-- PRODUTO.CATEGORIA -->
-                <span class="md-subheader">CATEGORIA</span>
-                <md-input-container class="md-block">
-                    <md-select name="categoria" required placeholder="Selecione aqui sua categoria" ng-model="produtoNovo.idcategoria" md-on-open="carregarProdutoNovoCategoria()" style="min-width: 200px;">
-                        <md-option ng-repeat="categoria in produtoNovo.categorias" ng-value="1">{{ categoria }}</md-option>
-                    </md-select>
-                    <br />
-                    <div layout="row" layout-align="end center">
-                        <md-button class="md-primary">adicionar categoria</md-button>
-                    </div>
-                </md-input-container>
-
+                <div ng-controller="AdmLojaCtrl">
+                    <span class="md-subheader">CATEGORIA</span>
+                    <md-input-container class="md-block">
+                        <md-select name="categoria" required placeholder="Selecione aqui sua categoria" ng-model="dadosProduto.idCategoria" md-on-open="carregaCategoriasProduto()" style="min-width: 200px;">
+                            <md-option ng-repeat="categoria in categoriasDisponiveis" ng-value="categoria.id">{{ categoria.descricao }}</md-option>
+                        </md-select>
+                        <br />
+                        <div layout="row" layout-align="end center">
+                            <md-button class="md-primary" ng-click="cadastroCategoriaDialog()">adicionar categoria</md-button>
+                        </div>
+                    </md-input-container>                    
+                </div>
+                                
                 <!-- PRODUTO.DESCRICAO -->
                 <span class="md-subheader">DESCRIÇÃO</span>
                 <md-input-container class="md-block">
                     <label></label>
-                    <textarea name="descricao" ng-model="produtoNovo.descricao" required columns="1" md-maxlength="1000" rows="10" placeholder="Descreva o produto com máximo de detalhes a disposição como: tamanho, cor, marca, recursos e características únicas."></textarea>
-                    <div ng-messages="produtoNovo.descricao.$error">
-                        <div ng-message="required">This is required</div>
+                    <textarea name="descricao" 
+                              ng-model="dadosProduto.descricao" 
+                              required 
+                              columns="1" 
+                              md-maxlength="1000" 
+                              rows="2" 
+                              placeholder="Descreva o produto com máximo de detalhes a disposição como: tamanho, cor, marca, recursos e características únicas.">
+                    </textarea>
+                    <div ng-messages="produtoNovoForm.descricao.$error">
+                        <div ng-message="required">Descrição é obrigatório</div>
                         <div ng-message="md-maxlength">Texto máximo atingido</div>
                     </div>
-                </md-input-container>
 
+                    <span class="ck-form-input-error">{{ dadosProdutodescricaoCkError }}</span>
+                </md-input-container>
                 <br />
+
+                <span class="text-danger">{{ singleError }}</span>
                 <!-- SALVAR  -->
                 <div layout="column">
                     <md-button class="md-primary md-raised md-button-fullwidth"
-                               ng-click="salvarProduto(produtoNovo)"
+                               ng-click="salvarProduto(dadosProduto)"
                                ng-disabled="produtoNovoForm.$invalid || produtoNovoForm.$pending">
                         <md-icon md-font-icon="material-icons">save</md-icon> SALVAR
                     </md-button>
                 </div>
-
             </div>
+
         </form>
     </div>
 </div>

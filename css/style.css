@@ -55,6 +55,22 @@ body{
 
 
 /*---------------------------*/
+/*   AUXILIAR                */
+/*---------------------------*/
+.text-center{
+    text-align: center;
+}
+
+.text-muted{
+    color: #aaa !important;
+}
+
+.text-danger{
+    color: red;
+}
+
+
+/*---------------------------*/
 /*   TOOLBAR                 */
 /*---------------------------*/
 md-toolbar .logo{
@@ -92,6 +108,16 @@ md-list{
 .sidenav-cataloko-title{
     font-family: Wildcard Condensed !important;
     
+}
+
+/*---------------------------*/
+/*   SUBHEADER               */
+/*---------------------------*/
+.md-subheader{
+    font-family: Roboto Condensed;
+    margin-bottom:10px;
+    font-weight:bold;
+    background-color: rgba(0,0,0,0);
 }
 
 /*---------------------------*/

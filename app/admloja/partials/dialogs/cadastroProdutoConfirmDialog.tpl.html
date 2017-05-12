@@ -1,0 +1,25 @@
+﻿<md-dialog>
+    <form>                
+        <md-dialog-content layout="column" layout-align="center center"class="text-center">
+            <div class="md-dialog-content">                
+                <h3 class="md-display-1">Produto cadastrado com sucesso!</h3>                
+                <br />
+                <md-button class="md-primary md-raised" ng-href="#/loja/{{ dadosNovoProduto.idLoja }}/produto/novo"><m><md-icon md-font-icon="material-icons">add</md-icon> ADICIONAR OUTRO</md-button>
+                <br />
+                <md-button class="md-primary" ng-href="#/loja/{{ dadosNovoProduto.idLoja }}/produto/{{ dadosNovoProduto.id }}/editar"><md-icon md-font-icon="material-icons">trending_up</md-icon> APRIMORAR PRODUTO</md-button>
+                <br />
+                <md-button class="" ng-href="#/loja/{{ dadosNovoProduto.idLoja }}/inicio"><md-icon md-font-icon="material-icons">home</md-icon>VOLTAR PARA HOME</md-button>
+            </div>
+        </md-dialog-content>         
+    </form>
+
+    <style>
+        @media screen and (max-width: 800px) {
+            md-dialog{             
+                width: calc(100vw - 10px);  
+                max-width: 100%;      
+                margin: 0px 5px;
+            }
+        }
+    </style>
+</md-dialog>

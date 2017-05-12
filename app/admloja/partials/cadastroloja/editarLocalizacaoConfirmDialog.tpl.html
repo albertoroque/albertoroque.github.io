@@ -1,0 +1,74 @@
+﻿<md-dialog ng-init="escolherSetorDialogShow = 1" layout="column">
+    <!-- UM -->
+    <form ng-if="escolherSetorDialogShow == 1">
+        <md-dialog-content class="adm-loja-escolhe-setor-dialog">
+            <div class="md-dialog-content">     
+                
+                <div flex="100">                                        
+                    <div style='overflow:hidden;height:440px;width:100%;'> 
+                        <div id="gmap_canvas" style='height:440px;width:100%;' ng-init="renderizarMapa()"></div>
+                        <div><small><a href='http://embedgooglemaps.com'>embed google map</a></small></div>
+                        <div><small><a href='http://proxysitereviews.com/instantproxies/'>instant proxies</a></small></div>
+                    </div>                    
+                </div>  
+                
+            </div>
+        </md-dialog-content>
+        <md-dialog-actions layout="row">            
+            <md-button class="md-primary md-raised" ng-click="salvarSetor()">
+                CONFIRMAR E SALVAR LOCAL
+            </md-button>
+        </md-dialog-actions>
+    </form>
+    <!-- DOIS -->
+    <md-dialog-content layout="column" layout-align="center center" ng-if="escolherSetorDialogShow == 2" class="text-center">
+        <div class="md-dialog-content " flex>
+            <h1><i class="material-icons">thumb_up</i></h1>
+            <h3 class="md-display-1">Setor cadastrado com sucesso</h3>
+            <br />
+            <md-button class="md-primary" ng-click="hideDialog()">fechar</md-button>
+            <br />                    
+        </div>
+    </md-dialog-content>
+
+    <!-- TRÊS-->
+    <md-dialog-content layout="column" layout-align="center center" ng-if="escolherSetorDialogShow == 3" class="text-center">
+        <div class="md-dialog-content " flex>
+            <h1><i class="material-icons">thumb_down</i></h1>
+            <h3 class="md-display-1">Ops, algo de errado aconteceu</h3>
+            <br />
+            <md-button class="md-primary" ng-click="hideDialog()">tentar mais tarde</md-button>
+            <br />
+        </div>
+    </md-dialog-content>
+
+    <style>      
+                                
+        h1 .material-icons {
+            font-size: 50px;
+            color: #78909C;
+        }
+
+        .no-margintop {
+            margin-top: 0px;
+        }
+
+        #gmap_canvas img {
+            max-width: none !important;
+            background: none !important;
+        }
+        md-dialog{             
+            width: calc(100vw - 10px);  
+            max-width: 100%;      
+            margin: 0px 5px;
+        }
+
+        .md-dialog-content{
+            padding: 5px 0px !important;
+        }
+
+
+        
+    </style>
+
+</md-dialog>

@@ -2,7 +2,7 @@
     <form>
         <md-toolbar>
             <div class="md-toolbar-tools">
-                <h2>Tênis DC Mandy</h2>
+                <h2>{{ previewProduto.nome }}</h2>
                 <span flex></span>
                 <md-button class="md-icon-button" ng-click="hideDialog()">
                     <md-icon class="material-icons" aria-label="Close dialog">close</md-icon>
@@ -19,21 +19,18 @@
                         <md-grid-list class="produto-slide" md-cols="1" md-row-height="430px">
                             <md-grid-tile class="loja-slide--space">                                
                                 <div class="produto-img">
-                                    <div class="produto-img-image" style="background-image:url('http://static.classictennis.com.br/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/d/c/dc-shoes-landau-s-303010-bgm-00.jpg');"></div>
-                                    <div class="produto-img-gallery-vert">
+                                    <div class="produto-img-image" style="background-image:url('{{ previewProduto.fotoPrincipal }}');"></div>
+                                    <div class="produto-img-gallery-vert" ng-if="previewProduto.fotoSecundarias.length > 0">
                                         <div class="produto-img-gallery-table" id="produto-img-gallery-roll">
-                                            <div class="produto-img-gallery-table-btn" style="background-image: url('http://static.classictennis.com.br/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/d/c/dc-shoes-landau-s-303010-bgm-00.jpg')"></div>
-                                            <div class="produto-img-gallery-table-btn" style="background-image: url('http://sandrodiasshop.vteximg.com.br/arquivos/ids/155788-1000-1000/TENIS-DC-SHOES-HEATHROW-PRETO-BRANCO.png')"></div>
-                                            <div class="produto-img-gallery-table-btn" style="background-image: url('http://d3d71ba2asa5oz.cloudfront.net/62000323/images/zz620036j_1.jpg')"></div>
-                                            <div class="produto-img-gallery-table-btn" style="background-image: url('http://www.tactics.com/a/8ki6/9/dc-evan-smith-s-skate-shoes-black.jpg')"></div>
-                                            <div class="produto-img-gallery-table-btn" style="background-image: url('http://www.tactics.com/a/8cyy/2/2.jpg')"></div>
-                                            <div class="produto-img-gallery-table-btn" style="background-image: url('https://s-media-cache-ak0.pinimg.com/originals/35/dd/80/35dd80948b7b9f8f6c2c54988ad1eb81.jpg')"></div>
+                                            <div class="produto-img-gallery-table-btn"
+                                                 ng-repeat="media in previewProduto.fotoSecundarias track by $index"
+                                                 style="background-image: url('{{ media }}')"></div>                                            
                                         </div>
                                     </div>
                                 </div>
                                 <div class="produto-details">
-                                    <h1>Tênis DC Shoes Calibri Master</h1>
-                                    <p>R$ 399,00</p>
+                                    <h1>{{ previewProduto.nome }}</h1>
+                                    <p>R$ {{ previewProduto.preco }}</p>
                                 </div>
                             </md-grid-tile>
                         </md-grid-list>
@@ -44,7 +41,7 @@
                                     DESCRIÇÃO
                                 </span>
                                 <p class="produto-details-descricao-text">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                    {{ previewProduto.descricao }}
                                 </p>
                             </div>
 
@@ -53,9 +50,9 @@
                                     LOCAL DO PRODUTO
                                 </span>
                                 <p class="produto-details-descricao-text">
-                                    Rua Caramba Meu, 24 - Guarulhos SP
+                                    {{ previewProduto.logradouro }}
                                 </p>
-                                <md-button class="md-button md-raised md-primary md-button-fullwidth">
+                                <md-button class="md-button md-raised md-primary md-button-fullwidth" ng-click="irParaLocal(previewProduto.urlmaps)">
                                     Como chegar lá?
                                 </md-button>
                             </div>
@@ -67,7 +64,7 @@
 
         <md-dialog-actions layout="row">            
             <span flex></span>            
-            <md-button class="md-primary md-raised">
+            <md-button class="md-primary md-raised" ng-href="#/loja/{{ previewProduto.idLoja }}/produto/{{ previewProduto.id }}/editar">
                 <md-icon md-font-icon="material-icons">edit</md-icon> editar produto
             </md-button>
         </md-dialog-actions>

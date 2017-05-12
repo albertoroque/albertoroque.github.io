@@ -1,4 +1,4 @@
-angular.module('Proj', [
+ï»¿angular.module('Proj', [
   	'ngRoute',
     'ngMaterial',
     'ngCookies',
@@ -9,8 +9,11 @@ angular.module('Proj', [
     'proj.buscar',
     'proj.erro',
     'proj.admloja',
-    'proj.location'
+    'proj.location',
+    'proj.image'
 ])
+
+.constant("ApiCK", "//localhost:37307/api/")
 
 //-------- LOAGIN INICIAL ---------
 //---------------------------------
@@ -56,10 +59,38 @@ angular.module('Proj', [
 ])
 
 
-.controller('CatalokoCtrl', function ($scope, $rootScope, $mdToast, $mdMedia, $location, $mdDialog, HomeService) {
+//---- AUTH STORE CONTROLE DE SESSAO ------------
+//-----------------------------------------------
+.factory("AuthStore", [
+  "$cookieStore", function ($cookieStore) {
+      var conta = {};
+      return {
+          set: function (conta) {
+              conta = conta;
+              $cookieStore.put("conta", conta);
+          },
+          get: function () {
+              conta = $cookieStore.get("conta");
+              return conta;
+          },
+          getKeypass: function () {
+              conta = $cookieStore.get("conta");
+              return conta.keypass;
+          },
+          clear: function () {
+              conta = {};
+              conta.isLogado = false;
+              $cookieStore.remove("conta");
+          }
+      }
+  }
+])
 
 
-    //----CONTROLE TOPO PÁGINA----------
+.controller('CatalokoCtrl', function ($scope, $rootScope, $window, $mdToast, $mdMedia, $location, $mdDialog, HomeService) {
+
+
+    //----CONTROLE TOPO PÃGINA----------
     //-----------------------------------
     $rootScope.$on("$routeChangeSuccess", function (event, currentRoute, previousRoute) {
         $(".conteudo-principal").animate({ scrollTop: 0 }, 200);
@@ -67,25 +98,36 @@ angular.module('Proj', [
 
     $rootScope.$mdMedia = $mdMedia;
 
-    //------ VOLTAR PÁGINA---------------
+    //------ VOLTAR PÃGINA---------------
     //-----------------------------------
     $rootScope.voltarPagina = function () {
         window.history.back();
     }
 
 
-    //------VER PÁGINA DO PRODUTO ------
+    //------VER PÃGINA DO PRODUTO ------
     //-----------------------------------
     $scope.verLoja = function () {
         window.open('#/loja', '_self');
     }
 
-    //------VER PÁGINA DO PRODUTO ------
+    //------VER PÃGINA DO PRODUTO ------
     //-----------------------------------
     $scope.verProduto = function () {
         window.open('#/produto', '_self');
     }
 
+    //------ IR PARA PÃGINA------
+    //-----------------------------------
+    $rootScope.irPara = function (page) {
+        $location.path(page);
+    }
+
+    //------ IR PARA LOCALIZAÃ‡ÃƒO ------
+    //-----------------------------------
+    $rootScope.irParaLocal = function (url) {
+        $window.open(url, "_blank");
+    }
 
     //--------ABRIR MENU-----------------
     $scope.openMenu = function ($mdOpenMenu, ev) {
@@ -145,31 +187,20 @@ angular.module('Proj', [
 
     }
 
-    //------------------
-    //TOAST
-    //
-    $rootScope.toast = function (conteudo) {
-        var position = {
-            bottom: true,
-            top: false,
-            left: true,
-            right: false
-        };
-        $mdToast.show(
-        $mdToast.simple()
-            .content(conteudo)
-            .position(position)
-            .hideDelay(3000)
-        );
-    };
+    
+    //--------TOAST--------------
+    //---------------------------
+    $rootScope.showToast = function (conteudo) {        
+        $mdToast.showSimple(conteudo);
+    }
 
     //-------------------------
-    // CARREGA NOTÍCIA NA MODAL OU ABRE LINK
+    // CARREGA NOTÃCIA NA MODAL OU ABRE LINK
     //
 
 
     //
-    // CAPTURA O ANO CORRENTE DO SERVIDOR E APRESENTA NO RODAPÉ
+    // CAPTURA O ANO CORRENTE DO SERVIDOR E APRESENTA NO RODAPÃ‰
     //
     $scope.currentYear = (new Date).getFullYear();
 
@@ -188,171 +219,7 @@ angular.module('Proj', [
 })
 
 
-.controller('ImageCtrl', function ($scope, $rootScope, $timeout, $mdSidenav, $log, ImageService) {
 
-
-    var btn, inputFile, processMsg, urlPreview, fileUploaderUrl, token, presentationDefinitionContent, card, maxWidth, maxSize, pathIMAGE;
-
-    //
-    //
-    //
-    $rootScope.initiateFileUpload = function(event) {
-                                               
-        btn = $("#" + event.currentTarget.id);        
-
-        inputFile = $(btn.val());               
-        fileUploaderUrl = btn.attr("data-file-uploader-url");
-        token = btn.attr("data-token");
-
-        //console.log(inputFile, fileUploaderUrl, token);
-                
-        maxWidth = 1280; //px
-        maxSize = 200000; // +- 200kb
-
-        inputFile.change(function (evt) {
-            evt.preventDefault();
-            
-            var files = $(this).get(0).files;
-
-            if (files.length > 0) {
-
-                var imageToUp = files[0];
-
-                imageToUp.virtualPath = URL.createObjectURL(evt.target.files[0]);
-
-                if (imageToUp.size > maxSize) {
-                    resizeImage(imageToUp);
-                } else {
-                   pathIMAGE = uploadImage(imageToUp);
-                }
-                
-                $scope.IMAGE_PATH = pathIMAGE;                
-            }            
-        })
-
-        inputFile.click();
-    }
-
-
-    function resizeImage(imageToUp) {
-        img = new Image();
-
-        img.src = imageToUp.virtualPath;
-        
-        img.onload = function () {
-
-            var canvas = document.createElement('canvas');
-            var engCtx = canvas.getContext('2d');
-
-            var size = 0;
-            var i = 1;
-
-            do {
-                var basewidth = maxWidth / i;
-
-                //guarda proporção da altura em relação a largura/1280
-                var heightProp = ($(img)[0].height / ($(img)[0].width / basewidth));
-
-                canvas.width = basewidth;
-                canvas.height = heightProp;
-
-                engCtx.drawImage(img, 0, 0, canvas.width, canvas.height);
-
-                var imgBase64 = canvas.toDataURL('image/jpeg');
-
-                var fileBlob = dataURItoBlob(imgBase64);
-
-                var size = fileBlob.size;
-
-                i++;
-            }
-            while (size > maxSize)
-            
-            uploadImage(fileBlob);
-            
-        }
-    }
-
-    function dataURItoBlob(dataURI) {
-        // convert base64/URLEncoded data component to raw binary data held in a string
-        var byteString;
-        if (dataURI.split(',')[0].indexOf('base64') >= 0)
-            byteString = atob(dataURI.split(',')[1]);
-        else
-            byteString = unescape(dataURI.split(',')[1]);
-
-        // separate out the mime component
-        var mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
-
-        // write the bytes of the string to a typed array
-        var ia = new Uint8Array(byteString.length);
-        for (var i = 0; i < byteString.length; i++) {
-            ia[i] = byteString.charCodeAt(i);
-        }
-
-        return new Blob([ia], { type: mimeString });
-    }
-
-    function uploadImage(imageToUp) {
-
-        $scope.IMAGE_MSG = "Carregando..";
-
-        //FORM DATA
-        var data = new FormData();
-        data.append("file", imageToUp);
-              
-        fileUploaderUrl = fileUploaderUrl + "?token=" + token;        
-        
-        ImageService.carregarImagem(data, fileUploaderUrl)
-        .then(function (data) {
-            console.log('STATIC PATH', data);
-            $scope.IMAGE_MSG = "";
-            $scope.IMAGE_PATH = data;
-        })
-
-        .catch(function (erro) {
-            console.warn('IMAGE ENGINE', erro);
-        })       
-    }
-})
-
-
-.service('ImageService', function ($http, $q) {
-    return {
-
-        carregarImagem: function (data, urlUpload) {
-
-            var d = $q.defer();
-
-            //AJAX UP IMG
-            $.ajax({
-                type: "POST",
-                url: urlUpload,
-                contentType: false,
-                processData: false,
-                cache: false,
-                data: data, //imagem renderizada
-                success: function (messages) {
-
-                    var str_filename = "";
-
-                    for (i = 0; i < messages.length; i++) {
-                        str_filename = messages[i].Path;
-                    }
-
-                    d.resolve(str_filename);
-                },
-
-                error: function (jqXHR, textStatus, err) {
-                    d.reject(err);
-                }
-            });            
-
-            return d.promise;
-        }
-
-    }
-})
 
 
 

@@ -1,0 +1,169 @@
+﻿<!-- HOME -->
+<div ng-init="carregarEditarLoja()">
+    <div layout="column" ng-init="editarLojaShow = 0">
+        <form name="editarLojaForm">
+            <div class="container" layout-padding>
+
+                <div flex layout="column" layout-wrap>
+                    <div flex layout="row">
+                        <md-button hide-xs ng-href="#/loja/{{  dadosLoja.id }}/inicio">
+                            <md-icon class="material-icons">chevron_left</md-icon> inicio
+                        </md-button>
+                        <md-button hide-gt-xs show-xs class="md-icon-button" ng-href="#/loja/{{  dadosLoja.id }}/inicio">
+                            <md-icon class="material-icons">chevron_left</md-icon>
+                        </md-button>
+                        <md-button ng-disabled="true">
+                            EDITAR LOJA
+                        </md-button>
+                        <span flex> </span>
+                        <md-button class="md-primary" ng-click="salvarEdicaoLoja()">
+                            <md-icon hide-xs class="material-icons">add</md-icon> PRODUTO
+                        </md-button>
+                    </div>
+                </div>
+
+
+                <div flex layout="row" layout-align="start start" style="text-align: left;">
+                    <md-button class="md-icon-button" ng-click="editarLojaShow = 1">
+                        <md-icon md-font-icon="material-icons">store_mall_directory</md-icon>
+                    </md-button>
+                    <md-button class="md-icon-button" ng-click="editarLojaShow = 2">
+                        <md-icon md-font-icon="material-icons">place</md-icon>
+                    </md-button>
+                    <md-button class="md-icon-button" ng-click="editarLojaShow = 3">
+                        <md-icon md-font-icon="material-icons">color_lens</md-icon>
+                    </md-button>
+                </div>
+
+                <div class="editar-loja-space" layout-padding layout="column" data-ng-show="editarLojaShow == 0 || editarLojaShow == 1">
+
+                    <div layout="column" layout-align="center center" ng-controller="AdmLojaCtrl">
+                        <div class="loja-slide-title-image" style="background-image: url('{{ dadosLoja.fotoperfil }}');"></div>
+                        <br />
+                        <md-button ng-click="editarFotoperfilLoja($event)" class="md-raised">Alterar foto</md-button>
+                        <br />
+                    </div>
+
+                    <!-- NOME -->
+                    <md-input-container flex="100">
+                        <label>Nome da loja</label>
+                        <input ng-model="dadosLoja.nome" md-maxlength="50" maxlength="50" required name="nome">
+                        <div ng-messages="editarLojaForm.nome.$error">
+                            <div ng-message="required">Esse campo é obrigatório.</div>
+                            <div ng-message="md-maxlength">Texto máximo atingido</div>
+                        </div>
+                        <span class="ck-form-input-error text-danger">{{ dadosLojanomeCkError }}</span>
+                    </md-input-container>
+
+                    <!-- CNPJ -->
+                    <md-input-container flex="100">
+                        <label>CNPJ</label>
+                        <input ng-model="dadosLoja.cnpj" type="number"maxlength="14" name="cnpj">
+                        <div ng-messages="editarLojaForm.cnpj.$error">
+                            <div ng-message="md-maxlength">Texto máximo atingido</div>
+                        </div>
+                        <span class="ck-form-input-error text-danger">{{ dadosLojacnpjCkError }}</span>
+                    </md-input-container>
+
+                    <!-- TELEFONE -->
+                    <md-input-container flex="100">
+                        <label>Telefone Principal</label>
+                        <input ng-model="dadosLoja.telefone" type="text" md-maxlength="20" maxlength="20" required name="telefone">
+                        <div ng-messages="editarLojaForm.telefone.$error">
+                            <div ng-message="required">Esse campo é obrigatório.</div>
+                            <div ng-message="md-maxlength">Texto máximo atingido</div>
+                        </div>
+                        <span class="ck-form-input-error text-danger">{{ dadosLojatelefoneCkError }}</span>
+                    </md-input-container>
+
+                    <!-- WHATSAPP -->
+                    <md-input-container flex="100">
+                        <label>Whasapp</label>
+                        <input ng-model="dadosLoja.whatsapp" md-maxlength="20" maxlength="20" name="whatsapp">
+                        <div ng-messages="editarLojaForm.whatsapp.$error">
+                            <div ng-message="md-maxlength">Texto máximo atingido</div>
+                        </div>
+                        <span class="ck-form-input-error text-danger">{{ dadosLojawhatsappCkError }}</span>
+                    </md-input-container>
+                    <span class="text-danger">{{ singleError }}</span>
+
+                    <!-- SALVAR  -->
+                    <div layout="column">
+                        <md-button class="md-primary md-raised md-button-fullwidth"
+                                   ng-click="salvarEdicaoLoja()"
+                                   ng-disabled="editarLojaForm.$invalid || editarLojaForm.$pending">
+                            SALVAR
+                        </md-button>
+                    </div>
+                </div>
+
+                <br />
+                <div data-ng-show=" editarLojaShow == 0 || editarLojaShow == 2">
+                    <span class="md-subheader"> LOCALIZAÇÃO </span>
+                    <div class="editar-loja-space" layout-padding layout="column">
+                        <br />                        
+                        <p>Você pode escolher um dos 3 métodos para atualizar sua localização atual! Sua localização é muito importante para a visibilidade da sua loja.</p>
+                        <div layout="row" layout-align="space-between center" layout-padding layout-wrap>
+                            <div flex="30" flex-xs="100" class="editar-loja-localizacao-met" layout="column" layout-align="center center">
+                                <i class="material-icons">edit</i>
+                                <p class="md-body-1">Informe seu número, logradouro, bairro, cidade e estado no formulário!</p>
+                                <md-button class="md-primary" ng-click="editarLocalizaoShow = 1">PREENCHER</md-button>
+                            </div>
+
+                            <div flex="30" flex-xs="100" class="editar-loja-localizacao-met" layout="column" layout-align="center center">
+                                <i class="material-icons">my_location</i>
+                                <p class="md-body-1">Se você estiver na sua loja, ligue seu GPS e vamos lá</p>
+                                <md-button class="md-primary" ng-click="editarLocalizaoShow = 2">COMEÇAR</md-button>
+                            </div>
+
+                            <div flex="30" flex-xs="100" class="editar-loja-localizacao-met" layout="column" layout-align="center center">
+                                <i class="material-icons">short_text</i>
+                                <p class="md-body-1">Informe seu CEP que nós fazemos o resto to trabalho. (Esse método pode ser menos exato)</p>
+                                <md-button class="md-primary" ng-click="editarLocalizaoShow = 3">INFORMAR CEP</md-button>
+                            </div>
+                            <br />
+                        </div>
+
+                        <!-- ENDEREÇO -->
+                        <div ng-if="editarLocalizaoShow == 1">
+                            <ng-include src="'app/admloja/partials/cadastroloja/editarLocalizacaoEndereco.tpl.html'" flex="100" layout="row" layout-align="space-around center" layout-wrap></ng-include>
+                        </div>
+
+                        <!-- GPS -->
+                        <div ng-if="editarLocalizaoShow == 2">                            
+                            <div flex="100" ng-init="editarLocalizaoShowGpsCarregando = 1" class="text-center">
+                                <div flex layout="column" layout-align="center center" ng-if="editarLocalizaoShowGpsCarregando == 1">
+                                    <i class="material-icons" style="font-size: 40px;">location_off</i>
+                                    <p class="md-title">Você deve usar essa função se estiver na LOJA!</p>
+                                    <p class="md-body-1">IMPORTANTE! Não se esqueça de habilitar seu GPS e permitir que o navegar obtenha os dados no começo desse processo.</p>
+                                    <md-button class="md-primary" ng-click="procurarLocalizacaoPorLatLng()">LOCALIZAR LOJA</md-button>
+                                </div>
+                                <div flex layout="column" layout-align="center center" ng-if="editarLocalizaoShowGpsCarregando == 2" ng-init="procurarLocalizacaoPorLatLng()">
+                                    <i class="material-icons" style="font-size: 40px;">location</i>
+                                    <p class="md-title">Procurando...</p>
+                                    <md-button class="md-primary" ng-click="">cancelar</md-button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- CEP -->
+                        <div ng-if="editarLocalizaoShow == 3">
+                            <ng-include src="'app/admloja/partials/cadastroloja/editarLocalizacaoCep.tpl.html'" flex="100" layout="row" layout-align="center center" layout-wrap></ng-include>
+                        </div>
+                    </div>
+                </div>
+
+                <br />
+                <div data-ng-show=" editarLojaShow == 0 || editarLojaShow == 3">
+                    <span class="md-subheader"> TEMA </span>
+                    <div class="editar-loja-space" layout-padding layout="column">
+
+                        <p>LOGO MENOS você poderá trocar o tema e as cores da sua loja para ela ficar com o estilo e identidade que ela merece.</p>
+
+                    </div>
+                </div>
+
+            </div>
+        </form>
+    </div>
+</div>

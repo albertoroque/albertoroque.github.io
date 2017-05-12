@@ -1,0 +1,19 @@
+﻿<md-input-container flex-xs="100" flex="50">
+    <label>CEP sem traço e sem espaços</label>
+    <input ng-model="formLocalizao.cep" placeholder="00000000" maxlength="8" type="text">
+</md-input-container>
+<md-input-container flex-xs="100" flex="50">
+    <label>Número</label>
+    <input ng-model="formLocalizao.numero" type="text">
+</md-input-container>
+
+<div flex="100" layout="column" layout-align="center center">
+    <md-button ng-click="" class="md-primary" layout="row" ng-if="carregandoEndereco">
+        <md-progress-circular md-diameter="20px" md-mode="indeterminate"></md-progress-circular>
+        &nbsp;
+        <span>LOCALIZANDO</span>
+    </md-button>
+    <md-button class="md-primary md-raised" layout="row" ng-if="!carregandoEndereco" ng-click="procurarLocalizacaoPorCep(formLocalizao);">
+        LOCALIZAR
+    </md-button>
+</div>

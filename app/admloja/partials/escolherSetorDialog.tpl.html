@@ -1,20 +1,21 @@
-﻿<md-dialog>
-    <form>                
+﻿<md-dialog ng-init="escolherSetorDialogShow = 1" layout="column">
+    <!-- UM -->
+    <form ng-if="escolherSetorDialogShow == 1">
         <md-dialog-content class="adm-loja-escolhe-setor-dialog">
             <div class="md-dialog-content">
                 <md-input-container class="md-block" style="margin-bottom: 0px;">
                     <md-icon class="material-icons">search</md-icon>
                     <label>Digite o setor da sua loja</label>
-                    <input required ng-model="setorSearch">
+                    <input ng-model="setorSearch">
                 </md-input-container>
 
-                <div flex layout="row" layout-align="start center" layout-wrap layout-padding style="max-width: 400px;">
+                <div flex layout="row" layout-align="start center" layout-wrap>
                     <!-- repeat SETOR -->
                     <div ng-repeat="setor in setoresDisponiveis | filter:setorSearch" flex="100" layout="row" layout-align="start center">
-                        <md-button class="md-icon-button md-raised md-primary" ng-click="escolherSetor(setor);">
+                        <md-button class="md-icon-button md-raised md-primary" ng-click="escolherSetor(setor)">
                             <md-icon class="material-icons">check</md-icon>
                         </md-button>
-                        <p flex style="text-transform: uppercase;">{{ setor }}</p>
+                        <p flex style="text-transform: uppercase;">{{ setor.titulo }}</p>
                     </div>
                 </div>
 
@@ -25,14 +26,57 @@
                 <span class="md-subheader">Observação</span>
                 <p>Você pode editar sua loja novamente na área de dados da loja.</p>
             </div>
-        </md-dialog-content>       
+        </md-dialog-content>
         <md-dialog-actions layout="row">
             <span flex ng-if="setorEscolhido != null">
                 Você escolheu <code class="adm-loja-escolhe-setor-escolhido">{{ setorEscolhido }}</code>
             </span>
-            <md-button class="md-primary md-raised" ng-if="setorEscolhido != null">
+            <md-button class="md-primary md-raised" ng-if="setorEscolhido != null" ng-click="salvarSetor()">
                 <md-icon md-font-icon="material-icons">save</md-icon> salvar e sair
             </md-button>
         </md-dialog-actions>
     </form>
+    <!-- DOIS -->
+    <md-dialog-content layout="column" layout-align="center center" ng-if="escolherSetorDialogShow == 2" class="text-center">
+        <div class="md-dialog-content " flex>
+            <h1><i class="material-icons">thumb_up</i></h1>
+            <h3 class="md-display-1">Setor cadastrado com sucesso</h3>
+            <br />
+            <md-button class="md-primary" ng-click="hideDialog()">fechar</md-button>
+            <br />                    
+        </div>
+    </md-dialog-content>
+
+    <!-- TRÊS-->
+    <md-dialog-content layout="column" layout-align="center center" ng-if="escolherSetorDialogShow == 3" class="text-center">
+        <div class="md-dialog-content " flex>
+            <h1><i class="material-icons">thumb_down</i></h1>
+            <h3 class="md-display-1">Ops, algo de errado aconteceu</h3>
+            <br />
+            <md-button class="md-primary" ng-click="hideDialog()">tentar mais tarde</md-button>
+            <br />
+        </div>
+    </md-dialog-content>
+
+    <style>      
+                                
+        h1 .material-icons {
+            font-size: 50px;
+            color: #78909C;
+        }
+
+        .no-margintop {
+            margin-top: 0px;
+        }
+
+
+        @media screen and (max-width: 800px) {
+            md-dialog{             
+                width: calc(100vw - 10px);  
+                max-width: 100%;      
+                margin: 0px 5px;
+            }
+        }
+    </style>
+
 </md-dialog>

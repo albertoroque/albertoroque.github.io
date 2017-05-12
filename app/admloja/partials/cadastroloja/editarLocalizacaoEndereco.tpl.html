@@ -1,0 +1,29 @@
+﻿<md-input-container flex="75" flex-xs="100">
+    <label>Logradouro </label>
+    <input ng-model="formLocalizao.logradouro" placeholder="Rua, Avenida, Rodovia e outros">
+</md-input-container>
+<md-input-container flex="25" flex-xs="100">
+    <label>Nº ou KM</label>
+    <input ng-model="formLocalizao.numero">
+</md-input-container>
+<br />
+<md-input-container flex="50" flex-xs="100">
+    <label>Bairro</label>
+    <input ng-model="formLocalizao.bairro">
+</md-input-container>
+<md-input-container flex="50" flex-xs="100">
+    <label>Cidade</label>
+    <input ng-model="formLocalizao.cidade">
+</md-input-container>
+<div flex="100" layout="column" layout-align="center center">
+    <md-button ng-click="" class="md-primary" layout="row" ng-if="carregandoEndereco">
+        <md-progress-circular md-diameter="20px" md-mode="indeterminate"></md-progress-circular>
+        &nbsp;
+        <span>LOCALIZANDO</span>
+    </md-button>
+    <md-button class="md-primary md-raised" 
+               layout="row" ng-if="!carregandoEndereco" 
+               ng-click="procurarLocalizacaoPorEndereco(formLocalizao, null);">
+        LOCALIZAR
+    </md-button>
+</div> 

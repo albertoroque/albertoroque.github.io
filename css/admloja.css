@@ -3,13 +3,12 @@
 /*   ENTRAR                  */
 /*-------------------------- */
 
-.entrar{
-    text-align:center;
+.entrar{    
 }
 
 .entrar-space{
     min-width: 100px;
-    max-width: 400px;
+    max-width: 500px;
     background-color: white;
     margin: 0 auto;
     min-height: 100px;
@@ -29,9 +28,9 @@
     margin-top: 20px;
 }
 
-.entrar-space-head h2{
-    font-family: Wildcard Condensed;
-    font-size: 22px;
+.entrar-space h2{
+    font-family: Roboto Condensed;
+    margin: 4px;    
 }
 
 .entrar-space md-input-container > md-icon{
@@ -147,3 +146,35 @@
 .adm-loja-categoria-list{
 
 }
+
+
+
+/*---------------------------*/
+/*   EDITAR LOJA             */
+/*---------------------------*/
+
+.editar-loja-space{
+    margin: 10px 10px;
+    border-radius:3px;
+    background-color: white;
+}
+
+.editar-loja-localizacao-met{
+    color: #555;
+    background-color: #f1f1f1;
+    height: 300px;
+    border-radius: 3px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+
+.editar-loja-localizacao-met i{
+    color: #607D8B;
+    font-size: 40px;   
+    padding-top:20px;  
+    margin-bottom:5px;      
+}
+
+
+

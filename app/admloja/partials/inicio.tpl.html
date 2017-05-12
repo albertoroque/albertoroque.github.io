@@ -1,50 +1,47 @@
-﻿<!-- HOME -->
- <div>
-    <div layout="column"> 
-        
+﻿ <div ng-init="carregaLojaInicio()">
+    <md-progress-linear class="" md-mode="indeterminate" ng-if="carregandoInicio"></md-progress-linear>
+    <div layout="column">
         <div class="loja">
             <!-- SLIDE -->
-            <md-grid-list class="loja-slide" md-cols="1" md-row-height="360px">                
+            <md-grid-list class="loja-slide" md-cols="1" md-row-height="360px">
                 <md-grid-tile class="loja-slide--space">
                     <div class="loja-slide-toolbar">
-                        
+
                         <md-button ng-disabled="true" class="md-primary">
                             PAINEL DE GERENCIAMENTO
                         </md-button>
-                                                                                             
-                        <div class="loja-slide-toolbar-right">                               
+
+                        <div class="loja-slide-toolbar-right">
                             <md-button class="md-icon-button" aria-label="Settings" ng-click="">
                                 <md-tooltip md-direction="bottom">Sua avaliação</md-tooltip>
-                                <md-icon md-font-icons="material-icons">stars</md-icon>
-                            </md-button>                                                                               
+                                <md-icon md-font-icons="material-icons">star_rate</md-icon>
+                            </md-button>
                             <md-button class="md-icon-button" aria-label="Settings" ng-click="">
                                 <md-tooltip md-direction="bottom">Pendências Financeiras</md-tooltip>
                                 <md-icon md-font-icons="material-icons">monetization_on</md-icon>
                             </md-button>
-                            <ng-include src="'app/admloja/partials/inicioMenu.tpl.html'"></ng-include>                           
-                        </div>                                               
+                            <ng-include src="'app/admloja/partials/inicioMenu.tpl.html'"></ng-include>
+                        </div>
                     </div>
 
                     <div class="loja-slide-title">
                         <!-- IMAGEM -->
-                        <div class="loja-slide-title-image" style="background-image: url('http://www.encontraguarulhos.com/wp-content/uploads/2015/05/sense_skateshop_streetwear-1433098769.jpg');"></div>
-
-                        <h1>Sense Skatshop</h1>                      
-                        <p> 
-                            100 produtos  
-                            <span style="font-weight:400; padding: 0px 10px;">|</span> 
-                             400 visitantes 
+                        <div class="loja-slide-title-image" style="background-image: url('{{ dadosLoja.fotoperfil }}');"></div>
+                        <h1>{{ dadosLoja.nome }}</h1>
+                        <p>
+                            {{ dadosLoja.totalProdutos }} produtos
                             <span style="font-weight:400; padding: 0px 10px;">|</span>
-                            0 follow
-                        </p> 
-                        <md-button class="md-raised">Editar dados da loja</md-button>
-                    </div>                
+                            {{ dadosLoja.totalVisitas || 0 }} visitas                            
+                        </p>
+                        <md-button class="md-raised" ng-href="#/loja/{{ dadosLoja.id }}/editar">Editar dados da loja</md-button>
+                    </div>
                 </md-grid-tile>
             </md-grid-list>
-            
+
             <div class="container">
 
-                <div class="loja-botao-inicio loja-botao-inicio-full">
+                <!-- AVISOS !!! -->
+                <div class="loja-botao-inicio loja-botao-inicio-full" ng-if="dadosLoja.setor == null">
                     <span style="color: red;"><md-icon class="material-icons" style="color: red; font-size: 35px;">warning</md-icon><br /></span>
                     <br />
                     <p>Você deve escolher um setor para sua loja antes de publicar um produto. </p>
@@ -52,18 +49,16 @@
                         escolher setor
                     </md-button>
                 </div>
-                
-
                 <div flex layout="row" layout-wrap>
                     <div flex="100" flex-xs="100">
                         <div class="loja-botao-inicio loja-botao-inicio-color-medium">
-                            <h1 class="md-display-2">233</h1>
+                            <h1 class="md-display-2">{{ dadosLoja.totalProdutos }}</h1>
                             <p>produtos</p>
-                            <md-button class="md-raised" ng-href="#/loja/1/produto">
+                            <md-button class="md-raised" ng-href="#/loja/ {{ dadosLoja.id }} /produto">
                                 <md-icon class="material-icons">view_comfy</md-icon>
                                 &nbsp; meus produtos
                             </md-button>
-                            <md-button class="md-raised" ng-href="#/loja/1/produto/novo">
+                            <md-button class="md-raised" ng-href="#/loja/ {{ dadosLoja.id }}/produto/novo">
                                 <md-icon class="material-icons">add</md-icon>
                                 &nbsp; adicionar produto
                             </md-button>
@@ -71,21 +66,18 @@
                     </div>
                     <div flex="100" flex-xs="100">
                         <div class="loja-botao-inicio loja-botao-inicio-color-low">
-                            <h1 class="md-display-2">14</h1>
+                            <h1 class="md-display-2">{{ dadosLoja.totalCategorias || 0 }}</h1>
                             <p>categorias</p>
-                            <md-button class="md-raised" ng-href="#/loja/1/categoria">
+                            <md-button class="md-raised" ng-href="#/loja/{{ dadosLoja.id }}/categoria">
                                 <md-icon class="material-icons">settings</md-icon>
                                 &nbsp; gerenciar categorias
                             </md-button>
                         </div>
                     </div>
                 </div>
-            </div>           
-            
-            <!-- BOTOES DE AÇÃO -->
-                                                                       
-        </div>     
+            </div>
+        </div>
     </div>
- </div>
- <!-- END HOME -->
+</div>
+ 
 

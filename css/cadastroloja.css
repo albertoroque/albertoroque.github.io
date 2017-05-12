@@ -1,0 +1,36 @@
+
+/*---------------------------*/
+/*   ENTRAR                  */
+/*-------------------------- */
+
+.cadastro-loja{
+
+}
+
+.cadastro-loja-space{
+    min-width: 100px;
+    max-width: 500px;
+    background-color: white;
+    margin: 0 auto;
+    min-height: 100px;
+    border-radius: 3px;
+    padding: 25px 20px;
+    margin-top: 50px;
+}
+
+.cadastro-loja-space-head{    
+    height:40px; 
+    background-color: #607D8B; 
+    max-width: 400px; 
+    margin: 0 auto; 
+    padding: 25px 20px;
+    margin-bottom: 3px;
+    color: white;
+    text-align: left;
+    margin-top: 20px;
+}
+
+.cadastro-loja h2{
+    font-family: Roboto Condensed;    
+}
+

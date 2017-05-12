@@ -5,21 +5,21 @@
                       
             <div class="container">
 
-                <div class="adm-loja-cabecalho" flex layout="row" layout-align="start start" layout-wrap>
-                    <div flex="100" layout="row">                        
+                <div class="adm-loja-cabecalho" flex layout="column" layout-wrap>
+                    <div flex layout="row">                        
                         <md-button ng-href="#/loja/1/inicio">
                             <md-icon class="material-icons">chevron_left</md-icon> inicio
                         </md-button>                        
                     </div>
                     
-                    <div layout="row" flex="100" style="height:30px"></div>
+                    <br />
                     
-                    <div flex="100" layout-padding style="text-align:center;">
+                    <div layout-padding class="text-center" flex layout="column" layout-align="center center">
                         <span class="adm-loja-cabecalho-title">PRODUTOS </span>
-                        <p>12 cadastrados</p>
+                        <p>{{ listaProdutos.length }} cadastrados</p>
                     </div>
                     
-                    <div flex ng-init="filterProdutos = 0">
+                    <div flex="100" ng-init="filterProdutos = 0">
                         <div flex layout="row" layout-align="start center">
                             <md-button class="md-icon-button" ng-click="filterProdutos = 1">                                
                                 <md-icon class="material-icons">filter_list</md-icon>
@@ -32,7 +32,7 @@
                             </md-button>
                         </div>
                         <div flex="100" layout-padding>
-                            <md-input-container class="md-block" ng-show="filterProdutos == 2">
+                            <md-input-container class="md-block" ng-show="filterProdutos == 2" flex="100">
                                 <label>Digite o título do produto</label>
                                 <input name="searchProdutosInputShowTermo" ng-model="termoPesquisaProdutos" ng-change="filtarProdutosTexto(termoPesquisaProdutos)" />
                             </md-input-container>
@@ -58,32 +58,36 @@
 
                 <br />
 
-                <md-list flex class="md-whiteframe-1dp">     
-                    
-                    <!-- REPEAT Produtos -->                                  
-                    <md-list-item class="md-2-line" ng-click="previewProdutoDialog($event, 1)">
-                        <img ng-src="http://static.classictennis.com.br/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/d/c/dc-shoes-landau-s-303010-bgm-00.jpg"
+                <div layout="column" layout-align="center center" ng-if="carregandoListaProdutos">
+                    <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+                </div>
+
+                <md-list flex class="md-whiteframe-1dp" ng-if="!carregandoListaProdutos">
+
+                    <!-- REPEAT Produtos -->
+                    <md-list-item class="md-2-line" ng-repeat="prod in listaProdutos" ng-click="previewProdutoDialog($event, prod.id)">
+                        <img ng-src="{{ prod.fotoPrincipal }}"
                              class="md-avatar"
-                             style="margin: 0 auto; border-radius: 2px; height: 72px;width: auto; display: block; margin-right: 5px;" />
+                             style="margin: 0 auto; border-radius: 2px; max-width:72px; height: 72px;width: auto; display: block; margin-right: 5px;" />
                         <div class="md-list-item-text" style="min-width: 0px; overflow: hidden;">
-                            <h3 hide-xs show-gt-xs style="min-width: 0px;">DC Mandy Overboard</h3>
-                            <p hide-gt-xs style="min-width: 0px;">DC Mandy Overboard</p>
-                            <p style="font-family:'Roboto Condensed'">TÊNIS</p>
+                            <h3 hide-xs show-gt-xs style="min-width: 0px;">{{ prod.nome }}</h3>
+                            <p hide-gt-xs style="min-width: 0px;">{{ prod.nome }}</p>
+                            <p style="font-family:'Roboto Condensed'; text-transform: uppercase;">{{ prod.descricaoCategoria }}</p>
                         </div>
-                        <div layout="row">                            
+                        <div layout="row">
                             <md-menu>
                                 <md-button ng-click="$mdOpenMenu($event)" class="md-icon-button">
-                                    <md-icon class="material-icons" >more_vert</md-icon>
+                                    <md-icon class="material-icons">more_vert</md-icon>
                                 </md-button>
                                 <md-menu-content>
                                     <md-menu-item>
-                                        <md-button ng-click="editarProduto(1)"><md-icon class="material-icons">edit</md-icon> Editar</md-button>
+                                        <md-button ng-href="#/loja/{{ prod.idLoja }}/produto/{{ prod.id }}/editar"><md-icon class="material-icons">edit</md-icon> Editar</md-button>
                                     </md-menu-item>
                                     <md-menu-item>
                                         <md-button ng-click="editarProduto(1)"><md-icon class="material-icons">visibility_off</md-icon> Desativar</md-button>
                                     </md-menu-item>
                                     <md-menu-item>
-                                        <md-button ng-click=""><md-icon class="material-icons">arrow_upward</md-icon> Subir na fila</md-button>                                        
+                                        <md-button ng-click=""><md-icon class="material-icons">arrow_upward</md-icon> Subir na fila</md-button>
                                     </md-menu-item>
                                     <md-menu-item>
                                         <md-button ng-click=""><md-icon class="material-icons">arrow_downward</md-icon> Descer na fila</md-button>
