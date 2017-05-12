@@ -45,7 +45,7 @@
                 <!-- CATEGORIAS -->
                 <div flex class="ranking-category">
                     <div class="ranking-category-table" id="ranking-category-mousewheel">
-                        <span class="ranking-category-table-btn"><i class="fa fa-search"></i></span>
+                        <span class="ranking-category-table-btn"><i class="material-icons" style="font-size:inherit; display: block;">search</i></span>
                         <span class="ranking-category-table-btn">TÊNIS</span>
                         <span class="ranking-category-table-btn">CAMISETAS</span>
                         <span class="ranking-category-table-btn">ROLAMENTOS</span>
@@ -75,11 +75,24 @@
                         <span class="ranking-category-table-btn">SHAPES</span>                        
                         <span class="ranking-category-table-btn">SHAPES</span>                        
                     </div>
-                    <script>
-                        $("#ranking-category-mousewheel").mousewheel(function (e, delta) {
-                            $(this).scrollLeft(this.scrollLeft + (-delta * 40));
-                            e.preventDefault();
-                        });
+                    <script hide-xs>
+
+                        var os = {
+                            android: navigator.userAgent.match(/Android/i),
+                            ios: navigator.userAgent.match(/iPhone|iPad|iPod/i)
+                        };
+
+                        //mobile
+                        if (os.android || os.ios) {
+                            console.log('ROLL ON MOBILE');
+                        } else {
+
+                            console.log('MOUSE ON DESK');
+                            $("#ranking-category-mousewheel").mousewheel(function (e, delta) {
+                                $(this).scrollLeft(this.scrollLeft + (-delta * 40));
+                                e.preventDefault();
+                            });
+                        }                       
                     </script>
                 </div>
 
