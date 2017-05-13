@@ -139,6 +139,12 @@
         $mdDialog.hide();
     }
 
+    //-------- RECARREGA PÁGINA -----------
+    $rootScope.recarregarPagina = function () {
+        console.log('RECARREGAR');
+        window.location.reload();
+    }
+
     //------------------------------------
     //OPEN APP PAGE
     //

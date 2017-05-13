@@ -534,15 +534,19 @@ angular.module('proj.admloja', [])
             })
     }
 
-    // 
+    // CARREGA DADOS DA LOJA PARA EDIÇÃO
     //
     $scope.carregarEditarLoja = function(){
 
+        // loading da página
         $scope.carregandoEditarLoja = true;
 
         $scope.carregandoEndereco = false;
 
         $scope.editarLocalizaoShow = 0;
+
+        // loading da procura automatica da localizacao
+        $scope.carregandoLocalizacaoShow = false;
 
         var idloja = $routeParams.idloja;
 
@@ -553,22 +557,21 @@ angular.module('proj.admloja', [])
 
             $scope.dadosLoja = dadosloja;
             
-            $scope.carregandoInicio = false;
+            $scope.carregandoEditarLoja = false;         
         })
         .catch(function (result) {                        
             console.log(result);
-            $scope.carregandoInicio = false;
+            $scope.carregandoEditarLoja = false;
         })
 
     }
+
 
     // SALVA DADOS DA LOJA 
     // Obs: passar todos os dados disponíveis da loja nessa função
     //
     $scope.salvarEdicaoLoja = function () {
-        
-        //delete myObject.regex;
-
+                
         AdmLojaService.editarLoja(AuthStore.get().idloja, $scope.dadosLoja)
         .then(function (result) {
             console.log(result);
@@ -594,8 +597,28 @@ angular.module('proj.admloja', [])
            
         })
 
-    }    
+    }
 
+    // SALVA NOVA LOCALIZACAO     
+    //
+    $scope.salvarLojaLocalizao = function () {
+        
+        $scope.buttonLoadingSalvarLojaLocalizao = true;
+
+        AdmLojaService.editarLojaLocalizacao(AuthStore.get().idloja, $scope.dadosLocal)
+        .then(function (result) {
+            console.log(result);            
+            $scope.editarLojaConfirmDialogShow = 2;
+            $scope.buttonLoadingSalvarLojaLocalizao = false;
+            
+        })
+        .catch(function (result) {            
+            console.log(result);
+            $scope.editarLojaConfirmDialogShow = 3;
+            $scope.buttonLoadingSalvarLojaLocalizao = false;
+        })
+
+    }
 
     // ADDRESS
     //
@@ -641,7 +664,6 @@ angular.module('proj.admloja', [])
               console.warn('ERRO CEP DECODER', result);
           })
     }
-
 
     // GPS
     //
@@ -706,38 +728,56 @@ angular.module('proj.admloja', [])
             clickOutsideToClose: true
         })
         .then(function () { });                
-                      
-        //
-        //
-        $scope.renderizarMapa = function () {
-
-            var myOptions = {
-                zoom: 17, center: new google.maps.LatLng($scope.dadosLocal.latitude, $scope.dadosLocal.longitude),
-                    mapTypeId: google.maps.MapTypeId.ROADMAP
-            };
-
-            map = new google.maps.Map(document.getElementById('gmap_canvas'), myOptions);
-
-            marker = new google.maps.Marker({
-                map: map,
-                position: new google.maps.LatLng($scope.dadosLocal.latitude, $scope.dadosLocal.longitude)
-            });
-
-            infowindow = new google.maps.InfoWindow({
-                content: '<strong>Minha loja</strong><br>' + $scope.dadosLocal.logradouro + ', ' + $scope.dadosLocal.numero + ' ' + $scope.dadosLocal.bairro + '<br>'
-            });
-
-            google.maps.event.addListener(marker, 'click', function () {
-                infowindow.open(map, marker);
-            });
-
-            infowindow.open(map, marker);
-
-            google.maps.event.addDomListener(window, 'load');
-        }
+                                      
     }
 
+    // CARREGA MAPA GOOGLE MAPS
     //
+    $scope.renderizarMapa = function (idMap) {
+        
+        if ($scope.dadosLocal == null) {            
+            $scope.dadosLocal = {};            
+            $scope.dadosLocal.latitude = $scope.dadosLoja.latitude;
+            $scope.dadosLocal.longitude = $scope.dadosLoja.longitude;            
+        }
+
+        var myOptions = {
+            zoom: 17,
+            center: new google.maps.LatLng($scope.dadosLocal.latitude, $scope.dadosLocal.longitude),
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+
+        idMap == null || idMap == "" ? idMap = "gmaps_canvas" : true;
+            
+        map = new google.maps.Map(document.getElementById(idMap), myOptions);
+
+        marker = new google.maps.Marker({
+            map: map,
+            position: new google.maps.LatLng($scope.dadosLocal.latitude, $scope.dadosLocal.longitude)
+        });
+
+
+        var mapDescriptionAskContent;
+
+        if ($scope.dadosLocal.logradouro != null && $scope.dadosLocal.bairro != null) {            
+            mapDescriptionAskContent = "?";
+        } else {            
+            mapDescriptionAskContent = "!";
+        }
+
+        infowindow = new google.maps.InfoWindow({
+            content: '<strong>Sua loja está aqui'+ mapDescriptionAskContent +'</strong>'
+        });
+
+        google.maps.event.addListener(marker, 'click', function () {
+            infowindow.open(map, marker);
+        });
+
+        infowindow.open(map, marker);
+
+        google.maps.event.addDomListener(window, 'load');
+    }
+
     //
     //
     $scope.extractLocationData = function (data) {
@@ -747,17 +787,24 @@ angular.module('proj.admloja', [])
         if (data.status == "OK") {
             if (data.results[0]) {
 
+                console.log('========DATA MAPS',data.results[0]);
+
+                $scope.dadosLocal.numero = extractFromAddress(data.results[0].address_components, "street_number", null);
+                $scope.dadosLocal.logradouro = extractFromAddress(data.results[0].address_components, "route", null);
                 $scope.dadosLocal.cidade = extractFromAddress(data.results[0].address_components, "administrative_area_level_2", null);
                 $scope.dadosLocal.bairro = extractFromAddress(data.results[0].address_components, "sublocality_level_1", null);
                 $scope.dadosLocal.estado = extractFromAddress(data.results[0].address_components, "administrative_area_level_1");
                 $scope.dadosLocal.pais = extractFromAddress(data.results[0].address_components, "country", null);
-                $scope.dadosLocal.latitude = data.results[0].geometry.bounds.northeast.lat;
-                $scope.dadosLocal.longitude = data.results[0].geometry.bounds.northeast.lng;
 
-                console.log('-------------EXTRACT FROM JSON');
-
-                console.log(data, $scope.dadosLocal, $scope.dadosLoja);
-
+                if (data.results[0].geometry.bounds != null) {
+                    $scope.dadosLocal.latitude = data.results[0].geometry.bounds.northeast.lat;
+                    $scope.dadosLocal.longitude = data.results[0].geometry.bounds.northeast.lng;
+                }
+                if (data.results[0].geometry.location != null) {
+                    $scope.dadosLocal.latitude = data.results[0].geometry.location.lat;
+                    $scope.dadosLocal.longitude = data.results[0].geometry.location.lng;
+                }
+                                
                 $scope.mostrarPopUpMapaConfirm();
             }
         } else {

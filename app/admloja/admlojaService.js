@@ -114,9 +114,33 @@ angular.module('proj.admloja')
 
 			url = ApiCK + "adm/loja/" + idloja;
 
+		    $http.defaults.headers.common['Authorization'] = AuthStore.getKeypass();
+
 		    $http.put(url, dadosLoja)
 			.success(function (result) {
 			    d.resolve(result);
+			})
+			.error(function (result) {
+			    d.reject(result);
+			});
+
+		    return d.promise;
+
+		},
+
+		editarLojaLocalizacao: function (idloja, dadosLocal) {
+
+		    var d = $q.defer(),
+
+			url = ApiCK + "adm/loja/" + idloja + "/localizacao";
+
+		    $http.defaults.headers.common['Authorization'] = AuthStore.getKeypass();
+
+		    console.log(dadosLocal);
+
+		    $http.put(url, dadosLocal)
+			.success(function (result) {
+			    d.resolve(result); 
 			})
 			.error(function (result) {
 			    d.reject(result);
