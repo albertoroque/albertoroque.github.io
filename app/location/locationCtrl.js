@@ -26,9 +26,9 @@ angular.module('proj.location', [])
 
     $scope.getPermissionLocation = function() {
         
-        if (navigator.geolocation) {
+        if (navigator.geolocation) {            
             console.log('1 - Navigator Geolocation');
-            navigator.geolocation.getCurrentPosition(getLatLong, showError, { enableHighAccuracy: true, timeout: 60000, maximumAge: 0 });
+            navigator.geolocation.getCurrentPosition(getLatLong, showError, { enableHighAccuracy: true, timeout: 60000, maximumAge: 0 });            
             $scope.location = {};            
         } else {
             $scope.localizationDialogPage = 4;            

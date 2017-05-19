@@ -17,9 +17,9 @@
                             EDITAR LOJA
                         </md-button>
                         <span flex> </span>
-                        <md-button class="md-primary" ng-click="salvarEdicaoLoja()">
+                       <!--  <md-button class="md-primary" ng-click="salvarEdicaoLoja()">
                             <md-icon hide-xs class="material-icons">add</md-icon> PRODUTO
-                        </md-button>
+                        </md-button> -->
                     </div>
                 </div>
                 
@@ -93,8 +93,8 @@
                         <div layout="column">
                             <md-button class="md-primary md-raised md-button-fullwidth"
                                        ng-click="salvarEdicaoLoja()"
-                                       ng-disabled="editarLojaForm.$invalid || editarLojaForm.$pending">
-                                SALVAR
+                                       ng-disabled="editarLojaForm.$invalid || editarLojaForm.$pending || salvandoEdicaoLoja">
+                                {{  salvandoEdicaoLoja ? 'SALVANDO...': 'SALVAR' }}
                             </md-button>
                         </div>
                     </div>
@@ -130,49 +130,24 @@
                                 <div flex="30" flex-xs="100" class="editar-loja-localizacao-met" layout="column" layout-align="center center">
                                     <i class="material-icons">edit</i>
                                     <p class="md-body-1">Informe seu número, logradouro, bairro, cidade e estado no formulário!</p>
-                                    <md-button class="md-primary" ng-click="editarLocalizaoShow = 1">PREENCHER</md-button>
+                                    <md-button class="md-primary" ng-click="mostrarPopUpOpcoesLocalizacao(1)">PREENCHER</md-button>
                                 </div>
 
                                 <div flex="30" flex-xs="100" class="editar-loja-localizacao-met" layout="column" layout-align="center center">
                                     <i class="material-icons">my_location</i>
                                     <p class="md-body-1">Se você estiver na sua loja, ligue seu GPS e vamos lá</p>
-                                    <md-button class="md-primary" ng-click="editarLocalizaoShow = 2">COMEÇAR</md-button>
+                                    <md-button class="md-primary" ng-click="mostrarPopUpOpcoesLocalizacao(2)">COMEÇAR</md-button>
                                 </div>
 
                                 <div flex="30" flex-xs="100" class="editar-loja-localizacao-met" layout="column" layout-align="center center">
                                     <i class="material-icons">short_text</i>
                                     <p class="md-body-1">Informe seu CEP que nós fazemos o resto to trabalho. (Esse método pode ser menos exato)</p>
-                                    <md-button class="md-primary" ng-click="editarLocalizaoShow = 3">INFORMAR CEP</md-button>
+                                    <md-button class="md-primary" ng-click="mostrarPopUpOpcoesLocalizacao(3)">INFORMAR CEP</md-button>
                                 </div>
                                 <br />
                             </div>
 
-                            <!-- ENDEREÇO -->
-                            <div ng-if="editarLocalizaoShow == 1">
-                                <ng-include src="'app/admloja/partials/cadastroloja/editarLocalizacaoEndereco.tpl.html'" flex="100" layout="row" layout-align="space-around center" layout-wrap></ng-include>
-                            </div>
-
-                            <!-- GPS -->
-                            <div ng-if="editarLocalizaoShow == 2">
-                                <div flex="100" ng-init="editarLocalizaoShowGpsCarregando = 1" class="text-center">
-                                    <div flex layout="column" layout-align="center center" ng-if="editarLocalizaoShowGpsCarregando == 1">
-                                        <i class="material-icons" style="font-size: 40px;">location_off</i>
-                                        <p class="md-title">Você deve usar essa função se estiver na LOJA!</p>
-                                        <p class="md-body-1">IMPORTANTE! Não se esqueça de habilitar seu GPS e permitir que o navegar obtenha os dados no começo desse processo.</p>
-                                        <md-button class="md-primary" ng-click="procurarLocalizacaoPorLatLng()">LOCALIZAR LOJA</md-button>
-                                    </div>
-                                    <div flex layout="column" layout-align="center center" ng-if="editarLocalizaoShowGpsCarregando == 2" ng-init="procurarLocalizacaoPorLatLng()">
-                                        <i class="material-icons" style="font-size: 40px;">location</i>
-                                        <p class="md-title">Procurando...</p>
-                                        <md-button class="md-primary" ng-click="">cancelar</md-button>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- CEP -->
-                            <div ng-if="editarLocalizaoShow == 3">
-                                <ng-include src="'app/admloja/partials/cadastroloja/editarLocalizacaoCep.tpl.html'" flex="100" layout="row" layout-align="center center" layout-wrap></ng-include>
-                            </div>
+                           
                         </div>
                     </div>
 

@@ -3,7 +3,7 @@
         <md-dialog-content>
             <div class="md-dialog-content">                                
                 <md-input-container class="md-block">
-                    <label>Título da NOVA categoria</label>
+                    <label>Título da nova categoria</label>
                     <input required md-maxlength="20" md-minlength="3" ng-model="dadosCategoria.descricao">  
                     <div ng-messages="novaCategoriaForm.descricao.$error">
                         <div ng-message="required">Esse campo é obrigatório.</div>
@@ -18,11 +18,12 @@
             </div>
         </md-dialog-content>
 
+
         <md-dialog-actions layout="row">             
             <md-button class="md-primary" ng-click="hideDialog()">sair</md-button>              
-            <span flex></span>                       
-            <md-button class="md-primary md-raised" ng-click="salvarCategoria(dadosCategoria)">
-                <md-icon md-font-icon="material-icons">save</md-icon> salvar
+            <span flex></span>                                   
+            <md-button class="md-primary md-raised" ng-click="salvarCategoria(dadosCategoria)" ng-disabled="salvandoCategoria">
+                <md-icon md-font-icon="material-icons">save</md-icon> {{ salvandoCategoria ? "salvando..." : "salvar" }}
             </md-button>           
         </md-dialog-actions>
     </form>

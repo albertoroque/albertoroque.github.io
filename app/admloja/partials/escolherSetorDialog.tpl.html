@@ -9,7 +9,13 @@
                     <input ng-model="setorSearch">
                 </md-input-container>
 
-                <div flex layout="row" layout-align="start center" layout-wrap>
+                <div layout="row" layout="end center" ng-if="carregandoSetoresDialog" flex>
+                    <md-progress-circular md-mode="indeterminate"  md-diameter="20px"></md-progress-circular>
+                    <span>&nbsp;carregando setores...</span>
+                    <br>
+                </div>
+
+                <div flex layout="row" layout-align="start center" layout-wrap style="max-width: 300px;">
                     <!-- repeat SETOR -->
                     <div ng-repeat="setor in setoresDisponiveis | filter:setorSearch" flex="100" layout="row" layout-align="start center">
                         <md-button class="md-icon-button md-raised md-primary" ng-click="escolherSetor(setor)">

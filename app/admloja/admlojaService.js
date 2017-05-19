@@ -48,11 +48,32 @@ angular.module('proj.admloja')
 
         },
 
+        //-------------------------------------------------------------
+        // SERVICE -> PRODUTOS LOJA
+        //-------------------------------------------------------------
 
 		obterProdutosLoja: function (idloja) {
 
 		    var d = $q.defer(),
 			url = ApiCK + "adm/loja/" + idloja + "/produtos";
+		    $http.defaults.headers.common['Authorization'] = AuthStore.getKeypass();
+
+		    $http.get(url)
+			.success(function (result) {
+			    d.resolve(result);
+			})
+			.error(function (result) {
+			    d.reject(result);
+			});
+
+		    return d.promise;
+
+		},
+
+		obterProdutosLojaPorCategoria: function (idloja, idcategoria) {
+
+		    var d = $q.defer(),
+			url = ApiCK + "adm/loja/" + idloja + "/produtos/categoria/" + idcategoria;
 		    $http.defaults.headers.common['Authorization'] = AuthStore.getKeypass();
 
 		    $http.get(url)
@@ -247,8 +268,86 @@ angular.module('proj.admloja')
 		    var d = $q.defer(),
 
 			url = ApiCK + "adm/loja/" + idloja + "/categoria";
+            
+		    $http.defaults.headers.common['Authorization'] = AuthStore.getKeypass();
 
 		    $http.get(url)
+			.success(function (result) {
+			    d.resolve(result);
+			})
+			.error(function (result) {
+			    d.reject(result);
+			});
+
+		    return d.promise;
+
+		},
+
+		obterCategorias: function (idloja) {
+
+		    var d = $q.defer(),
+
+			url = ApiCK + "adm/loja/" + idloja + "/categoria";
+
+		    $http.defaults.headers.common['Authorization'] = AuthStore.getKeypass();
+
+		    $http.get(url)
+			.success(function (result) {
+			    d.resolve(result);
+			})
+			.error(function (result) {
+			    d.reject(result);
+			});
+
+		    return d.promise;
+
+		},
+
+		obterTodasCategorias: function (idloja) {
+
+		    var d = $q.defer(),
+
+			url = ApiCK + "adm/loja/" + idloja + "/categoria/todas";
+
+		    $http.defaults.headers.common['Authorization'] = AuthStore.getKeypass();
+
+		    $http.get(url)
+			.success(function (result) {
+			    d.resolve(result);
+			})
+			.error(function (result) {
+			    d.reject(result);
+			});
+
+		    return d.promise;
+
+		},
+
+		editarCategoria: function (idloja, dadosCategoria) {
+
+		    var d = $q.defer(),
+
+			url = ApiCK + "adm/loja/" + idloja + "/categoria";
+
+		    $http.put(url, dadosCategoria)
+			.success(function (result) {
+			    d.resolve(result);
+			})
+			.error(function (result) {
+			    d.reject(result);
+			});
+
+		    return d.promise;
+
+		},
+
+		desativarCategoria: function (idloja, idcategoria) {
+
+		    var d = $q.defer(),
+
+			url = ApiCK + "adm/loja/" + idloja + "/categoria";
+
+		    $http.delete(url)
 			.success(function (result) {
 			    d.resolve(result);
 			})
@@ -275,6 +374,65 @@ angular.module('proj.admloja')
             $http.defaults.headers.common['Authorization'] = AuthStore.getKeypass();
 
             $http.post(url, dadosProduto)
+			.success(function (result) {
+			    d.resolve(result);
+			})
+			.error(function (result) {
+			    d.reject(result);
+			});
+
+            return d.promise;
+
+        },
+        salvarEdicaoProduto: function (idproduto, dadosProduto) {
+
+            var d = $q.defer(),
+
+			url = ApiCK + "adm/produto/" + idproduto;
+
+            $http.defaults.headers.common['Authorization'] = AuthStore.getKeypass();
+
+            $http.put(url, dadosProduto)
+			.success(function (result) {
+			    d.resolve(result);
+			})
+			.error(function (result) {
+			    d.reject(result);
+			});
+
+            return d.promise;
+
+        },
+
+        salvarMidiaProduto: function (idproduto, dadosMedia) {
+
+            var d = $q.defer(),
+
+			url = ApiCK + "adm/produto/" + idproduto + "/media/add";
+
+            $http.defaults.headers.common['Authorization'] = AuthStore.getKeypass();
+
+            $http.post(url, dadosMedia)
+			.success(function (result) {
+			    d.resolve(result);
+			})
+			.error(function (result) {
+			    d.reject(result);
+			});
+
+            return d.promise;
+
+        },
+
+        excluirMidiaProduto: function (idproduto, idmedia) {
+
+            var d = $q.defer(),
+
+			url = ApiCK + "adm/produto/" + idproduto + "/media/" + idmedia;
+
+            $http.defaults.headers.common['Authorization'] = AuthStore.getKeypass();
+
+            $http.delete(url)
 			.success(function (result) {
 			    d.resolve(result);
 			})

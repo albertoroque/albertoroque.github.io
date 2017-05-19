@@ -41,9 +41,7 @@ angular.module('proj.admloja', [])
         .when('/loja/:idloja/produto/novo', {
             controller: 'CadastroProdutoCtrl',
             templateUrl: 'app/admloja/partials/produtoNovo.tpl.html'
-        })
-
-        
+        })                
 })
 
 
@@ -186,7 +184,9 @@ angular.module('proj.admloja', [])
     // Mostra dialogo para escolha de Setor
     //
     $scope.escolherSetorDialog = function (ev, idloja) {
-              
+        
+        $scope.carregandoSetoresDialog = true;
+
         $mdDialog.show({
             controller: 'AdmLojaCtrl',
             templateUrl: 'app/admloja/partials/escolherSetorDialog.tpl.html',
@@ -201,9 +201,10 @@ angular.module('proj.admloja', [])
         AdmLojaService.obterSetores()
           .then(function (result) {
               $scope.setoresDisponiveis = result;
+              $scope.carregandoSetoresDialog = false;
           })
           .catch(function () {
-
+            $scope.carregandoSetoresDialog = false;
           })
     };
     
@@ -236,9 +237,9 @@ angular.module('proj.admloja', [])
 
     //
     //
-    $scope.opcoesCategoriaDialog = function (ev, idcategoria) {
-
-        $scope.categoria = 'Camisas Importadas';
+    $scope.opcoesCategoriaDialog = function (ev, categoria) {
+        
+        $scope.opcaocategoria = categoria;
 
         $mdDialog.show({
             controller: 'AdmLojaCtrl',
@@ -256,6 +257,8 @@ angular.module('proj.admloja', [])
     //
     $scope.cadastroCategoriaDialog = function (ev, idcategoria) {
         
+        $scope.salvandoCategoria = false;
+
         $mdDialog.show({
             controller: 'AdmLojaCtrl',
             templateUrl: 'app/admloja/partials/dialogs/cadastroCategoriaDialog.tpl.html',
@@ -270,6 +273,25 @@ angular.module('proj.admloja', [])
 
     //
     //
+    $scope.dicaCategoriaDialog = function (ev) {
+        
+        $scope.salvandoCategoria = false;
+        
+        $mdDialog.show({
+            controller: 'AdmLojaCtrl',
+            templateUrl: 'app/admloja/partials/dialogs/dicasCategoriaDialog.tpl.html',
+            parent: angular.element(document.body),
+            scope: $scope,
+            preserveScope: true,
+            targetEvent: ev,
+            clickOutsideToClose: true
+        })
+        .then(function () { }, function () { });     
+    };
+
+
+    //
+    //
     $scope.carregaCategorias = function () {
 
         $scope.categoriasDisponiveis = {};
@@ -280,24 +302,26 @@ angular.module('proj.admloja', [])
         })        
     }
 
+
     //
     //
     $scope.salvarCategoria = function (dadosCategoria) {
 
         console.log(dadosCategoria);
 
+        $scope.salvandoCategoria = true;
+
         AdmLojaService.salvarCategoria(AuthStore.get().idloja, dadosCategoria)
         .then(function (result) {
             console.log(result);
             $scope.hideDialog();
-            $rootScope.showToast(result);
+            $rootScope.showToast(result);            
+            $scope.carregarGerenciaCategoria();
+            $scope.salavandoCategoria = true;
         })
         .catch(function (result) {
-
             console.log(result);
-
             $scope.cadastroCategoriaMsgError = result.Message;
-
             if ($scope.ckErrorsReg == null) {
                 $scope.ckErrorsReg = [];
             } else {
@@ -313,7 +337,57 @@ angular.module('proj.admloja', [])
                     $scope[campo] = result.ModelError[i].erro;
                 }
             }
+            $scope.salavandoCategoria = true;
         })
+    }
+
+
+    //
+    //
+    $scope.editarCategoria = function (dadosCategoria) {
+        console.log(dadosCategoria);
+
+        AdmLojaService.editarCategoria(AuthStore.get().idloja, dadosCategoria)
+        .then(function (result) {
+            console.log(result);
+            $rootScope.showToast(result);
+            $scope.hideDialog();
+            $scope.carregarGerenciaCategoria();
+        })
+        .catch(function (result) {
+            $rootScope.showToast(result);            
+            $scope.hideDialog();
+        })
+    }
+
+    //
+    //
+    $scope.desativarCategoria = function (dadosCategoria) {
+        console.log(dadosCategoria);
+    }
+
+    //
+    //
+    $scope.carregarGerenciaCategoria = function () {
+        $scope.carregandoCategoria = true;
+
+        $scope.idloja = AuthStore.get().idloja;
+
+        AdmLojaService.obterTodasCategorias(AuthStore.get().idloja)
+       .then(function (result) {
+
+           console.log(result);
+
+           $scope.categorias = result.categoriaAtivas;
+
+           $scope.categoriasInativas = result.categoriaInativas;
+           
+           $scope.carregandoCategoria = false;
+       })
+        .catch(function (result) {
+            $scope.carregandoCategoria = false;
+        })
+
     }
 
 
@@ -321,18 +395,21 @@ angular.module('proj.admloja', [])
     // LISTA DE PRODUTOS
     //-------------------------------------------------------------
 
-    //
+    // Carrega produtos ativos da LOJA
     //
     $scope.carregaProdutos = function () {
 
         $scope.carregandoListaProdutos = true;
 
+        $scope.idLoja = $routeParams.idloja;
+
          AdmLojaService.obterProdutosLoja(AuthStore.get().idloja)
             .then(function (result) {
+                console.log(result);
                 $scope.carregandoListaProdutos = false;
                 $scope.listaProdutos = result;
                 $scope.listaProdutos.idLoja = AuthStore.get().idloja;
-                console.log(result);
+                $scope.carregaCategoriasLoja();
             })
             .catch(function (result) {
                 $scope.carregandoListaProdutos = false;
@@ -340,7 +417,7 @@ angular.module('proj.admloja', [])
             })         
     }
 
-    //
+    // Mostra previsualização de produtos
     //
     $scope.previewProdutoDialog = function (ev, idproduto) {
 
@@ -379,26 +456,36 @@ angular.module('proj.admloja', [])
     // Carrega categorias disponíveis
     //
     $scope.carregaCategoriasLoja = function () {
-        $scope.filtroCategorias = ['Categoria 1', 'Categoria 2', 'Categoria 3', 'Categoria 4'];
+
+        AdmLojaService.obterCategorias(AuthStore.get().idloja)
+        .then(function (result) {
+            $scope.categoriasDisponiveis = result;
+        })
+    }  
+
+    // Filtra produtos por categoria informada em um selectbox
+    //
+    $scope.filtarProdutosCategoria = function (idcategoria) {
+
+        $scope.carregandoListaProdutos = true;
+        
+        AdmLojaService.obterProdutosLojaPorCategoria(AuthStore.get().idloja, idcategoria)
+           .then(function (result) {
+               $scope.carregandoListaProdutos = false;
+               $scope.listaProdutos = result;               
+           })
+           .catch(function (result) {
+               $scope.carregandoListaProdutos = false;
+               $scope.errorListaProdutos = result;
+           })
     }
 
+    // Limpa pesquisa e retorna ao estado inicial
     //
-    //
-    $scope.filtarProdutosTexto = function (termoPesquisaProdutos) {
-
-        if (termoPesquisaProdutos.length > 3) {
-            console.log(termoPesquisaProdutos);
-        }
-    }
-
-    //
-    //
-    $scope.filtarProdutosCategoria = function (categoria) {
-        console.log(categoria);
-    }
-
     $scope.filtrarProdutosLimpar = function () {
-        console.log('LIMPEI');
+        $scope.termoPesquisaProdutos = "";
+        $scope.carregaProdutos();
+        $scope.filterProdutos = 0;
     }
 
 
@@ -407,7 +494,7 @@ angular.module('proj.admloja', [])
 })
 
 
-.controller('CadastroProdutoCtrl', function ($scope, $rootScope, $mdDialog, AdmProdutoService, AdmLojaService, AuthStore) {
+.controller('CadastroProdutoCtrl', function ($scope, $rootScope, $mdDialog, $routeParams, AdmProdutoService, AdmLojaService, AuthStore) {
 
     //-------------------------------------------------------------
     // EDITAR PRODUTO
@@ -418,16 +505,151 @@ angular.module('proj.admloja', [])
     //
     $scope.carregarProdutoEditar = function () {
 
-        $scope.produtoEdicao = {};
+        $scope.carregandoProdutoEdicao = true;
 
-        $scope.produtoEdicao.titulo = "Tênis DC Mandy OFERTA";
+        var idproduto = $routeParams.idproduto;
 
-        $scope.produtoEdicao.preco = 190.23;
-
-        $scope.produtoEdicao.descricao = "";
+        console.log(idproduto);
+        
+        AdmLojaService.obterProduto(idproduto)
+        .then(function (result) {
+            console.log(result);
+            result.produto.preco = result.produto.preco.replace(",", ".");
+            $scope.dadosProduto = result.produto;
+            $scope.dadosProduto.linkfoto = $scope.dadosProduto.fotoPrincipal;            
+            console.log($scope.dadosProduto);
+            //carrega categorias para edição
+            $scope.carregaCategoriasProduto();
+            $scope.carregandoProdutoEdicao = false;
+        })
+        .catch(function (result) {
+            $rootScope.showToast(result);
+            $scope.carregandoProdutoEdicao = false;
+        })
 
     }
+
+    // Salva novos dados do produtos
+    //
+    $scope.salvarEdicoesProduto = function (dadosProduto) {
+
+        console.log(dadosProduto);
+
+        $scope.salvandoEdicaoDadosProduto = true;
+
+        AdmProdutoService.salvarEdicaoProduto(dadosProduto.id, dadosProduto)
+        .then(function (result) {                       
+            $scope.salvandoEdicaoDadosProduto = false;
+            console.log(result);
+            $rootScope.showToast(result.message);
+            $rootScope.irPara("/loja/" + result.dadosProduto.idLoja + "/produto");
+        })
+        .catch(function (result) {
+
+            console.log(result);
+
+            $scope.singleError = result.Message;
+            if ($scope.ckErrorsReg == null) {
+                $scope.ckErrorsReg = [];
+            } else {
+                for (var e in $scope.ckErrorsReg) {
+                    $scope[$scope.ckErrorsReg[e]] = "";
+                }
+            }
+
+            if (result.ModelError != null) {
+                for (var i in result.ModelError) {
+                    const campo = result.ModelError[i].campo;
+                    $scope.ckErrorsReg.push(campo);
+                    $scope[campo] = result.ModelError[i].erro;
+                }
+            }
+            console.log(result);
+
+            $scope.salvandoEdicaoDadosProduto = false;
+        })
+    }
     
+    // Dialogo para adicionar imagem ao produto
+    //
+    $scope.adicionarFotoProdutoDialog = function (ev) {
+
+        $scope.novafotoperfil = "/img/defaultProd.png";
+
+        $mdDialog.show({
+            controller: 'CadastroProdutoCtrl',
+            templateUrl: 'app/admloja/partials/dialogs/adicionarFotoProdutoDialog.tpl.html',
+            parent: angular.element(document.body),
+            scope: $scope,
+            preserveScope: true,
+            targetEvent: ev,
+            clickOutsideToClose: true
+        })
+         .then(function () {
+
+         }, function () { });
+    }
+
+    // Salvar foto da imagem
+    //
+    $scope.salvarNovaFotoProduto = function (novafotolink) {
+
+        dadosMedia = {};
+        dadosMedia.link = novafotolink;
+
+        AdmProdutoService.salvarMidiaProduto($scope.dadosProduto.id, dadosMedia)
+        .then( function (result){
+            console.log(result);
+            $scope.hideDialog();
+            $scope.showToast(result);
+            $scope.carregarProdutoEditar();
+        })
+        .catch(function (result) {
+            $scope.adicionarfotoproduto = 3;
+            console.log(result);
+        })        
+    }
+
+    // Excluir foto da imagem
+    //
+    $scope.excluirFotoProduto = function (idproduto, idmedia) {
+        
+        AdmProdutoService.excluirMidiaProduto($scope.dadosProduto.id, idmedia)
+        .then(function (result) {
+            console.log(result);
+            $scope.hideDialog();
+            $scope.showToast(result);
+            $scope.carregarProdutoEditar();
+        })
+        .catch(function (result) {
+            $scope.hideDialog();
+            console.log(result + ".Tente novamente mais tarde.");
+        })
+    }
+
+    // Mostra dialog para excluir uma foto do produto
+    //
+    $scope.excluirFotoProdutoDialog = function (ev, mediaProduto) {
+
+        $scope.mediaProduto = mediaProduto;
+
+        console.log(mediaProduto);
+
+        $mdDialog.show({
+            controller: 'CadastroProdutoCtrl',
+            templateUrl: 'app/admloja/partials/dialogs/excluirFotoProdutoDialog.tpl.html',
+            parent: angular.element(document.body),
+            scope: $scope,
+            preserveScope: true,
+            targetEvent: ev,
+            clickOutsideToClose: true
+        })
+         .then(function () {
+
+         }, function () { });
+    }
+
+
     //-------------------------------------------------------------
     // NOVO PRODUTO
     //-------------------------------------------------------------
@@ -455,7 +677,9 @@ angular.module('proj.admloja', [])
     //
     $scope.salvarProduto = function (dadosProduto) {
 
-        console.log(dadosProduto);
+        //console.log(dadosProduto);
+
+        $scope.salvandoDadosProduto = true;
 
         AdmProdutoService.salvarProduto(AuthStore.get().idloja, dadosProduto)
         .then(function (result) {            
@@ -472,6 +696,8 @@ angular.module('proj.admloja', [])
                 clickOutsideToClose: false
             })
             .then(function () { }, function () { });
+
+            $scope.salvandoDadosProduto = false;
         })
         .catch(function (result) {
             $scope.singleError = result.Message;
@@ -490,9 +716,26 @@ angular.module('proj.admloja', [])
                     $scope[campo] = result.ModelError[i].erro;
                 }
             }
-            console.log(result);            
+            console.log(result);
+
+            $scope.salvandoDadosProduto = false;
         })
-    }    
+    }
+
+    // Mostra regras para cadastro de produtos
+    //
+    $scope.regrasProdutoDialog = function () {
+        $mdDialog.show({
+            controller: 'AdmLojaCtrl',
+            templateUrl: 'app/admloja/partials/dialogs/regrasProdutoDialog.tpl.html',
+            parent: angular.element(document.body),
+            scope: $scope,
+            preserveScope: true,
+            fullscreen: true,
+            clickOutsideToClose: false
+        })
+          .then(function () { }, function () { });
+    }
 
 })
 
@@ -572,10 +815,13 @@ angular.module('proj.admloja', [])
     //
     $scope.salvarEdicaoLoja = function () {
                 
+        $scope.salvandoEdicaoLoja = true;
+
         AdmLojaService.editarLoja(AuthStore.get().idloja, $scope.dadosLoja)
         .then(function (result) {
             console.log(result);
             $rootScope.showToast("Dados da loja estão atualizados");
+            $scope.salvandoEdicaoLoja = false;
         })
         .catch(function (result) {
             $scope.singleError = result.Message;
@@ -594,6 +840,7 @@ angular.module('proj.admloja', [])
                 }
             }
             console.log(result);
+            $scope.salvandoEdicaoLoja = false;
            
         })
 
@@ -624,6 +871,7 @@ angular.module('proj.admloja', [])
     //
     $scope.procurarLocalizacaoPorEndereco = function (dadosEndereco, address) {
 
+        $scope.carregandoEndereco = true;
         if (address == null) {
             address = dadosEndereco.logradouro + ", " + dadosEndereco.numero + " " + dadosEndereco.bairro + " " + dadosEndereco.cidade;
         }
@@ -635,14 +883,17 @@ angular.module('proj.admloja', [])
                 console.log('-------------OBTER POR ADDRESS SUCESSO');
                 console.warn(result);
                 $scope.extractLocationData(result);
+                $scope.carregandoEndereco = false;
             } else {
                 console.log('-------------ERROR DE STATUS AO OBTER ADDRESS');
                 console.warn(result.status);
+                $scope.carregandoEndereco = false;
             }
         })
         .catch(function (result) {
             console.log('-------------ERRO AO OBTER ADDRESS');
             console.log(result);
+            $scope.carregandoEndereco = false;
         })
         
     }
@@ -650,6 +901,8 @@ angular.module('proj.admloja', [])
     // CEP
     //
     $scope.procurarLocalizacaoPorCep = function (dadosCep) {
+
+        $scope.carregandoEndereco = true;
 
         LocationService.decodeCepAPI(dadosCep.cep)
           .then(function (result) {
@@ -662,6 +915,7 @@ angular.module('proj.admloja', [])
           })
           .catch(function (result) {
               console.warn('ERRO CEP DECODER', result);
+              $scope.carregandoEndereco = false;
           })
     }
 
@@ -673,8 +927,7 @@ angular.module('proj.admloja', [])
 
         $scope.editarLocalizaoShowGpsCarregando = 2;
 
-        if (navigator.geolocation) {
-            
+        if (navigator.geolocation) {            
             navigator.geolocation.getCurrentPosition(getLatLong, showError, { enableHighAccuracy: true, timeout: 60000, maximumAge: 0 });            
         } else {
             console.log('------------ ERRO AO CHAMAR NAVIGATOR GEOLOCATION');
@@ -713,6 +966,26 @@ angular.module('proj.admloja', [])
             }
         }
 
+    }
+
+    // Mostra opção de preenchimento de dados de localização
+    //
+    $scope.mostrarPopUpOpcoesLocalizacao = function (opcaolocalizacao) {
+
+        console.log(opcaolocalizacao);
+                  
+        $scope.editarLocalizaoShow = opcaolocalizacao;
+        $mdDialog.show({
+            controller: 'LocationCtrl',
+            templateUrl: 'app/admloja/partials/cadastroloja/editarLocalizacaoOptionsDialog.tpl.html',
+            parent: angular.element(document.body),
+            scope: $scope,
+            preserveScope: true,                    
+            clickOutsideToClose: true,
+            fullscreen: true
+        })
+        .then(function () { });                
+                                      
     }
 
     // CONFIRMA DADOS NO GOOGLE MAPS PODENDO SALVAR
@@ -787,14 +1060,14 @@ angular.module('proj.admloja', [])
         if (data.status == "OK") {
             if (data.results[0]) {
 
-                console.log('========DATA MAPS',data.results[0]);
+                //console.log('========DATA MAPS',data.results[0]);
 
                 $scope.dadosLocal.numero = extractFromAddress(data.results[0].address_components, "street_number", null);
                 $scope.dadosLocal.logradouro = extractFromAddress(data.results[0].address_components, "route", null);
                 $scope.dadosLocal.cidade = extractFromAddress(data.results[0].address_components, "administrative_area_level_2", null);
                 $scope.dadosLocal.bairro = extractFromAddress(data.results[0].address_components, "sublocality_level_1", null);
-                $scope.dadosLocal.estado = extractFromAddress(data.results[0].address_components, "administrative_area_level_1");
-                $scope.dadosLocal.pais = extractFromAddress(data.results[0].address_components, "country", null);
+                $scope.dadosLocal.estado = extractFromAddress(data.results[0].address_components, "administrative_area_level_1", null);
+                $scope.dadosLocal.pais = extractFromAddress(data.results[0].address_components, "country", null);                
 
                 if (data.results[0].geometry.bounds != null) {
                     $scope.dadosLocal.latitude = data.results[0].geometry.bounds.northeast.lat;
@@ -804,7 +1077,9 @@ angular.module('proj.admloja', [])
                     $scope.dadosLocal.latitude = data.results[0].geometry.location.lat;
                     $scope.dadosLocal.longitude = data.results[0].geometry.location.lng;
                 }
-                                
+                
+                console.log("======== DATA EXTRACT FROM MAPS", $scope.dadosLocal);
+
                 $scope.mostrarPopUpMapaConfirm();
             }
         } else {

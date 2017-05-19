@@ -5,9 +5,7 @@ angular.module('proj.location')
       
         decodeGoogleMapsAPI: function (latlong) {
 
-            var d = $q.defer(),
-
-			url = "//maps.googleapis.com/maps/api/geocode/json?latlng=" + latlong;
+            var d = $q.defer(), url = "http://maps.googleapis.com/maps/api/geocode/json?latlng=" + latlong;
 
             delete $http.defaults.headers.common['Authorization'];
 

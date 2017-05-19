@@ -15,15 +15,10 @@
     <label>Cidade</label>
     <input ng-model="formLocalizao.cidade">
 </md-input-container>
-<div flex="100" layout="column" layout-align="center center">
-    <md-button ng-click="" class="md-primary" layout="row" ng-if="carregandoEndereco">
-        <md-progress-circular md-diameter="20px" md-mode="indeterminate"></md-progress-circular>
-        &nbsp;
-        <span>LOCALIZANDO</span>
-    </md-button>
-    <md-button class="md-primary md-raised" 
-               layout="row" ng-if="!carregandoEndereco" 
+<div flex="100" layout="column" layout-align="center center">    
+    <md-button class="md-primary md-raised"                
+               ng-disabled="carregandoEndereco" 
                ng-click="procurarLocalizacaoPorEndereco(formLocalizao, null);">
-        LOCALIZAR
+        {{ carregandoEndereco ? 'LOCALIZANDO...' : 'LOCALIZAR' }}
     </md-button>
 </div> 

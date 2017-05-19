@@ -7,9 +7,9 @@
 
                 <div class="adm-loja-cabecalho" flex layout="column" layout-wrap>
                     <div flex layout="row">                        
-                        <md-button ng-href="#/loja/1/inicio">
+                        <md-button ng-href="#/loja/{{listaProdutos.idLoja}}/inicio">
                             <md-icon class="material-icons">chevron_left</md-icon> inicio
-                        </md-button>                        
+                        </md-button>                                                      
                     </div>
                     
                     <br />
@@ -27,8 +27,12 @@
                             <md-button class="md-icon-button" ng-click="filterProdutos = 2">
                                 <md-icon class="material-icons">search</md-icon>
                             </md-button>
-                            <md-button class="md-icon-button" ng-click="filterProdutos = 0 && filtrarProdutosLimpar()">
+                            <md-button class="md-icon-button" ng-click="filtrarProdutosLimpar()">
                                 <md-icon class="material-icons">clear</md-icon>
+                            </md-button>
+                            <span flex></span>
+                            <md-button class="md-primary" ng-href="#/loja/{{ listaProdutos.idLoja }}/produto/novo">
+                                <md-icon class="material-icons">add</md-icon> produto
                             </md-button>
                         </div>
                         <div flex="100" layout-padding>
@@ -37,11 +41,17 @@
                                 <input name="searchProdutosInputShowTermo" ng-model="termoPesquisaProdutos" ng-change="filtarProdutosTexto(termoPesquisaProdutos)" />
                             </md-input-container>
                             <div flex="100" ng-show="filterProdutos == 1" layout="row" layout-wrap>                               
-                                <div flex="100">
-                                    <md-select placeholder="Filtar por categoria" ng-model="termoCategoriaProdutos" md-on-open="carregaCategoriasLoja()" ng-change="filtarProdutosCategoria(termoCategoriaProdutos)" style="min-width: 200px;">
-                                        <md-option ng-repeat="cat in filtroCategorias" ng-value="cat">{{cat}}</md-option>
-                                        <md-option ng-click="filtrarProdutosLimpar()">Limpar pesquisa</md-option>
-                                    </md-select>   
+                                <div flex="100">                                   
+                                    <md-select name="categoria"
+                                               required
+                                               placeholder="Selecione aqui sua categoria"
+                                               ng-model="filtarProdutoidCategoria"                                               
+                                               ng-change="filtarProdutosCategoria(filtarProdutoidCategoria)"
+                                               style="min-width: 200px;">
+                                        <md-option ng-repeat="categoria in categoriasDisponiveis" 
+                                                   ng-value="categoria.id">{{ categoria.descricao }}
+                                        </md-option>
+                                    </md-select>
                                 </div>  
                                 <div flex="100" layout="row" layout-align="star center" layout-wrap>
                                     <md-button class="md-raised">
@@ -65,10 +75,12 @@
                 <md-list flex class="md-whiteframe-1dp" ng-if="!carregandoListaProdutos">
 
                     <!-- REPEAT Produtos -->
-                    <md-list-item class="md-2-line" ng-repeat="prod in listaProdutos" ng-click="previewProdutoDialog($event, prod.id)">
+                    <md-list-item class="md-2-line" 
+                        ng-repeat="prod in listaProdutos | filter : termoPesquisaProdutos" 
+                        ng-click="previewProdutoDialog($event, prod.id)">
                         <img ng-src="{{ prod.fotoPrincipal || 'img/defaultProd.png' }}"
                              class="md-avatar"
-                             style="margin: 0 auto; border-radius: 2px; max-width:72px; height: 72px;width: auto; display: block; margin-right: 5px;" />
+                             style="margin: 0 auto; border-radius: 2px; width:72px; height: 72px; display: block; margin-right: 5px;" />
                         <div class="md-list-item-text" style="min-width: 0px; overflow: hidden;">
                             <h3 hide-xs show-gt-xs style="min-width: 0px;">{{ prod.nome }}</h3>
                             <p hide-gt-xs style="min-width: 0px;">{{ prod.nome }}</p>

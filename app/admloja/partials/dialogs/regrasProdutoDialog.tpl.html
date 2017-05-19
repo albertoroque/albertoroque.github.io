@@ -1,0 +1,49 @@
+﻿<md-dialog>
+    <form name="novaCategoriaForm">   
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h5 class="md-body-2">Regras para Cadastrar Produtos</h5>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="hideDialog()">
+                    <md-icon md-font-icon="material-icons">close</md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>             
+        <md-dialog-content>
+            <div class="md-dialog-content">                                
+                <p class="md-subhead"><md-icon md-font-icon="material-icons">image</md-icon> &nbsp; IMAGEM</p>
+                <p class="md-body-1"><strong>A</strong> - A foto deve ter preferencialmente o fundo branco com uma boa resolução e com o produto cadastrado bem nítido.</p>    
+                <p class="md-body-1"><strong>B</strong> - A foto que é adicionada na criação é a foto principal que vai ser apresentada para os cliente. Então capriche!</p>
+                <p class="md-body-1 text-muted">Obs: A foto sofre um tratamento antes de ir para o catálogo para garantir o desempenho da sua página.</p>
+                <p class="md-body-1 text-muted">Obs: As fotos secundárias que detalham melhor o produto podem ser adicionadas na tela de edição do produto.</p>
+                <br />
+                <p class="md-subhead"><md-icon md-font-icon="material-icons">title</md-icon> &nbsp; TÍTULO</p>
+                <p class="md-body-1"><strong>A</strong> - Obrigatoriamente o título deve seguir esse padrão.</p>
+                <div layout-padding class="regrasProdutoDialogSection">
+                    <p class=""><strong>Nome do Objeto + Marca + Modelo + Característica rápida</strong></p>
+                    <p class="md-body-1">Por exemplo:</p>
+                    <p class=""><strong>Fone de Ouvido JBL ST50 Branco</strong></p>
+                    <p class="md-body-1">Isso facilita a busca de produtos da loja no aplicativo, então é muito importante.</p>
+                </div>
+                
+                
+            </div>
+        </md-dialog-content>        
+    </form>
+
+    <style>
+        @media screen and (max-width: 800px) {
+            md-dialog{             
+                width: calc(100vw - 10px);  
+                max-width: 100%;      
+                margin: 0px 5px;
+            }
+        }
+
+        .regrasProdutoDialogSection{
+            padding: 5px;
+            border-radius: 5px;
+            background-color: #eee;
+        }
+    </style>
+</md-dialog>

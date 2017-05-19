@@ -3,8 +3,7 @@
     <head>
         <meta charset="utf-8" />
         <meta http-equiv="Content-Language" content="pt-br">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>CATALOKO | Catálogo Online</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">        
         <link href="img/favicon.ico" rel="shortcut icon" type="image/x-icon">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="keywords" content="">
@@ -12,15 +11,16 @@
         <meta name="robots" content="index,follow">
         <meta name="distribution" content="global">
         <meta name="copyright" content="Copyright(c) 2017 CATALOKO">
-        <meta name="description" content="Catálogo Online">
-
-        <!-- OPEN GRAPH -->
-        <!--<meta property="og:image" content="http://lasports.mobi/img/logomini.jpg" />-->
-        <!--<meta property="og:title" content="L.A Sports" />-->
-        <!--<meta property="og:description" content="Sua história filmada" />-->
-
-        <!-- 1 <link rel="stylesheet" href="comp/angular-material/angular-material.min.css" />-->  
          
+        <!-- OPENGRAPH BY NGMETA -->
+        <!-- link https://vinaygopinath.github.io/ngMeta/#/ -->
+        <title ng-bind="ngMeta.title"></title>                
+        <meta property="og:type" content="{{ngMeta['og:type']}}" />
+        <meta name="description" content="{{ngMeta.description}}" />        
+        <meta property="og:image" content="{{ngMeta['og:image']}}" />
+        
+                 
+        <!-- Material CSS --> 
         <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
              
         <link rel="stylesheet" href="css/style.css" />
@@ -29,9 +29,9 @@
         <link rel="stylesheet" href="css/buscarlojas.css" />
         <link rel="stylesheet" href="css/admloja.css" />
         <link rel="stylesheet" href="css/cadastroloja.css" />
-
         <link rel="stylesheet" href="css/slider.css" />
 
+        <!-- Fonts CDN -->
         <link href='//fonts.googleapis.com/css?family=Roboto:200,300,400,500,700' rel='stylesheet' />
         <link href="//fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet" />
 
@@ -47,7 +47,104 @@
     Loagin screen activeted by directive in liga.js
     -->
     <div class="m-app-loading" ng-animate-children>
-        <style type="text/css">div.m-app-loading{position:absolute;z-index:999;width:100%;height:100%;background-color:#607D8B}div.m-app-loading div.animated-container.ng-leave{opacity:1;transition:all linear .2s;-webkit-transition:all linear .2s}div.m-app-loading div.animated-container.ng-leave-active{opacity:0}div.m-app-loading div.messaging{font-family:monospace;left:0;margin-top:-37px;position:absolute;right:0;text-align:center;top:50%}div.m-app-loading h1{font-size:26px;line-height:35px;margin:0 0 20px}div.m-app-loading div.messaging p{font-size:17px;line-height:35px;margin:35px 0 20px;font-family:Arial #000;color:#fff}div.m-app-loading img{-webkit-animation-name:spin;-webkit-animation-duration:4s;-webkit-animation-iteration-count:infinite;-webkit-animation-timing-function:linear;-moz-animation-name:spin;-moz-animation-duration:4s;-moz-animation-iteration-count:infinite;-moz-animation-timing-function:linear;-ms-animation-name:spin;-ms-animation-duration:4s;-ms-animation-iteration-count:infinite;-ms-animation-timing-function:linear;animation-name:spin;animation-duration:4s;animation-iteration-count:infinite;animation-timing-function:linear}@-ms-keyframes spin{from{-ms-transform:rotate(0)}to{-ms-transform:rotate(360deg)}}@-moz-keyframes spin{from{-moz-transform:rotate(0)}to{-moz-transform:rotate(360deg)}}@-webkit-keyframes spin{from{-webkit-transform:rotate(0)}to{-webkit-transform:rotate(360deg)}}@keyframes spin{from{transform:rotate(0)}to{transform:rotate(360deg)}}</style>
+        <style type="text/css">
+            div.m-app-loading {
+                position: absolute;
+                z-index: 999;
+                width: 100%;
+                height: 100%;
+                background-color: #607D8B;
+            }
+
+            div.m-app-loading div.animated-container.ng-leave {
+                opacity: 1;
+                transition: all linear .2s;
+                -webkit-transition: all linear .2s;
+            }
+
+            div.m-app-loading div.animated-container.ng-leave-active {
+                opacity: 0;
+            }
+
+            div.m-app-loading div.messaging {
+                font-family: monospace;
+                left: 0;
+                margin-top: -37px;
+                position: absolute;
+                right: 0;
+                text-align: center;
+                top: 50%;
+            }
+
+            div.m-app-loading h1 {
+                font-size: 26px;
+                line-height: 35px;
+                margin: 0 0 20px;
+            }
+
+            div.m-app-loading div.messaging p {
+                font-size: 17px;
+                line-height: 35px;
+                margin: 35px 0 20px;
+                font-family:'Roboto',Arial,'sans-serif' #000;
+                color: #fff;
+            }
+
+            div.m-app-loading img {
+                -webkit-animation-name: spin;
+                -webkit-animation-duration: 4s;
+                -webkit-animation-iteration-count: infinite;
+                -webkit-animation-timing-function: linear;
+                -moz-animation-name: spin;
+                -moz-animation-duration: 4s;
+                -moz-animation-iteration-count: infinite;
+                -moz-animation-timing-function: linear;
+                -ms-animation-name: spin;
+                -ms-animation-duration: 4s;
+                -ms-animation-iteration-count: infinite;
+                -ms-animation-timing-function: linear;
+                animation-name: spin;
+                animation-duration: 4s;
+                animation-iteration-count: infinite;
+                animation-timing-function: linear;
+            }
+
+            @-ms-keyframes spin {
+                from {
+                    -ms-transform: rotate(0)
+                }
+                to {
+                    -ms-transform: rotate(360deg)
+                }
+            }
+
+            @-moz-keyframes spin {
+                from {
+                    -moz-transform: rotate(0)
+                }
+                to {
+                    -moz-transform: rotate(360deg)
+                }
+            }
+
+            @-webkit-keyframes spin {
+                from {
+                    -webkit-transform: rotate(0)
+                }
+                to {
+                    -webkit-transform: rotate(360deg)
+                }
+            }
+
+            @keyframes spin {
+                from {
+                    transform: rotate(0)
+                }
+                to {
+                    transform: rotate(360deg)
+                }
+            }
+        </style>
         <div class="animated-container">
             <div class="messaging">
                 <img src="img/logo.png" width="70" height="70" />
@@ -79,7 +176,7 @@
     <md-sidenav class="md-sidenav-left md-whiteframe-2dp" md-component-id="left">
         <md-content ng-controller="MenuCtrl">                        
             <md-toolbar class="md-theme-indigo">
-                <h1 class="md-toolbar-tools sidenav-cataloko-title">CATALOKO</h1>
+                <h1 class="md-toolbar-tools sidenav-cataloko-title">CATÁLOKO</h1>
             </md-toolbar>
             <md-content layout-padding>               
                 <md-list>
@@ -115,7 +212,7 @@
     <div class="media media-footer">
         <div class="main-la">
             <div layout="column" layout-align="center center" flex="100">
-                <p class="media-footer-title">Cataloko</p>
+                <p class="media-footer-title">Catáloko</p>
                 <div class="media-footer-icons">
                     <a ng-click="openPageApp('fb')" target="_blank" style="cursor: pointer;"><svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" width="25px" fill="#e6e6e6" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414"><path d="M15.117 0H.883C.395 0 0 .395 0 .883v14.234c0 .488.395.883.883.883h7.663V9.804H6.46V7.39h2.086V5.607c0-2.066 1.262-3.19 3.106-3.19.883 0 1.642.064 1.863.094v2.16h-1.28c-1 0-1.195.476-1.195 1.176v1.54h2.39l-.31 2.416h-2.08V16h4.077c.488 0 .883-.395.883-.883V.883C16 .395 15.605 0 15.117 0" fill-rule="nonzero" /></svg></a>
 
@@ -183,8 +280,16 @@
 
     <script src="app/image/imageCtrl.js"></script>
 
+    <!-- ADICIONAIS -->
+
+    <!-- Mouse Wheel for horizontal mouse roll -->
     <script src="comp/jquery.mousewheel/jquery.mousewheel.min.js"></script>    
+    
+    <!-- Google Maps API for renderMap on MarketPanel -->
     <script src="//maps.googleapis.com/maps/api/js?v=3.exp"></script>
+    
+    <!-- ngMeta for Opengraph -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/ng-meta/1.0.0/ngMeta.min.js"></script>
     
 </body>
 </html>

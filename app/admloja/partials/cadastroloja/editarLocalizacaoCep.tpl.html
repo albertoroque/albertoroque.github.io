@@ -7,13 +7,11 @@
     <input ng-model="formLocalizao.numero" type="text">
 </md-input-container>
 
-<div flex="100" layout="column" layout-align="center center">
-    <md-button ng-click="" class="md-primary" layout="row" ng-if="carregandoEndereco">
-        <md-progress-circular md-diameter="20px" md-mode="indeterminate"></md-progress-circular>
-        &nbsp;
-        <span>LOCALIZANDO</span>
-    </md-button>
-    <md-button class="md-primary md-raised" layout="row" ng-if="!carregandoEndereco" ng-click="procurarLocalizacaoPorCep(formLocalizao);">
-        LOCALIZAR
+<div flex="100" layout="column" layout-align="center center">   
+    <md-button 
+        class="md-primary md-raised"     
+        ng-disabled="carregandoEndereco" 
+        ng-click="procurarLocalizacaoPorCep(formLocalizao);">
+        {{ carregandoEndereco ? 'LOCALIZANDO...' : 'LOCALIZAR' }}
     </md-button>
 </div>

@@ -1,0 +1,37 @@
+﻿<md-dialog ng-init="adicionarfotoproduto = 1">
+    <form>
+        <md-dialog-content ng-if="adicionarfotoproduto == 1">
+            <div class="md-dialog-content">
+                <div layout="column">                                        
+                    <div flex layout="column" layout-align="center center" ng-controller="ImageCtrl">
+                        <div class="produto-img" style="height:240px;">
+                            <div class="produto-img-image" style="background-image: url(' {{ mediaProduto.link }} ');"></div>
+                        </div>
+                        <br />                       
+                        <md-button class="md-primary md-raised" ng-click="excluirFotoProduto($scope.dadosProduto.id, mediaProduto.id)">
+                            EXCLUIR
+                        </md-button>                        
+                        <br />
+                        <a ng-click="hideDialog()" class="text-muted">cancelar</a>                        
+                    </div>
+                </div>
+            </div>
+        </md-dialog-content>                     
+    </form>
+
+    <style>        
+        md-dialog {
+            width: calc(50vw - 10px);
+            max-width: 100%;
+            margin: 0px 5px;
+        }           
+
+        @media screen and (max-width: 800px) {
+            md-dialog {
+                width: calc(100vw - 10px);
+                max-width: 100%;
+                margin: 0px 5px;
+            }
+        }
+    </style>
+</md-dialog>

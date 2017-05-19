@@ -4,7 +4,7 @@
             <div class="md-dialog-content">                
                 <h3 class="md-display-1">Produto cadastrado com sucesso!</h3>                
                 <br />
-                <md-button class="md-primary md-raised" ng-href="#/loja/{{ dadosNovoProduto.idLoja }}/produto/novo"><m><md-icon md-font-icon="material-icons">add</md-icon> ADICIONAR OUTRO</md-button>
+                <md-button class="md-primary md-raised" ng-click="recarregarPagina()"><m><md-icon md-font-icon="material-icons">add</md-icon> ADICIONAR OUTRO</md-button>
                 <br />
                 <md-button class="md-primary" ng-href="#/loja/{{ dadosNovoProduto.idLoja }}/produto/{{ dadosNovoProduto.id }}/editar"><md-icon md-font-icon="material-icons">trending_up</md-icon> APRIMORAR PRODUTO</md-button>
                 <br />

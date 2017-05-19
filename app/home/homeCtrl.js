@@ -4,7 +4,13 @@
     $routeProvider
         .when('/home', {
             controller: 'HomeCtrl',
-            templateUrl: 'app/home/partials/home.tpl.html'
+            templateUrl: 'app/home/partials/home.tpl.html',
+            data: {
+                meta: {
+                    'title': 'Catáloko',
+                    'description': 'Sua loja preferida online'
+                }
+            }
         });
 })
 

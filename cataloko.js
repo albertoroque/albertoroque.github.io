@@ -4,6 +4,7 @@
     'ngCookies',
     'ngAnimate',
     'ngMessages',
+    'ngMeta',
     'proj.home',
     'proj.loja',
     'proj.buscar',
@@ -38,11 +39,22 @@
 
 })
 
+
+//---- NG META CONFIG DEFAULTS ------
+//-----------------------------------
+.config(function(ngMetaProvider) { 
+    ngMetaProvider.useTitleSuffix(true);
+    ngMetaProvider.setDefaultTitle('Catáloko');
+    ngMetaProvider.setDefaultTitleSuffix(' | Seu produto perto de você');
+    ngMetaProvider.setDefaultTag('og:image', 'img/logoblue.png');
+})
+
+
 //---- REDIRECT INICIAL ------------
 //-----------------------------------
 .config([
-  '$routeProvider', '$httpProvider',
-  function ($routeProvider, $httpProvider) {
+  '$routeProvider', '$httpProvider', 'ngMetaProvider',
+    function ($routeProvider, $httpProvider, ngMetaProvider) {
 
       $httpProvider.defaults.useXDomain = true;
       delete $httpProvider.defaults.headers.common['X-Requested-With'];
@@ -57,6 +69,12 @@
 
   }
 ])
+
+//---- NG META RUN INIT ------------
+//-----------------------------------
+.run(['ngMeta', function(ngMeta) { 
+    ngMeta.init();
+}])
 
 
 //---- AUTH STORE CONTROLE DE SESSAO ------------

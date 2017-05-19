@@ -1,112 +1,135 @@
 ﻿<!-- HOME -->
 <div ng-init="carregarProdutoEditar()">
     <div layout="column">
+        <form name="produtoEdicao">
+            <div class="produto">
+                <!-- SLIDE -->
+                <md-grid-list class="produto-slide" md-cols="1" md-row-height="730px">
+                    <md-grid-tile class="loja-slide--space">
+                        <div class="loja-slide-toolbar produto-slide-toolbar">
+                            <md-button class="md-button" aria-label="Settings" ng-click="voltarPagina()">
+                                <md-tooltip md-direction="bottom">Ver avaliação</md-tooltip>
+                                <md-icon md-font-icons="material-icons">chevron_left</md-icon> &nbsp;PRODUTOS
+                            </md-button>
+                        </div>
 
-        <div class="produto">
-            <!-- SLIDE -->
-            <md-grid-list class="produto-slide" md-cols="1" md-row-height="630px">
-                <md-grid-tile class="loja-slide--space">
-                    <div class="loja-slide-toolbar produto-slide-toolbar">
-                        <md-button class="md-button" aria-label="Settings" ng-click="voltarPagina()">
-                            <md-tooltip md-direction="bottom">Ver avaliação</md-tooltip>
-                            <md-icon md-font-icons="material-icons">chevron_left</md-icon> &nbsp;PRODUTOS
+                        <!-- CONTROLE DE EDIÇÃO DE IMAGEM -->
+                        <div class="produto-img" style="height:460px;">
+                            <div class="produto-img-image" style="background-image:url('{{ dadosProduto.linkfoto }}');"></div>
+                            <br />
+                            <div flex layout="column" layout-align="center center" ng-controller="ImageCtrl">
+                                <md-button class="md-raised"
+                                           id="buttonfileuploader"
+                                           value="#file_to_upload"
+                                           data-file-uploader-url="//177.55.110.164:9012/api/v1/applications/dfbd894d95bd41f8970b4638033dfba2/fileuploads"
+                                           data-token="dfbd894d95bd41f8970b4638033dfba2"
+                                           ng-click="initiateFileUpload($event)">
+                                    ALTERAR FOTO PRIMÁRIA
+                                </md-button>
+                                {{ IMAGE_MSG }}
+                                <div ng-bind="IMAGE_PATH != null ? dadosProduto.linkfoto = IMAGE_PATH : ''" hide></div>
+                                <input type="file" id="file_to_upload" class="hide" accept="image/*" />
+                            </div>
+
+                            <div flex="100" layout="column" layout-align="center center" style="height: 75px;">
+                                <div class="produto-img-gallery-table" flex style="overflow:hidden; overflow-x: visible; height: 60px;">
+                                    <div class="produto-img-gallery-table-btn"
+                                         ng-repeat="media in dadosProduto.fotoSecundarias track by $index"
+                                         style="background-image: url('{{ media.link }}')"
+                                         ng-click="excluirFotoProdutoDialog($event, media)"></div>
+                                </div>
+                            </div> 
+                            
+                            <div flex="100" layout="column" layout-align="center center">                               
+                                <md-button flex class="md-primary" ng-click="adicionarFotoProdutoDialog($event)"> <md-icon md-font-icon="material-icons">add_to_photos</md-icon>&nbsp;adicionar foto</md-button>
+                            </div>                                                        
+                        </div>                                                
+
+                        <div flex="100" layout="row" layout-align="center center" style="width: 100%;" layout-wrap layout-padding>
+                            <!-- PRODUTO.TITULO -->
+                            <md-input-container flex="100">
+                                <label>Título</label>
+                                <input ng-model="dadosProduto.nome" md-maxlength="45" required name="nome">
+                                <div ng-messages="produtoEdicao.nome.$error">
+                                    <div ng-message="required">Esse campo é obrigatório</div>
+                                    <div ng-message="md-maxlength">Texto máximo atingido</div>
+                                </div>
+                                <span class="ck-form-input-error">{{ dadosProdutonomeCkError }}</span>
+                            </md-input-container>
+                            <!-- PRODUTO.PREÇO -->
+                            <md-input-container flex="100">
+                                <label>Preço (R$)</label>
+                                <input ng-model="dadosProduto.preco" required name="preco">
+                                <div ng-messages="produtoEdicao.preco.$error">                                    
+                                    <div ng-message="required">Esse campo é obrigatório</div>         
+                                </div>
+                                <span class="ck-form-input-error">{{ dadosProdutoprecoCkError }}</span>
+                                <div class="hint" style="color: #aaa;"><small>Obs: separe os decimais com ponto</small></div>
+                            </md-input-container>
+                        </div>
+                    </md-grid-tile>
+                </md-grid-list>
+
+                <div class="container" layout-padding>
+                    <br />
+                    <br />
+                    <!-- PRODUTO.CATEGORIA -->
+                    <div ng-controller="AdmLojaCtrl">
+                        <span class="md-subheader">CATEGORIA</span>
+                        <md-input-container class="md-block">
+                            <md-select name="categoria"
+                                       required
+                                       placeholder="Selecione aqui sua categoria"
+                                       ng-model="dadosProduto.idCategoria"
+                                       style="min-width: 200px;">
+                                <md-option ng-repeat="categoria in categoriasDisponiveis" ng-value="categoria.id">{{ categoria.descricao }}</md-option>
+                            </md-select>
+                            <br />
+                            <div layout="row" layout-align="end center">
+                                <md-button class="md-primary" ng-click="cadastroCategoriaDialog()">adicionar categoria</md-button>
+                            </div>
+                        </md-input-container>
+                    </div>
+                    
+                    <!-- PRODUTO.DESCRICAO -->
+                    <span class="md-subheader">DESCRIÇÃO</span>
+                    <md-input-container class="md-block">
+                        <label></label>
+                        <textarea name="descricao"
+                                  ng-model="dadosProduto.descricao"
+                                  required
+                                  columns="1"
+                                  md-maxlength="1000"
+                                  rows="2"
+                                  placeholder="Descreva o produto com máximo de detalhes a disposição como: tamanho, cor, marca, recursos e características únicas."></textarea>
+                        <div ng-messages="produtoNovoForm.descricao.$error">
+                            <div ng-message="required">Descrição é obrigatório</div>
+                            <div ng-message="md-maxlength">Texto máximo atingido</div>
+                        </div>
+
+                        <span class="ck-form-input-error">{{ dadosProdutodescricaoCkError }}</span>
+                    </md-input-container>
+                   
+                    <br />
+
+                    <span class="text-danger">{{ singleError }}</span>
+                    <!-- SALVAR  -->
+                    <div layout="column">
+                        <md-button class="md-primary md-raised md-button-fullwidth"
+                                   ng-click="salvarEdicoesProduto(dadosProduto)"
+                                   ng-disabled="produtoEdicao.$invalid || produtoEdicao.$pending || salvandoEdicaoDadosProduto">
+                            <md-icon md-font-icon="material-icons">save</md-icon> {{  salvandoEdicaoDadosProduto ? 'SALVANDO...' : 'SALVAR' }}
                         </md-button>
                     </div>
-                    <div class="produto-img">
-                        <div class="produto-img-image" style="background-image:url('http://static.classictennis.com.br/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/d/c/dc-shoes-landau-s-303010-bgm-00.jpg');"></div>
-                        <div flex layout="column" layout-align="center center">
-                            <md-button class="md-raised">EDITAR FOTO PRIMÁRIA</md-button>
-                        </div>
-                    </div>
-                    <!-- PRODUTO.TITULO -->
-                    <!-- PRODUTO.PREÇO -->
-                    <div flex="100" layout="row" layout-align="center center" style="width: 100%" layout-wrap layout-padding>
-                        <md-input-container flex="100">
-                            <label>Título</label>
-                            <input ng-model="produtoEdicao.titulo" md-maxlength="45" maxlength="45" required name="titulo">
-                            <div ng-messages="produtoEdicao.titulo.$error">
-                                <div ng-message="md-maxlength">Texto máximo atingido</div>
-                            </div>
-                        </md-input-container>
-                        <md-input-container flex="100">
-                            <label>Preço (R$)</label>
-                            <input ng-model="produtoEdicao.preco">
-                            <div ng-messages="produtoEdicao.titulo.$error">
-                                <div ng-message="md-maxlength">Texto máximo atingido</div>
-                            </div>
-                            <div class="hint" style="color: #aaa;"><small>Obs: separe os decimais com ponto</small></div>
-                        </md-input-container>
-                    </div>
-                </md-grid-tile>
-            </md-grid-list>
-
-            <div class="container">
-                
-                <br />
-                <!-- PRODUTO.CATEGORIA -->
-                <span class="md-subheader">CATEGORIA</span>
-                <md-input-container class="md-block">
-                    <md-select placeholder="Selecione aqui sua categoria" ng-model="produtoEdicao.idcategoria" md-on-open="carregarProdutoEditarCategoria()" style="min-width: 200px;">
-                        <md-option ng-value="produtoEdicao.categorias" ng-repeat="categoria in produtoEdicao.categorias">{{categoria}}</md-option>
-                    </md-select>                    
-                    <div layout="row" layout-align="end center">
-                        <md-button class="md-primary">adicionar categoria</md-button>
-                    </div>                    
-                </md-input-container>
-
-                <!-- PRODUTO.DESCRICAO -->
-                <span class="md-subheader">DESCRIÇÃO</span>
-                <md-input-container class="md-block">
-                    <label></label>
-                    <textarea ng-model="produtoEdicao.descricao" required columns="1" md-maxlength="1000" rows="10" placeholder="Descreva o produto com máximo de detalhes a disposição como: tamanho, cor, marca, recursos e características únicas."></textarea>
-                    <div ng-messages="produtoEdicao.descricao.$error">
-                        <div ng-message="required">This is required.</div>
-                        <div ng-message="md-maxlength">Texto máximo atingido</div>
-                    </div>
-                </md-input-container>
-
-                <!-- PRODUTO.MEDIAPRODUTO-->
-                <span class="md-subheader">FOTOS SECUNDÁRIAS</span>                
-                <div layout="row" layout-wrap>
-                    
-                    <!-- repeat -->
-                    <md-card flex class="produtoEditar-fotosecundaria-card">
-                        <div class="produtoEditar-fotosecundaria-card-foto" style="background-image: url('http://static.classictennis.com.br/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/d/c/dc-shoes-landau-s-303010-bgm-00.jpg')"></div>                                                       
-                        <md-card-actions layout="row" layout-align="center center">                            
-                            <md-menu>
-                                <md-button ng-click="$mdOpenMenu($event)">  
-                                    <md-icon class="material-icons">more_vert</md-icon>OPÇÃO
-                                </md-button>
-                                <md-menu-content>
-                                    <md-menu-item>
-                                        <md-button ng-click=""> Excluir </md-button>
-                                    </md-menu-item>
-                                    <md-menu-item>
-                                        <md-button ng-click=""> Trocar foto</md-button>
-                                    </md-menu-item>
-                                </md-menu-content>
-                            </md-menu>                            
-                        </md-card-actions>
-                    </md-card>
-
-                    <!-- botão para adicionar imagens -->
-                    <md-card flex class="produtoEditar-fotosecundaria-card" layout="column" layout-align="center center">
-                        <md-button class="md-icon-button">
-                            <md-tooltip>Adicionar imagem</md-tooltip>
-                            <md-icon class="material-icons">add</md-icon>
-                        </md-button>                       
-                    </md-card>                    
                 </div>
-
             </div>
-        </div>
+        </form>     
     </div>
 </div>
 
 <style>
     .md-subheader{
-        background-color: rgba(0,0,0,0);
-        margin-top:50px;
+        background-color: rgba(0,0,0,0);        
     }
 
     .produtoEditar-fotosecundaria-card{
