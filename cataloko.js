@@ -46,6 +46,7 @@
     ngMetaProvider.useTitleSuffix(true);
     ngMetaProvider.setDefaultTitle('Catáloko');
     ngMetaProvider.setDefaultTitleSuffix(' | Seu produto perto de você');
+    ngMetaProvider.setDefaultTag('description', 'Encontre produtos e lojas no seu bairro!');
     ngMetaProvider.setDefaultTag('og:image', 'img/logoblue.png');
 })
 
