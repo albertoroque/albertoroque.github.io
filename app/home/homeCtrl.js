@@ -1,15 +1,14 @@
 ﻿angular.module('proj.home', [])
 
-.config(function ($routeProvider) {
+.config(function ($routeProvider, ngMetaProvider) {
     $routeProvider
         .when('/home', {
             controller: 'HomeCtrl',
             templateUrl: 'app/home/partials/home.tpl.html',
-            data: {
-                meta: {
-                    'title': 'Catáloko',
-                    'description': 'Sua loja preferida online'
-                }
+            meta: {
+                title: 'Catáloko',
+                titleSuffix: ' | Seu produto perto de você',
+                description: 'HOME TESTE Encontre produtos e lojas no seu bairro'
             }
         });
 })
