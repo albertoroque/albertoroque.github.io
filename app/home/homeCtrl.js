@@ -4,23 +4,17 @@
     $routeProvider
         .when('/home', {
             controller: 'HomeCtrl',
-            templateUrl: 'app/home/partials/home.tpl.html',
-            meta: {
-                title: 'Catáloko',
-                titleSuffix: ' | Seu produto perto de você',
-                description: 'HOME TESTE Encontre produtos e lojas no seu bairro'
-            }
+            templateUrl: 'app/home/partials/home.tpl.html',            
         });
 })
 
 
-.controller('HomeCtrl', function ($scope, $rootScope, $location, $mdDialog, HomeService) {
+.controller('HomeCtrl', function ($scope, $rootScope, $location, $mdDialog, ngMeta, HomeService) {
            
     $scope.carregaHome = function(){
-
-    
+        ngMeta.setTitle('Catáloko', '| Home');
+        ngMeta.setTag('og:image', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTHeCK18EjU8dQnKzYMt14-j2gfUYMA_oib8IJy3IMfu0GzPcy');
     }
-
 
     $scope.testarAuth = function () {
 
