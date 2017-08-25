@@ -17,9 +17,9 @@
     'proj.cliente'
 ])
 
-//.constant("ApiCK", "http://177.55.110.164:9058/api/")
+.constant("ApiCK", "http://177.55.110.164:9058/api/")
 //.constant("ApiCK", "http://localhost:37307/api/")
-.constant("ApiCK", "https://service.cataloko.com/api/")
+//.constant("ApiCK", "https://service.cataloko.com/api/")
 
 
 //---- FB ID CONFIG ------------
