@@ -1,0 +1,81 @@
+﻿<md-dialog ng-init="editarLojaConfirmDialogShow = 1" layout="column">
+    <!-- UM -->
+    <form ng-if="editarLojaConfirmDialogShow == 1">
+        <md-dialog-content class="adm-loja-escolhe-setor-dialog">
+            <div class="md-dialog-content">
+                <div flex="100">
+                    <div style='overflow:hidden;height:440px;width:100%;'>
+                        <div id="gmap_canvas_confirm" style='height:440px;width:100%;' ng-init="renderizarMapa('gmap_canvas_confirm')"></div>
+                        <div><small><a href='http://embedgooglemaps.com'>embed google map</a></small></div>
+                        <div><small><a href='http://proxysitereviews.com/instantproxies/'>instant proxies</a></small></div>
+                    </div>
+                </div>
+
+            </div>
+        </md-dialog-content>
+        <md-dialog-actions layout="row">
+            <md-button ng-click="hideDialog()">
+                cancelar
+            </md-button>
+            <span flex></span>
+            <md-progress-circular ng-if="buttonLoadingSalvarLojaLocalizao" md-mode="indeterminate"></md-progress-circular>
+            <md-button class="md-primary md-raised" ng-disabled="buttonLoadingSalvarLojaLocalizao" ng-click="salvarLojaLocalizao()">
+                CONFIRMAR E SALVAR LOCAL
+            </md-button>
+        </md-dialog-actions>
+    </form>
+    <!-- DOIS SUCESSO -->
+    <md-dialog-content layout="column" layout-align="center center" ng-if="editarLojaConfirmDialogShow == 2" class="text-center">
+        <div class="md-dialog-content " flex>
+            <h1><i class="material-icons" style="margin-top:45px;">place</i></h1>
+            <h3 class="md-display-1">Localização atualizada com sucesso</h3>
+            <br />
+            <md-button class="md-primary" ng-click="recarregarPagina()">fechar</md-button>
+            <br />
+            <br />
+        </div>
+    </md-dialog-content>
+
+    <!-- TRES ERRO -->
+    <md-dialog-content layout="column" layout-align="center center" ng-if="editarLojaConfirmDialogShow == 3" class="text-center">
+        <div class="md-dialog-content " flex>
+            <h1><i class="material-icons" style="margin-top:45px;">mood_bad</i></h1>
+            <h3 class="md-display-1">Algo de errado aconteceu ao encotrar sua loja no mapa.</h3>
+            <p>Tente outro método, apesar foi por isso que criamos as três maneiras. :)</p>
+            <br />
+            <md-button class="md-primary" ng-click="hideDialog()">fechar</md-button>
+            <br />
+            <br />
+        </div>
+    </md-dialog-content>
+   
+    <style>      
+                                
+        h1 .material-icons {
+            font-size: 50px;
+            color: #78909C;
+        }
+
+        .no-margintop {
+            margin-top: 0px;
+        }
+
+        #gmap_canvas img {
+            max-width: none !important;
+            background: none !important;
+        }
+        md-dialog{             
+            width: calc(100vw - 10px);  
+            max-width: 100%;      
+            margin: 0px 5px;
+        }
+
+        .md-dialog-content{
+            padding: 0px 0px !important;
+        }
+
+
+        
+    </style>
+    
+</md-dialog>

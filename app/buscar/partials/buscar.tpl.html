@@ -1,0 +1,99 @@
+﻿<div data-ng-init="carregarBusca()">
+    <div layout="column">
+        <div class="buscar">
+            <div class="container">
+                
+                <!-- barra de pesquisa -->
+                <form name="buscar" ng-submit="buscarOnEnter(termo)" class="buscar-input-div" hide-xs show-gt-xs>                    
+                    <md-input-container md-no-float class="md-block" flex>
+                        <md-icon md-font-icons="material-icons">search</md-icon>
+                        <input data-ng-model="termo" type="text" placeholder="Buscar produto ou marca">
+                    </md-input-container>                                                               
+                </form>     
+                
+                <form name="buscar-mobile" ng-submit="buscarOnEnter(termo)" show-xs hide-gt-xs>
+                    <div class="busca-searchbar">
+                        <md-icon md-font-icons="material-icons">search</md-icon>
+                        <input data-ng-model="termo" type="text" placeholder="Buscar produto ou marca" />
+                    </div>
+                </form>                       
+                                              
+                <!-- barra de configuração -->  
+                <div class="buscar-config" layout="row" layout-align="start center">
+                    <p class="md-caption text-muted" data-ng-if="feedbackBusca == 2 && resultadosBusca.dadosBusca.latitude != 0">&nbsp; {{ resultadosBusca.dadosBusca.raiokm }} km - {{ resultadosBusca.totalProdutos }} encontrados</p>
+                    <span flex></span>
+                    <!--<md-button class="md-icon-button" aria-label="Settings" ng-click="configurarPesquisaDialog($event)">
+                        <md-tooltip md-direction="bottom">Configurar pesquisa</md-tooltip>
+                        <md-icon md-font-icons="material-icons">settings</md-icon>
+                    </md-button>-->                                       
+                    <md-button class="" aria-label="Localização" ng-controller="LocationCtrl" ng-click="updateLocation(); watchLocationChange();">
+                        <md-tooltip md-direction="bottom">Configurar pesquisa</md-tooltip>
+                        {{ resultadosBusca.dadosBusca.cidade }} <md-icon md-font-icon="material-icons">keyboard_arrow_down</md-icon>
+                    </md-button>                                         
+                    <!--<md-button class="md-icon-button" aria-label="Settings" ng-click="">
+                        <md-tooltip md-direction="bottom">Compartilhar resultado</md-tooltip>
+                        <md-icon md-font-icons="material-icons">share</md-icon>
+                    </md-button>-->                   
+                </div>
+
+                <!-- PESQUISAS RECENTES -->
+                <div class="buscar-section go-up" data-ng-if="feedbackBusca == 1">
+                    <div ng-if="buscasRecentes != null">
+                        <span class="buscar-section-markup">
+                            BUSCAS ANTERIORES
+                        </span>
+                        <ul class="buscar-anteriores">
+                            <li ng-repeat="b in buscasRecentes" ng-click="buscarOnEnter(b)">{{ b }}</li>                            
+                        </ul>
+                    </div>
+                    <div ng-if="buscasRecentes == null" class="text-center">
+                        <!--<i class="material-icons md-primary" style="font-size: 70px; color: #78909C;">public</i>-->
+                        <h3 class="md-headline" style="margin-bottom:0px;">Encontre produtos perto de você</h3>
+                        <p class="md-body-2 text-muted">Exemplo de busca: Tênis Hocks</p>                        
+                    </div>                   
+                </div>
+
+                <!-- BUSCANDO... -->
+                <div data-ng-if="feedbackBusca == 3" layout="column" layout-align="center center">
+                    <div layout="row" layout-align="start center">
+                        <md-progress-circular class="md-accent" md-diameter="30px"></md-progress-circular>
+                        <p class="md-body-2">&nbsp;&nbsp;Procurando {{ termo }}...</p>
+                    </div>
+                </div>
+
+                <!-- NÃO ENCONTRAMOS PRODUTOS -->
+                <div layout="column" layout-align="center center" class="text-center text-muted" ng-if="feedbackBusca == 4">
+                    <i class="material-icons md-primary" style="font-size: 70px;">mood_bad</i>
+                    <h3 class="md-headline" style="margin-bottom:0px;">Não encontramos {{ termo }}</h3>
+                    <p class="md-body-2 text-muted text-center">Tente aumentar o raio de pesquisa ou procurar em outra cidade</p>
+                    <md-button ng-controller="LocationCtrl" ng-click="updateLocation(); watchLocationChange();" class="md-primary">atualizar localização</md-button>
+                </div>
+
+                <!-- PRODUTOS -->
+                <div class="buscar-section go-up" ng-id="feedbackBusca == 2">
+                    <md-grid-list md-cols="1"
+                                  md-cols-xs="1"
+                                  md-cols-gt-xs="2"
+                                  md-gutter="10px"
+                                  md-row-height="150px">
+
+                        <md-grid-tile class="buscar-product" layout="row" ng-repeat="p in resultadosBusca.listaProdutos" ng-click="verProduto(p.id)">
+                            <div flex="40" >
+                                <div class="buscar-product-img" style="background-image:url('{{ p.linkfoto }}');"></div>
+                            </div>
+                            <div flex="60" layout="row" layout-align="left top">
+                                <div class="buscar-product-description">
+                                    <h2>{{ p.nome }}</h2>
+                                    <p><span><md-icon md-font-icons="material-icons">store_mall_directory</md-icon></span> {{ p.nomeLoja }}</p>
+                                    <p><span><md-icon md-font-icons="material-icons">place</md-icon></span> {{ p.bairro }} </p>
+                                    <h5>{{ p.moeda }} {{ p.preco }}</h5>
+                                </div>
+                            </div>
+                        </md-grid-tile>
+                    </md-grid-list>
+                </div>               
+            </div>
+        </div>
+    </div>
+</div>
+ <!-- END HOME -->

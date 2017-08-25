@@ -1,0 +1,27 @@
+<div layout="row" layout-align="start center" class="perfil-space">
+
+    <div class="perfil-space-circle" style="background-image: url('{{ SESSION_CLI.fotoperfil }}')"></div>
+
+    <div layout="column">
+        <h3 class="md-title" style=" margin-bottom: 0px;margin-left: 10px;">{{ SESSION_CLI.nome }}</h3>
+        <div layout="row">
+            <md-button ng-click="verPerfil()" class="md-primary">
+                ver perfil
+            </md-button>           
+        </div>
+    </div>
+</div>
+<style>
+     .perfil-space-circle {
+        height: 80px;
+        width: 80px;
+        border-radius: 50%;
+        margin: 10px;
+        margin-top: 28px;
+        background-color: #333;
+        background-position: center center;
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+
+</style>

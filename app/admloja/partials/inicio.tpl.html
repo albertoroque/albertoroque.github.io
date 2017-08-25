@@ -1,0 +1,109 @@
+﻿ <div ng-init="carregaLojaInicio()" class="go-up">
+    <md-progress-linear class="" md-mode="indeterminate" ng-if="carregandoInicio"></md-progress-linear>
+    <div layout="column">
+        <div class="loja">
+            <!-- SLIDE -->
+            <md-grid-list class="loja-slide" md-cols="1" md-row-height="460px">
+                <md-grid-tile class="loja-slide--space">
+                    <div class="loja-slide-toolbar">
+
+                        <md-button ng-disabled="true" class="md-primary">
+                            PAINEL DE GERENCIAMENTO
+                        </md-button>
+
+                        <div class="loja-slide-toolbar-right">
+                            <md-button class="md-icon-button" aria-label="Settings" ng-click="">
+                                <md-tooltip md-direction="bottom">Sua avaliação</md-tooltip>
+                                <md-icon md-font-icons="material-icons">star_rate</md-icon>
+                            </md-button>
+                            <md-button class="md-icon-button" aria-label="Settings" ng-click="">
+                                <md-tooltip md-direction="bottom">Pendências Financeiras</md-tooltip>
+                                <md-icon md-font-icons="material-icons">monetization_on</md-icon>
+                            </md-button>
+                            <ng-include src="'app/admloja/partials/inicioMenu.tpl.html'"></ng-include>
+                        </div>
+                    </div>
+
+                    <div class="loja-slide-title">
+                        <!-- IMAGEM -->
+                        <div class="loja-slide-title-image" style="background-image: url('{{ dadosLoja.fotoperfil }}');"></div>
+                        <h1>{{ dadosLoja.nome }}</h1>
+                        <p>
+                            {{ dadosLoja.totalProdutos }} produtos
+                            <span style="font-weight:400; padding: 0px 10px;">|</span>
+                            {{ dadosLoja.totalVisitas || 0 }} visitas
+                            <span style="font-weight:400; padding: 0px 10px;">|</span>
+                            0 seguidores
+                        </p>
+                        <md-button class="md-raised" ng-click="irPara('/loja/'+ dadosLoja.id  +'/editar')">Editar dados da loja</md-button>
+                    </div>
+                    
+                    <br />
+
+                    <div flex layout="row" layout-align>
+                       <div flex="33" layout="column" layout-align="center center">
+                           <md-button ng-disabled="true">
+                               <md-icon md-font-icon="material-icons">email</md-icon>
+                               <p class="text-center" style="line-height:16px;">Campanha por Email</p>
+                           </md-button>
+                       </div>
+                        <div flex="33" layout="column" layout-align="center center">                          
+                            <md-button>
+                                <md-icon md-font-icon="material-icons">live_tv</md-icon>
+                                <p class="text-center" style="line-height:16px;">Publicar Promoção</p>
+                            </md-button>
+                        </div>
+                        <div flex="33" layout="column" layout-align="center center">
+                            <md-button ng-click="irPara('/loja/' + dadosLoja.id + '/produto/novo')">
+                                <md-icon md-font-icon="material-icons">add</md-icon>
+                                <p class="text-center" style="line-height:16px;">Adicionar Produto</p>
+                            </md-button>
+                        </div>
+                    </div>
+                    
+                </md-grid-tile>
+            </md-grid-list>
+
+            <div class="container">
+
+                <!-- AVISOS !!! -->
+                <div class="loja-botao-inicio loja-botao-inicio-full" ng-if="dadosLoja.setor == null">
+                    <span style="color: red;"><md-icon class="material-icons" style="color: red; font-size: 35px;">warning</md-icon><br /></span>
+                    <br />
+                    <p>Você deve escolher um setor para sua loja antes de publicar um produto. </p>
+                    <md-button class="md-raised md-primary" ng-click="escolherSetorDialog($event, 2)">
+                        escolher setor
+                    </md-button>
+                </div>
+                <div flex layout="row" layout-wrap>
+                    <div flex="50" flex-xs="100">
+                        <div class="loja-botao-inicio loja-botao-inicio-color-medium">
+                            <h1 class="md-display-2">{{ dadosLoja.totalProdutos }}</h1>
+                            <p>produtos</p>
+                            <md-button class="md-raised" ng-click="irPara('/loja/' + dadosLoja.id + '/produto')">
+                                <md-icon class="material-icons">view_comfy</md-icon>
+                                &nbsp; meus produtos
+                            </md-button>
+                            <md-button class="md-raised" ng-click="irPara('/loja/' + dadosLoja.id + '/produto/novo')">
+                                <md-icon class="material-icons">add</md-icon>
+                                &nbsp; adicionar produto
+                            </md-button>
+                        </div>
+                    </div>
+                    <div flex="50" flex-xs="100">
+                        <div class="loja-botao-inicio loja-botao-inicio-color-low">
+                            <h1 class="md-display-2">{{ dadosLoja.totalCategorias || 0 }}</h1>
+                            <p>categorias</p>
+                            <md-button class="md-raised" ng-click="irPara('/loja/' + dadosLoja.id + '/categoria')">
+                                <md-icon class="material-icons">settings</md-icon>
+                                &nbsp; gerenciar categorias
+                            </md-button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+ 
+

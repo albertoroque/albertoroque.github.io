@@ -1,0 +1,42 @@
+﻿<div layout="column" ng-init="carregaLogin()">
+    <md-progress-linear md-mode="indeterminate" ng-if="carregandoLogin"></md-progress-linear>
+    <div class="entrar">
+        <div class="container go-up">
+            <br />
+            <div class="entrar-space md-whiteframe-1dp">
+                <h2 hide-xs class="md-display-1">{{ loginMessage }}</h2>
+                <h2 show-xs hide-gt-xs class="md-display-1">{{ loginMessage }}</h2>
+                <br />
+                <form name="entrarForm" data-ng-submit="logarLoja(entrar)">
+                    <md-input-container class="md-block">
+                        <label>Usuário ou Email da loja</label>
+                        <input name="username" ng-model="entrar.username" >
+                        <div ng-messages="entrarForm.username.$error">
+                            <div ng-message="required">Username ou email é obrigatório</div>                            
+                        </div>
+                    </md-input-container>
+                    <md-input-container class="md-block">
+                        <label>Senha</label>
+                        <input ng-model="entrar.password" type="password" name="password">
+                        <div ng-messages="entrarForm.password.$error">
+                            <div ng-message="required">Senha é obrigatória</div>                            
+                        </div>
+                    </md-input-container>
+
+                    <p class="text-danger text-center"> {{ loginError }} </p>
+
+                    <md-button type="submit" class="md-raised md-primary md-button-fullwidth" ng-click="logarLoja(entrar)"  ng-disabled="carregandoLogin">
+                        {{ carregandoLogin ? 'Entrando...' : 'Entrar' }}
+                    </md-button>
+                    <a class="text-center" href="">Esqueceu a senha?</a>
+                </form>
+            </div>
+
+            <br /><br />
+            <div class="entrar-space md-whiteframe-1dp">
+                <p class="text-center">Não tem seu catálogo virtual?</p>
+                <md-button class="md-raised md-button-fullwidth" ng-href="/loja/cadastro">  Cadastrar</md-button>
+            </div>
+        </div>
+    </div>
+</div> 

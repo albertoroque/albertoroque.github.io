@@ -1,0 +1,8 @@
+﻿<div flex layout="row" layout-wrap class="ck-home-marcas-space">
+    <div ng-repeat="m in marcas"
+         ng-click="irPara('buscar/' + m.titulo)"
+         class="ck-home-marcas-marca"
+         flex="33" flex-xs="50" layout="column" layout-align="center center">
+        <img flex src="{{ m.img }}" alt="{{m.titulo }}" />
+    </div>
+</div> 

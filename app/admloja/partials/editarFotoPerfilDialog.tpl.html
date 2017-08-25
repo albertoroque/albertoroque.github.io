@@ -1,0 +1,88 @@
+﻿<md-dialog ng-init="trocarfotoperfilShow = 1">
+    <form>        
+        <md-dialog-content ng-if="trocarfotoperfilShow == 1">
+            <div class="md-dialog-content">
+                <div layout="column">
+                    <span class="text-center text-muted">EDITAR FOTO PERFIL</span>
+                    <br />
+
+                    <div class="loja-slide-title-image" style="background-image: url('{{ dadosLoja.fotoperfil }}');"></div>
+                    <br />
+                    <div flex layout="column" layout-align="center center" ng-controller="ImageCtrl">
+
+                        <md-button class="md-raised"
+                                   id="buttonfileuploader"
+                                   value="#file_to_upload"                                   
+                                   ng-click="initiateFileUpload($event)">
+                            SELECIONAR FOTO
+                        </md-button>
+                        <md-button class="md-primary md-raised" ng-click="salvarFotoperfil(dadosLoja.fotoperfil)">
+                            SALVAR
+                        </md-button>
+                        <br />
+                        <a ng-click="hideDialog()" ng-if="IMAGE_MSG == null">cancelar</a>
+
+                        <span class="text-muted">{{ IMAGE_MSG }}</span>
+                        <br />
+
+                        <div ng-bind="IMAGE_PATH != null ? dadosLoja.fotoperfil = IMAGE_PATH : ''" hide></div>
+                        <input type="file" id="file_to_upload" class="hide" accept="image/*" />
+                    </div>
+                </div>
+            </div>
+        </md-dialog-content>    
+        
+        <!-- SUCCESS -->
+        <md-dialog-content ng-if="trocarfotoperfilShow == 2" class="text-center">
+            <div class="md-dialog-content">
+                <h1><i class="material-icons">photo</i></h1>
+                <h3 class="md-display-1">Sua imagem foi alterada!</h3>
+                <br />
+                <md-button class="md-primary" ng-click="hideDialog()">fechar</md-button>
+                <br />
+            </div>
+        </md-dialog-content>  
+
+        <!-- ERROR -->
+        <md-dialog-content ng-if="trocarfotoperfilShow == 3" class="text-center">
+            <div class="md-dialog-content">
+                <h1><i class="material-icons">thumb_down</i></h1>
+                <h3 class="md-display-1">Ops, algo de errado aconteceu</h3>
+                <br />
+                <md-button class="md-primary" ng-click="hideDialog()">tentar mais tarde</md-button>
+                <br />
+            </div>
+        </md-dialog-content>  
+    </form>
+
+    <style>
+
+        h1 .material-icons {
+            font-size: 50px;
+            color: #78909C;
+        }
+
+        .no-margintop {
+            margin-top: 0px;
+        }
+        
+        md-dialog{             
+            width: calc(50vw - 10px);  
+            max-width: 100%;      
+            margin: 0px 5px;
+        }
+        
+        md-dialog a{
+            color: #aaa;            
+            cursor: pointer;
+        }
+
+        @media screen and (max-width: 800px) {
+            md-dialog{             
+                width: calc(100vw - 10px);  
+                max-width: 100%;      
+                margin: 0px 5px;
+            }
+        }
+    </style>
+</md-dialog>

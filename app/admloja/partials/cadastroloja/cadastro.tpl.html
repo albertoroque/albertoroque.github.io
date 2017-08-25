@@ -1,0 +1,114 @@
+﻿<!-- HOME -->
+<div layout="column">         
+    <div class="cadastro-loja">
+        <div class="container">
+            <div class="cadastro-loja-space md-whiteframe-3dp">                
+                <h2 hide-xs class="md-display-2">Aumente a visibilidade da sua loja! </h2>
+                <h2 show-xs hide-gt-xs class="md-display-1">Aumente a visibilidade da sua loja! </h2>                
+                <br />
+                <form name="cadastroLoja">
+                    <span class="md-subheader">DADOS LOJA</span>
+                    <md-input-container class="md-block">
+                        <label>Nome da Loja</label>
+                        <input md-maxlength="50" required name="nomeLoja" ng-model="dadosLoja.nomeLoja">
+                        <div ng-messages="cadastroLoja.nomeLoja.$error">
+                            <div ng-message="required">Esse campo é obrigatório.</div>
+                            <div ng-message="md-maxlength">The name has to be less than 50 characters long.</div>
+                        </div>
+                        <span class="ck-form-input-error">{{ dadosLojanomeLojaCkError }}</span>
+                    </md-input-container>                
+                    <md-input-container class="md-block">
+                        <label>Email</label>
+                        <input required type="email" name="email" ng-model="dadosLoja.email"
+                               minlength="3" maxlength="100" ng-pattern="/^.+@.+\..+$/" />
+                        <div ng-messages="cadastroLoja.clientEmail.$error" role="alert">
+                            <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
+                                Seu email deve  ser válido e ter entre 10 e 100 caractéres.
+                            </div>
+                        </div>
+                        <span class="ck-form-input-error">{{ dadosLojaemailCkError }}</span>
+                    </md-input-container> 
+                    <!-- ARRUMAR MAX LENGTH -->
+                    <md-input-container class="md-block">
+                        <label>Telefone</label>
+                        <input required type="text" name="telefone" ng-model="dadosLoja.telefone"
+                               minlength="8" maxlength="20"/>
+                        <div ng-messages="cadastroLoja.telefone.$error">
+                            <div ng-message="required">Esse campo é obrigatório.</div>
+                            <div ng-message="md-maxlength">The name has to be less than 30 characters long.</div>
+                        </div>
+                        <span class="ck-form-input-error">{{ dadosLojatelefoneCkError }}</span>
+                    </md-input-container>       
+                    
+                    <br />
+
+                    <span class="md-subheader">DADOS USUÁRIO</span>
+                    <md-input-container class="md-block">
+                        <label>Nome da conta</label>
+                        <input md-maxlength="30" required name="username" ng-model="dadosLoja.username">
+                        <div ng-messages="cadastroLoja.username.$error">
+                            <div ng-message="required">Esse campo é obrigatório.</div>
+                            <div ng-message="md-maxlength">Seu username tem mais de 30 caractéres</div>
+                        </div>
+                        <span class="ck-form-input-error">{{ dadosLojausernameCkError }}</span>
+                    </md-input-container> 
+                    
+                    <md-input-container class="md-block">
+                        <label>Senha</label>
+                        <input md-maxlength="30" minlength="6" type="password" required name="password" ng-model="dadosLoja.password">
+                        <div ng-messages="cadastroLoja.password.$error">
+                            <div ng-message="required">Esse campo é obrigatório.</div>
+                            <div ng-message="md-maxlength">Sua senha tem mais de 30 caractéres</div>
+                            <div ng-message="md-minlength">Sua senha tem menos de 6 caractéres</div>
+                        </div>
+                        <span class="ck-form-input-error">{{ dadosLojapasswordCkError }}</span>
+                    </md-input-container>   
+
+                    <md-input-container class="md-block">
+                        <md-checkbox name="tos" ng-model="cadastroLoja.tos" required>
+                            Eu aceito os <a href="/termos" target="_blank">termos de uso</a>
+                        </md-checkbox>
+                        <div ng-messages="cadastroLoja.tos.$error">
+                            <div ng-message="required">
+                                Você deve aceitar os termos de uso
+                            </div>
+                        </div>
+                    </md-input-container>
+                    
+                    <p style="color: red;">
+                        {{ singleError }}
+                    </p>
+                    
+                    <md-button class="md-primary md-raised md-button-fullwidth"
+                               ng-click="cadastrarLoja(dadosLoja)"
+                               ng-disabled="cadastroLoja.$invalid || cadastroLoja.$pending">CADASTRAR
+                    </md-button>          
+
+
+                    <div flex layout="column" layout-align="center center" ng-if="cadastrando">
+                        <md-progress-circular md-mode="indeterminate" md-diameter="20px"></md-progress-circular>
+                    </div>
+
+                    <p class="text-center text-muted">Já tem uma conta? <a href="#/loja/entrar">Logar</a></p>
+                </form>
+            </div>
+        </div>
+    </div>     
+</div>
+
+<style>
+    .media-render {
+        background-color: #ECEFF1;        
+        background-image: url('img/logo.png');
+        background-size: 40px 40px;
+        background-repeat: repeat;
+    }
+
+    .ck-form-input-error{
+        color: red;
+        height:14px;
+        display: block;
+        font-size: 14px;
+    }
+</style>
+ <!-- END HOME -->

@@ -1,0 +1,40 @@
+﻿<md-dialog>
+    <form name="novaCategoriaForm">                
+        <md-dialog-content>
+            <div class="md-dialog-content">                                
+                <md-input-container class="md-block">
+                    <label>Título da nova categoria</label>
+                    <input required md-maxlength="20" md-minlength="3" ng-model="dadosCategoria.descricao">  
+                    <div ng-messages="novaCategoriaForm.descricao.$error">
+                        <div ng-message="required">Esse campo é obrigatório.</div>
+                        <div ng-message="md-maxlength">A categoria deve ter no máximo 50 caractéres</div>
+                        <div ng-message="md-minlength">A categoria deve ter no mínimo 3 caractéres</div>
+                    </div>   
+                    <span class="ck-form-input-error text-danger">{{ dadosCategoriadescricaoCkError }}</span>                            
+                    <span class="text-danger"> {{ cadastroCategoriaMsgError }} </span>       
+                </md-input-container>
+                <span class="md-subheader">Observação</span>
+                <p>A categoria só aparece no seu perfil público após ter produtos usando essa categoria.</p>              
+            </div>
+        </md-dialog-content>
+
+
+        <md-dialog-actions layout="row">             
+            <md-button class="md-primary" ng-click="hideDialog()">sair</md-button>              
+            <span flex></span>                                   
+            <md-button class="md-primary md-raised" ng-click="salvarCategoria(dadosCategoria)" ng-disabled="salvandoCategoria">
+                <md-icon md-font-icon="material-icons">save</md-icon> {{ salvandoCategoria ? "salvando..." : "salvar" }}
+            </md-button>           
+        </md-dialog-actions>
+    </form>
+
+    <style>
+        @media screen and (max-width: 800px) {
+            md-dialog{             
+                width: calc(100vw - 10px);  
+                max-width: 100%;      
+                margin: 0px 5px;
+            }
+        }
+    </style>
+</md-dialog>

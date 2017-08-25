@@ -1,0 +1,36 @@
+﻿<md-dialog>
+    <form name="categoriaForm">
+        <md-dialog-content>
+            <div class="md-dialog-content">
+                <md-input-container class="md-block">
+                    <label>Editar título da categoria</label>
+                    <input required md-maxlength="20" md-minlength="3" ng-model="opcaocategoria.descricao">
+                    <div ng-messages="categoriaForm.descricao.$error">
+                        <div ng-message="required">Esse campo é obrigatório.</div>
+                        <div ng-message="md-maxlength">A categoria deve ter no máximo 50 caractéres</div>
+                        <div ng-message="md-minlength">A categoria deve ter no mínimo 3 caractéres</div>
+                    </div>
+                    <span class="ck-form-input-error">{{ dadosCategoriadescricaoCkError }}</span>
+                </md-input-container>
+
+                <div>
+                    <md-switch ng-model="opcaocategoria.isAtivo" aria-label="Switch 1">
+                        Categoria está: {{ opcaocategoria.isAtivo ? 'Ativada' : 'Desativada'}}
+                    </md-switch>
+                </div>
+                <br />
+
+                <span class="md-subheader">Observação</span>
+                <p>Existem {{ opcaocategoria.qntProdutos }} produtos cadastrados com essa categoria. Caso você DESATIVAR, os produtos continuarão cadastrados porém invisíveis na loja.</p>
+            </div>
+        </md-dialog-content>
+
+        <md-dialog-actions layout="row">
+            <md-button class="md-primary" ng-click="hideDialog()">sair</md-button>
+            <span flex></span>            
+            <md-button class="md-primary md-raised" ng-click="editarCategoria(opcaocategoria)">
+                <md-icon md-font-icon="material-icons">save</md-icon> salvar e sair
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>

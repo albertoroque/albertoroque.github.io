@@ -1,0 +1,14 @@
+﻿<div class="slider"
+     id="slider"
+     ng-init="loadSlider('img/slider/1.jpg')"
+     style="background-image: url('{{ sliderImage }}');"
+     md-swipe-left="nextSlide()"
+     md-swipe-right="prevSlide()"
+     ng-click="sliderClick($event)">
+    <div class="slider-control">
+        <div class="slider-control-btn slideIndex1" ng-click="sliderChange($event, 1)" dataimage="img/slider/1.jpg" datahref="/shoppings/2"></div>
+        <div class="slider-control-btn slideIndex2" ng-click="sliderChange($event, 2)" dataimage="img/slider/2.jpg" datahref="https://www.youtube.com/channel/UCqMfn1WJvPpfCdI_Y9aKkKA"></div>
+        <div class="slider-control-btn slideIndex3" ng-click="sliderChange($event, 3)" dataimage="img/slider/3.jpg" datahref="/buscar/Moletom"></div>
+    </div>
+</div>                                                
+         

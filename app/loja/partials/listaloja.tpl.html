@@ -1,0 +1,18 @@
+<div class="bl-loja-details">
+    <div ng-click="verLoja(loja.url)" class="bl-loja-details-image" style="background-image: url('{{ loja.fotoperfil }}');"></div>
+    <div class="bl-loja-details-description">
+        <h1 ng-click="verLoja(loja.url)">
+            {{ loja.nome }}
+        </h1>
+        <h3>{{ loja.setor || '--' }}</h3>
+        <p>{{ loja.nomeBairro }}</p>
+    </div>
+</div>
+<!-- produtos -->                    
+<div class="bl-loja-products-vert">
+    <div class="bl-loja-products-vert-table" id="bl-loja-products-vert">
+        <div class="product-list-vertical-table-btn" ng-repeat="p in loja.ultimosProdutos" style="background-image: url('{{ p.linkfoto }}')">
+            <md-tooltip>{{ p.nome }}</md-tooltip>
+        </div>
+    </div>   
+</div>

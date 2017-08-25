@@ -1,0 +1,32 @@
+﻿<md-dialog>
+    <form name="novaCategoriaForm">   
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h5 class="md-body-2">Dicas de categorias</h5>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="hideDialog()">
+                    <md-icon md-font-icon="material-icons">close</md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>             
+        <md-dialog-content>
+            <div class="md-dialog-content">                                               
+               <h2 class="md-title">O que são categorias?</h2>
+               <p>As categorias são usadas para seccionar os produtos dentro da sua loja.</p>
+               <p>Você tem total controle das suas categorias. Você pode criá-las com qualquer nome (de 3 a 20 caractéres) e nelas adicionar seus produtos respectivos.</p>
+               <br>
+               <a href="/l/christ">Veja essa loja modelo</a>
+            </div>
+        </md-dialog-content>        
+    </form>
+
+    <style>
+        @media screen and (max-width: 800px) {
+            md-dialog{             
+                width: calc(100vw - 10px);  
+                max-width: 100%;      
+                margin: 0px 5px;
+            }
+        }    
+    </style>
+</md-dialog>

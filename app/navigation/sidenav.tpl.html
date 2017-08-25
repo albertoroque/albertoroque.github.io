@@ -1,0 +1,87 @@
+﻿<md-content ng-controller="MenuCtrl">
+    <md-toolbar class="md-toolbar-transparent">
+        <div class="md-toolbar-tools">
+            <h2 style="font-family:Roboto Condensed; color: #607d8b;">CATÁLOKO</h2>
+            <span flex></span>
+            <md-button class="md-icon-button" >
+                <md-icon md-font-icons="material-icons" style="color:#333;" ng-click="toggleLeft()">close</md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <md-content layout-padding>
+        <md-list>
+
+            <div ng-controller="ClienteCtrl" ng-init="clienteIsLogado()">                
+                <!-- FB BTN LOGIN-->                    
+                <div ng-if="!SESSION_CLI_ON">
+                    <span ng-include="'app/cliente/partials/fbbtnlogin.tpl.html'"></span>
+                    <br />
+                </div>                
+                <!-- SESSION_CLI_ON -->
+                <div ng-if="SESSION_CLI_ON && !verificandoIsLogin" layout="row" style="margin-top: -20px;">
+                    <ng-include src="'app/cliente/partials/perfilcall.tpl.html'"></ng-include>
+                </div>
+            </div>
+
+            <md-divider style="margin: 10px 0px;"></md-divider>
+
+            <md-list-item ng-href="/home" title="" ng-click="toggleLeft()">
+                <md-icon md-font-icons="material-icons">home</md-icon><p>&nbsp; Início</p>
+            </md-list-item>            
+            <md-list-item ng-href="/buscarlojas" title="" ng-click="toggleLeft()">
+                <md-icon md-font-icons="material-icons">store_mall_directory</md-icon><p>&nbsp; Lojas </p>
+            </md-list-item>
+            <md-list-item ng-href="/shoppings" title="" ng-click="toggleLeft()">
+                <md-icon md-font-icons="material-icons">local_mall</md-icon><p>&nbsp; Shoppings </p>
+            </md-list-item>
+            
+            <div ng-if="SESSION_CLI_ON">
+                <md-divider style="margin: 10px 0px;"></md-divider>
+                <md-list-item ng-href="/notificacoes" title="" ng-click="toggleLeft();">
+                    <md-icon md-font-icons="material-icons">
+                        notifications
+                        <div ng-if="NOTIFICATION_ON()" class="ck-circle-notification"></div>
+                    </md-icon>
+                    <p>&nbsp; Notificações </p>
+                </md-list-item>
+                <md-list-item ng-href="/lojasseguidas" title="" ng-click="toggleLeft();">
+                    <md-icon md-font-icons="material-icons">store</md-icon><p>&nbsp; Lojas seguidas </p>
+                </md-list-item>
+                <md-list-item ng-href="/favoritos" title="" ng-click="toggleLeft()">
+                    <md-icon md-font-icons="material-icons">favorite</md-icon><p>&nbsp; Desejos </p>
+                </md-list-item>
+            </div>
+            
+            <md-divider style="margin: 10px 0px;"></md-divider>
+
+            <md-list-item ng-controller="TutorialLojaCtrl" ng-click="carregaTutorialCadastroLoja($event); toggleLeft();">
+                <md-icon md-font-icons="material-icons">group_add</md-icon><p>&nbsp; Cadastrar loja </p>
+            </md-list-item>
+
+            <md-list-item ng-href="/loja/entrar" ng-click="toggleLeft()">
+                <md-icon md-font-icons="material-icons">open_in_browser</md-icon><p>&nbsp; Entrar como loja </p>
+            </md-list-item>
+
+            <md-divider style="margin: 10px 0px;"></md-divider>
+
+            <md-list-item ng-click="openPageApp('fb'); toggleLeft()" title="">
+                <md-icon md-font-icons="material-icons">mood</md-icon><p>&nbsp; Quem somos nós? </p>
+            </md-list-item>
+            <md-list-item ng-click="openPageApp('fb'); toggleLeft()" title="">
+                <md-icon md-font-icons="material-icons">pages</md-icon><p>&nbsp; Visite nosso Facebook </p>
+            </md-list-item>
+            <md-list-item ng-click="openPageApp('instagram'); toggleLeft()" title="">
+                <md-icon md-font-icons="material-icons">photo_camera</md-icon><p>&nbsp; Visite nosso Instagram </p>
+            </md-list-item>
+            <md-list-item ng-click="openPageApp('messenger'); toggleLeft()" title="">
+                <md-icon md-font-icons="material-icons">mode_comment</md-icon><p>&nbsp; Fale conosco </p>
+            </md-list-item>
+            <md-list-item href="mailto:someone@example.com?Subject=Olá, estou vindo do Catáloko para falar sobre...">
+                <md-icon md-font-icons="material-icons">mail</md-icon><p>&nbsp; Envie um email </p>
+            </md-list-item>
+            <md-list-item ng-href="/termos" ng-click="toggleLeft()" title="">
+                <md-icon md-font-icons="material-icons">assignment</md-icon><p>&nbsp; Termos de Uso </p>
+            </md-list-item>
+        </md-list>
+    </md-content>
+</md-content>

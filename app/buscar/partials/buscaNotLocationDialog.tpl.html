@@ -1,0 +1,34 @@
+﻿<md-dialog>
+    <md-dialog-content>
+        <div class="md-dialog-content text-center">
+            <p class="md-subhead">ANTES DE COMEÇAR...</p>
+            <p>Atualize a localização para melhorar sua pesquisa de produtos.</p>
+            <div layout="column"
+                 layout-align="center center"
+                 layout-padding>
+                <md-button class="md-primary md-raised"
+                           ng-controller="LocationCtrl"
+                           ng-click="updateLocation()">
+                    <md-icon md-font-icon="material-icons">my_location</md-icon>
+                    ATUALIZAR LOCALIZAÇÃO
+                </md-button>
+            </div>
+
+        </div>
+    </md-dialog-content>
+    <!--<md-dialog-actions layout="row">
+        <span flex></span>
+        <md-button class="md-primary md-raised" ng-click="atualizaDadosBuscaLocalizacao(buscalojaconfig)">
+            salvar e pesquisar
+        </md-button>
+    </md-dialog-actions>-->
+    <style>
+        @media screen and (max-width: 800px) {
+            md-dialog {
+                width: calc(100vw - 10px);
+                max-width: 100%;
+                margin: 0px 5px;
+            }
+        }       
+    </style>
+</md-dialog>

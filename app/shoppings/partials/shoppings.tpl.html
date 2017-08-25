@@ -1,0 +1,189 @@
+﻿<div ng-init="carregaShopping()">
+
+    <div class="ck-mobile-navigation-topnav" hide-gt-xs show-xs>
+        <h1>Shoppings</h1>
+    </div>
+
+    <!-- PESQUISA DE SHOPPING NA CIDADE -->
+    <div layout="column" class="go-up">
+        <!-- BANNER -->
+        <div class="container-fluid ck-shopping-header md-whiteframe-1dp"
+             style="background-image: url('{{shoppingPage.wallpaper}}')">
+
+            <div flex
+                 layout="column"
+                 layout-align="center center"
+                 style="width: 100%; height: 100%;">
+
+                <h2 class="md-display-1">{{cidade}}</h2>
+                <md-button class="md-raised md-primary" ng-controller="LocationCtrl" ng-click="updateLocation(); watchLocationChange();">MUDAR CIDADE</md-button>
+            </div>
+        </div>
+
+        <!-- CORPO -->
+        <div class="container">
+
+            <div ng-if="shoppingPage.carregando" layout="column" layout-align="center center">               
+                <div flex>
+                    <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+                </div>                
+            </div>
+
+            <div ng-if="!shoppingPage.carregando && !shoppingPage.erro"  
+                  ng-repeat="i in cidadeDados.dadosLocal"                   
+                  class="ck-shopping-unidade go-up" 
+                  layout="row" 
+                  layout-align="start center">
+                <div class="ck-shopping-unidade-image"
+                     style="background-image: url('{{ i.fotoPerfil }}')"
+                     ng-click="irPara('shoppings/' + i.id)"></div>
+                <div class="ck-shopping-unidade-desc">
+                    <h1 ng-click="irPara('shoppings/' + i.id)">{{ i.titulo }}</h1>
+                    <p><i class="material-icons">place</i> {{ i.logradouro }}, {{ i.numero }}</p>
+                    <!--<p><i class="material-icons">store</i> 0 lojas</p>-->
+                </div>
+            </div>
+
+            <div ng-if="shoppingPage.erro">
+                <h2 class="md-headline text-center">
+                     {{ shoppingPage.erroMsg }}
+                </h2>
+            </div>
+        </div>
+    </div>
+ </div>
+
+<style>
+
+    /* SHOPPINGS */
+
+    .ck-shopping-unidade{
+        width: calc(100% - 30px);        
+        background-color: white;
+        height: 95px;
+        border-radius: 3px;
+        margin: 0 auto;
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    .ck-shopping-unidade-image {
+        width: 100px;
+        background-color: #dadada;
+        height: 100%;
+        float: left;
+        background-color: rgb(96,125,139);
+        background-position: center center;
+        background-size: cover;
+        border-radius: 3px;
+        cursor:pointer;
+    }
+
+    
+    .ck-shopping-unidade-desc{
+        width: calc(100% - 100px);
+        float: left;
+        height: 100%;     
+        padding-left:10px;           
+    }   
+
+    .ck-shopping-unidade-desc h1, h3, p{
+        font-weight: 400;      
+        overflow:hidden;            
+        white-space: normal;          
+        cursor:pointer;
+    }
+
+    .ck-shopping-unidade-desc h1{
+        margin: 5px;
+        margin-top:10px; 
+        margin-bottom: 10px;       
+        font-size:19px;    
+        line-height:23px;
+        max-height: 23px;        
+    }
+
+    .ck-shopping-unidade-desc h1:hover {
+        color: rgb(96,125,139);
+    }   
+
+    .ck-shopping-unidade-desc .material-icons {
+        margin: 2px;
+        vertical-align: baseline;
+        font-size: 12px;
+    }
+
+    .ck-shopping-unidade-desc p{    
+        margin: 6px;
+        color: #aaa;
+        margin-top: 0px;
+        font-size:13px;
+        line-height: 16px;        
+        max-height: 16px;    
+    }
+
+
+
+
+    @media screen and (min-width: 1024px) {
+        .ck-shopping-unidade {
+            height: 120px;            
+        }
+
+        .ck-shopping-unidade-image {
+            width: 120px;
+        }
+
+        .ck-shopping-unidade-desc {
+            width: calc(100% - 120px);
+            padding-left: 20px;
+        }
+
+            .ck-shopping-unidade-desc h1 {
+                margin: 5px;
+                margin-top: 20px;
+                margin-bottom: 12px;
+                font-size: 24px;
+                line-height: 30px;
+                max-height: 30px;
+            }
+
+              
+    }
+
+
+
+    /* HEADER */
+    .ck-shopping-header {
+        width: 100%;
+        background-color: #90A4AE;
+        height: 200px;
+        color: white;
+        background-position: center center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        margin-bottom: 20px;
+        -webkit-transition: background 0.5s linear;
+        -moz-transition: background 0.5s linear;
+        -ms-transition: background 0.5s linear;
+        -o-transition: background 0.5s linear;
+        transition: background 0.5s linear;
+    }
+
+        .ck-shopping-header h2 {
+            text-shadow: 1px 1px 2px rgba(150, 150, 150, 1);
+            text-align: center;
+        }
+
+    @media screen and (min-width: 1024px) {
+        .ck-shopping-header {
+            height: 400px;
+        }
+
+            .ck-shopping-header h2 {
+               font-size: 50px;               
+            }       
+    }
+    
+</style>
+ <!-- END HOME -->

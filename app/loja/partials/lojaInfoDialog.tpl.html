@@ -1,0 +1,17 @@
+﻿<md-dialog>    
+    <md-dialog-content>                   
+        <div class="md-dialog-content" layout="column">
+            <h6 class="md-subhead text-center text-uppercase no-marginbottom no-margintop"><small>{{ dadosLoja.nome }}</small></h6>
+
+            <h4 class="text-center">{{ dadosLoja.totalVisitas }} visitas</h4>
+            
+            <p class="text-muted"><md-icon md-font-icon="material-icons">phone</md-icon> &nbsp; {{ dadosLoja.telefone }}</p>
+
+            <p class="text-muted"><md-icon md-font-icon="material-icons">smartphone</md-icon> &nbsp; {{ dadosLoja.whatsapp }}</p>
+            
+            <p class="text-muted"><md-icon md-font-icon="material-icons">map</md-icon> &nbsp; {{ dadosLoja.cidade }} - {{ dadosLoja.estado }}</p>
+
+            <p class="text-muted text-center">{{ dadosLoja.totalProdutos }} produtos cadastrados</p>            
+        </div>
+    </md-dialog-content>        
+</md-dialog>

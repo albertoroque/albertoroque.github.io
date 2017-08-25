@@ -1,0 +1,23 @@
+﻿<md-dialog >    
+    <md-dialog-content layout-padding layout="column">                   
+        <div>
+            <p class="text-muted">Compartilhe este link com amigos nas redes sociais</p>
+            <md-input-container md-no-float class="md-block no-marginbottom">
+                <input id="share-input" ng-model="shareUrl" type="text" placeholder="Link para copiar">
+            </md-input-container>
+            <md-button class="md-raised md-primary md-button-fullwidth" ng-click="copyLink()">
+                COPIAR LINK
+            </md-button>
+        </div>        
+    </md-dialog-content>
+    
+    <style>
+        @media screen and (max-width: 800px) {
+            md-dialog {
+                width: calc(100vw - 10px);
+                max-width: 100%;
+                margin: 0px 5px;
+            }
+        }   
+    </style>
+</md-dialog>

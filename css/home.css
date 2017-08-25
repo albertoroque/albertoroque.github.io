@@ -1,0 +1,621 @@
+﻿
+.container-fluid{
+    width: 100%;      
+    min-height: 100px;
+    display: block;  
+    margin: 0 auto;      
+}    
+
+.container-total{
+    width: 100%;
+    max-width: 1920px;    
+    min-height: 100px;
+    display: block;  
+    margin: 0 auto;      
+} 
+
+
+.ck-home-separator{
+    height: 4px;
+    width: 100px;
+    background-color: #607D8B;
+    margin: 0 auto;
+    display: block;
+    border-radius: 10px;   
+}
+
+
+.ck-home-separator-white{    
+    background-color: #fff;    
+}
+
+
+
+/*-----------------------*/
+/* QUADRO A*/
+/*-----------------------*/
+
+.ck-home-a{    
+    width: 100%;  
+    padding: 10px;  
+    font-family: Roboto Condensed;
+    text-align: center;    
+    color: #555;
+}
+
+.ck-home-a-btn{   
+    font-size: 24px;
+    text-align: center;        
+    text-transform: uppercase;    
+    padding: 5px 12px;
+    border-radius: 15px;
+    background-color: #607D8B;
+    color: white;    
+    cursor: pointer;
+    margin: 0 auto; 
+    max-width: 400px;     
+}
+
+.ck-home-a-btn .material-icons{
+    vertical-align: sub;
+}
+
+
+@media screen and (min-width: 620px) {    
+    .ck-home-a{    
+        background-color: #607D8B;       
+    }    
+}
+
+@media screen and (max-width: 620px){
+    .ck-home-a-btn{   
+        font-size: 18px;        
+    }
+
+    .ck-home-a-btn .material-icons{
+        vertical-align: sub;
+        font-size: 18px;
+    }
+}
+
+/*-----------------------*/
+/* QUADRO B*/
+/*-----------------------*/
+
+.ck-home-b{
+    display: block;    
+    width: 100%;
+    padding-top: 80px;
+    padding-bottom: 120px;  
+    text-align: center;
+}
+
+.ck-home-b h2{
+    font-family: Wildcard;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+
+@media screen and (max-width: 620px){
+      
+    .ck-home-b h2{
+        font-size: 20px;
+    }
+}
+
+.ck-home-b h5{
+    font-family: Roboto Condensed;
+    color: #555;
+    font-size: 18px;  
+    margin-top: 2px;  
+}
+
+.ck-home-b p{
+    margin: 0 auto;
+    font-family: Roboto;
+    color: #aaa;
+    font-size: 18px;    
+    line-height: 26px;
+    max-width: 400px;
+    padding: 0px 10px; 
+    
+}
+
+.ck-home-b-icon{
+    width: 78px;
+    height: 78px;    
+    color: #4c4c4c;
+    font-size: 20px;
+    border-radius: 3px;    
+    margin: 0 auto;
+    background-size: cover;    
+    text-align: center;        
+          
+}
+
+
+/*-----------------------*/
+/* OQ VC PRECISA?        */
+/*-----------------------*/
+
+.ck-home-oqvp{
+    width: 100%;
+    max-width: 1000px;       
+    margin: 0 auto;
+    color: #333;    
+}
+
+.ck-home-oqvp-space{
+    padding: 30px 0px;
+}
+
+
+.ck-home-oqvp h2{    
+    font-family: Roboto Condensed;        
+    text-transform: uppercase; 
+    text-align: center;
+}
+
+.ck-home-oqvp-prod{    
+    height: 280px;
+    cursor: pointer;    
+    padding-top: 30px;
+    /*background-color:#eee;*/ 
+    transition:all ease-out .5s;
+    border-radius: 3px;
+}
+
+.ck-home-oqvp-prod:hover{    
+    box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
+}
+
+.ck-home-oqvp-prod img{
+    margin: 0 auto;
+    height: 190px;
+}
+
+.ck-home-oqvp-prod h4{
+    margin: 0px;
+    text-align: center;
+    font-family: Roboto Condensed;
+    font-size: 1.2em;
+    line-height: 50px;       
+}
+
+
+
+/*-----------------------*/
+/* MARCAS                */
+/*-----------------------*/
+
+.ck-home-marcas{
+    padding-bottom: 100px;
+    padding-top: 100px;
+}
+
+.ck-home-marcas h2{
+    text-align:center;  
+    font-family: 'Roboto Condensed';
+}
+
+.ck-home-marcas-space{
+    max-width: 1000px;
+    margin: 0 auto;
+    margin-top: 50px;
+    transition:all ease-out .5s;                    
+}
+
+.ck-home-marcas-marca {
+    transition:all ease-out .5s;
+    height: auto;             
+    cursor: pointer;     
+    margin-bottom: 3px;
+    margin-top: 3px;  
+    padding: 10px 0px;
+}
+
+.ck-home-marcas-marca img{
+    width: 60%; 
+    height: auto; 
+    margin: 0 auto;
+    overflow: hidden;
+    max-width: 150px;
+    max-height: 150px;
+}
+
+.ck-home-marcas-marca:hover{    
+    z-index: 500;                
+    box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
+}
+
+
+
+/*-----------------------*/
+/* TOP 10 */
+/*-----------------------*/
+
+.ck-home-toplojas{
+    background-color:#444;
+    height: 500px;
+    width: 100%;
+    padding: 100px 0px 100px 0px;
+    background-repeat: repeat;
+    background-size: 40px 40px;
+}
+
+.ck-home-toplojas-title{
+    font-family: Roboto Condensed;
+    color: #fff;  
+    text-align: center;
+    text-transform: uppercase;   
+    font-size: 38px;  
+    margin-bottom: 5px;
+}
+
+
+.ck-home-toplojas h4{    
+    color: #eee;  
+    text-align: center;   
+    font-weight: 200; 
+    font-size: 24px; 
+    margin: 10px 0px 10px 0px;      
+}
+
+.ck-home-toploja-loja-iconpresentation{
+    color: white; 
+    text-align: center;
+}
+
+.ck-home-toploja-rollspace{
+    width: calc(100% - 20px);
+    height: 280px;
+    margin: 0 auto;    
+    /*background-color: red;*/
+    overflow: hidden;
+    overflow:auto;
+    overflow-y: hidden;
+    overflow-x:auto;
+    margin-top: 60px;
+}
+
+.ck-home-toploja-roll{    
+    width: 3000px;      
+}
+
+.ck-home-toploja-loja{
+    width: 250px;
+    height: 245px;
+    background-color: white;
+    border-radius:3px;
+    margin-right: 14px;
+    float: left;
+    text-align: center;
+    color: #333;
+    cursor: pointer;
+}
+
+
+.ck-home-toploja-loja h2{
+    color: #333;
+    margin-bottom: 5px;
+}
+
+
+.ck-home-toploja-loja-img{
+    margin: 0 auto;
+    margin-top: 30px;
+    width:100px;
+    height: 100px;
+    background-color: #555;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center center;
+    cursor: pointer;
+}
+
+
+
+/*-----------------------*/
+/* SEARCH */
+/*-----------------------*/
+
+.ck-home-search{
+    height: 270px;
+    width:100%;
+    background-color: #EDEDED;
+    text-align: center;
+    padding: 100px 0px;
+}
+
+.ck-home-search img{
+    margin: 0 auto;
+    width: 80px;    
+}
+
+.ck-home-search-p{    
+    margin: 0 auto;    
+    font-family: Roboto;
+    color: #555;
+    font-size: 18px;
+    line-height: 26px;
+    max-width: 300px;
+    padding:20px;
+}
+
+.ck-home-search-bar{
+    width: calc(100% - 40px);
+    border-radius: 3px;
+    max-width: 400px;
+    background-color: white;
+    margin: 0 auto;
+    text-align:left;
+    padding: 5px;
+    font-size: 14px;            
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 2px 1px -1px rgba(0,0,0,.12);         
+    padding: 0 15px;
+    line-height: 40px;
+    height: 40px;
+    color: #aaa;
+    cursor: pointer;
+}
+
+
+
+/*-----------------------*/
+/* SETORES */
+/*-----------------------*/
+
+.ck-home-lojista-banner{
+    background-color: #999;  
+    text-align: center;      
+}
+
+.ck-home-lojista-img{
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;   
+}
+
+.ck-home-lojista{
+    color: white;
+    text-align: left;
+    background-color: #607D8B;
+    padding-top: 70px;
+    padding-bottom: 70px;
+}
+
+
+.ck-home-lojista i{
+    font-size: 90px;
+}
+
+
+.ck-home-lojista h3{
+    font-family: Roboto Condensed;
+    text-transform: uppercase;
+    font-size: 40px;
+    margin: 10px 0px 0px 0px;
+    text-align: center;
+}
+
+
+.ck-home-lojista p{
+    margin: 5px 0px;
+    text-align: center; 
+}
+
+
+@media screen and (max-width: 620px) {    
+    
+    .ck-home-setores{                
+        background-size: cover;
+        background-position: left center;        
+    }
+
+    .ck-home-setores-title{
+        font-size: 24px;  
+    }
+}
+
+.ck-home-setores-space{    
+    color: white;
+    height: 400px;
+    overflow: auto;
+    overflow-x: hidden;
+}
+
+.ck-home-setores-tip {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;        
+    padding: 3px 10px;
+    background-color: #eee;
+    margin-right: 8px;
+    font-weight: 600;
+    color: white;
+}
+
+.ck-home-setores-repea:hover{
+    background-color: rgba(0,0,0,.5);
+}
+
+.ck-home-setores-setor{
+    font-size: 18px;
+    font-weight: 200;    
+    overflow: hidden;    
+    margin: 10px 0px;    
+    cursor: pointer;
+    line-height: 30px;
+}
+
+/*-----------------------*/
+/* MIDIA */
+/*-----------------------*/
+
+.ck-home-midia{    
+    width: 100%;    
+    text-align: center;
+    padding: 120px 0px 80px 0px; 
+    color: #333;   
+}
+
+
+.ck-home-midia-center{
+    height: 200px;
+    width: 100%;
+    max-width: 600px;        
+    margin: 0 auto;    
+}
+
+.ck-home-midia-center-quad{   
+    height: 100%;
+}
+
+.ck-home-midia-center-icon{
+    height: 100px;
+    width: 100px;
+    background-size: cover;
+    background-position: center center;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+
+@media screen and (max-width: 620px){
+   
+    .ck-home-midia-center-icon{
+        height: 60px;
+        width: 60px;                
+        border-radius: 14px;        
+    }
+}
+
+
+/*-----------------------*/
+/* BANNER */
+/*-----------------------*/
+
+
+.ck-home-banner{    
+    height: 500px;
+    background-size: cover;
+    background-position: left center;    
+    text-align: center;
+    position: relative;
+}
+
+
+.ck-home-banner h2{    
+    font-family: Roboto Condensed;
+    font-size: 50px;
+    margin: 5px 0px;  
+    text-transform: uppercase; 
+}
+
+
+.ck-home-banner p{    
+    font-family: Roboto;
+    font-size: 20px;
+    font-weight: 600;    
+    text-transform: uppercase;
+    color: #607D8B;
+    margin: 0px;
+}
+
+
+.ck-home-banner-center{
+    width: 100%; 
+    max-width: 500px; 
+    color: #333; 
+    padding: 30px 15px ;
+    background-color: white;
+    border-radius: 5px;        
+}
+
+.ck-home-banner-top{
+    width: 100%;
+    height: 70px;
+    top: 0px;
+    position: absolute;
+    background-color: white;
+    background: rgba(255,255,255,1);
+    background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(255,255,255,0.96) 29%, rgba(255,255,255,0.93) 46%, rgba(255,255,255,0) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255,255,255,1)), color-stop(29%, rgba(255,255,255,0.96)), color-stop(46%, rgba(255,255,255,0.93)), color-stop(100%, rgba(255,255,255,0)));
+    background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(255,255,255,0.96) 29%, rgba(255,255,255,0.93) 46%, rgba(255,255,255,0) 100%);
+    background: -o-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(255,255,255,0.96) 29%, rgba(255,255,255,0.93) 46%, rgba(255,255,255,0) 100%);
+    background: -ms-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(255,255,255,0.96) 29%, rgba(255,255,255,0.93) 46%, rgba(255,255,255,0) 100%);
+    background: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(255,255,255,0.96) 29%, rgba(255,255,255,0.93) 46%, rgba(255,255,255,0) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff', GradientType=0 );
+    
+}
+
+
+.ck-home-banner-bottom{
+    width: 100%;
+    height: 70px;
+    bottom: 0px;
+    position: absolute;
+    background-color: white;
+    background: rgba(255,255,255,1);
+    background: -moz-linear-gradient(bottom, rgba(255,255,255,1) 0%, rgba(255,255,255,0.96) 29%, rgba(255,255,255,0.93) 46%, rgba(255,255,255,0) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255,255,255,1)), color-stop(29%, rgba(255,255,255,0.96)), color-stop(46%, rgba(255,255,255,0.93)), color-stop(100%, rgba(255,255,255,0)));
+    background: -webkit-linear-gradient(bottom, rgba(255,255,255,1) 0%, rgba(255,255,255,0.96) 29%, rgba(255,255,255,0.93) 46%, rgba(255,255,255,0) 100%);
+    background: -o-linear-gradient(bottom, rgba(255,255,255,1) 0%, rgba(255,255,255,0.96) 29%, rgba(255,255,255,0.93) 46%, rgba(255,255,255,0) 100%);
+    background: -ms-linear-gradient(bottom, rgba(255,255,255,1) 0%, rgba(255,255,255,0.96) 29%, rgba(255,255,255,0.93) 46%, rgba(255,255,255,0) 100%);
+    background: linear-gradient(to top, rgba(255,255,255,1) 0%, rgba(255,255,255,0.96) 29%, rgba(255,255,255,0.93) 46%, rgba(255,255,255,0) 100%);        
+}
+
+
+
+/*--------------------*/
+/*---EM BREVE */
+/*--------------------*/
+
+.ck-home-embreve{
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    height: 200px;
+    color: #333;
+    margin: 0 auto;
+    padding: 120px 0px;
+}
+
+.ck-home-embreve p{
+    padding: 0px 30px;
+    color: #555;
+}
+
+
+.ck-home-embreve h3{    
+    color: #555;
+}
+
+
+.ck-home-embreve a{
+    text-decoration: underline;    
+}
+
+
+
+/*--------------------*/
+/*--- BAIXE O APP     */
+/*--------------------*/
+
+.ck-home-app{    
+    width: 100%;    
+    text-align: center;
+    padding: 20px 0px 120px 0px; 
+    color: #333;   
+    height: 300px;
+    max-width: 600px;        
+    margin: 0 auto;    
+}
+
+
+.ck-home-app img{    
+    width: 180px;
+    height: 50px;
+    margin: 10px 0px;
+}

@@ -1,0 +1,27 @@
+<div ng-init="carregarLogin()" class="go-up">
+    <div layout="row" layout-align="start center">        
+        <md-button class="md-icon-button" aria-label="More">
+            <md-icon md-font-icon="material-icons" ng-click="irParaLink(continuelink)">keyboard_arrow_left</md-icon>
+        </md-button>
+        <span flex></span>
+    </div>
+
+    <div class="container">
+                                        
+        <div ng-if="verificandoIsLogin" layout="column" layout-align="center center" layout-padding>
+            <md-progress-circular md-mode="indeterminate" md-diameter="20px"></md-progress-circular>
+        </div>
+
+        <div ng-if="!verificandoIsLogin && !SESSION_CLI_ON" layout="column" layout-align="center center" layout-padding>
+
+            <h4 class="md-display-1 text-center">Para continuar, entre com o Facebook!</h4>
+            <span ng-include="'app/cliente/partials/fbbtnlogin.tpl.html'"></span>
+            <br />
+        </div> 
+        
+        <div ng-if="!verificandoIsLogin && SESSION_CLI_ON" ng-init="redirectPageLogin()">
+           
+        </div>                   
+    </div>
+</div>
+    

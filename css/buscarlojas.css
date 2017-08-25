@@ -1,0 +1,169 @@
+
+
+
+/*---------------------------*/
+/*   TOOLBAR                 */
+/*---------------------------*/
+/*md-toolbar .logo{
+    padding: 0px !important;
+}
+
+md-toolbar .logo img{
+    width: 100%;
+    height: 100%;
+}*/
+
+
+
+
+/*---------------------------*/
+/*   LOJA SLIDE              */
+/*---------------------------*/
+
+.buscarlojas{
+    min-height: 1000px;
+    padding-top:50px;
+}
+
+.buscarlojas-config{
+    height:45px;            
+}
+
+.bl-loja{
+    width: calc(100% - 30px);
+    padding: 8px 15px;
+    background-color: white;
+    height: 160px;
+    border-radius: 3px;
+    margin: 0 auto;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.bl-loja-details{
+    width: 100%;
+    height: 100px;    
+}
+
+.bl-loja-details-image{
+    float: left;
+    margin-top: 10px;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    cursor: pointer;
+}
+
+.bl-loja-details-description{
+    float:left;
+    height: 100px;  
+    margin-left: 10px;
+    width: calc(100% - 100px);  
+}
+
+
+.bl-loja-details-description h1, h3, p{
+    font-weight: 400;      
+    overflow:hidden;            
+    white-space: normal;          
+}
+
+.bl-loja-details-description h1{
+    margin: 5px;
+    margin-bottom: 2px;        
+    max-height: 1.3em;    
+    cursor: pointer;
+}
+
+.bl-loja-details-description h3{    
+    line-height:1.17em;
+    margin: 5px;    
+    margin-top:0px;
+    margin-left:8px;
+    max-height: 1.2em;    
+}
+
+.bl-loja-details-description p{    
+    margin: 6px;
+    color: #aaa;
+    margin-top: 0px;
+    font-size:12px;
+    margin-left:8px;
+    max-height: 16px;    
+}
+
+
+.bl-loja-products-vert{    
+    height: 50px;          
+    position: relative;
+    padding-top: 15px;
+    margin-left: 10px;    
+}
+
+
+/*---------------------*/
+/*  BUSCA DE SETORES   */
+/*---------------------*/
+
+
+.busca-setores{
+    text-decoration: none;
+    list-style: none;
+    background-color: white;
+    padding: 5px 10px;
+    color: #333;
+    border-radius: 3px;
+}
+
+.busca-setores li{
+    padding: 10px 10px;
+    border-bottom: 0.5px solid #eee;
+    cursor: pointer;
+}
+
+.busca-setores li:last-child{
+    border-bottom: none;
+}
+
+.busca-setores-tip{
+    height: 20px; 
+    width: 20px; 
+    border-radius: 50%; 
+    margin-right: 5px; 
+    color: white; 
+    padding: 4.5px 10px;
+}
+
+
+
+/*---------------------------*/
+/*   LISTA VERTICAL          */
+/*---------------------------*/
+
+
+.bl-loja-products-vert-table{		
+	height: 50px;		
+	overflow:hidden;
+	overflow-y:hidden;
+    overflow-x:hidden;
+	white-space: nowrap;			
+    width:100%;        
+    position: absolute;
+}
+
+.product-list-vertical-table-btn{
+    width: 45px;
+    height: 45px;    
+	margin: 0px 5px 0px 0px;	
+    border-radius:3px;		
+	display: inline-block;	
+    cursor: pointer;
+    outline: none;  
+    background-color: #fafafa;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}

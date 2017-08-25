@@ -1,0 +1,11 @@
+﻿<md-list-item ng-click="irPara(notif.href)">
+    <img ng-src="{{ notif.fotoPerfil }}" class="md-avatar" />
+    <p class="ck-notificacoes-text">{{ notif.mensagem }}</p>
+    <!-- N: LOJA -->
+    <md-button ng-if="notif.tipo == 1" class="md-secondary" ng-click="irPara(notif.href)" arial-label="visitar loja">visitar</md-button>
+    <!-- N: PRODUTO -->
+    <md-button ng-if="notif.tipo == 2" class="md-secondary ck-notificacoes-prod-btn" arial-label="visitar produto" style="background-image:url('{{notif.fotoAtividade}}')" ng-click="irPara(notif.href)"></md-button>
+</md-list-item>
+<md-divider></md-divider>
+
+              

@@ -1,0 +1,41 @@
+﻿<md-dialog>
+    <md-dialog-content>
+        <div class="md-dialog-content">
+            <p class="md-subhead text-center">RAIO ({{ buscalojaconfig.raiokm }} km) </p>
+            <p class="md-caption">Escolha o raio (km) de pesquisa de lojas</p>
+            
+            <md-slider flex
+                       class="md-accent"
+                       md-discrete
+                       ng-model="buscalojaconfig.raiokm" step="1" min="1" max="20">
+            </md-slider>                                                                      
+        </div>
+    </md-dialog-content>
+    <md-dialog-actions layout="row">
+        <md-button class="md-primary" ng-controller="LocationCtrl" ng-click="updateLocation(); watchLocationChange();">
+            <md-icon md-font-icon="material-icons">my_location</md-icon>
+            <span hide-xs>ATUALIZAR LOCALIZAÇÃO</span>
+        </md-button>
+        <span flex></span>
+        <md-button class="md-primary md-raised" ng-click="atualizaDadosBuscaLocalizacao(buscalojaconfig)">
+            salvar e pesquisar
+        </md-button>
+    </md-dialog-actions>
+
+
+    <style>
+        @media screen and (max-width: 800px) {
+            md-dialog {
+                width: calc(100vw - 10px);
+                max-width: 100%;
+                margin: 0px 5px;
+            }
+        }
+
+        .regrasProdutoDialogSection {
+            padding: 5px;
+            border-radius: 5px;
+            background-color: #eee;
+        }
+    </style>
+</md-dialog>

@@ -1,0 +1,235 @@
+﻿<!-- HOME -->
+ <div ng-init="carregaHome()">
+    <div layout="column">    
+             
+        <div class="container-total">                        
+            <div class="slider" data-ng-include="'app/home/partials/slider.tpl.html'"></div>                                                
+        </div>              
+
+        <!-- PARTE 1 -->
+        <div class="container-fluid">            
+            <!-- CHAMADAS -->
+            <div class="ck-home-a" layout="row" layout-align="space-around center" layout-wrap hide-xs>
+                
+                <!-- PESQUISA PRODUTO -->
+                <div flex="40" flex-xs="100">
+                    <div class="ck-home-a-btn" ng-click="irPara('buscar')" ng-class="$mdMedia('xs') ? 'md-whiteframe-1dp':''">
+                        <md-icons class="material-icons">search</md-icons> buscar seu produto
+                    </div>
+                </div>
+
+                <div flex-xs="100" hide-gt-xs layout-align="center center">
+                    <p>ou</p>
+                </div>
+
+                <!-- PESQUISA LOJA -->
+                <div flex="40" flex-xs="100">
+                    <div class="ck-home-a-btn" ng-click="irPara('buscarlojas')" ng-class="$mdMedia('xs') ? 'md-whiteframe-1dp':''">
+                        <md-icons class="material-icons">store</md-icons> lojas por perto
+                    </div>
+                </div>
+                
+            </div>
+
+            <!--  -->
+            <div class="ck-home-b">
+                <div class="ck-home-b-icon" style="background-image:url('img/logoblue.png')"></div>
+                <h2>Catáloko<small style="font-size:10px; font-family: Roboto;"> alpha</small></h2>
+                
+                <h5>Seu catálogo online</h5>
+                <p>Nós somos o melhor e único catálogo online do Brasil. Aqui você encontra lojas, produtos e promoções perto de você com facilidade.</p>
+            </div>
+        </div> 
+        
+        <!-- O QUE VC PRECISA -->
+        <div class="ck-home-oqvp">
+            <h2>O QUE VOCÊ PRECISA?</h2>
+            <span class="ck-home-separator"></span>
+
+            <div flex layout="row" layout-wrap class="ck-home-oqvp-space">
+                <div class="ck-home-oqvp-prod" flex="33" flex-xs="50" layout="column" layout-align="center center" data-ng-click="irPara('buscar/tênis')">
+                    <img src="img/home/tenis.jpg" />
+                    <h4>TÊNIS</h4>
+                </div>                
+                <div class="ck-home-oqvp-prod" flex="33" flex-xs="50" layout="column" layout-align="center center" data-ng-click="irPara('buscar/camiseta')">
+                    <img src="img/home/camiseta.jpg" />
+                    <h4>CAMISETA</h4>
+                </div>
+                <div class="ck-home-oqvp-prod" flex="33" flex-xs="50" layout="column" layout-align="center center" data-ng-click="irPara('buscar/fone de ouvido')">
+                    <img src="img/home/fone.png" />
+                    <h4>FONE DE OUVIDO</h4>
+                </div>
+                <div class="ck-home-oqvp-prod" flex="33" flex-xs="50" layout="column" layout-align="center center" data-ng-click="irPara('buscar/boné')">
+                    <img src="img/home/bone.png" />
+                    <h4>BONÉ</h4>
+                </div>
+                <div class="ck-home-oqvp-prod" flex="33" flex-xs="50" layout="column" layout-align="center center" data-ng-click="irPara('buscar/blusa')">
+                    <img src="img/home/blusa.jpg" />
+                    <h4>BLUSA</h4>
+                </div>
+                <div class="ck-home-oqvp-prod" flex="33" flex-xs="50" layout="column" layout-align="center center" data-ng-click="irPara('buscar/touca')">
+                    <img src="img/home/touca.jpg" />
+                    <h4>TOUCA</h4>
+                </div>
+            </div>                        
+        </div>  
+        
+        <!-- AS MELHORES MARCAS -->
+        <div class="container-fluid ck-home-marcas">            
+            <h2>AS MELHORES MARCAS</h2>
+            <span class="ck-home-separator"></span>
+
+            <div data-ng-include="'app/home/partials/marcas.tpl.html'"></div>
+                        
+            <div ng-if="marcas.length == 6" flex="100" layout="column" layout-align="center center" style="margin-top:50px;">
+                <md-button class="md-primary md-raised" ng-click="showTodasMarcas()">VER TODAS MARCAS</md-button>
+            </div>
+
+            <div ng-if="marcas.length > 6" flex="100" layout="column" layout-align="center center" style="margin-top:50px;">
+                <md-button class="md-primary" ng-click="carregaMarcas()">ESCONDER MARCAS</md-button>
+            </div>
+                        
+        </div>   
+        
+        <!-- TOP10 LOJAS -->
+        <div class="ck-home-toplojas" style="background-image:url(img/texture/logoblack.png)" ng-if="false">
+            <h2 class="ck-home-toplojas-title">Top 10 lojas</h2>
+            <h4>As lojas mais visitadas do mês no Catáloko.</h4>
+            <p class="ck-home-toploja-loja-iconpresentation">
+                <i class="material-icons">star</i>
+                <i class="material-icons">star</i>
+                <i class="material-icons">star</i>
+            </p>    
+            
+            <div id="ck-home-toplojas" class="ck-home-toploja-rollspace" ng-class="$mdMedia('xs') ? '':'ck-scroll'">
+                <div class="ck-home-toploja-roll">
+                    <!-- repeat -->
+                    <div ng-repeat="l in top10" class="ck-home-toploja-loja md-whiteframe-1dp" ng-click="verLoja(l.url)">
+                        <div class="ck-home-toploja-loja-img"
+                             style="background-image:url('{{ l.fotoperfil }}')"></div>
+                        <h2>{{ l.nome }}</h2>
+                        <p>{{ $index + 1 }}º - {{ l.totalVisitas }} visitas</p>
+                    </div>
+                </div>
+            </div>
+
+            <script type="text/javascript">
+                // var os = {
+                //    android: navigator.userAgent.match(/Android/i),
+                //    ios: navigator.userAgent.match(/iPhone|iPad|iPod/i)
+                //};                
+                //if (!(os.android || os.ios)) {                                                         
+                //    $("#ck-home-toplojas").mousewheel(function (e, delta) {
+                //        $(this).scrollLeft(this.scrollLeft + (-delta * 40));
+                //        e.preventDefault();
+                //    });
+                //}  
+            </script>
+        </div> 
+
+        <!-- ATALHO PRA BUSCA -->
+        <div class="container-fluid" ng-if="false">
+            <div class="ck-home-search">
+                <img src="img/moji.png" />
+                <p class="ck-home-search-p">Os melhores produtos das melhores marcas e um só lugar</p>
+                <div class="ck-home-search-bar" ng-click="irPara('buscar')">
+                    <p><i class="material-icons" style="vertical-align: middle;">search</i>&nbsp;Digite um produto ou marca</p>
+                </div>
+            </div>
+        </div>        
+
+        <!-- CHAMADA PARA CADASTRO DE LOJISTA -->
+        <div class="ck-home-lojista-banner">            
+            <div flex layout="row">                              
+                <div class="ck-home-lojista"
+                     flex="40"
+                     flex-lg="50"
+                     flex-xs="100"
+                     layout="column" layout-align="start center"  layout-padding>
+                    <i class="material-icons">store</i>
+                    <h3>
+                        Você tem uma loja física?
+                    </h3>
+                    <p>
+                        Veja as regras e começe divulgar seu catálogo online!
+                    </p>
+                    <div>
+                        <md-button class="md-raised" ng-controller="TutorialLojaCtrl" ng-click="carregaTutorialCadastroLoja($event)">
+                            CADASTRAR
+                        </md-button>
+                    </div>                    
+                </div>
+                <div flex="60"
+                     flex-lg="50"
+                     hide-xs                     
+                     class="ck-home-lojista-img" style="background-image: url('img/ciclista.jpg');">                    
+                </div>           
+            </div>            
+        </div>
+
+        <!-- MIDIA -->
+        <div class="ck-home-midia">
+            <h2>NOSSAS REDES SOCIAIS</h2>
+            <span class="ck-home-separator"></span>
+            <div class="ck-home-midia-center" flex layout="row" layout-align="start center">
+                <div class="ck-home-midia-center-quad" flex="33" layout="column"layout-align="center center">
+                    <div ng-click="openPageApp('fb')" class="ck-home-midia-center-icon md-whiteframe-2dp" style="background-image: url('img/social/fb.png')">
+
+                    </div>
+                </div>
+                <div class="ck-home-midia-center-quad" flex="33" layout="column" layout-align="center center">
+                    <div ng-click="openPageApp('messenger')" class="ck-home-midia-center-icon md-whiteframe-2dp" style="background-image: url('img/social/messenger.png')">
+
+                    </div>
+                </div>
+                <div class="ck-home-midia-center-quad" flex="33" layout="column" layout-align="center center">
+                    <div ng-click="openPageApp('instagram')" class="ck-home-midia-center-icon md-whiteframe-2dp" style="background-image: url('img/social/insta.png')">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- BAIXAR O APP -->
+        <div class="ck-home-app" hide-xs>
+            <h2>BAIXE O APP CATÁLOKO </h2>
+            <span class="ck-home-separator"></span>
+            <br />
+
+            <div class="ck-home-app-space">
+                <a href="https://play.google.com"><img src="img/app/appstore.png" /></a>
+                <a href=""><img src="img/app/googleplay.png" /></a>
+            </div>     
+            
+            <style>
+                .ck-home-app-space{
+                    margin-top: 50px;
+                    height: 150px;
+                    background-image: url('../../../img/app/phone.png');
+                    background-position: center bottom;
+                    background-size: contain;
+                    padding-bottom: 50px;
+                    background-repeat: no-repeat;
+                }
+            </style>       
+        </div>
+
+        <!-- BANNER -->
+        <div class="ck-home-banner" style="background-image: url('img/banner-pixel.png');" layout="column" layout-align="center center" ng-if="false">
+            <span class="ck-home-banner-top"></span>
+            <div class="ck-home-banner-center md-whiteframe-1dp" layout-padding>
+                <h2>+ de 1000 produtos</h2>
+                <p>em 14 lojas cadastradas</p>
+            </div>
+            <span class="ck-home-banner-bottom"></span>
+        </div>                        
+
+    </div>
+ </div>
+
+<style>
+    .media-render{
+        background-color: #fff;
+    }
+</style>
+ <!-- END HOME -->

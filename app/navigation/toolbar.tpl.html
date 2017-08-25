@@ -1,0 +1,25 @@
+﻿<md-toolbar class="md-whiteframe-1dp" hide-xs>
+    <div class="md-toolbar-tools" ng-controller="MenuCtrl">
+        <md-button class="md-icon-button" aria-label="Settings" ng-click="toggleLeft()">
+            <md-icon md-font-icons="material-icons">menu</md-icon>
+        </md-button>
+        <span flex></span>
+        <md-button class="md-icon-button logo" ng-href="/">
+            <img src="img/logo.png" />
+        </md-button>
+        <span flex></span>
+
+        <div ng-controller="ClienteCtrl" ng-init="isClienteLogado()" id="ck-notification-sinal-gt-xs">
+                            
+            <md-button ng-if="NOTIFICATION_ON()" class="md-icon-button ck-desktop-navigation-notification-alert" ng-click="irPara('notificacoes')">
+                <md-icon class="" md-font-icon="material-icons">notifications</md-icon>
+            </md-button>                       
+
+            <md-button ng-if="SESSION_CLI_ON" class="ck-toolbar-profile" ng-click="verPerfil()" style="background-image: url('{{ SESSION_CLI.fotoperfil}}')"></md-button>                             
+        </div>
+        
+        <md-button class="md-icon-button" aria-label="Search" ng-href="/buscar">
+            <md-icon md-font-icons="material-icons">search</md-icon>
+        </md-button>
+    </div>
+</md-toolbar>

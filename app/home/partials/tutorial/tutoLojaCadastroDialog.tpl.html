@@ -1,0 +1,137 @@
+﻿<md-dialog aria-label="Bem-vindo lojista!">
+    <form ng-cloak>
+        <md-toolbar class="md-toolbar-transparent">
+            <div class="md-toolbar-tools">                
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="hideDialog()">
+                    <md-icon style="color: #333;" md-font-icon="material-icons" aria-label="Close dialog">close</md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+
+        <!-- 1 -->
+        <md-dialog-content ng-if="tutoPosition == 1">
+            <div class="md-dialog-content text-center go-up" style="font-family:'Roboto Condensed';">
+                <i class="material-icons">store</i>
+                <h1 class="md-display-3">Olá lojista!</h1>
+                <h2 class="md-headline">Bem vindo ao Catáloko <code>Alpha</code></h2>
+                <h2 class="md-body-1">Este é um pequeno lembrete para você começar com seu cadastro</h2>
+            </div>
+        </md-dialog-content>
+
+        <!-- 2 -->
+        <md-dialog-content ng-if="tutoPosition == 2" >
+            <div class="md-dialog-content text-center go-up">
+                <i class="material-icons" style="font-size: 100px;">
+                    card_giftcard
+                </i>
+                <h3 class="md-display-1">EXCLUSIVIDADE</h3>
+                <p>Por enquanto, nós estamos em período de teste, e por isso, você é ESPECIAL para nós.</p>
+                <p><md-icon md-font-icon="material-icons">build</md-icon> &nbsp; A plataforma pode apresentar alguma instabilidade durante o uso mas estaremos sempre evoluindo em todos os aspectos, então não fique "brabo". Você pode ajudar nos enviando um email.</p>
+                <p>Para que seu experiência seja a MELHOR você deve ficar atento a todas as recomendações a seguir.</p>
+                <p>Ok?</p>
+            </div>
+        </md-dialog-content>
+
+        <!-- 3 -->
+        <md-dialog-content ng-if="tutoPosition == 3">
+            <div class="md-dialog-content text-center go-up">
+                <i class="material-icons" style="font-size: 100px;">
+                    monetization_on
+                </i>
+                <h3 class="md-display-1">COBRANÇA</h3>
+                <p>Neste período de teste o acesso ao aplicativo será totalmente GRATUITO. Ou seja, todos os recursos oferecidos pelo Catáloko estarão liberados.</p>
+                <p>Caso venhamos a adotar a cobrança, ela será comunicada com 2 meses de antecedência e o valor, com certeza, não ultrapassará R$ 50 por mês.</p>
+                <p>Não temos previsão para o início da cobrança.</p>
+                <p>Saiba mais nos <a href="/termos">termos de uso</a></p>
+            </div>
+        </md-dialog-content>
+
+        <!-- 4 -->
+        <md-dialog-content ng-if="tutoPosition == 4">
+            <div class="md-dialog-content text-center go-up">
+                <i class="material-icons" style="font-size: 100px;">
+                    https
+                </i>
+                <h3 class="md-display-1">SEUS DADOS</h3>
+                <p>Todos os dados que você cadastrar no Catáloko estarão seguros!</p>
+                <p>Só usaremos os dados da sua loja para aumentar sua visibilidade na rede. Basicamente são os seguintes dados:</p>
+                <p>
+                    - Dados de localização <br />
+                    - Telefones para atendimento <br />
+                    - Logotipo da loja <br />
+                    - Dados dos produtos cadastrados <br />
+                </p>                
+            </div>
+        </md-dialog-content>
+
+        <!-- 5 -->
+        <md-dialog-content ng-if="tutoPosition == 5">
+            <div class="md-dialog-content text-center go-up">
+                <i class="material-icons" style="font-size: 100px;">
+                    mood
+                </i>
+                <h3 class="md-display-1">AGORA SIM, VAMOS AO CADASTRO</h3>
+
+                <md-button class="md-button-fullwidth md-primary md-raised" ng-click="irPara('loja/cadastro'); hideDialog();"> cadastrar</md-button>
+                <br />
+                <br />
+
+                <p>Se tiver alguma dúvida você pode nos contatar pelo email <a href="mailto:cataloko@outlook.com.br">cataloko@outlook.com.br</a>.</p>
+                <p>Não esqueça de ler nosso SUPER SIMPLES <a href="/termos">termos de uso</a> e <a href="/politica">política de privacidade</a>.</p>
+            </div>
+        </md-dialog-content>
+
+        
+        <md-dialog-actions layout="row">
+            <md-button ng-if="tutoPosition != 1" ng-click="tutoVoltar()">
+                voltar
+            </md-button>
+            <span flex></span>           
+            <md-button ng-if="tutoPosition != totalQuadros" class="md-primary md-raised" ng-click="tutoProximo()">
+                próximo &nbsp; <md-icon mf-font-icon="material-icons">navigate_next</md-icon>
+            </md-button>
+        </md-dialog-actions>
+    </form>
+
+
+    <style>
+
+        .md-dialog-container{
+            z-index: 999 !important;
+        }
+
+        md-dialog {
+            z-index: 998 !important;
+        }
+
+        .md-dialog-content i {            
+            font-size: 100px;
+            color: #555;
+        }
+
+        .md-dialog-content h1{            
+            
+        }
+
+        .md-dialog-content h2{
+            color: #333;
+        }
+
+        .md-dialog-content h3{
+            color: #555;
+            text-transform: uppercase;
+            font-family: 'Roboto Condensed';
+        }
+
+        .md-dialog-content p{
+            color: #555;
+            text-align: left;
+            max-width: 400px;
+            margin: 0 auto;           
+            line-height: 30px;
+            margin-bottom: 30px;
+        }
+    </style>
+
+</md-dialog>

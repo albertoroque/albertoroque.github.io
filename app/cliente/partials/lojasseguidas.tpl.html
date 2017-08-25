@@ -1,0 +1,30 @@
+﻿<div ng-init="carregarLojasSeguidas()" style="min-height:1000px;">
+    
+    <md-progress-linear ng-if="carregandoLojasSeguidas" md-mode="indeterminate"></md-progress-linear>
+
+    <div class="ck-mobile-navigation-topnav margin-bottom20" hide-gt-xs show-xs>
+        <h1>Lojas Seguidas</h1>
+    </div>
+
+    <div ng-if="!carregandoLojasSeguidas" layout="column"  class="go-up" >            
+        <div class="container">
+            
+            <div layout="row" flex="100">
+                <md-button class="" aria-label="Voltar" ng-click="voltarPagina()">
+                    <md-icon md-font-icon="material-icons">keyboard_arrow_left</md-icon>&nbsp; voltar
+                </md-button>
+                <span flex></span> 
+                <h3 class="md-subhead margin-right10">Seguindo {{ pageLojasSeguidas.totallojasseguidas  }} lojas</h3>
+            </div>
+            
+            <div ng-if="pageLojasSeguidas.totallojasseguidas == 0">
+                <h2 class="md-display-1">Você ainda não segue nenhuma loja.</h2>
+            </div>
+
+            <div class="bl-loja" ng-repeat="loja in pageLojasSeguidas.listalojas">
+                <span ng-include="'app/loja/partials/listaloja.tpl.html'"></span>
+            </div>
+        </div>
+    </div>
+</div>
+

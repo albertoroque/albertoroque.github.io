@@ -1,0 +1,132 @@
+﻿<md-dialog layout="column" layout-align="center center">
+   
+        <md-dialog-content ng-init="localizationDialogPage = 5">
+
+            <!-- FIRTS -->
+            <div class="md-dialog-content" flex="100" layout="row" ng-show="localizationDialogPage == 1">
+
+                <div flex="48" layout="column" layout-align="center center" class="locationDialogPageSelector" >
+                    <md-button class="md-fab md-primary" aria-label="gps" ng-click="localizationDialogPage = 2">
+                        <md-icon md-font-icons="material-icons">place</md-icon>
+                    </md-button>                        
+                    <h2 class="md-body-1">Procurar por GPS</h2>
+                </div>
+
+                <div flex="4" layout="column" layout-align="center center">
+                    <span class="md-subheader">ou</span>
+                </div>
+
+                <div flex="48" layout="column" layout-align="center center" class="locationDialogPageSelector">
+                    <md-button class="md-fab md-primary" aria-label="gps" ng-click="localizationDialogPage = 5">
+                        <md-icon md-font-icons="material-icons">short_text</md-icon>
+                    </md-button>
+                    <h2 class="md-body-1">Procurar por cidade</h2>
+                </div>
+
+            </div>
+
+            <!-- SECOND -->
+            <div class="md-dialog-content" flex ng-if="localizationDialogPage == 2" ng-init="getPermissionLocation()">
+                <h1><i class="material-icons">place</i></h1>
+                <h2 class="md-headline">Procurando...</h2>
+                <a ng-click="hideDialog()">cancelar</a>                
+            </div>
+
+            <!-- THIRD -->
+            <div class="md-dialog-content" flex ng-show="localizationDialogPage == 3">                               
+                <p class="md-subhead">A sua localização é...</p>                
+                <h2 class="md-display-1 no-margintop no-marginbottom">{{ location.bairro }}</h2>                               
+                <p class="no-margintop md-subhead text-uppercase text-muted "><small>{{ location.cidade }} - {{ location.estado }}</small></p>                
+                <md-button class="md-primary md-raised md-button-fullwidth" ng-click="saveLocation(location)">
+                    <md-icon md-font-icon="material-icons">thumb_up</md-icon>&nbsp; ESTÁ CERTO
+                </md-button>
+                <br />                
+                <a ng-click="localizationDialogPage = 2">tentar de novo</a>
+            </div>
+
+            <!-- FOURTY -->
+            <div class="md-dialog-content" flex ng-show="localizationDialogPage == 4">
+                <h1><i class="material-icons">mood_bad</i></h1>                
+                <h3 class="md-display-1">OPS</h3>
+                <p>{{ locationMsgError || 'Lembre-se de ativar sua localização'}}</p>
+                <br />
+                <md-button class="md-primary md-button-fullwidth" ng-click="localizationDialogPage = 2">TENTAR DE NOVO</md-button>
+                <br />                
+            </div>
+            
+            <!-- FIFTH -->
+            <div class="md-dialog-content" flex ng-show="localizationDialogPage == 5">                 
+                
+                <h3 class="md-subhead text-center">Qual é a sua cidade?</h3>
+                
+                <span class="ck-home-separator"> </span>
+                <br />
+                                                
+                <div layout="row" layout-align="start center" layout-wrap>
+                    <div flex="33" flex-xs="50" ng-repeat="i in cidadesDispo" ng-click="saveLocationCity(i)">
+                        <div class="location-space" layout="column" layout-align="center center">
+                            <div class="location-circle" style="background-image: url('{{ resolveCidadeWallpaper(i) }} ')"></div>
+                            <h3 class="location-title">{{ i }}</h3>
+                        </div>
+                    </div>                    
+                </div>
+
+                <style>        
+                    .location-space{
+                        width: 150px;
+                        margin: 0 auto;
+                        margin-top: 15px;
+                        cursor: pointer;                                                
+                    }
+
+                    .location-circle{
+                        height: 100px;
+                        width: 100px;
+                        border-radius: 50%;
+                        background-color: #78909C;                        
+                        background-size: cover;
+                        background-repeat: no-repeat;
+                        background-position: center center;
+                        -webkit-box-shadow: 2px 2px 9px 0px rgba(50, 50, 50, 0.38);
+                        -moz-box-shadow:    2px 2px 9px 0px rgba(50, 50, 50, 0.38);
+                        box-shadow:         2px 2px 9px 0px rgba(50, 50, 50, 0.38);
+                    }
+
+                    .location-title{
+                        text-align: center;
+                        font-family: 'Roboto Condensed';
+                        text-transform: uppercase;
+                        font-size:16px;
+                    }
+                </style>
+            </div>      
+                  
+        </md-dialog-content>
+     
+    <style>
+       
+        md-dialog {
+            text-align: center;    
+            width: calc(100vw - 10px);        
+            margin: 0px 5px;
+        }
+
+        .locationDialogPageSelector{
+            padding: 5px 30px;
+        }
+
+        @media screen and (max-width: 800px) {
+            md-dialog{             
+                width: 100vw;  
+                max-width: 100%;                                      
+            }          
+
+            md-dialog .md-dialog-content{
+                padding: 25px 10px;
+            }
+        }                          
+
+               
+    </style>
+
+</md-dialog>

@@ -1,0 +1,35 @@
+<!-- FB: LOGIN BTN -->
+<div layout="column" layout-align="center center" class="go-up">
+    <div id="fb-login-button"         
+         class="fb-login-button"
+         data-max-rows="1"
+         onlogin="testAPI()"
+         data-size="large"
+         data-button-type="login_with"
+         data-show-faces="false"
+         data-auto-logout-link="false"
+         data-use-continue-as="false"
+         scope="email, public_profile"
+         style="width: auto; margin: 0 auto; display: block; position: relative;"></div>
+
+    <div id="status"></div>
+
+    <script >
+
+        fbInit();
+        
+        function fbInit() {
+            FB.init({
+                appId: window.FBid,
+                cookie: true,
+                xfbml: true,
+                version: 'v2.8'
+            })
+        }
+
+        function testAPI() {
+            location.reload();        
+        }
+
+    </script>
+</div>

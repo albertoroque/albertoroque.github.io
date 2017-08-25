@@ -1,0 +1,28 @@
+﻿ <md-menu>   
+     <md-button class="md-icon-button" aria-label="Settings" ng-click="openMenu($mdOpenMenu, $event)">
+         <md-tooltip md-direction="bottom">Opções</md-tooltip>
+         <md-icon md-font-icons="material-icons">more_vert</md-icon>
+     </md-button>
+
+    <md-menu-content width="4">        
+        <md-menu-item>
+            <md-button ng-click="editarFotoperfilLoja($event)">
+                <md-icon class="material-icons">insert_photo</md-icon>
+                Editar foto perfil
+            </md-button>
+        </md-menu-item>
+        <md-menu-item>
+            <md-button ng-click="">
+                <md-icon class="material-icons">devices</md-icon>
+                Deslogar todos dispositivos
+            </md-button>
+        </md-menu-item>
+        <md-menu-divider></md-menu-divider>
+        <md-menu-item>
+            <md-button ng-click="terminarSessao()">
+                <md-icon class="material-icons">exit_to_app</md-icon>
+                Sair                              
+            </md-button>
+        </md-menu-item>
+    </md-menu-content>
+</md-menu>

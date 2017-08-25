@@ -1,0 +1,81 @@
+﻿<div ng-init="carregarGerenciaCategoria()">
+    <md-progress-linear class="" md-mode="indeterminate" ng-if="carregandoCategoria"></md-progress-linear>
+    <div layout="column">
+
+        <div class="adm-categoria">
+
+            <div class="container">
+
+                <div class="adm-loja-cabecalho" flex layout="row" layout-align="start start" layout-wrap>
+                    <div flex="100" layout="row">
+                        <md-button ng-click="irPara('/loja/' + idloja + '/inicio')">
+                            <md-icon class="material-icons">chevron_left</md-icon> inicio
+                        </md-button>
+                    </div>
+
+                    <div layout="row" flex="100" style="height:30px"></div>
+
+                    <div flex="100" layout-padding style="text-align:center;">
+                        <span class="adm-loja-cabecalho-title">CATEGORIAS </span>
+                        <p>{{ categorias.length }} categorias ativas</p>
+                    </div>
+
+                    <div flex="100" layout="row" layout-align="center start">                                               
+                        <div flex layout="row">                            
+                            <!--<md-button class="md-icon-button">
+                                <md-icon class="material-icons">search</md-icon>
+                            </md-button>-->
+                            <md-button class="md-primary" ng-click="cadastroCategoriaDialog()">
+                                <md-icon class="material-icons">add</md-icon> categoria
+                            </md-button>
+                        </div>
+                        <span flex></span>
+                        <div flex layout="row" layout-align="end center">
+                            <md-button class="md-icon-button md-primary" hide-gt-xs show-xs ng-click="dicaCategoriaDialog($event)">
+                                <md-icon class="material-icons">info_outline</md-icon>
+                            </md-button>
+                            <md-button class="md-primary" hide-xs ng-click="dicaCategoriaDialog($event)">
+                                DICAS
+                            </md-button>
+                        </div>
+                    </div>
+                </div>
+
+                <br />
+
+                <md-list flex class="md-whiteframe-1dp go-up" ng-if="!carregandoCategoria">
+                    <md-list-item class="md-2-line no-right" ng-repeat="c in categorias" ng-click="opcoesCategoriaDialog($event, c)">
+                        <div class="md-list-item-text">
+                            <h3>{{ c.descricao }}</h3>
+                            <p>{{ c.qntProdutos }} produtos</p>
+                        </div>
+                        <div layout="row">
+                            <md-icon md-font-icon="material-icons" ng-click="opcoesCategoriaDialog($event, c)" class="md-secondary">settings</md-icon>
+                        </div>
+                    </md-list-item>
+                </md-list>
+
+                <br />
+                <br />
+
+                <div ng-if="categoriasInativas.length">
+                    <span class="md-subheader">CATEGORIAS INATIVAS</span>
+
+                    <md-list flex class="md-whiteframe-1dp go-up" ng-if="!carregandoCategoria">
+                        <md-list-item class="md-2-line no-right" ng-repeat="c in categoriasInativas" ng-click="opcoesCategoriaDialog($event, c)">
+                            <div class="md-list-item-text">
+                                <h3>{{ c.descricao }}</h3>
+                                <p>{{ c.qntProdutos }} produtos</p>
+                            </div>
+                            <div layout="row">
+                                <md-icon md-font-icon="material-icons" ng-click="opcoesCategoriaDialog($event, c)" class="md-secondary">settings</md-icon>
+                            </div>
+                        </md-list-item>
+                    </md-list>
+                </div>                
+            </div>            
+        </div>
+    </div>
+</div>
+ <!-- END HOME -->
+

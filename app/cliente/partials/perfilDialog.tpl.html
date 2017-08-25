@@ -1,0 +1,58 @@
+<md-dialog aria-label="Perfil">
+    <form ng-cloak>
+        <div layout="row" layout-align="start center">
+            <div flex="100">
+                <md-button class="md-primary" aria-label="editar perfil" ng-click="hideDialog()">
+                    <md-tooltip md-direction="top">Editar perfil</md-tooltip>                    
+                    &nbsp; editar perfil
+                </md-button>
+            </div>
+            <span flex></span>
+            <md-button class="md-icon-button" aria-label="More">
+                <md-icon md-font-icon="material-icons" ng-click="hideDialog()">close</md-icon>
+            </md-button>
+        </div>
+
+        <md-dialog-content class="margin-top20">
+            <div layout="column" layout-align="center center" layout-padding>
+                <div class="perfil-circle" style="background-image: url('{{ SESSION_CLI.fotoperfil }}')"></div>
+                <h3 class="md-title no-marginbottom">{{ SESSION_CLI.nome }}</h3>
+                <p class="no-margintop">{{ SESSION_CLI.email }} </p>         
+                      
+                <div layout="row" flex="100">
+                    <div flex="33">
+                        <md-button class="md-icon-button" aria-label="More" ng-click="irPara('notificacoes'); hideDialog();">
+                            <md-tooltip md-direction="top">Notificações</md-tooltip>
+                            <md-icon md-font-icon="material-icons">notifications</md-icon>
+                        </md-button>
+                    </div>
+                    <div flex="33">
+                        <md-button class="md-icon-button" aria-label="More" ng-click="irPara('lojasseguidas'); hideDialog();">
+                            <md-tooltip md-direction=" top">
+                            Lojas seguidas</md-tooltip>
+                            <md-icon md-font-icon="material-icons">store</md-icon>
+                        </md-button>
+                    </div>                    
+                    <div flex="33">
+                        <md-button class="md-icon-button" aria-label="More" ng-click="authClienteLogout()">
+                            <md-tooltip md-direction="top">Sair</md-tooltip>
+                            <md-icon md-font-icon="material-icons" ng-controller="ClienteCtrl">exit_to_app</md-icon>
+                        </md-button>
+                    </div>
+                </div>
+            </div>
+        </md-dialog-content>
+    </form>
+    <style>
+        .perfil-circle {
+            height: 80px;
+            width: 80px;
+            border-radius: 50%;
+            margin: 0 auto;
+            background-color: #333;
+            background-position: center center;
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+    </style>
+</md-dialog>

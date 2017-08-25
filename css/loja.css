@@ -1,0 +1,393 @@
+
+
+
+/*---------------------------*/
+/*   TOOLBAR                 */
+/*---------------------------*/
+/*md-toolbar .logo{
+    padding: 0px !important;
+}
+
+md-toolbar .logo img{
+    width: 100%;
+    height: 100%;
+}*/
+
+
+
+
+/*---------------------------*/
+/*   LOJA SLIDE              */
+/*---------------------------*/
+
+.loja{
+    margin-top:8px;
+}
+
+.loja-slide{
+    width: 98%;
+	max-width: 820px;	
+    margin: 0 auto;
+    margin-bottom: 10px;
+    /*margin-top: 20px;*/
+    background-color: white;
+    padding-left: 1%;
+    padding-right: 1%;    
+}
+
+.loja-slide--space figure{
+    display: block !important;
+}
+
+.loja-slide-toolbar{
+    height: 40px;
+    width: calc(100% - 10px);
+    padding-left: 5px;
+    padding-right: 5px; 
+    margin: 0 auto;    
+    margin-bottom: 30px;
+}
+
+.loja-slide-toolbar button{
+    margin: 0px !important;
+    color: #aaa;
+}
+
+.loja-slide-toolbar button md-icon{    
+    color: #aaa;
+}
+
+
+.loja-slide-toolbar-right{
+    float: right;
+    font-size:12px;
+}
+
+.loja-slide-title{
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: center;
+    
+}
+
+
+.loja-slide-title h1{
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.loja-slide-title h3{
+    font-weight: 400;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+.loja-slide-title p{
+    font-weight: 400;
+    margin-bottom: 5px;
+    color: #aaa;
+    margin-top:10px;
+    font-size:14px;
+}
+
+.loja-slide-title-image{
+    margin: 0 auto;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background-color: #ddd;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+
+.loja-slide-seguir-btn{
+    margin: 0px;
+    min-height: 26px;    
+    height: 26px;
+    line-height:26px;
+}
+
+
+/*---------------------------*/
+/*   CATEGORIAS              */
+/*---------------------------*/
+
+
+.ranking-category{    
+    position: relative;
+    width: 100%;
+    min-height: 60px;
+}
+
+.ranking-category-table{		
+	height: 40px;	
+	margin-top:10px;
+    margin-bottom:10px;
+	overflow:auto;
+	overflow-y:hidden;
+    overflow-x:auto;
+	white-space: nowrap;	
+	padding-bottom: 2px;	
+    width:100%;        
+    position: absolute;
+}
+
+.ranking-category-table-btn{
+    font-family: Roboto Condensed;
+	margin: 0px 5px 0px 0px;
+	padding: 5px 12px;
+	border-radius: 15px;
+	background-color: #607D8B;
+	color: white;
+	width: auto;
+	display: inline-block;
+	text-transform: uppercase;			
+    font-size:14px;
+    cursor: pointer;
+    outline: none;
+    -webkit-transition: background .5s linear; /* For Safari 3.1 to 6.0 */
+    transition: background .5s linear;
+}
+
+
+.chips-btn-waiting{
+    background-color: #aaa;
+    color: white;
+    -webkit-animation: wait 1s ease infinite;
+    animation: wait 1s ease infinite;
+}
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes wait {
+    0%   {background-color:#aaa;}    
+    50%   {background-color:#eee;}
+    100% {background-color:#aaa;}
+}
+
+/* Standard syntax */
+@keyframes wait {
+    0%   {background-color:#aaa;}    
+    50%   {background-color:#eee;}
+    100% {background-color:#aaa;}
+}
+
+.chips-btn-clicked{
+    background-color: #aaa;
+    color: white;
+}
+
+
+
+
+
+/*---------------------------*/
+/*   PRODUTO NA LOJA         */
+/*---------------------------*/
+
+ .loja md-grid-tile {
+  transition: all 400ms ease-out 50ms; 
+ }
+
+.loja-tile-product{
+    background-color: white; 
+    cursor: pointer;      
+}
+
+.loja-tile-product figure{
+    display: block !important;
+    
+}
+
+.loja-tile-product-img{    
+    height: 205px;      
+    width: 100%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+
+}
+
+.loja-tile-product-footer{
+    height: 45px;    
+    width: 100%;
+    text-align: center;        
+}
+
+.loja-tile-product-footer h3{
+    margin: 0px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 16px; 
+    height:16px;
+    padding-top:5px;   
+}
+
+.loja-tile-product-footer p{
+    margin: 0px;
+    color: #607D8B;
+    line-height: 20px;
+    font-size: 12px;
+}
+
+/*---------------------------*/
+/*   P�GINA PRODUTO          */
+/*---------------------------*/
+
+.produto{
+    margin-top: 8px;
+}
+
+.produto-slide{
+    width: 98%;
+	max-width: 820px;	
+    margin: 0 auto;
+    margin-bottom: 10px;    
+    background-color: white;
+    padding-left: 1%;
+    padding-right: 1%;    
+}
+
+.produto-loja-link{
+    height: 30px;
+    width: 32px;
+    margin: 6px;
+    border-radius: 50%;
+    background-color: #eee;    
+    cursor: pointer;
+    display: inline-flex;
+    background-position:center;
+    background-size: contain;
+}
+
+.produto-slide-toolbar{
+    margin-bottom: 20px;
+}
+
+.produto-img{    
+    width: 100%;
+    height: 340px;        
+}
+
+.produto-img-nosecundaries{     
+    height: 270px !important;        
+}
+
+.produto-img-image{
+    max-width: 600px;
+    height: 250px;    
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    border-radius: 3px;
+    margin: 0 auto;
+}
+
+
+.produto-details{
+    text-align: center;    
+}
+
+.produto-details h1{
+    margin: 0px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 30px;    
+    padding-bottom:15px;
+    max-height: 55px;
+    overflow: hidden;    
+
+}
+
+.produto-details p{
+    margin: 0px;
+    font-size:18px;
+    color: #607D8B;
+    line-height: 24px;
+}
+
+
+.produto-details h5{
+    margin: 0px;
+    font-size:12px;
+    color: #aaa;    
+    margin-top: 20px;
+    font-weight: 100;
+    font-family: Roboto Condensed;
+}
+
+.produto-primary-button{
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    position: fixed;
+}
+
+.produto-details-descricao{    
+    padding: 10px;
+}
+
+.produto-details-descricao-markup{
+    font-family: Roboto Condensed;
+    text-align: left;
+    color: #aaa;
+    font-size: 1em;
+}
+
+.produto-details-descricao-text{
+    color: #555;
+    line-height: 1.6em;
+    white-space: pre-line;
+    margin-top:0px;
+}
+
+
+
+
+
+/*---------------------------*/
+/* PRODUTO LISTA HORIZONTAL  */
+/*---------------------------*/
+
+.produto-img-gallery-vert{
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    height: 45px;    
+    max-width: 400px;
+    margin-top: 10px;
+}
+
+.produto-img-gallery-table{		
+	height: 47px;		
+	overflow:hidden;
+	overflow-y:hidden;
+    overflow-x:hidden;
+	white-space: nowrap;			
+    width:100%;        
+    max-width: 400px;
+    position: absolute;
+
+}
+
+.produto-img-gallery-table-btn{
+    width: 45px;
+    height: 45px;    
+	margin: 0px 5px 0px 0px;	
+    border-radius:1px;		
+	display: inline-block;	
+    cursor: pointer;
+    outline: none;      
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.produto-img-gallery-table-btn:hover{
+    -webkit-filter: blur(1px);
+    filter: blur(1px);   
+}

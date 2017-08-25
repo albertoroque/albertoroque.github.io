@@ -1,0 +1,201 @@
+
+
+
+/*---------------------------*/
+/*   TOOLBAR                 */
+/*---------------------------*/
+/*md-toolbar .logo{
+    padding: 0px !important;
+}
+
+md-toolbar .logo img{
+    width: 100%;
+    height: 100%;
+}*/
+
+
+
+/*---------------------------*/
+/*   INPUT                  */
+/*---------------------------*/
+
+.buscar{
+    padding-top: 20px;
+}
+
+md-autocomplete{
+    background-color: white !important;
+    border-radius: 3px;
+}
+
+.buscar-input md-input-container .md-input{
+    border-bottom: none !important;
+}
+
+.buscar-input-div{
+    width: 100%;
+    display: block;
+    float:right;
+}
+
+.buscar-input-box{
+    width: calc(100% - 90px);       
+    float: left;                 
+}
+
+.buscar-input-box md-input-container{
+    margin:0px !important;
+}
+
+.buscar-send{
+    width:90px;
+    float: left;
+    overflow:hidden;
+}
+
+.buscar-config{
+    color: #aaa;   
+    clear: both;
+}
+
+
+.buscar-section{    
+    padding: 10px;
+}
+
+.buscar-section-markup{
+    font-family: Roboto Condensed;
+    text-align: left;
+    color: #aaa;
+    font-size: 1em;
+}
+
+.buscar-section-text{
+    color: #555;
+    line-height: 1.6em;
+}
+
+.buscar-anteriores{
+    text-decoration: none;
+    list-style: none;
+    background-color: white;
+    padding: 5px 10px;
+    color: #333;
+    border-radius: 3px;
+}
+
+.buscar-anteriores li{
+    padding: 10px 10px;
+    border-bottom: 0.5px solid #eee;
+    cursor: pointer;
+}
+
+.buscar-anteriores li:last-child{
+    border-bottom: none;
+}
+
+
+/*---------------------------*/
+/*   BUSCA PRODUTOS          */
+/*---------------------------*/
+
+  
+.busca-searchbar{
+    display: block;
+    width: calc(100% - 20px);                        
+    margin: 10px 10px;                        
+    height: 40px;
+    background-color: white;
+    border-radius: 22px;
+}
+
+.busca-searchbar md-icon{    
+    float: left;                   
+    width: 35px;
+    /*background-color:red;*/
+    margin-top: 5px;
+    text-align:center;
+    line-height: 1.4;
+}
+
+.busca-searchbar input{                                              
+    float: left;
+    width: calc(100% - 35px);
+    /*background-color: #999;*/
+    border: none;
+    height: 95%;
+    outline: none;
+    border-radius: 22px;
+}
+  
+
+.buscar-product{
+    background-color: white;
+    border-radius: 3px;
+    color: #333;
+    cursor: pointer;
+}
+
+.buscar-product-img{
+    display: block;
+    height:150px;
+    width: 100%;
+    margin:0 auto;
+    max-width: 200px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;   
+    flex: 1;
+}
+
+.buscar-product-description{
+    float: left;
+    height: 150px;
+    width: calc(100% - 5px);    
+    position: relative;
+    margin-left: 5px;
+}
+
+
+.buscar-product-description h2{
+    margin-bottom: 5px;
+    margin-top:10px;
+    font-weight: 400;
+    line-height: 1.5em;
+    max-height: 1.5em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.buscar-product-description h5{
+    float: right;
+    margin: 0;
+    color: #607D8B;
+    font-size: 26px;
+    position: absolute;
+    bottom: 5px;
+    right: 8px;    
+}
+
+.buscar-product-description p{
+    margin: 2px;
+    color: #aaa;
+    font-size: 12px;
+    max-height: 18px;
+    font-family: Roboto Condensed;
+}
+
+
+.buscar-product-description span{
+    width: 16px;               
+}
+
+
+.buscar-product-description span > md-icon{    
+    margin: 0 auto;    
+    font-size: 18px;
+    color: #aaa;
+    padding-top: 2px;
+}
+
+

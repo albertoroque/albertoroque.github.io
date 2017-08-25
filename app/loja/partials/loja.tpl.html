@@ -1,0 +1,110 @@
+﻿ <div ng-init="carregarLoja();">
+    <md-progress-linear class="" md-mode="indeterminate" ng-if="carregandoLoja"></md-progress-linear>
+    <div layout="column">         
+        <div class="loja">
+            <!-- SLIDE -->
+            <md-grid-list class="loja-slide go-up" md-cols="1" md-row-height="310px">                
+                <md-grid-tile class="loja-slide--space">
+                    <div class="loja-slide-toolbar" style="margin-bottom: 5px;">
+                        <md-button class="md-icon-button" aria-label="Info" ng-click="showInfoLoja($event)">
+                            <md-tooltip md-direction="bottom">Informações</md-tooltip>
+                            <md-icon md-font-icons="material-icons">info_outline</md-icon>
+                        </md-button> 
+                        <!--<md-button class="md-icon-button" aria-label="Settings" ng-click="">
+                            <md-tooltip md-direction="bottom">Ver fotos da loja</md-tooltip>
+                            <md-icon md-font-icons="material-icons">local_see</md-icon>
+                        </md-button>-->                                              
+                        <div class="loja-slide-toolbar-right">                                                                                
+                            <md-button class="md-icon-button" ng-controller="CatalokoCtrl" aria-label="Settings" ng-click="showShareLink(dadosLoja.url, 'loja', $event)">
+                                <md-tooltip md-direction="bottom">Compartilhar link</md-tooltip>
+                                <md-icon md-font-icons="material-icons">share</md-icon>
+                            </md-button>  
+                            <md-button class="md-icon-button" aria-label="Settings" ng-click="irParaLocal(dadosLoja.urlmaps)">
+                                <md-tooltip md-direction="bottom">Ir até a loja</md-tooltip>
+                                <md-icon md-font-icons="material-icons">near_me</md-icon>
+                            </md-button>
+                        </div>                                               
+                    </div>
+
+                    <div class="loja-slide-title" ng-if="!carregandoLoja">
+                        <div class="loja-slide-title-image" style="background-image: url('{{ dadosLoja.fotoperfil }}');"></div>
+                        <h1>{{ dadosLoja.nome }} </h1>
+
+                        <!-- FOLLOW ENGINE -->
+                        <div ng-controller="ClienteCtrl" ng-init="updateSession()">
+                            <div ng-if="SESSION_CLI_ON">
+
+                                <span ng-init="checkSeguindoLoja(dadosLoja.id)"></span>
+                                
+                                <md-button ng-if="seguindoFlag == 0" ng-click="" class="loja-slide-seguir-btn md-raised">...</md-button>
+                                <md-button ng-if="seguindoFlag == 1" ng-click="checkoutLoja(dadosLoja.id)" class="loja-slide-seguir-btn md-raised">seguindo</md-button>
+                                <md-button ng-if="seguindoFlag == 2" ng-click="checkinLoja(dadosLoja.id)" class="loja-slide-seguir-btn md-accent md-raised">seguir</md-button>
+                            </div>
+                            <div ng-if="!SESSION_CLI_ON">
+                                <md-button ng-click="showLogin()" class="loja-slide-seguir-btn md-accent md-raised">seguir</md-button>
+                            </div>
+                        </div>                        
+                        <p>
+                            <md-tooltip md-direction="bottom">{{ dadosLoja.cidade }}, {{ dadosLoja.estado }}</md-tooltip>
+                            {{ dadosLoja.logradouro_formatado}}
+                        </p>
+                    </div>                
+                </md-grid-tile>
+            </md-grid-list>
+                                    
+            <div class="container">
+                
+                <!-- CATEGORIAS -->
+                <div flex class="ranking-category">
+                    <div class="ranking-category-table" id="ranking-category-mousewheel" ng-class="$mdMedia('xs') ? '':'ck-scroll'">
+                        <!--<span class="ranking-category-table-btn"><i class="material-icons" style="font-size:inherit; display: block;">search</i></span>-->
+                        <span class="ranking-category-table-btn" ng-click="filtrarProdutoPorCategoria(dadosLoja.id, 0, $event)">NOVIDADES</span>
+                        <span class="ranking-category-table-btn" ng-repeat="c in dadosCategorias.categorias" ng-click="filtrarProdutoPorCategoria(dadosLoja.id, c.id, $event)">{{ c.descricao }}</span>
+                    </div>
+                    <script type="text/javascript">
+                        var os = {
+                            android: navigator.userAgent.match(/Android/i),
+                            ios: navigator.userAgent.match(/iPhone|iPad|iPod/i)
+                        };
+                        if (!(os.android || os.ios)) {
+                            $("#ranking-category-table").mousewheel(function (e, delta) {
+                                $(this).scrollLeft(this.scrollLeft + (-delta * 40));
+                                e.preventDefault();
+                            });
+                        }
+                    </script>
+                  
+                </div>
+
+                <!--<div flex="100" layout="column=" layout-align="center center" ng-if="carregandoProdutos">
+                    <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+                </div>-->                
+
+                <!-- PRODUTOS -->
+                <md-grid-list ng-if="!carregandoProdutos"
+                              md-cols="2"
+                              md-cols-xs="2"
+                              md-cols-gt-xs="3"
+                              md-cols-gt-sm="4"
+                              md-gutter="10px"
+                              md-row-height="250px"
+                              class="go-down">
+
+                    <md-grid-tile class="loja-tile-product go-up " ng-repeat="p in dadosProdutos" ng-click="showProduto($event, p.id)">
+                        <div class="loja-tile-product-img"
+                             style="background-image:url('{{ p.fotoPrincipal }}');"></div>
+                        <div class="loja-tile-product-footer">
+                            <h3>{{ p.nome }}</h3>
+                            <p>R$ {{ p.preco }}</p>
+                        </div>
+                    </md-grid-tile>
+
+                    <p ng-if="dadosProdutos.length == 0" class="text-center">Estamos trabalhando nisso...</p>
+
+                </md-grid-list>                
+
+            </div>            
+        </div>     
+    </div>
+ </div>
+ 

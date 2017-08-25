@@ -1,0 +1,34 @@
+﻿<md-dialog>
+    <form>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>{{ produto.nome }}</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="hideDialog()">
+                    <md-icon class="material-icons" aria-label="Close dialog">close</md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content>
+            <div ng-include="'app/loja/partials/produto.tpl.html'"></div>
+        </md-dialog-content>      
+
+        <md-dialog-actions layout="row">            
+            <span flex></span>            
+            <md-button class="md-primary md-raised" ng-href="/loja/{{ produto.idLoja }}/produto/{{ produto.id }}/editar">
+                <md-icon md-font-icon="material-icons">edit</md-icon> editar produto
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>
+
+
+<style>
+    md-dialog {
+        min-width: 80%;
+    }
+
+    .md-dialog-container {
+        z-index: 999;
+    }
+</style>

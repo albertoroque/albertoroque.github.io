@@ -1,0 +1,110 @@
+﻿<!-- HOME -->
+<div class="container" ng-init="carregarBuscarLoja()">
+
+    <div class="ck-mobile-navigation-topnav" hide-gt-xs show-xs>
+        <h1>Busca de lojas</h1>
+    </div>
+
+    <div layout="column">
+        <div class="buscarlojas">
+
+            <form name="buscar" ng-submit="buscarLojaNome(termo)">
+                <md-input-container md-no-float class="md-block" flex>
+                    <md-icon md-font-icons="material-icons">search</md-icon>
+                    <input data-ng-model="termo" type="text" placeholder="Digite o nome da loja ou setor favorito...">
+                </md-input-container>
+            </form>           
+
+            <!-- botao de pesquisa por geo -->
+            <div data-ng-if="lojasShowGeoAction == 2" layout="column" flex layout-align="center center">
+                <md-button class="md-fab md-primary" ng-click="buscarLojasGeo()">
+                    <md-icon md-font-icon="material-icons">place</md-icon>
+                </md-button>
+                <h2 ng-class="mdMedia('xs') ? 'md-body-2' : 'md-title' ">Buscar lojas por perto</h2>
+            </div>
+
+            <!-- botao de atualizacao por geo -->
+            <div data-ng-if="lojasShowGeoAction == 1">
+                <div ng-controller="LocationCtrl" layout="column" flex layout-align="center center">
+                    <md-button class="md-fab md-primary" ng-click="updateLocation()">
+                        <md-icon md-font-icon="material-icons">place</md-icon>
+                    </md-button>
+                    <h2 class="text-center" ng-class="mdMedia('xs') ? 'md-body-2' : 'md-title' " style="max-width:300px;">
+                        Atualize sua localização para pesquisa lojas por perto
+                    </h2>
+                </div>
+            </div>
+
+            <!--  -->
+            <div data-ng-if="lojasShowGeoAction == 4" layout="column" layout-align="center center">                
+                <div layout="row" layout-align="start center">
+                    <md-progress-circular class="md-accent" md-diameter="30px"></md-progress-circular>
+                    <p class="md-body-2">&nbsp;Procurando lojas...</p>
+                </div>
+            </div>
+
+            <!-- NÃO ENCONTRAMOS LOJAS -->
+            <div ng-if="lojasShowGeoAction == 5" layout="column" layout-align="center center" class="text-center text-muted">
+                <i class="material-icons md-primary" style="font-size: 70px;">place</i>
+                <h3 class="md-headline" style="margin-bottom:0px;">Por enquanto não há lojas perto de você</h3>
+                <p class="md-body-2 text-muted">Tente aumentar o raio de pesquisa ou procurar em outra cidade</p>
+                <md-button ng-controller="LocationCtrl" ng-click="updateLocation(); watchLocationChange();" class="md-primary">atualizar localização</md-button>
+            </div>
+
+            <!-- LISTA DE LOJAS -->
+            <div data-ng-if="lojasShowGeoAction == 3" class="go-up">                             
+                <div class="buscarlojas-config" layout="row">                                       
+                    <!--<md-button class="md-icon-button" ng-controller="LocationCtrl" ng-click="updateLocation(); watchLocationChange();">
+                        <md-tooltip md-direction="bottom">Atualizar minha localização</md-tooltip>
+                        <md-icon md-font-icons="material-icons">my_location</md-icon>
+                    </md-button>
+                    <p class="md-caption text-muted" ng-if="resultadoPesquisa.dadosBusca != null">{{ raiokm }} km - {{ resultadoPesquisa.totalLojas }} encontradas</p>-->
+                    <p class="md-caption text-muted" ng-if="resultadoPesquisa.dadosBusca != null">&nbsp;{{ resultadoPesquisa.totalLojas }} encontradas</p>
+                    <span flex></span>                    
+                    <!--<md-button class="md-icon-button" ng-controller="LocationCtrl" ng-click="updateLocation(); watchLocationChange();">
+                        <md-tooltip md-direction="bottom">Configurar pesquisa</md-tooltip>
+                        <md-icon md-font-icons="material-icons">settings</md-icon>
+                    </md-button>-->
+                    <md-button class="" aria-label="Localização" ng-controller="LocationCtrl" ng-click="updateLocation(); watchLocationChange();">
+                        <md-tooltip md-direction="bottom">Configurar pesquisa</md-tooltip>
+                        {{ resultadoPesquisa.dadosBusca.cidade }} <md-icon md-font-icons="material-icons">keyboard_arrow_down</md-icon>
+                    </md-button> 
+                    <!--<md-button class="md-icon-button" ng-click="carregarBuscarLoja()">
+                        <md-tooltip md-direction="bottom">Limpas pesquisa</md-tooltip>
+                        <md-icon md-font-icons="material-icons">close</md-icon>
+                    </md-button>-->
+                </div>
+               
+                <!-- ESPAÇO DA BUSCA PARA SETORES -->
+                <div layout="row" ng-if="resultadoPesquisa.setores.length > 0" layout-wrap class="margin-top20">                    
+                    <span class="buscar-section-markup no-marginbottom" flex="100">
+                        SETORES
+                    </span>
+                    <ul class="busca-setores" flex="100">
+                        <li ng-repeat="s in resultadoPesquisa.setores" ng-click="buscarLojasSetor(s.id)">
+                            <span class="busca-setores-tip" style="background-color:{{ s.corSetor }}">{{ s.primeiraLetra }}</span>
+                            {{ s.titulo }}
+                        </li>
+                    </ul>
+
+                    <span class="buscar-section-markup margin-top20 margin-bottom20" flex="100">
+                        LOJAS 
+                    </span>
+                </div>
+
+                <!-- FOR DE LOJAS PESQUISADAS -->
+                <div class="bl-loja" data-ng-repeat="loja in resultadoPesquisa.lojas">
+                    <span ng-include="'app/loja/partials/listaloja.tpl.html'"></span>
+                </div>
+
+                <div layout="column" layout-align="center center" ng-if="resultadoPesquisa.totalLojas == 0" style="color:#555;">
+                    <i class="material-icons md-primary" style="font-size: 70px;">place</i>
+                    <h3 class="md-headline" style="margin-bottom:0px;">Não encontramos lojas</h3>
+                    <p class="md-body-2 text-muted text-center">Tente aumentar o raio de pesquisa ou procurar em outra cidade</p>
+                </div>
+            </div>
+            <!-- REPEAT: LOJA & PREVIEW PRODUTOS -->
+
+        </div>
+    </div>
+</div>

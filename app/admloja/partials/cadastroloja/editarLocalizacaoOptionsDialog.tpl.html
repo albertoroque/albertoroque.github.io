@@ -1,0 +1,82 @@
+﻿<md-dialog layout="column">
+    <!-- UM -->
+    <form>
+        <md-dialog-content class="adm-loja-escolhe-setor-dialog" layout="column" layout-align="center center">
+            <!-- ENDEREÇO -->
+            <div ng-if="editarLocalizaoShow == 1" layout-padding flex>
+                <ng-include src="'app/admloja/partials/cadastroloja/editarLocalizacaoEndereco.tpl.html'" flex="100" layout="row" layout-align="space-around center" layout-wrap></ng-include>
+            </div>
+
+            <!-- GPS -->
+            <div ng-if="editarLocalizaoShow == 2" layout-padding flex>
+                <br>
+                <div flex="100" 
+                     ng-init="editarLocalizaoShowGpsCarregando = 1" 
+                     class="text-center">
+                    <div flex 
+                        layout="column" 
+                        layout-align="center center" 
+                        ng-if="editarLocalizaoShowGpsCarregando == 1">
+                        <i class="material-icons" style="font-size: 40px;">location_off</i>
+                        <p class="md-title">Você deve usar essa função se estiver na LOJA!</p>
+                        <p class="md-body-1">IMPORTANTE! Não se esqueça de habilitar seu GPS e permitir que o navegar obtenha os dados no começo desse processo.</p>
+                        <md-button class="md-primary md-raised" ng-click="procurarLocalizacaoPorLatLng()">LOCALIZAR</md-button>                    
+                    </div>
+                    <div 
+                        flex 
+                        layout="column" 
+                        layout-align="center center" 
+                        ng-if="editarLocalizaoShowGpsCarregando == 2">
+                        <i class="material-icons" style="font-size: 40px;">location</i>
+                        <p class="md-title">Procurando...</p>
+                        <md-button class="md-primary" ng-click="hideDialog()">cancelar</md-button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CEP -->
+            <div ng-if="editarLocalizaoShow == 3" layout-padding >
+                <br>
+                <ng-include src="'app/admloja/partials/cadastroloja/editarLocalizacaoCep.tpl.html'" flex="100" layout="row" layout-align="center center" layout-wrap></ng-include>
+            </div>
+
+        </md-dialog-content>
+
+        <md-dialog-actions layout="row" layout-align="start center">
+            <md-button ng-click="hideDialog()">
+                cancelar
+            </md-button>           
+        </md-dialog-actions>
+    </form>
+    
+   
+    <style>      
+                                
+        h1 .material-icons {
+            font-size: 50px;
+            color: #78909C;
+        }
+
+        .no-margintop {
+            margin-top: 0px;
+        }
+
+        #gmap_canvas img {
+            max-width: none !important;
+            background: none !important;
+        }
+        md-dialog{             
+            width: calc(100vw - 10px);  
+            max-width: 100%;      
+            margin: 0px 5px;
+        }
+
+        .md-dialog-content{
+            padding: 0px 0px !important;
+        }
+
+
+        
+    </style>
+    
+</md-dialog>

@@ -1,400 +1,201 @@
-<html>
-   <head>
-		<title>R'N'R- WebDes</title>
-		
-		<link rel="stylesheet" href="style.css" content="text/css">
-			
-		<link rel="shortcut icon" href="img/planetico.ico" type="image/x-icon" />
-		
-		<meta http-equiv="Content-Type" content="text/html" charset="utf-8">
-		
-		<meta name="google-site-verification" content="v0Hslfu4ZHld56NBGTwMua8iG1TUmirzTxsOTZrJ-7M" />
-		
-		<meta content="R'N'R WebDesingn - Um Universo de Idéias" name="description">
-		
-		<meta name="author" content="RnR">
-		
-		<meta name="keywords" content="web, designer, rnr, RNR, alberto, denis, guarulhos, web, crie, seu, site, construaseusite, melhoreseusite, design, sites, mombile">
-		
-		<!--CSS MOBILE-->
-			<link rel="stylesheet" href="mobile.css" media="(max-width: 720px)">
-			<meta name="viewport" content="width=device-width"> 	
-		
-		<!--MINI MENU-->
-		<script type="text/javascript" src="js/jquery-1.11.2.js"></script>
-		<script type="text/javascript" src="js/script.js"></script>
+﻿<!DOCTYPE html>
+<html ng-app="Proj" ng-controller="CatalokoCtrl" lang="pt-br">
+<head>
 
-		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
+    <base href="/">
 
-		<script type="text/javascript">
-			
-			function Slider() {
-				
-				$(".slider #1").show("fade",500);
-				$(".slider #1").delay(5500).hide("slide",{direction:"left"},500);
+    <meta charset="utf-8" />    
+    <title>Catáloko</title>
+    <meta http-equiv="Content-Language" content="pt-br">       
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">        
+    <link href="img/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="">
+    <meta name="author" content="Catáloko | Alberto Roque">
+    <meta name="robots" content="index,follow">
+    <meta name="distribution" content="global">
+    <meta name="copyright" content="Copyright(c) 2017 Catáloko">
+    <link rel="alternate" href="https://cataloko.com" hreflang="x-default" />
 
-				var sc= $(".slider img").size();
-				var count=2;
+    <!-- OpenGraph -->
+    <meta property="og:title" content="Catáloko" />
+    <meta property="og:image" content="img/logoblue.png" />
+    <meta property="og:description" content="Seu catálogo online" />
 
-				setInterval(function(){
+    <!-- NEW IONIC -->
+    <!-- Add to homescreen -->
+    <link rel="manifest" href="https://cataloko.com/config/manifest.json">
 
-					$(".slider #"+count).show("slide",{direction:"right"},500);
-					$(".slider #"+count).delay(5500).hide("slide",{direction:"left"},500);
+    <!-- Fallback to homescreen for Chrome <39 on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Catáloko">
+    <link rel="icon" sizes="192x192" href="https://cataloko.com/img/icon/logo192.png">
 
-					if(count == sc){
-						count = 1;
-					}else{
-						count = count + 1;
-					}
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="white">
+    <meta name="apple-mobile-web-app-title" content="Catáloko">
+    <link rel="apple-touch-icon" href="https://cataloko.com/img/logoblue.png">             
+    <!-- NEW IONIC -->
 
-				},6500);		
-			}
-		</script>
+                         
+    <!-- Material CSS --> 
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+             
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/home.css" />
+    <link rel="stylesheet" href="css/loja.css" />
+    <link rel="stylesheet" href="css/busca.css" />
+    <link rel="stylesheet" href="css/buscarlojas.css" />
+    <link rel="stylesheet" href="css/admloja.css" />
+    <link rel="stylesheet" href="css/cadastroloja.css" />
+    <link rel="stylesheet" href="css/slider.css" />
 
-	</head>
-	<body onload="Slider();">
-	<!--BANNER-->
-		<!--Mini Menu Lateral-->
-		<div id="divLateral">
-			<div id="menuLateral">
-				<a href="#home"><img src="img/homereturn.png" alt="Menu Lateral" width="50px" height="20px"><a>
-			</div>
-		</div>
-		<div name="home" id="banner">
-			<div id="divisor">
-				<div id="fastcontact">
-					<div id="fastcontacttel">
-						<h6>oi (011) 96939-8742</h6>
-					</div>
-					<div id="fastcontactemail">
-						<h6>rnrweb@outlook.com.br</h6>
-					</div>
-					
-					<a href="https://www.facebook.com/pages/RocknRoll-WebDesigner/347958305399753" targer="_blank">
-						<img id="facelogo" src="img/banner/face.png" width="30px" height="30px">
-					</a>
-				</div>
-			</div>
-			<center>
-				
-				<!--LOGO-->
-				<img id="fodase" src="img/logo6.png" alt="logo rnr web" />
-				<br>
-				
-				<!--LETREIRO-->
-				<img id="letreiro" src="img/banner/letreiro.png"/>
-				
-				<h2>'Um Universo de Ideias'</h2>
-				
-				<br>
-				
-				<!--BARRA DE NAVEGAÇÃO   display:none version mobile-->
-				<nav>
-					<center>
-						<br>
+    <!-- Fonts CDN -->
+    <link href='https://fonts.googleapis.com/css?family=Roboto:200,300,400,500,700' rel='stylesheet' />
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet" />
 
-						<ul>
-							<li><a href="#port">     PORTIFÓLIO </a></li>
-							<li><a href="#contato">  CONTATO 	</a></li>
-							<li><a href="#servico">  SERVIÇOS   </a></li>
-						</ul>
-					</center>
-				</nav>
-			
-			</center>
-			
-		</div><!--FIM BANNER-->
+    <!-- MATERIAL ICONS -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">     
+    
+    <!-- AD SENSE -->
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-1756796504716359",
+            enable_page_level_ads: true
+        });
+    </script>                               
+    <!--  -->
+</head>
 
-	<!--CORPO DO SITE-->
-	<div id="conteudo">
-		<h1>Conheça nossos Trabalhos.</h1>
-		 <!--DIVISOR BOLINHA--><center><img id="divisordown"src="img/servico/down3.png"></center> 
-		 <br>
-     <!-- <h2>Aproveite e Imagine como você poderia fazer o site do seu negócio ou empresa. Nós somos capazes de tornar sua Imaginação em Realidade</h2>
-      <br>
-      <br>
-      <br>
-      -->
-      <center>
-       <div name="port" id="conttrabs">
+<body class="conteudo-principal">
+    
+    <!--
+    WARNING
+    Loagin screen activeted by directive in cataloko.js
+    -->
+    <div class="m-app-loading" ng-animate-children>
+        <style type="text/css">
+            div.m-app-loading{position:absolute;z-index:999;width:100%;height:100%;background-color:#607D8B}div.m-app-loading div.animated-container.ng-leave{opacity:1;transition:all linear .2s;-webkit-transition:all linear .2s}div.m-app-loading div.animated-container.ng-leave-active{opacity:0}div.m-app-loading div.messaging{font-family:monospace;left:0;margin-top:-37px;position:absolute;right:0;text-align:center;top:50%}div.m-app-loading h1{font-size:26px;line-height:35px;margin:0 0 20px}div.m-app-loading div.messaging p{font-size:17px;line-height:35px;margin:35px 0 20px;font-family:Roboto,Arial,sans-serif #000;color:#fff}div.m-app-loading img{-webkit-animation-name:spin;-webkit-animation-duration:4s;-webkit-animation-iteration-count:infinite;-webkit-animation-timing-function:linear;-moz-animation-name:spin;-moz-animation-duration:4s;-moz-animation-iteration-count:infinite;-moz-animation-timing-function:linear;-ms-animation-name:spin;-ms-animation-duration:4s;-ms-animation-iteration-count:infinite;-ms-animation-timing-function:linear;animation-name:spin;animation-duration:4s;animation-iteration-count:infinite;animation-timing-function:linear}@-ms-keyframes spin{from{-ms-transform:rotate(0)}to{-ms-transform:rotate(360deg)}}@-moz-keyframes spin{from{-moz-transform:rotate(0)}to{-moz-transform:rotate(360deg)}}@-webkit-keyframes spin{from{-webkit-transform:rotate(0)}to{-webkit-transform:rotate(360deg)}}@keyframes spin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+        </style>
+        <div class="animated-container">
+            <div class="messaging">
+                <img src="img/logo.png" width="80" height="80" />               
+            </div>
+        </div>
+    </div>
+
+    <!-- TOOLBAR -->
+    <span ng-include="'app/navigation/toolbar.tpl.html'"></span>
+            
+    <!-- SIDENAV -->
+    <md-sidenav ng-include="'app/navigation/sidenav.tpl.html'" class="md-sidenav-left md-whiteframe-2dp" md-component-id="left"></md-sidenav>            
+
+    <!-- BARRA DE NAVEGAÇÃO MOBILE -->
+    <span ng-include="'app/navigation/tabs.tpl.html'"></span>
         
-         <!--CICLE 1-->
-         
-         <div class="trabcircle">
-            <center>
-              <a href="http://www.condominiovilario.com" target="_blank" style="text-decoration:none; color:#333">
+    <!-- RENDER -->
+    <div layout="row" flex class="media-render">
+        <div layout="column" flex ng-view>
+            <!-- RENDER -->
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <span ng-include="'app/navigation/footer.tpl.html'"></span>
+    
+    <!-- SCRIPTS -->             
+    <script src="comp/jquery/jquery.min.js"></script>    
+
+    <!-- REDIRECT -->
+    <script>
+        // REMOVE ON --IONIC--                   
+        if ((window.location.hostname != "localhost") && (window.location.protocol == "http:" || window.location.hostname.indexOf("www.") > -1)) {
+            var url = window.location.href;
+            url = url.replace("http:", "https:");
+            url = url.replace("www.", "");
+            window.location = url;
+        }
+    </script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-route.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-cookies.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>    
+    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>   
+
+    <script src="cataloko.js"></script>
+    <script src="app/home/homeCtrl.js"></script>
+    <script src="app/home/homeService.js"></script>
+
+    <script src="app/loja/lojaCtrl.js"></script>
+    <script src="app/loja/lojaService.js"></script>
+
+    <script src="app/buscar/buscarCtrl.js"></script>
+    <script src="app/buscar/buscarService.js"></script>
+
+    <script src="app/admloja/admlojaCtrl.js"></script>
+    <script src="app/admloja/admlojaService.js"></script>
+
+    <script src="app/erro/erroCtrl.js"></script>
+    <script src="app/erro/erroService.js"></script>
+
+    <script src="app/location/locationCtrl.js"></script>
+    <script src="app/location/locationService.js"></script>
+
+    <script src="app/shoppings/shoppingsCtrl.js"></script>
+    <script src="app/shoppings/shoppingsService.js"></script>
+
+    <script src="app/image/imageCtrl.js"></script>
+
+    <script src="app/cliente/clienteCtrl.js"></script>
+    <script src="app/cliente/clienteService.js"></script>
+
+    <script src="app/cookie/cookieCtrl.js"></script>
+
+    <!-- ADICIONAIS -->
+    <!-- Mouse Wheel for horizontal mouse roll - INTERNAL -->
+    <script src="comp/jquery.mousewheel/jquery.mousewheel.min.js"></script>    
+
+    <!-- ngMeta for Opengraph - INTERNAL -->
+    <script src="comp/ngMeta/ngMeta.min.js"></script>
+    
+    <!-- Google Maps API for renderMap on MarketPanel - EXTERNAL -->
+    <script async defer src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyA6DpTe5eDT2KrT0PoQ2d5DcAsaswPWsKA"></script>
+    
+    <!-- FACEBOOK Login -->
+    <div id="fb-root"></div>
+    <script>
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v2.10";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
                
-               <img class="linkcircular" src="img/trabalhos/condvilarioimg.png" alt="trabalho1" />
-              </a>
-            </center>
-         </div>
-         
-         <!--CICLE 2-->
-         <div class="trabcircle">
-            <center>
-              <a href="http://www.condominiovilario.esy.es" target="_blank" style="text-decoration:none; color:#333">
-               <img class="linkcircular" src="img/trabalhos/zkinoximg.png" alt="trabalho1" />
-              </a>
-            </center>
-         </div>
-         
-         <!--CICLE 3-->
-         <div class="trabcircle">
-            <center>
-             <a href="villanova/index.html" target="_blank" style="text-decoration:none; color:#333">
-               <!--<h3>Villa Nova Condominios</h3>-->
-               <img class="linkcircular" src="img/trabalhos/villanovaimg.png" alt="trabalho1" />
-             </a>
-            </center>
-         </div>
-		 
-         
-       </div><!--FIM DIV TRABS ITEMS-->
-	   </center>
-	   
+    <!-- GOOGLE ANALYTICS -->
+    <script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date(); a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
-	   <br>
-	   <br>
-
-	   <!--DIV CRIAÇÃO -->
-	   <div id="rnr-crie">
-	   	<center>
-		   	<div id="rnr-crie-text">
-		   		<h3>Encomende agora o seu site</h3>
-		   		<p>Do seu jeito.<p>
-		   			<br>
-		   		<a href="orcamento.html">Faça o orçamento</a>
-		   	</div>
-		   		
-		   	<div class="slider">
-				<img id="1" src="img/slide1.png" width="100%">
-				<img id="2" src="img/slide2.jpg" width="100%">
-				<img id="3" src="img/slide3.jpg" width="100%">
-			<div>
-	   	</center>
-	   </div>
-
-	   
-
-	    <!--PRA QUE UM SITE-->
-	   <div id="praquesite">
-			
-			<center>
-			<div id="praquesiteletra">
-				
-				<p>Qual é a importância do WebSite para seu negócio?</p>
-			</div>
-			<!--TEXTO 1-->
-				<div id="pqstexto">	
-					<div class="pqsleft">	
-						<h6 id="pqstitle">Aumente o lucro da sua empresa.</h6><br>
-				
-						<h3>Ter seu produto anunciado no maior meio de comunicação e empreendimento do mundo é sim, uma boa idéia. Pare e pense, qual empresa importante não tem seu próprio website?</h3>
-						<h3>Nós da R'N'R WebDesigners podemos fazer sua empresa crescer.</h3><br>
-					</div>
-					
-					<div class="pqsright">	
-						<img src="img/praquesite/coin.png" >
-					</div>
-				
-				</div>
-
-				
-				<!--DIVISOR--> <div class="praquesitedivisor"></div> 
-
-				<!--TEXTO 2 LEFT-->
-				<div id="pqstexto2">	
-					<div class="pqsleft2">				
-						<h6 id="pqstitle">Mostre seu produto para todos.</h6><br>
-			
-						<h3>Publique seu produto na internet e mostre o que você tem para oferecer para seus clientes.</h3>
-						<h3>Imagine como pode ser chamativo sua publicidade, e o resto a R'N'R pode cuidar para você.</h3><br>
-					</div>
-					
-					<div class="pqsright2">	
-						<img src="img/praquesite/planet.png" width="70%" height="100%" />
-					</div>
-				
-				</div>
-
-				<!--DIVISOR--><div class="praquesitedivisor"></div> 
-
-				<!--TEXTO 3-->
-				<div id="pqstexto">
-					<div class="pqsleft">		
-						<h6 id="pqstitle">Imagine as Possibilidades.</h6><br>
-					
-			
-						<h3>Você já imaginou como seu WebSite poderia ficar bonito com o seu produto à venda?</h3>
-						<h3>A nossa equipe de Desingers pode tornar isso realidade, fazendo do seu jeito e com um pequeno toque nosso.</h3><br>	
-					</div>
-					
-					<div class="pqsright">	
-						<img src="img/praquesite/ideia.png"/>
-					</div>
-				
-				</div>
-				<!--DIVISOR--><div class="praquesitedivisor"></div> 
-			</center>
-	   </div>
-
-	   <br>
-	   <br>
-	   <br>
-	   <br>
-	  
-	   <div id="divisor"></div>
-
-	   <!--TECNOLOGIA-->
-	  <div id="tecnologia">
-	  	
-	  <center>
-	  	<div id="tecleft">
-	  		<p>Peça já seu site disponível em versão mobile!</p>
-	  	</div>
-	  	
-	  	<div id="tecright">
-	  		<img src="img/praquesite/mobilesite.png" width="" height="800"> 
-	  	</div>
-	  </center>
-	  </div>
-  
-	   <!--METODOLOGIA-->
-	   <div id="metodo">
-			<p>Conheça nosso jeito de trabalhar</p>
-			<h2>Conheça nosso jeito de trabalhar</h2>
-			<!--DIVISOR BOLINHA--><center><img id="divisordown"src="img/servico/down3.png"></center>
-			<br>
-			<div class="metodopassos1">
-				<center>
-					<img src="img/metodos/reuniao.png" width="80%" height="65%" />
-				</center>
-			</div>
-			
-			<div class="metodopassos2">
-				<center>
-					<img src="img/metodos/analise.png" width="80%" height="65%" />
-				</center>
-			</div>
-			
-			<div class="metodopassos3">
-				<center>
-					<img src="img/metodos/prot.png" width="80%" height="70%" />
-				</center>
-			</div>
-			
-			<div class="metodopassos4">
-				<center>
-					<img src="img/metodos/ajustes.png" width="80%" height="70%" />
-				</center>
-			</div>
-			
-			<div class="metodopassos5">
-				<center>
-					<img src="img/metodos/entrega.png" width="80%" height="70%" />
-				</center>
-			</div>
-	   </div>
-
-	   <!--DIVISOR--><center> <div class="divisor2"> </div> </center>
-
-	   <div  id="servico">
-	   		<h4>Serviços</h4>
-	   		<br>
-		 <!--DIVISOR BOLINHA--><center><img id="divisordown"src="img/servico/down3.png"></center>
-	   		<center>
-	   			<div id="op-servico">
-
-	   				<!--FOTOGRAFIA-->
-	   				<div class="op-se-item">
-	   					<div class="op-se-i-image">
-	   						<img src="img/servico/logo.png">
-	   					</div>
-	   					<div class="op-se-i-text">
-	   						<p>Crie seu logotipo e apresente sua empresa da melhor forma.Faça todas os tipos de publicidade digital e física com seu novo logo.</p>
-	   					</div>
-	   				</div>
-
-	   				<!--WEBSITE-->
-	   				<div class="op-se-item">
-	   					<div class="op-se-i-image">
-	   						<img src="img/servico/web.png">
-	   					</div>
-	   					<div class="op-se-i-text">
-	   						<p>Coloque sua empresa ou organização disponível 24 horas para seus cliente. Se comunique com mais facilidade e mostre sua empresa pra todos.</p>
-	   					</div>
-	   				</div>
-
-	   				<!--LOGOTIPO-->
-	   				<div class="op-se-item">
-	   					<div class="op-se-i-image">
-	   						<img src="img/servico/fotografia.png">
-	   					</div>
-	   					<div class="op-se-i-text">
-	   						<p>Crie um conteúdo para seu site ou publicidade com nós de um jeito profissional e sofisticado.</p>
-	   					</div>
-	   				</div>
-
-	   				<!--IDENTIDADE-->
-	   				<div class="op-se-item">
-	   					<div class="op-se-i-image">
-	   						<img src="img/servico/identidade.png">
-	   					</div>
-	   					<div class="op-se-i-text">
-	   						<p>Deixe sua empresa marcada na vida das pessoas com o método da identidade visual, usando cores e estilos.</p>
-	   					</div>
-	   				</div>	
-	   				<div id="op-botom">
-	   						<a href="orcamento.html"><p>Peça já seu orçamento</p></a>
-	   				</div>
-	   			</div>
-	   		</center>
-	   		
-	   </div>
-
-	    <!--DIVISOR--><center> <div class="divisor2"> </div> </center>
-	   
-	   <!--CONTATO-->
-	   <div id="contato">
-
-		<h2>Entre em Contato.</h2>
-			<div id="contemail">
-				<center>
-					<img src="img/cont/mailmaterial.png" width="200 "height="200" >
-					<h3>rnrweb@outlook.com.br</h3>
-					
-				</center>
-			</div>
-			
-			<div id="conttelefone">
-				<center>
-					<img src="img/cont/telmaterial.png" width="150 "height="150">
-					<h3> Oi   (011) 96939-8742 </h3>
-					<h3>Tratar com Alberto Roque</h3>
-				</center>
-			</div>
-			
-			<!--
-			<div id="contlocal">
-				<center>
-					<img src="img/cont/locallogo.png" width="100 "height="100">
-					<font color="black">
-					<h3>Atendimento nas cidade de:</h3>
-					<h3>Guarulhos e São Paulo</h3>
-					</font>
-				</center>	
-			</div>
-			-->
-
-			<div name="contato" id="rod">
-				<p>R'N'R WebDesign | Copyright © 2015</p>
-	    	</div>
-       </div>
-	   
-	   <!--RODAPE-->
-	  
-	  
-	</div>
-	</body>
+        ga('create', 'UA-102315706-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+    
+</body>
 </html>
+
+<!--
+Copyright 2016 Google Inc. All Rights Reserved. 
+Use of this source code is governed by an MIT-style license that can be in foundin the LICENSE file at http://material.angularjs.org/license.
+-->
+

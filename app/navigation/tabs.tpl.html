@@ -1,0 +1,31 @@
+﻿<div class="ck-mobile-navigation" show-xs hide-gt-xs>
+    <div flex="100" layout="row" style="height:100%;">
+        <div flex="20" class="ck-mobile-navigation-btn" layout="column" layout-align="center center" ng-click="irPara('/home')">
+            <i class="material-icons">home</i>
+            <h6>Início</h6>
+        </div>
+        <div flex="20" class="ck-mobile-navigation-btn" layout="column" layout-align="center center" ng-click="irPara('/buscarlojas')">
+            <i class="material-icons">store</i>
+            <h6>Lojas</h6>
+        </div>
+        <div flex="20" class="ck-mobile-navigation-btn" layout="column" layout-align="center center" ng-click="irPara('/buscar')">
+            <i class="material-icons">search</i>
+            <h6>Busca</h6>
+        </div>
+        <div flex="20" class="ck-mobile-navigation-btn" layout="column" layout-align="center center" ng-click="irPara('/shoppings')">
+            <i class="material-icons">local_mall</i>
+            <h6>Shoppings</h6>
+        </div>
+        <div flex="20" class="ck-mobile-navigation-btn" layout="column" layout-align="center center" ng-click="irPara('/mais')">
+
+            <div ng-show="NOTIFICATION_ON()" id="ck-mobile-navigation-notification-alert" class="ck-mobile-navigation-notification-alert ck-navigation-notification-alert go-up">
+                <i class="material-icons">notifications_active </i>
+            </div>
+            <i class="material-icons" style="position: relative;">
+                more_horiz
+                <span ng-if="NOTIFICATION_ON()" class="ck-circle-notification">{{ NOTIFICATION.ON }}</span>
+            </i>
+            <h6>Mais</h6>
+        </div>
+    </div>
+</div>

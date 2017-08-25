@@ -1,0 +1,101 @@
+﻿<div ng-init="carregaLocal()">
+    
+    <md-progress-linear ng-if="localCarregando" md-mode="indeterminate"></md-progress-linear>
+
+    <!-- PESQUISA DE SHOPPING NA CIDADE -->
+    <div ng-if="!localCarregando && !localErro" layout="column" class="go-up" >  
+        
+        <!-- BANNER -->                                                                                  
+        <div class="container-fluid ck-local-header md-whiteframe-1dp"
+             style="background-image: url('{{ local.dadosLocal.fotoPerfil }}')">                        
+
+            <div class="ck-local-header-toolbar" flex layout="row">
+                <div class="container">
+                    <md-button class="" aria-label="Voltar" ng-click="voltarPagina()">
+                        <md-icon md-font-icon="material-icons" style="color:white;">keyboard_arrow_left</md-icon>&nbsp; voltar
+                    </md-button>
+                    <span flex></span>                   
+                </div>                
+            </div>
+            <div flex
+                 class="ck-local-header-title"
+                 layout="column"
+                 layout-align="center center"
+                 style="width: 100%;">
+                <h1 class="md-display-1">{{local.dadosLocal.titulo}}</h1>                
+            </div>
+        </div> 
+        
+        <div flex layout="row" style="height:36px;">
+            <div class="container">
+                <md-button class="md-icon-button" aria-label="Buscar lojas">
+                    <md-icon md-font-icon="material-icons">search</md-icon>
+                </md-button>
+            </div>            
+        </div>
+        
+        <!-- CORPO -->
+        <div class="container">
+            <div class="bl-loja" ng-repeat="loja in local.listaLojas">
+                <span ng-include="'app/loja/partials/listaloja.tpl.html'"></span>
+            </div>
+        </div>               
+    </div>
+
+    <div ng-if="localErro">  
+        <h2 class="md-headline text-center">            
+            {{ localErroMsg.erroMsg }}
+        </h2>
+    </div>
+ </div>
+
+<style>
+
+    
+    /* HEADER */
+    .ck-local-header{        
+        width:100%;
+        background-color: #eee;
+        height: 200px;
+        color: white;
+        background-position: center center;
+        background-size: cover;
+        margin-bottom: 10px;
+    }
+    
+    .ck-local-header h1 {
+        text-shadow: 1px 1px 2px rgba(150, 150, 150, 1);
+        text-align: center;
+    }
+
+    .ck-local-header-toolbar {
+        top: 0px;
+        width: 100%;
+        height: 50px;
+        clear: both;
+        background-color: rgba(0,0,0,0.1);
+    }
+
+        .ck-local-header-toolbar p {
+            line-height: 40px;
+            height: 40px;
+            margin: 0px;
+            color: white;
+        }
+
+    .ck-local-header-title {
+        height: calc(100% - 50px);
+    }
+
+    @media screen and (min-width: 1024px) {
+        .ck-local-header {
+          height: 400px;
+        }
+
+            .ck-local-header h1 {
+                font-size: 50px;                 
+            }
+    }
+
+</style>
+ <!-- END HOME -->

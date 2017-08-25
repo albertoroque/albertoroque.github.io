@@ -1,0 +1,41 @@
+﻿<div ng-init="carregarNotificacoes()" style="min-height:1000px;">
+
+    <md-progress-linear ng-if="carregandoNotificacoes" md-mode="indeterminate"></md-progress-linear>
+
+    <div class="ck-mobile-navigation-topnav margin-bottom20" hide-gt-xs show-xs>
+        <h1>Notificacoes</h1>
+    </div>
+
+    <div ng-if="!carregandoNotificacoes" layout="column" class="go-up">
+        <div class="container">
+
+            <div layout="row" flex="100">
+                <md-button class="" aria-label="Voltar" ng-click="voltarPagina()">
+                    <md-icon md-font-icon="material-icons">keyboard_arrow_left</md-icon>&nbsp; voltar
+                </md-button>
+                <span flex></span>               
+            </div>
+
+            <div ng-if="false">
+                <h2 class="md-display-1">Você ainda não segue nenhuma loja.</h2>
+            </div>
+
+            <!-- LISTA DE NOTIFICACOES -->
+            <md-list ng-cloak>
+                <!-- new -->
+                <div ng-if="notificacoesNew.length > 0">
+                    <md-subheader class="md-no-sticky">NOVAS</md-subheader>
+                    <div ng-repeat="notif in notificacoesNew" data-ng-include="'app/cliente/partials/notificacoesitem.tpl.html'"></div>   
+                    <br />                 
+                </div>         
+                                                      
+                <!-- old -->
+                <div ng-if="notificacoesOld.length > 0">                   
+                    <md-subheader class="md-no-sticky">VISUALIZADAS</md-subheader>
+                    <div ng-repeat="notif in notificacoesOld" data-ng-include="'app/cliente/partials/notificacoesitem.tpl.html'"></div>
+                </div>                
+            </md-list>
+        </div>
+    </div>
+</div>
+
